@@ -35,13 +35,13 @@ public class CameraFollow : MonoBehaviour
     private UnityEngine.Vector3 cameraPos;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Camera Cam = Camera.main;
         switch(_FollowTarget){
             case FollowTarget.player:
                 cameraPos = new UnityEngine.Vector3(target.position.x, target.position.y, -10f);
-                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.deltaTime);
+                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
                 break;
             case FollowTarget.point:
                 break;           
