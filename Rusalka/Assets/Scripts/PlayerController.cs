@@ -36,10 +36,10 @@ public class PlayerController : MonoBehaviour
             {
                 currGrav = UpGravityForce;
             }
-            else if (Input.GetKey(KeyCode.Space)) {
+            else if (Input.GetButton("Jump")) {
                 currGrav = FloatGravityForce;
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
                 velocity.y = 0;
             }
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("Jump"))
             {
                 velocity.y = JumpForce;
             }
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && velocity.y > 0) {
+        if (Input.GetButtonUp("Jump") && velocity.y > 0) {
             velocity.y = ReleaseSpeed;
         }
     }
