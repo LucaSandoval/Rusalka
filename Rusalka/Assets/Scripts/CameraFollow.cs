@@ -32,10 +32,10 @@ public class CameraFollow : MonoBehaviour
         else if (C.orthographicSize > Size) ZoomIn(C, Size);
     }
     public void ZoomOut(Camera C, float Size){
-        C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.deltaTime);
+        C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
     }
     public void ZoomIn(Camera C, float Size){
-        C.orthographicSize = Mathf.SmoothStep(Size, C.orthographicSize, ZoomSpeed * Time.deltaTime);
+        C.orthographicSize = Mathf.SmoothStep(Size, C.orthographicSize, ZoomSpeed * Time.fixedDeltaTime);
     }
     public FollowTarget _FollowTarget = FollowTarget.player;
     public CameraMode _CameraMode = CameraMode.playerFocus;
