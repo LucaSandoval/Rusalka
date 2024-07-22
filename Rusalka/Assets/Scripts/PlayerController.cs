@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D collide;
     private bool grounded;
+    private SpriteRenderer spr;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
         velocity = new Vector2(0, 0);
         grounded = false;
         collide = GetComponent<BoxCollider2D>();
+        spr = GetComponent<SpriteRenderer>();
+        facing = 1;
     }
 
     // Update is called once per frame
@@ -34,6 +37,13 @@ public class PlayerController : MonoBehaviour
         velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
         if (velocity.x != 0) {
             facing = (int)Mathf.Sign(velocity.x);
+            if (facing == 1) {
+                spr.flipX = false;
+            }
+            else if (facing == -1)
+            {
+                spr.flipX = true;
+            }
         }
         if (!grounded)
         {
