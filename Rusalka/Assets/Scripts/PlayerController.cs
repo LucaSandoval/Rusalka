@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float FloatGravityForce;
     [SerializeField] private float JumpForce;
     [SerializeField] private float ReleaseSpeed;
+    private int facing;
     private Vector2 velocity;
     private Rigidbody2D rb;
     private BoxCollider2D collide;
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+        if (velocity.x != 0) {
+            facing = (int)Mathf.Sign(velocity.x);
+        }
         if (!grounded)
         {
             float currGrav = DownGravityForce;
@@ -70,10 +74,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .0001f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .0001f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"));
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .0001f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .0001f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
     }
 }
