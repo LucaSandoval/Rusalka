@@ -64,7 +64,7 @@ public class GrappleBehavior : MonoBehaviour
                 //Determine if the selected point is facing in your direction
 
                 //TODO: Change this when Lily gives us the character controller to give us the reference to direction facing
-                bool forwardFacing = Vector2.Dot(transform.right, directionToPoint.normalized) >= 0;
+                bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= 0;
                 if (forwardFacing)
                 {
                     // If current distance is the shortest we have seen, then make it the most optimal point
