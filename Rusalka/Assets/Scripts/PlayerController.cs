@@ -99,4 +99,10 @@ public class PlayerController : MonoBehaviour
     {
         grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
     }
+
+    // Returns true when facing right
+    public Vector2 Facing()
+    {
+        return facing > 0 ? Vector2.right : Vector2.left;
+    }
 }
