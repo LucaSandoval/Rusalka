@@ -6,6 +6,11 @@ public class GrapplePointBehavior : MonoBehaviour
 {
     // Distance that grapple points can be targetted
     public float TriggerRange = 5f;
+
+    private bool interactible = true;
+
+    public bool DrawDebug = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +21,10 @@ public class GrapplePointBehavior : MonoBehaviour
     void Update()
     {
         // Draw the debug circle in the game view
-        DrawCircle(transform.position, TriggerRange, Color.red);
+        if (DrawDebug)
+        {
+            DrawCircle(transform.position, TriggerRange, Color.red);
+        }
     }
 
     private void DrawCircle(Vector3 center, float radius, Color color)
@@ -33,5 +41,28 @@ public class GrapplePointBehavior : MonoBehaviour
             Debug.DrawLine(prevPoint, newPoint, color);
             prevPoint = newPoint;
         }
+    }
+
+    // Method to temporarily disable the interactibility of the grapple point
+    public void DisableInteractibility(float duration)
+    {
+        if (interactible)
+        {
+            interactible = false;
+            StartCoroutine(ReenableInteractibility(duration));
+        }
+    }
+
+    // Coroutine to re-enable interactibility after a delay
+    private IEnumerator ReenableInteractibility(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        interactible = true;
+    }
+
+    // Method to check if the grapple point is interactible
+    public bool IsInteractible()
+    {
+        return interactible;
     }
 }
