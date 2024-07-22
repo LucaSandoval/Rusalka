@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ReleaseSpeed;
     private Vector2 velocity;
     private Rigidbody2D rb;
+    private BoxCollider2D collide;
     private bool grounded;
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 0);
         grounded = false;
+        collide = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -68,10 +70,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapCircle((Vector2)transform.position + Vector2.down * .5f, .1f, LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"));
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapCircle((Vector2)transform.position + Vector2.down * .5f, .1f, LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
     }
 }
