@@ -39,7 +39,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+        if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
+        {
+            velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+        }
+        else {
+            if (Input.GetAxisRaw("Horizontal") * velocity.x < 0) {
+                velocity.x -= Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+            }
+            velocity.x -= Time.deltaTime * -Mathf.Sign(velocity.x);
+        }
         if (velocity.x != 0) {
             facing = (int)Mathf.Sign(velocity.x);
             if (facing == 1) {
@@ -107,7 +116,12 @@ public class PlayerController : MonoBehaviour
     }
 
     // Returns true when grounded
-    public bool isGrounded() {
+    public bool IsGrounded() {
         return grounded;
+    }
+
+    // Set the velocity of the player
+    public void SetVelocity(Vector2 velocity) {
+        this.velocity = velocity;
     }
 }
