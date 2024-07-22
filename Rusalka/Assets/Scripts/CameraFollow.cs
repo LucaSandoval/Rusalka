@@ -9,10 +9,10 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     // // Start is called before the first frame update
-    void Start()
-    {
-        cameraPos = new UnityEngine.Vector3(0,0,0);
-    }
+    
+    // void Start()
+    // {
+    // }
     // Specifies in which state camera is currently
     
     public float CameraSpeed;
@@ -28,25 +28,11 @@ public class CameraFollow : MonoBehaviour
         lockedOn
     }
     public void ResizeCamera(Camera C, float Size){
-        if (C.orthographicSize < Size) ZoomOut(C, Size);
-        else if (C.orthographicSize > Size) ZoomIn(C, Size);
-    }
-    public void ZoomOut(Camera C, float Size){
         C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
-    }
-    public void ZoomIn(Camera C, float Size){
-        C.orthographicSize = Mathf.SmoothStep(Size, C.orthographicSize, ZoomSpeed * Time.fixedDeltaTime);
     }
     public FollowTarget _FollowTarget = FollowTarget.player;
     public CameraMode _CameraMode = CameraMode.playerFocus;
     private UnityEngine.Vector3 cameraPos;
-    // void setCameraState(CameraState cs){
-    //     _CameraState = cs;
-    // }
-
-    // CameraState getCameraState(){
-    //     return _CameraState;
-    // }
 
     // Update is called once per frame
     void Update()
@@ -73,4 +59,7 @@ public class CameraFollow : MonoBehaviour
                 break;        
         }
     }
+
+    
 }
+
