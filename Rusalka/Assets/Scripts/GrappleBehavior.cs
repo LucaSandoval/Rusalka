@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 /*
@@ -12,27 +13,42 @@ public class GrappleBehavior : MonoBehaviour
 {
     // Reference to player
     public GameObject Player;
+    GameObject[] grapplePoints;
+    public float GrappleSpeed = 500f;
+
+    private (bool, Vector2) BestGrapplePoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        grapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
+        BestGrapplePoint = (false, Vector2.zero);
     }
 
     // Update is called once per frame
     void Update()
     {
         TargetGrapplePoint();
+          if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            GrappleToPoint();
+            }
+        
+        // Draw the right vector (direction character is facing)
+        Debug.DrawLine(transform.position, transform.position + transform.right * 2, Color.red);
+
+        // Draw the left vector (opposite direction)
+        Debug.DrawLine(transform.position, transform.position - transform.right * 2, Color.blue);
     }
 
-    // Analyzes all grapple points available and returns if there is a optimal point, and its location
-    private (bool, Vector2) TargetGrapplePoint()
+    // Analyzes all grapple points available and returns if there is a optimal point, and its direction
+    private void TargetGrapplePoint()
     {
-        GameObject[] grapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
+        
 
-        Vector2 bestGrapplePoint = Vector2.zero;
         float bestDistance = float.MaxValue;
         bool pointAvailable = false;
+        Vector2 directionToBestPoint = Vector2.zero;
+        Vector2 bestGrapplePoint = Vector2.zero;
 
         foreach(GameObject point in grapplePoints) { 
 
@@ -46,7 +62,9 @@ public class GrappleBehavior : MonoBehaviour
                 Vector2 directionToPoint = point.transform.position - gameObject.transform.position;
 
                 //Determine if the selected point is facing in your direction
-                bool forwardFacing = Vector2.Dot(transform.forward, directionToPoint.normalized) >= 0;
+
+                //TODO: Change this when Lily gives us the character controller to give us the reference to direction facing
+                bool forwardFacing = Vector2.Dot(transform.right, directionToPoint.normalized) >= 0;
                 if (forwardFacing)
                 {
                     // If current distance is the shortest we have seen, then make it the most optimal point
@@ -54,14 +72,32 @@ public class GrappleBehavior : MonoBehaviour
                     {
                         print("We found a point!");
                         bestDistance = distanceToPoint;
-                        bestGrapplePoint = point.transform.position;
+                        directionToBestPoint = directionToPoint;
                         pointAvailable = true;
+                        bestGrapplePoint = point.transform.position;
+        
                     }
                 }
             }
-            print("Womp Womp");
+            else
+            {
+                print("Womp Womp");
+            }
+            
         }
+        if (pointAvailable)
+        {
+            Debug.DrawLine(transform.position, bestGrapplePoint , Color.green);
+        }
+        BestGrapplePoint = (pointAvailable, directionToBestPoint);
+    }
 
-        return (pointAvailable, bestGrapplePoint);
+    private void GrappleToPoint()
+    {
+        Rigidbody2D rb = Player.GetComponent<Rigidbody2D>();
+        if (BestGrapplePoint.Item1)
+        {
+            rb.AddForce(BestGrapplePoint.Item2.normalized * GrappleSpeed);
+        }
     }
 }

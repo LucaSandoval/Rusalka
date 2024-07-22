@@ -15,8 +15,23 @@ public class GrapplePointBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Draw the debug circle in the game view
+        DrawCircle(transform.position, TriggerRange, Color.red);
     }
 
-   
+    private void DrawCircle(Vector3 center, float radius, Color color)
+    {
+        int segments = 36; // Number of segments to approximate the circle
+        float angle = 0f;
+        Vector3 prevPoint = center + new Vector3(radius, 0f, 0f);
+        Color previousColor = Gizmos.color; // Save previous Gizmos color
+
+        for (int i = 0; i <= segments; i++)
+        {
+            angle += Mathf.PI * 2 / segments;
+            Vector3 newPoint = center + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0f);
+            Debug.DrawLine(prevPoint, newPoint, color);
+            prevPoint = newPoint;
+        }
+    }
 }
