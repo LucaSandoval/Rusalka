@@ -156,11 +156,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 6
-  UpGravityForce: 0.01
-  DownGravityForce: 0.05
-  FloatGravityForce: 0.0007
-  JumpForce: 14
-  ReleaseSpeed: 3
+  UpGravityForce: 0.04
+  DownGravityForce: 0.1
+  FloatGravityForce: 0.002
+  JumpForce: 18
+  ReleaseSpeed: 2
 --- !u!50 &644148244
 Rigidbody2D:
   serializedVersion: 4
