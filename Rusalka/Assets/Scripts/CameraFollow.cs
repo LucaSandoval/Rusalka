@@ -17,15 +17,17 @@ public class CameraFollow : MonoBehaviour
     
     public float CameraSpeed;
     public float ZoomSpeed;
-    public Transform target;
+    public Transform Target;
+    public Transform FixedTarget;
+    public float ZoomInSize;
+    public float ZoomOutSize;
     public enum FollowTarget{
         player,
         point,
     }
     public enum CameraMode{
         playerFocus,
-        vistaPoint,
-        lockedOn
+        vistaPoint
     }
     public void ResizeCamera(Camera C, float Size){
         C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
@@ -40,20 +42,22 @@ public class CameraFollow : MonoBehaviour
         Camera Cam = Camera.main;
         switch(_FollowTarget){
             case FollowTarget.player:
-                cameraPos = new UnityEngine.Vector3(target.position.x, target.position.y, -10f);
+                cameraPos = new UnityEngine.Vector3(Target.position.x, Target.position.y, -10f);
                 transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
                 break;
             case FollowTarget.point:
-                break;           
+                cameraPos = new UnityEngine.Vector3(FixedTarget.position.x, FixedTarget.position.y, -10f);
+                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
+                break;
             default:
                 break;
         }
         switch (_CameraMode){
             case CameraMode.playerFocus:
-                ResizeCamera(Cam, 3f);
+                ResizeCamera(Cam, ZoomInSize);
                 break;
             case CameraMode.vistaPoint:
-                ResizeCamera(Cam, 10f);
+                ResizeCamera(Cam, ZoomOutSize);
                 break;
             default: 
                 break;        
