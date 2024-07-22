@@ -19,8 +19,8 @@ public class CameraFollow : MonoBehaviour
     public float ZoomSpeed;
     public Transform Target;
     public Transform FixedTarget;
-    public float ZoomInSize;
-    public float ZoomOutSize;
+    public float ZoomInSize = 3f;
+    public float ZoomOutSize = 10f;
     public enum FollowTarget{
         player,
         point,
