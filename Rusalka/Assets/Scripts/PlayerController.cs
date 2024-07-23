@@ -149,8 +149,11 @@ public class PlayerController : MonoBehaviour
         }
         // SWIMMING CODE
         else if (inWater && !inGrapple) {
-            velocity.x = Input.GetAxisRaw("Horizontal") * SwimSpeed;
-            velocity.y = Input.GetAxisRaw("Vertical") * SwimSpeed;
+            isFloat = false;
+            velocity.x = Input.GetAxis("Horizontal");
+            velocity.y = Input.GetAxis("Vertical");
+            velocity.Normalize();
+            velocity *= SwimSpeed;
             if(velocity.x == 0 && velocity.y == 0) {
                 velocity.y -= SwimSink * Time.deltaTime;
             }
