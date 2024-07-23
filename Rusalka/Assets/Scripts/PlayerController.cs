@@ -80,8 +80,6 @@ public class PlayerController : MonoBehaviour
                     spr.flipX = true;
                 }
             }
-        
-
         if (!grounded)
         {
             float currGrav = DownGravityForce;

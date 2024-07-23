@@ -39,7 +39,7 @@ public class GrappleBehavior : MonoBehaviour
     void Update()
     {
         TargetGrapplePoint();
-          if (Input.GetKeyDown(KeyCode.LeftShift)) {
+          if (Input.GetAxisRaw("Fire1") > 0) {
             GrappleToPoint();
             }
         
