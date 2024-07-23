@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private int facing; // the direction the player is facing
     private bool grounded; // whether or not the player is standing on the ground
     private float currCoyoteTime; // the amount of inair time in seconds the player has left while they can still jump
+    private bool isFloat; //whether or not the player should be floating
 
     private Vector2 velocity; // the current x and y velocity of the player
     private Rigidbody2D rb; // the player's rigidbody
@@ -62,22 +63,28 @@ public class PlayerController : MonoBehaviour
         if (!grounded)
         {
             float currGrav = DownGravityForce;
+            if (Input.GetButtonDown("Jump"))
+            {
+                velocity.y = 0;
+                isFloat = true;
+            }
+            if (Input.GetButtonUp("Jump"))
+            {
+                isFloat = false;
+            }
             if (velocity.y > 0)
             {
                 currGrav = UpGravityForce;
             }
-            else if (Input.GetButton("Jump")) {
+            else if (isFloat) {
                 currGrav = FloatGravityForce;
-            }
-            if (Input.GetButtonDown("Jump"))
-            {
-                velocity.y = 0;
             }
             velocity.y -= currGrav;
             currCoyoteTime -= Time.deltaTime;
         }
         else
         {
+            isFloat = false;
             currCoyoteTime = CoyoteTime;
             if(velocity.y < 0){
                 velocity.y = 0;
