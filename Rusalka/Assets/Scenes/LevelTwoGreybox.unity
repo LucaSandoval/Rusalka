@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5999dca9d7cd7ed4cb1e8376edc04340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 572122827}
   moveSpeed: 2
 --- !u!1 &796557777
 GameObject:
@@ -2061,6 +2061,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2273556519037260280, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3211,8 +3227,8 @@ MonoBehaviour:
   ZoomSpeed: 4.3
   DynamicTarget: {fileID: 572122827}
   StaticPoint: {x: 0, y: 0, z: -10}
-  NormalSize: 3
-  VistaSize: 10
+  NormalSize: 15
+  VistaSize: 25
   _FollowTarget: 0
   _CameraMode: 0
 --- !u!1 &2045296711
