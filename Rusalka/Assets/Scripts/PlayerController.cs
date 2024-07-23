@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb; // the player's rigidbody
     private BoxCollider2D collide; //the player's collider
     private SpriteRenderer spr; // the player's sprite
+    private bool inGrapple; // Is the player currently in the Grapple
 
     // Start is called before the first frame update
     void Start()
@@ -35,31 +36,41 @@ public class PlayerController : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         facing = 1;
         currCoyoteTime = CoyoteTime;
+        inGrapple = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
+        
+        if (!inGrapple)
         {
-            velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
-        }
-        else {
-            if (Input.GetAxisRaw("Horizontal") * velocity.x < 0) {
-                velocity.x -= Input.GetAxisRaw("Horizontal") * Time.deltaTime;
-            }
-            velocity.x -= Time.deltaTime * -Mathf.Sign(velocity.x);
-        }
-        if (velocity.x != 0) {
-            facing = (int)Mathf.Sign(velocity.x);
-            if (facing == 1) {
-                spr.flipX = false;
-            }
-            else if (facing == -1)
+            if ((grounded) || Mathf.Abs(velocity.x) <= MovementSpeed)
             {
-                spr.flipX = true;
+                velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+            }
+            else
+            {
+                if (Input.GetAxisRaw("Horizontal") * velocity.x < 0)
+                {
+                    velocity.x -= Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+                }
+                velocity.x -= Time.deltaTime * -Mathf.Sign(velocity.x);
+            }
+            if (velocity.x != 0)
+            {
+                facing = (int)Mathf.Sign(velocity.x);
+                if (facing == 1)
+                {
+                    spr.flipX = false;
+                }
+                else if (facing == -1)
+                {
+                    spr.flipX = true;
+                }
             }
         }
+        
         if (!grounded)
         {
             float currGrav = DownGravityForce;
@@ -110,6 +121,10 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"));
+        if (grounded)
+        {
+            inGrapple = false;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -130,5 +145,12 @@ public class PlayerController : MonoBehaviour
     // Set the velocity of the player
     public void SetVelocity(Vector2 velocity) {
         this.velocity = velocity;
+    }
+
+    // Set the velocity of the player and whether or not the velocity came from a grapple
+    public void SetVelocity(Vector2 velocity, bool inGrapple)
+    {
+        this.velocity = velocity;
+        this.inGrapple = inGrapple;
     }
 }
