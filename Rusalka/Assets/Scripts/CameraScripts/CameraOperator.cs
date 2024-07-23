@@ -2,33 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraOperator : Singleton<CameraOperator>
 {
-    private float _Time;
+    private float shakeTime;
     void Start(){
-        _Time = 0f;
-        DynamicTarget = GameObject.FindWithTag("Player").transform;
+        shakeTime = 0f;
+        dynamicTarget = GameObject.FindWithTag("Player").transform;
     }
     // private variable storing camera position
-    private UnityEngine.Vector3 cameraPos = new(0,0,-10f);    
+    private Vector3 cameraPos = new(0,0,-10f);    
     // How fast will the camera follow player
-    [SerializeField] private float CameraSpeed = 12f;
+    [SerializeField] private float cameraSpeed = 12f;
     // How fast will the camera zoom in and out
-    [SerializeField] private float ZoomSpeed = 4f;
+    [SerializeField] private float zoomSpeed = 4f;
     // Player
-    [SerializeField] private Transform DynamicTarget;
+    [SerializeField] private Transform dynamicTarget;
     // Another object you might want the camera to lock onto
-    [SerializeField] private UnityEngine.Vector3 StaticPoint = new(0f,0f,-10f);
+    [SerializeField] private Vector3 staticPoint = new(0f,0f,-10f);
     // Size of camera for normal view
-    [SerializeField] private float NormalSize = 12f;
+    [SerializeField] private float normalSize = 12f;
     // Size of camera for vista points
-    [SerializeField] private float VistaSize = 25f;
+    [SerializeField] private float vistaSize = 25f;
     // Who the camera is currently following
-    public enum Follow{
+    public enum Target{
         Dynamic,
         Static
     }
@@ -38,12 +37,12 @@ public class CameraOperator : Singleton<CameraOperator>
         VistaPoint
     }
     // default camera settings
-    [SerializeField] private Follow _FollowTarget = Follow.Dynamic;
-    [SerializeField] private CameraMode _CameraMode = CameraMode.Normal;
-    [SerializeField] private bool IsShaking = false;
-    [SerializeField] private float ShakeStrength = 0.35f;
-    [SerializeField] private bool XAxisShakeEnabled = true;
-    [SerializeField] private bool YAxisShakeEnabled = true;
+    [SerializeField] private Target cameraTarget = Target.Dynamic;
+    [SerializeField] private CameraMode cameraMode = CameraMode.Normal;
+    [SerializeField] private bool isShaking = false;
+    [SerializeField] private float shakeStrength = 0.35f;
+    [SerializeField] private bool xAxisShakeEnabled = true;
+    [SerializeField] private bool yAxisShakeEnabled = true;
     /// <summary>
     /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
     /// </summary>
@@ -54,7 +53,7 @@ public class CameraOperator : Singleton<CameraOperator>
     /// Changes the size of camera to a specified size
     /// </summary>
     public void ResizeCamera(Camera C, float Size){
-        C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
+        C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, zoomSpeed * Time.fixedDeltaTime);
     }
     /// <summary>
     /// Quickly changes camera position with pre-definied strength to imitate camera shaking
@@ -63,105 +62,105 @@ public class CameraOperator : Singleton<CameraOperator>
     ///  <list>+Works with all Follow targets and Camera Modes</list>
     /// </summary>    
     public void CameraShake(){
-        UnityEngine.Vector3 OgPos = cameraPos;
-        transform.position = UnityEngine.Vector3.Slerp(transform.position, 
-        new UnityEngine.Vector3
+        Vector3 OgPos = cameraPos;
+        transform.position = Vector3.Slerp(transform.position, 
+        new Vector3
         (
-            XAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-ShakeStrength, ShakeStrength) : cameraPos.x, 
-            YAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-ShakeStrength, ShakeStrength) : cameraPos.y,
+            xAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.x, 
+            yAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.y,
             cameraPos.z
         ), 
-        CameraSpeed/3 * Time.fixedDeltaTime);
+        cameraSpeed/3 * Time.fixedDeltaTime);
         cameraPos = OgPos;
     }
     /// <summary>
     /// Resets Camera Shake Strength to 0.15f and enables both axies of shake (x and y);
     /// </summary>
     public void ResetCameraShake(){
-        ShakeStrength = 0.15f;
-        XAxisShakeEnabled = true;
-        YAxisShakeEnabled = true;
+        shakeStrength = 0.15f;
+        xAxisShakeEnabled = true;
+        yAxisShakeEnabled = true;
     }
     public float GetCameraSpeed(){
-        return CameraSpeed;
+        return cameraSpeed;
     }
     public void SetCameraSpeed(float val){
-        CameraSpeed = val;
+        cameraSpeed = val;
     }
 
     public float GetZoomSpeed(){
-        return ZoomSpeed;
+        return zoomSpeed;
     }
     public void SetZoomSpeed(float val){
-        ZoomSpeed = val;
+        zoomSpeed = val;
     }
     public Transform GetDynamicTarget(){
-        return DynamicTarget;
+        return dynamicTarget;
     }
     public void SetDynamicTarget(Transform t){
-        DynamicTarget = t;
+        dynamicTarget = t;
     }
-    public UnityEngine.Vector3 GetStaticPoint(){
-        return StaticPoint;
+    public Vector3 GetStaticPoint(){
+        return staticPoint;
     }
-    public void SetStaticPoint(UnityEngine.Vector3 vec){
-        StaticPoint = vec;
+    public void SetStaticPoint(Vector3 vec){
+        staticPoint = vec;
     }
     public float GetNormalSize(){
-        return NormalSize;
+        return normalSize;
     }
     public void SetNormalSize(float f){
-        NormalSize = f;
+        normalSize = f;
     }
     public float GetVistaSize(){
-        return VistaSize;
+        return vistaSize;
     }
     public void SetVistaSize(float f){
-        VistaSize = f;
+        vistaSize = f;
     }
-    public Follow Get_FollowTarget(){
-        return _FollowTarget;
+    public Target GetCameraTarget(){
+        return cameraTarget;
     }
-    public void Set_FollowTarget(Follow fol){
-        _FollowTarget = fol;
+    public void SetCameraTarget(Target fol){
+        cameraTarget = fol;
     }
-    public CameraMode Get_CameraMode(){
-        return _CameraMode;
+    public CameraMode GetCameraMode(){
+        return cameraMode;
     }
-    public void Set_CameraMode(CameraMode cm){
-        _CameraMode = cm;
+    public void SetCameraMode(CameraMode cm){
+        cameraMode = cm;
     }
     public bool GetIsShaking(){
-        return IsShaking;
+        return isShaking;
     }
     public void SetIsShaking(bool boolean){
-        IsShaking = boolean;
+        isShaking = boolean;
     }
     public float GetShakeStrength(){
-        return ShakeStrength;
+        return shakeStrength;
     }
     public void SetShakeStrength(float f){
-        ShakeStrength = f;
+        shakeStrength = f;
     }
     public bool GetXAxisShakeEnabled(){
-        return XAxisShakeEnabled;
+        return xAxisShakeEnabled;
     }
     public void SetXAxisShakeEnabled(bool boolean){
-        XAxisShakeEnabled = boolean;
+        xAxisShakeEnabled = boolean;
     }
     public bool GetYAxisShakeEnabled(){
-        return YAxisShakeEnabled;
+        return yAxisShakeEnabled;
     }
     public void SetYAxisShakeEnabled(bool boolean){
-        YAxisShakeEnabled = boolean;
+        yAxisShakeEnabled = boolean;
     }    
     void Update(){
-        _Time += Time.deltaTime; 
-        if (IsShaking && _Time < 1){
+        shakeTime += Time.deltaTime; 
+        if (isShaking && shakeTime < 1){
             CameraShake();
         }
-        if (_Time >= 1){ 
-            _Time = 0;
+        if (shakeTime >= 1){ 
+            shakeTime = 0;
         }    
     }
     void FixedUpdate()
@@ -169,25 +168,25 @@ public class CameraOperator : Singleton<CameraOperator>
         // fetching main camera object
         Camera Cam = Camera.main;
         // moves the camera acording to the target
-        switch(_FollowTarget){
-            case Follow.Dynamic:
-                cameraPos = new UnityEngine.Vector3(DynamicTarget.position.x, DynamicTarget.position.y, -10f);
-                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
+        switch(cameraTarget){
+            case Target.Dynamic:
+                cameraPos = new Vector3(dynamicTarget.position.x, dynamicTarget.position.y, -10f);
+                transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
                 break;
-            case Follow.Static:
-                cameraPos = StaticPoint;
-                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed/3 * Time.fixedDeltaTime);
+            case Target.Static:
+                cameraPos = staticPoint;
+                transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
                 break;
         }
         // zoomes in or out if needed
-        switch (_CameraMode){
+        switch (cameraMode){
             case CameraMode.Normal:
-                ResizeCamera(Cam, NormalSize);
+                ResizeCamera(Cam, normalSize);
                 break;
             case CameraMode.VistaPoint:
-                ResizeCamera(Cam, VistaSize);
+                ResizeCamera(Cam, vistaSize);
                 break;
             default: 
                 break;        

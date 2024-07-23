@@ -3,32 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// IMPORTANT : Set DefaultTarget to Player object
+/// Needs a collider to detect Trigger
+/// Used to change what the camera is focusing on (either a differnent gameObject or a static point)
 /// </summary>
 public class ChangeCameraTarget : MonoBehaviour
 {
-    [SerializeField] private CameraOperator.Follow TypeOfTargeting;
-    [SerializeField] private Transform Target; 
-    [SerializeField] private Vector3 _StaticPoint;
+    [SerializeField] private CameraOperator.Target typeOfTargeting;
+    [SerializeField] private Transform target; 
+    [SerializeField] private Vector3 staticPoint;
 
     public void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.tag == "Player" && CameraOperator.Instance != null){
-            switch(TypeOfTargeting){
-                case CameraOperator.Follow.Dynamic:
-                    CameraOperator.Instance.SetDynamicTarget(Target);
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){
+            switch(typeOfTargeting){
+                case CameraOperator.Target.Dynamic:
+                    CameraOperator.Instance.SetDynamicTarget(target);
                     break;
-                case CameraOperator.Follow.Static:
-                    CameraOperator.Instance.SetStaticPoint(_StaticPoint);
+                case CameraOperator.Target.Static:
+                    CameraOperator.Instance.SetStaticPoint(staticPoint);
                     break;
                 default: 
                     break;    
             }
-            CameraOperator.Instance.Set_FollowTarget(TypeOfTargeting);
+            CameraOperator.Instance.SetCameraTarget(typeOfTargeting);
         }
     }
     public void OnTriggerExit2D(Collider2D collider) {
-        if(collider.tag == "Player" && CameraOperator.Instance != null){
-            CameraOperator.Instance.Set_FollowTarget(CameraOperator.Follow.Dynamic);
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){
+            CameraOperator.Instance.SetCameraTarget(CameraOperator.Target.Dynamic);
             if (GameObject.FindWithTag("Player") != null) 
                 CameraOperator.Instance.SetDynamicTarget(GameObject.FindWithTag("Player").transform);
         }
