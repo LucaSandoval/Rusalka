@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fe3bdfdfb85b94e8d44aa266e6fc6d, type: 3}
-  m_Name: Jump
+  m_Name: StartFloat
   m_EditorClassIdentifier: 
-  SoundName: Jump
-  Clip: {fileID: 8300000, guid: 3fa868accd656fb4891d32c5c9a63144, type: 3}
-  BaseVolume: 1
+  SoundName: StartFloat
+  Clip: {fileID: 8300000, guid: e618bdd8b7b24da4b881c943dfd5e658, type: 3}
+  BaseVolume: 0.4
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

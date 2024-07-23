@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Basic")]
     [SerializeField] private float MovementSpeed; // The horizontal movement speed
     [SerializeField] private float UpGravityForce; // How hard gravity affects the player when they are moving upwards
     [SerializeField] private float DownGravityForce; // How hard gravity affects the player when they are moving downwards
@@ -15,6 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ReleaseSpeed; //The y velocity of the player when they release jump prematurely. Should be a positive number.
     [SerializeField] private float AirResistance; //Applies when the player is moving very fast.
     [SerializeField] private float CoyoteTime; // the amount of inair time in seconds the player can still jump
+    
+    [Header("Swim")]
+    [SerializeField] private float SwimSpeed; // The horizontal movement speed while swimming
+    [SerializeField] private float SwimSink; // How hard gravity affects you in the water
 
     private int facing; // the direction the player is facing
     private bool grounded; // whether or not the player is standing on the ground
@@ -26,18 +31,21 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D collide; //the player's collider
     private SpriteRenderer spr; // the player's sprite
     private bool inGrapple; // Is the player currently in the Grapple
+    private bool inWater; // Whether or not the player is currently in the water
 
     // Start is called before the first frame update
     void Start()
     {
+        // set base values
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 0);
         grounded = false;
         collide = GetComponent<BoxCollider2D>();
         spr = GetComponent<SpriteRenderer>();
         facing = 1;
+        inGrapple = false;
 
-        //scales values based on the size of the character
+        // scales values based on the size of the character
         currCoyoteTime = CoyoteTime;
         MovementSpeed *= transform.localScale.x;
         UpGravityForce *= transform.localScale.y;
@@ -46,16 +54,17 @@ public class PlayerController : MonoBehaviour
         JumpForce *= transform.localScale.y;
         ReleaseSpeed *= transform.localScale.y;
         AirResistance *= transform.localScale.y;
-
-        inGrapple = false;
+        SwimSpeed *= transform.localScale.x;
+        SwimSink *= transform.localScale.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (!inGrapple)
+        // BASIC MOVEMENT! (ground and air)
+        if (!inGrapple && !inWater)
         {
+            // Horizontal movement adapts to speed (for grappling purposes)
             if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
             {
                 velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
@@ -68,6 +77,8 @@ public class PlayerController : MonoBehaviour
                 }
                 velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
+
+            // Facing direction
             if (velocity.x != 0)
             {
                 facing = (int)Mathf.Sign(velocity.x);
@@ -80,52 +91,70 @@ public class PlayerController : MonoBehaviour
                     spr.flipX = true;
                 }
             }
-        if (!grounded)
-        {
-            float currGrav = DownGravityForce;
-            if (Input.GetButtonDown("Jump"))
+
+            // JUMP/GRAVITY CODE
+            if (!grounded)
             {
-                velocity.y = 0;
-                isFloat = true;
+                float currGrav = DownGravityForce;
+                // Setting the float
+                if (Input.GetButtonDown("Jump"))
+                {
+                    velocity.y = 0;
+                    isFloat = true;
+                }
+                // Unsetting the float
+                if (Input.GetButtonUp("Jump"))
+                {
+                    isFloat = false;
+                }
+
+                // Changes gravity force
+                if (velocity.y > 0)
+                {
+                    currGrav = UpGravityForce;
+                }
+                else if (isFloat)
+                {
+                    currGrav = FloatGravityForce;
+                }
+
+                // Subtracts gravity from Y velocity
+                velocity.y -= currGrav * Time.deltaTime;
+
+                // Subtracts time from coyote time
+                currCoyoteTime -= Time.deltaTime;
             }
-            if (Input.GetButtonUp("Jump"))
+            else
             {
+                // Resets if grounded
                 isFloat = false;
+                currCoyoteTime = CoyoteTime;
+                if (velocity.y < 0)
+                {
+                    velocity.y = 0;
+                }
             }
 
-            if (velocity.y > 0)
+            // Jump
+            if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0)
             {
-                currGrav = UpGravityForce;
+                velocity.y = JumpForce;
             }
-            else if (isFloat)
+            else
+
+            if (Input.GetButtonUp("Jump") && velocity.y > 0)
             {
-                currGrav = FloatGravityForce;
-            }
-
-            velocity.y -= currGrav * Time.deltaTime;
-            currCoyoteTime -= Time.deltaTime;
-        }
-        else
-        {
-            isFloat = false;
-            currCoyoteTime = CoyoteTime;
-            if (velocity.y < 0)
-            {
-                velocity.y = 0;
+                velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
             }
         }
-
-        if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0)
-        {
-            velocity.y = JumpForce;
+        // SWIMMING CODE
+        else if (inWater && !inGrapple) {
+            velocity.x = Input.GetAxisRaw("Horizontal") * SwimSpeed;
+            velocity.y = Input.GetAxisRaw("Vertical") * SwimSpeed;
+            if(velocity.x == 0 && velocity.y == 0) {
+                velocity.y -= SwimSink * Time.deltaTime;
+            }
         }
-        else
-
-        if (Input.GetButtonUp("Jump") && velocity.y > 0)
-        {
-            velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
-        }
-    }
     }
 
     private void FixedUpdate()
@@ -144,6 +173,21 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Water") {
+            inWater = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Water")
+        {
+            inWater = false;
+        }
     }
 
     // Returns 1 when facing right and -1 when facing left
@@ -173,6 +217,17 @@ public class PlayerController : MonoBehaviour
     public void SetInGrapple(bool inGrapple)
     {
         this.inGrapple = inGrapple;
-        Debug.Log(this.inGrapple);
+    }
+
+    // Set the value for inGrapple
+    public void SetInWater(bool inWater)
+    {
+        this.inWater = inWater;
+    }
+
+    // Get the value for inWater
+    public bool IsInWater()
+    {
+        return inWater;
     }
 }

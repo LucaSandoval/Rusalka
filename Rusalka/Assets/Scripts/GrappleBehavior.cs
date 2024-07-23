@@ -20,19 +20,27 @@ public class GrappleBehavior : MonoBehaviour
     [Tooltip("The time that the player will be unable to grapple to the same grapple point again")]
     public float GrapplePointExhaustionTime = 0.5f;
     public bool DrawDebug = false;
+    public float GrappleHairRenderPositionOffset;
 
     private (bool, Vector2) BestGrapplePoint;
-    private GrapplePointBehavior bestPoint = null;
-    private GameObject[] grapplePoints;
-    private PlayerController playerController;
+    private GrapplePointBehavior BestPoint = null;
+    private Vector2 BestGrapplePosition = Vector2.zero;
+    private GameObject[] GrapplePoints;
+    private PlayerController PlayerController;
+    private LineRenderer LineRenderer;
+    private bool InGrapple;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        grapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
+        LineRenderer = Player.GetComponent<LineRenderer>();
+        SetupLineRender();
+        GrapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
         BestGrapplePoint = (false, Vector2.zero);
-        playerController = Player.GetComponent<PlayerController>();
+        PlayerController = Player.GetComponent<PlayerController>();
+        GrappleHairRenderPositionOffset = 0.5f;
+        
     }
 
     // Update is called once per frame
@@ -41,7 +49,8 @@ public class GrappleBehavior : MonoBehaviour
         TargetGrapplePoint();
           if (Input.GetAxisRaw("Fire1") > 0 || Input.GetKeyDown(KeyCode.X)) {
             GrappleToPoint();
-            }
+          }
+        UpdateLine();
         
         // Draw the right vector (direction character is facing)
         //Debug.DrawLine(transform.position, transform.position + transform.right * 2, Color.red);
@@ -58,7 +67,7 @@ public class GrappleBehavior : MonoBehaviour
         Vector2 directionToBestPoint = Vector2.zero;
         Vector2 bestGrapplePoint = Vector2.zero;
         
-        foreach(GameObject point in grapplePoints) { 
+        foreach(GameObject point in GrapplePoints) { 
             // Reference to script with grapple point behavior 
             GrapplePointBehavior pointBehavior = point.GetComponent<GrapplePointBehavior>();
 
@@ -77,20 +86,17 @@ public class GrappleBehavior : MonoBehaviour
                         // If current distance is the shortest we have seen, then make it the most optimal point
                         if (distanceToPoint < bestDistance)
                         {
-                            if (DrawDebug) print("We found a point!");
                             bestDistance = distanceToPoint;
                             directionToBestPoint = directionToPoint;
                             pointAvailable = true;
                             bestGrapplePoint = point.transform.position;
-                            bestPoint = pointBehavior;
+                            BestPoint = pointBehavior;
+                            BestGrapplePosition = point.transform.position;
                         }
                     }  
                 }
             }
-            else
-            {
-                if (DrawDebug) print("Womp Womp");
-            }
+            
         }
         if (pointAvailable && DrawDebug)
         {
@@ -107,8 +113,43 @@ public class GrappleBehavior : MonoBehaviour
         Rigidbody2D rb = Player.GetComponent<Rigidbody2D>();
         if (BestGrapplePoint.Item1)
         {
-            bestPoint.DisableInteractibility(GrapplePointExhaustionTime);
-            playerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleSpeed, true);
+            BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
+            PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleSpeed, true);
+            InGrapple = true;
         }
+    }
+    
+    // Setup the initial parameters for the line render
+    private void SetupLineRender()
+    {
+        LineRenderer.positionCount = 2;
+        LineRenderer.SetPosition(0, transform.position);
+        LineRenderer.SetPosition(1, transform.position);
+        LineRenderer.enabled = false;
+    }
+
+    // Update the line render for a frame
+    private void UpdateLine()
+    {
+        print(InGrapple);
+        if (InGrapple)
+        {
+            LineRenderer.enabled = true;
+            Vector2 originPosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
+            LineRenderer.SetPosition(0, originPosition);
+            LineRenderer.SetPosition(1, BestGrapplePosition);
+        }
+        else
+        {
+            LineRenderer.enabled = false;
+        }
+        
+        
+    }
+
+    // Set InGrapple boolean
+    public void SetInGrapple(bool inGrapple)
+    {
+        InGrapple = inGrapple;
     }
 }
