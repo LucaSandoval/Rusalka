@@ -26,5 +26,7 @@ public class FootstepSurface : MonoBehaviour
 public enum FootstepSurfaceType
 {
     Wood,
-    ShallowPuddle
+    ShallowPuddle,
+    Stone,
+    Sand
 }
