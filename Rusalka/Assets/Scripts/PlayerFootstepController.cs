@@ -27,14 +27,6 @@ public class PlayerFootstepController : MonoBehaviour
         public GameObject FootstepParticleEffect;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            PlayerFootstep();
-        }
-    }
-
     // Triggers a footstep, including the proper sound effect and potential particle effect.
     public void PlayerFootstep()
     {
@@ -52,7 +44,7 @@ public class PlayerFootstepController : MonoBehaviour
             {
                 // Check for the surface type of the first hit solid surface below you 
                 RaycastHit2D[] Hits = Physics2D.RaycastAll(transform.position, Vector2.down);
-                // Sort by the furthest point
+                // Sort by the closet point to player (ie. surface standing on)
                 Array.Sort(Hits, (x, y) => x.distance.CompareTo(y.distance));
                 // Search for a footstep surface in hits
                 foreach(RaycastHit2D Hit in Hits)

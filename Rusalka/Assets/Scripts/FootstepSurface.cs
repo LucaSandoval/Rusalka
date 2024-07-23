@@ -21,7 +21,7 @@ public class FootstepSurface : MonoBehaviour
 
 /// <summary>
 /// Represents the 'material' of a walkable surface. Determines what type of footstep
-/// sound effect will play when walked on.
+/// effect will play when walked on.
 /// </summary>
 public enum FootstepSurfaceType
 {
