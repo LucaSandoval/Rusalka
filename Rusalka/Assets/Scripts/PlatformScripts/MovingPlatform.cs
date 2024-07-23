@@ -19,18 +19,19 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, Player.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
 
         if (distance < 2.0f && !isMoving)
         {
             Debug.Log("Start Moving");
-            targetPosition = transform.position + new Vector3(-15, 0, 0);
+            targetPosition = transform.position + new Vector3(-15, -2, 0);
             isMoving = true;
         }
 
         if (isMoving)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            //Player.transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
             // Check if the platform has reached the target position
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)

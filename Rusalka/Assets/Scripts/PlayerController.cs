@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float FloatGravityForce; // How hard gravity affects the player when they are floating
     [SerializeField] private float JumpForce; //How hard the player jumps
     [SerializeField] private float ReleaseSpeed; //The y velocity of the player when they release jump prematurely. Should be a positive number.
+    [SerializeField] private float AirResistance; //Applies when the player is moving very fast.
     [SerializeField] private float CoyoteTime; // the amount of inair time in seconds the player can still jump
 
     private int facing; // the direction the player is facing
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         FloatGravityForce *= transform.localScale.y;
         JumpForce *= transform.localScale.y;
         ReleaseSpeed *= transform.localScale.y;
+        AirResistance *= transform.localScale.y;
 
         inGrapple = false;
     }
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         
         if (!inGrapple)
         {
-            if ((grounded) || Mathf.Abs(velocity.x) <= MovementSpeed)
+            if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
             {
                 velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
             }
@@ -62,9 +64,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetAxisRaw("Horizontal") * velocity.x < 0)
                 {
-                    velocity.x -= Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+                    velocity.x -= Input.GetAxisRaw("Horizontal") * Time.deltaTime * AirResistance;
                 }
-                velocity.x -= Time.deltaTime * -Mathf.Sign(velocity.x);
+                velocity.x -= Time.deltaTime * AirResistance -Mathf.Sign(velocity.x);
             }
             if (velocity.x != 0)
             {
