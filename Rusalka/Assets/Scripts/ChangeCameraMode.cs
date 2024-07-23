@@ -8,15 +8,12 @@ public class ChangeCameraMode : MonoBehaviour
     // void Start()
     // {
     // }
-    public CameraFollow.CameraMode Mode;
+    public CameraOperator.CameraMode Mode;
     // Update is called once per frame
-    public bool Change = false;
     void FixedUpdate()
     {
-       CameraFollow _CameraFollow = FindObjectOfType<CameraFollow>(); 
-       if (Change && _CameraFollow._CameraMode != Mode){
-            _CameraFollow._CameraMode = Mode;
-            Change = false;
+       if (CameraOperator.Instance._CameraMode != Mode){
+            CameraOperator.Instance._CameraMode = Mode;
        }
     }
 }
