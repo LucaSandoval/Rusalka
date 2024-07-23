@@ -12,7 +12,7 @@ public class ChangeCameraTarget : MonoBehaviour
     [SerializeField] private Vector3 _StaticPoint;
 
     public void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.tag == "Player" && CameraOperator.Instance != null){
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){
             switch(TypeOfTargeting){
                 case CameraOperator.Follow.Dynamic:
                     CameraOperator.Instance.SetDynamicTarget(Target);
@@ -27,7 +27,7 @@ public class ChangeCameraTarget : MonoBehaviour
         }
     }
     public void OnTriggerExit2D(Collider2D collider) {
-        if(collider.tag == "Player" && CameraOperator.Instance != null){
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){
             CameraOperator.Instance.Set_FollowTarget(CameraOperator.Follow.Dynamic);
             if (GameObject.FindWithTag("Player") != null) 
                 CameraOperator.Instance.SetDynamicTarget(GameObject.FindWithTag("Player").transform);

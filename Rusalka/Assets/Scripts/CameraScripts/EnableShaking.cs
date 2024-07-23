@@ -12,14 +12,14 @@ public class EnableShaking : MonoBehaviour
     [SerializeField] private bool YShakeOn = true;
 
     public void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.tag == "Player" && CameraOperator.Instance != null)
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null)
             CameraOperator.Instance.SetIsShaking(true);
             CameraOperator.Instance.SetXAxisShakeEnabled(XShakeOn);
             CameraOperator.Instance.SetYAxisShakeEnabled(YShakeOn);
             CameraOperator.Instance.SetShakeStrength(_ShakeStrength);
     }
     public void OnTriggerExit2D(Collider2D collider) {
-        if(collider.tag == "Player" && CameraOperator.Instance != null){
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){
             CameraOperator.Instance.SetIsShaking(false);
             CameraOperator.Instance.ResetCameraShake();
             }
