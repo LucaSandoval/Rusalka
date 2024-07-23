@@ -127,11 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 20
-  UpGravityForce: 40
-  DownGravityForce: 45
-  FloatGravityForce: 2
+  UpGravityForce: 120
+  DownGravityForce: 118
+  FloatGravityForce: 10
   JumpForce: 50
-  ReleaseSpeed: 8
+  ReleaseSpeed: 30
   CoyoteTime: 0.07
 --- !u!61 &7233582519964086166
 BoxCollider2D:
