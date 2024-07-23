@@ -11,22 +11,21 @@ public class CameraOperator : Singleton<CameraOperator>
     // private variable storing camera position
     private UnityEngine.Vector3 cameraPos;    
     // How fast will the camera follow player
-    public float CameraSpeed = 3.3f;
+    public float CameraSpeed = 12f;
     // How fast will the camera zoom in and out
-    public float ZoomSpeed = 4.3f;
+    public float ZoomSpeed = 4f;
     // Player
     public Transform DynamicTarget;
     // Another object you might want the camera to lock onto
     public UnityEngine.Vector3 StaticPoint = new(0f,0f,-10f);
     // Size of camera for normal view
-    public float NormalSize = 3f;
+    public float NormalSize = 12f;
     // Size of camera for vista points
-    public float VistaSize = 10f;
+    public float VistaSize = 25f;
     // Who the camera is currently following
     public enum Follow{
         Dynamic,
-        Static,
-        Shake
+        Static
     }
     // Is camera zoomed in on the player or doing a vista point
     public enum CameraMode{
@@ -37,6 +36,8 @@ public class CameraOperator : Singleton<CameraOperator>
     // default camera settings
     public Follow _FollowTarget = Follow.Dynamic;
     public CameraMode _CameraMode = CameraMode.Normal;
+    public bool IsShaking = false;
+    public float ShakeStrenght = 3.7f;
 
     /// <summary>
     /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
@@ -56,8 +57,21 @@ public class CameraOperator : Singleton<CameraOperator>
     /// </summary>
     public void ResizeCamera(Camera C, float Size){
         C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
-    }    
+    }
+    public void CameraShake(){
+        UnityEngine.Vector3 OgPos = cameraPos;
+        transform.position = UnityEngine.Vector3.Slerp(transform.position, 
+        new UnityEngine.Vector3(cameraPos.x + UnityEngine.Random.Range(-ShakeStrenght, ShakeStrenght), 
+        cameraPos.y + UnityEngine.Random.Range(-ShakeStrenght, ShakeStrenght),
+        cameraPos.z), CameraSpeed/3 * Time.fixedDeltaTime);
+        cameraPos = OgPos;
+    }
     // Update is called once per frame
+    void Update(){
+        if (IsShaking){
+            CameraShake();
+        }
+    }
     void FixedUpdate()
     {
         // fetching main camera object
@@ -71,11 +85,6 @@ public class CameraOperator : Singleton<CameraOperator>
             case Follow.Static:
                 cameraPos = StaticPoint;
                 transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed/3 * Time.fixedDeltaTime);
-                break;
-            case Follow.Shake:
-                StaticPoint = cameraPos;
-                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed/3 * Time.fixedDeltaTime);
-                transform.position = UnityEngine.Vector3.Slerp(cameraPos, transform.position, CameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
                 break;
