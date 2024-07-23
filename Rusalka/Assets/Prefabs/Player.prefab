@@ -132,9 +132,11 @@ MonoBehaviour:
   DownGravityForce: 45
   FloatGravityForce: 2
   JumpForce: 14
-  ReleaseSpeed: 11
+  ReleaseSpeed: 6
   AirResistance: 12
   CoyoteTime: 0.07
+  SwimSpeed: 1.4
+  SwimSink: 38
 --- !u!61 &7233582519964086166
 BoxCollider2D:
   m_ObjectHideFlags: 0
