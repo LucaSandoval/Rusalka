@@ -8,10 +8,10 @@ using UnityEngine;
 
 public class CameraOperator : Singleton<CameraOperator>
 {
+    private float _Time;
     void Start(){
         _Time = 0f;
     }
-    private float _Time;
     // private variable storing camera position
     private UnityEngine.Vector3 cameraPos;    
     // How fast will the camera follow player
@@ -36,13 +36,11 @@ public class CameraOperator : Singleton<CameraOperator>
         Normal,
         VistaPoint
     }
-
     // default camera settings
     public Follow _FollowTarget = Follow.Dynamic;
     public CameraMode _CameraMode = CameraMode.Normal;
     public bool IsShaking = false;
-    public float ShakeStrenght = 3.7f;
-
+    public float ShakeStrenght = 0.35f;
     /// <summary>
     /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
     /// </summary>
@@ -62,6 +60,12 @@ public class CameraOperator : Singleton<CameraOperator>
     public void ResizeCamera(Camera C, float Size){
         C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
     }
+    /// <summary>
+    /// Quickly changes camera position with pre-definied strength to imitate camera shaking
+    ///  <list>+Runs on Update instead of FixedUpdate</list>
+    ///  <list>+Uses an "internal" timer</list>
+    ///  <list>+Works with all Follow targets and Camera Modes</list>
+    /// </summary>    
     public void CameraShake(){
         UnityEngine.Vector3 OgPos = cameraPos;
         transform.position = UnityEngine.Vector3.Slerp(transform.position, 
