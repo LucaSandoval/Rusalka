@@ -896,11 +896,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.08
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.38
+      value: 6.52
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
@@ -950,6 +950,10 @@ PrefabInstance:
       propertyPath: FloatGravityForce
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5455803512659818443, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66da2ad45c5a29742a68d844d6f7ae0f, type: 3}
     - target: {fileID: 8488810274593946015, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Name
       value: Player
