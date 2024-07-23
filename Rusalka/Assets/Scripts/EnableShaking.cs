@@ -1,20 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnableShaking : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public float _ShakeStrength = 0.3f;
+    public bool XShakeOn = true;
+    public bool YShakeOn = true;
+
+    public void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "Player" && CameraOperator.Instance != null)
+            CameraOperator.Instance.IsShaking = true;
+            CameraOperator.Instance.XAxisShakeEnabled = XShakeOn;
+            CameraOperator.Instance.YAxisShakeEnabled = YShakeOn;
+            CameraOperator.Instance.ShakeStrength = _ShakeStrength;
     }
-    public CameraOperator Operator;
-    public bool WantedResult;
-    // Update is called once per frame
-    void Update(){
-        if (Operator.IsShaking != WantedResult){
-            Operator.IsShaking = WantedResult;
-        }
+    public void OnTriggerExit2D(Collider2D collider) {
+        if(collider.tag == "Player" && CameraOperator.Instance != null){
+            CameraOperator.Instance.IsShaking = false;
+            CameraOperator.Instance.ResetCameraShake();
+            }
     }
 }

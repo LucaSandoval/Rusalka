@@ -40,7 +40,9 @@ public class CameraOperator : Singleton<CameraOperator>
     public Follow _FollowTarget = Follow.Dynamic;
     public CameraMode _CameraMode = CameraMode.Normal;
     public bool IsShaking = false;
-    public float ShakeStrenght = 0.35f;
+    public float ShakeStrength = 0.35f;
+    public bool XAxisShakeEnabled = true;
+    public bool YAxisShakeEnabled = true;
     /// <summary>
     /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
     /// </summary>
@@ -69,10 +71,22 @@ public class CameraOperator : Singleton<CameraOperator>
     public void CameraShake(){
         UnityEngine.Vector3 OgPos = cameraPos;
         transform.position = UnityEngine.Vector3.Slerp(transform.position, 
-        new UnityEngine.Vector3(cameraPos.x + UnityEngine.Random.Range(-ShakeStrenght, ShakeStrenght), 
-        cameraPos.y + UnityEngine.Random.Range(-ShakeStrenght, ShakeStrenght),
-        cameraPos.z), CameraSpeed/3 * Time.fixedDeltaTime);
+        new UnityEngine.Vector3
+        (
+            XAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-ShakeStrength, ShakeStrength) : cameraPos.x, 
+            YAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-ShakeStrength, ShakeStrength) : cameraPos.y,
+            cameraPos.z
+        ), 
+        CameraSpeed/3 * Time.fixedDeltaTime);
         cameraPos = OgPos;
+    }
+    /// <summary>
+    /// Resets Camera Shake Strength to 0.15f and enables both axies of shake (x and y);
+    /// </summary>
+    public void ResetCameraShake(){
+        ShakeStrength = 0.15f;
+        XAxisShakeEnabled = true;
+        YAxisShakeEnabled = true;
     }
     // Update is called once per frame
     void Update(){
@@ -80,7 +94,9 @@ public class CameraOperator : Singleton<CameraOperator>
         if (IsShaking && _Time < 1){
             CameraShake();
         }
-        if (_Time >= 1) _Time = 0;
+        if (_Time >= 1){ 
+            _Time = 0;
+        }    
     }
     void FixedUpdate()
     {

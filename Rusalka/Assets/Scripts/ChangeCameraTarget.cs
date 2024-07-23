@@ -5,30 +5,30 @@ using UnityEngine;
 
 public class ChangeCameraTarget : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     public CameraOperator.Follow TypeOfTargeting;
-    public Transform Target;
-    public Vector3 StaticPoint;
-    // Update is called once per frame
-    void Update()
-    {
-        if (CameraOperator.Instance._FollowTarget != TypeOfTargeting){
+    public Transform DefaultTarget;
+    public Transform Target; 
+    public Vector3 _StaticPoint;
+
+    public void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "Player" && CameraOperator.Instance != null){
             switch(TypeOfTargeting){
                 case CameraOperator.Follow.Dynamic:
                     CameraOperator.Instance.DynamicTarget = Target;
                     break;
                 case CameraOperator.Follow.Static:
-                    CameraOperator.Instance.StaticPoint = StaticPoint;
+                    CameraOperator.Instance.StaticPoint = _StaticPoint;
                     break;
                 default: 
-                    break;
+                    break;    
             }
             CameraOperator.Instance._FollowTarget = TypeOfTargeting;
         }
-       }
+    }
+    public void OnTriggerExit2D(Collider2D collider) {
+        if(collider.tag == "Player" && CameraOperator.Instance != null){
+            CameraOperator.Instance._FollowTarget = CameraOperator.Follow.Dynamic;
+            CameraOperator.Instance.DynamicTarget = DefaultTarget;
+        }
+    }    
 }
-
