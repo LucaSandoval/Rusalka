@@ -39,7 +39,7 @@ public class GrappleBehavior : MonoBehaviour
     void Update()
     {
         TargetGrapplePoint();
-          if (Input.GetAxisRaw("Fire1") > 0) {
+          if (Input.GetAxisRaw("Fire1") > 0 || Input.GetKeyDown(KeyCode.X)) {
             GrappleToPoint();
             }
         
@@ -70,14 +70,14 @@ public class GrappleBehavior : MonoBehaviour
 
                 //Determine if the selected point is facing in your direction
                 bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= 0;
-                if (forwardFacing)
+                if (forwardFacing && directionToPoint.y > -1)
                 {
                     if (pointBehavior.IsInteractible())
                     {
                         // If current distance is the shortest we have seen, then make it the most optimal point
                         if (distanceToPoint < bestDistance)
                         {
-                            print("We found a point!");
+                            if (DrawDebug) print("We found a point!");
                             bestDistance = distanceToPoint;
                             directionToBestPoint = directionToPoint;
                             pointAvailable = true;
@@ -89,7 +89,7 @@ public class GrappleBehavior : MonoBehaviour
             }
             else
             {
-                print("Womp Womp");
+                if (DrawDebug) print("Womp Womp");
             }
         }
         if (pointAvailable && DrawDebug)

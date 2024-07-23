@@ -77,4 +77,12 @@ public class GrapplePointBehavior : MonoBehaviour
             collision.gameObject.GetComponent<PlayerController>().SetInGrapple(false);
         }
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerController>().SetInGrapple(false);
+        }
+    }
 }
