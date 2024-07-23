@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         else
 
         if (Input.GetButtonUp("Jump") && velocity.y > 0) {
-            velocity.y = ReleaseSpeed;
+            velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
         }
     }
 
