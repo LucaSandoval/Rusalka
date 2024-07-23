@@ -22,6 +22,7 @@ public class PlatformFlippingOne : MonoBehaviour
         Sprite.enabled = Flipped;
         Collider.enabled = Flipped;
         //Debug.Log("Starting");
+        player.OnPlayerJumped += Flip;
     }
 
     // Update is called once per frame
@@ -29,12 +30,17 @@ public class PlatformFlippingOne : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && player.IsGrounded())
         {
-            Flipped = !Flipped;
-            Sprite.enabled = Flipped;
-            Collider.enabled = Flipped;
+            
             Debug.Log(player.IsGrounded());
             
         }
+    }
+
+    private void Flip()
+    {
+        Flipped = !Flipped;
+        Sprite.enabled = Flipped;
+        Collider.enabled = Flipped;
     }
 
 
