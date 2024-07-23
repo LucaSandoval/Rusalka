@@ -47,7 +47,7 @@ public class GrappleBehavior : MonoBehaviour
     void Update()
     {
         TargetGrapplePoint();
-          if (Input.GetAxisRaw("Fire1") > 0 || Input.GetKeyDown(KeyCode.X)) {
+          if (Input.GetButtonDown("Fire1")) {
             GrappleToPoint();
           }
         UpdateLine();
@@ -72,14 +72,18 @@ public class GrappleBehavior : MonoBehaviour
             GrapplePointBehavior pointBehavior = point.GetComponent<GrapplePointBehavior>();
 
             float distanceToPoint = Vector2.Distance(transform.position, point.transform.position);
+            
             // If our distance to point is within range, then continue operating
             if (distanceToPoint <= pointBehavior.TriggerRange) 
             {
                 Vector2 directionToPoint = point.transform.position - gameObject.transform.position;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPoint.normalized, distanceToPoint, LayerMask.GetMask("Floor"));
+                Debug.DrawRay(transform.position, directionToPoint.normalized * distanceToPoint, Color.red);
 
                 //Determine if the selected point is facing in your direction
                 bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= 0;
-                if (forwardFacing && directionToPoint.y > -1)
+                if (hit.collider != null) print("We hit something");
+                if (forwardFacing && directionToPoint.y > -1 && hit.collider == null)
                 {
                     if (pointBehavior.IsInteractible())
                     {
@@ -131,7 +135,6 @@ public class GrappleBehavior : MonoBehaviour
     // Update the line render for a frame
     private void UpdateLine()
     {
-        print(InGrapple);
         if (InGrapple)
         {
             LineRenderer.enabled = true;

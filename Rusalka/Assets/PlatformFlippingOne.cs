@@ -18,8 +18,11 @@ public class PlatformFlippingOne : MonoBehaviour
     {
         Sprite = GetComponent<SpriteRenderer>();
         Collider = GetComponent<BoxCollider2D>();
+
+        Sprite.enabled = Flipped;
+        Collider.enabled = Flipped;
         //Debug.Log("Starting");
-        //StartCoroutine(FlipPlatformRoutine());
+        player.OnPlayerJumped += Flip;
     }
 
     // Update is called once per frame
@@ -27,26 +30,27 @@ public class PlatformFlippingOne : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && player.IsGrounded())
         {
-            Flipped = !Flipped;
-            Sprite.enabled = Flipped;
-            Collider.enabled = Flipped;
+            
             Debug.Log(player.IsGrounded());
+            
         }
     }
 
-    IEnumerator FlipPlatformRoutine()
+    private void Flip()
     {
-        while (true) 
-        {
-            yield return new WaitForSeconds(FlipInterval); 
-            //Flipped = !Flipped;
-            //Debug.Log("Flipping");
-            //Debug.Log(Flipped);
-
-            // Apply the flipped state to the game object
-            Sprite.enabled = Flipped;
-            Collider.enabled = Flipped;
-
-        }
+        Flipped = !Flipped;
+        Sprite.enabled = Flipped;
+        Collider.enabled = Flipped;
     }
+
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    grounded = true;
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    grounded = false;
+    //}
 }
