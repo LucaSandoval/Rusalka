@@ -13,24 +13,22 @@ public class CameraFollow : MonoBehaviour
     // How fast will the camera zoom in and out
     public float ZoomSpeed = 4.3f;
     // Player
-    public Transform Target;
+    public Transform DynamicTarget;
     // Another object you might want the camera to lock onto
-    public Transform FixedTarget;
-    public UnityEngine.Vector3 Point = new(0f,0f,-10f);
+    public UnityEngine.Vector3 StaticPoint = new(0f,0f,-10f);
     // Size of camera for normal view
-    public float ZoomInSize = 3f;
+    public float NormalSize = 3f;
     // Size of camera for vista points
-    public float ZoomOutSize = 10f;
+    public float VistaSize = 10f;
     // Who the camera is currently following
     public enum FollowTarget{
-        player,
-        nonPlayer,
-        point
+        Dynamic,
+        Static
     }
     // Is camera zoomed in on the player or doing a vista point
     public enum CameraMode{
-        playerFocus,
-        vistaPoint
+        Normal,
+        VistaPoint
     }
     /// <summary>
     /// Changes the size of camera to a specified size
@@ -39,19 +37,22 @@ public class CameraFollow : MonoBehaviour
         C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
     }
     // default camera values
-    public FollowTarget _FollowTarget = FollowTarget.player;
-    public CameraMode _CameraMode = CameraMode.playerFocus;
+    public FollowTarget _FollowTarget = FollowTarget.Dynamic;
+    public CameraMode _CameraMode = CameraMode.Normal;
     // private variable storing camera position
     private UnityEngine.Vector3 cameraPos;
     /// <summary>
-    /// Changes the point where camera statically looks at
+    /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
     /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <param name="z"></param>
-    public void setCameraStaticPoint(float x, float y, float z){
-        Point = new(x,y,z);
-        _FollowTarget = FollowTarget.point;
+    /// <param name="X"></param>
+    /// <param name="Y"></param>
+    /// <param name="Z"></param>
+    public void followStaticPoint(float X, float Y, float Z){
+        StaticPoint = new(X,Y,Z);
+        _FollowTarget = FollowTarget.Static;
+    }
+    public void followStaticPoint(float X, float Y){
+        followStaticPoint(X,Y,-10f);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -60,16 +61,12 @@ public class CameraFollow : MonoBehaviour
         Camera Cam = Camera.main;
         // moves the camera acording to the target
         switch(_FollowTarget){
-            case FollowTarget.player:
-                cameraPos = new UnityEngine.Vector3(Target.position.x, Target.position.y, -10f);
+            case FollowTarget.Dynamic:
+                cameraPos = new UnityEngine.Vector3(DynamicTarget.position.x, DynamicTarget.position.y, -10f);
                 transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
                 break;
-            case FollowTarget.nonPlayer:
-                cameraPos = new UnityEngine.Vector3(FixedTarget.position.x, FixedTarget.position.y, -10f);
-                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
-                break;
-            case FollowTarget.point:
-                cameraPos = Point;
+            case FollowTarget.Static:
+                cameraPos = StaticPoint;
                 transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
@@ -77,11 +74,11 @@ public class CameraFollow : MonoBehaviour
         }
         // zoomes in or out if needed
         switch (_CameraMode){
-            case CameraMode.playerFocus:
-                ResizeCamera(Cam, ZoomInSize);
+            case CameraMode.Normal:
+                ResizeCamera(Cam, NormalSize);
                 break;
-            case CameraMode.vistaPoint:
-                ResizeCamera(Cam, ZoomOutSize);
+            case CameraMode.VistaPoint:
+                ResizeCamera(Cam, VistaSize);
                 break;
             default: 
                 break;        

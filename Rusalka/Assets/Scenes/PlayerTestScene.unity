@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 1403861171}
   - component: {fileID: 1403861170}
   - component: {fileID: 1403861173}
+  - component: {fileID: 1403861174}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -625,11 +626,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraSpeed: 10
   ZoomSpeed: 4.3
-  Target: {fileID: 1138535540}
-  FixedTarget: {fileID: 777965322}
-  Point: {x: 0.1, y: 0.1, z: -10}
-  ZoomInSize: 3
-  ZoomOutSize: 10
+  DynamicTarget: {fileID: 0}
+  StaticPoint: {x: 0, y: 0, z: -10}
+  NormalSize: 3
+  VistaSize: 10
+  _FollowTarget: 0
+  _CameraMode: 0
+--- !u!114 &1403861174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403861169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraSpeed: 3.3
+  ZoomSpeed: 4.3
+  DynamicTarget: {fileID: 1138535540}
+  StaticPoint: {x: 0, y: 0, z: -10}
+  NormalSize: 3
+  VistaSize: 10
   _FollowTarget: 0
   _CameraMode: 0
 --- !u!1 &1492079927
