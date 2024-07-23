@@ -7,30 +7,30 @@ using UnityEngine;
 /// </summary>
 public class ChangeCameraTarget : MonoBehaviour
 {
-    public CameraOperator.Follow TypeOfTargeting;
-    public Transform Target; 
-    public Vector3 _StaticPoint;
+    [SerializeField] private CameraOperator.Follow TypeOfTargeting;
+    [SerializeField] private Transform Target; 
+    [SerializeField] private Vector3 _StaticPoint;
 
     public void OnTriggerEnter2D(Collider2D collider) {
         if(collider.tag == "Player" && CameraOperator.Instance != null){
             switch(TypeOfTargeting){
                 case CameraOperator.Follow.Dynamic:
-                    CameraOperator.Instance.DynamicTarget = Target;
+                    CameraOperator.Instance.SetDynamicTarget(Target);
                     break;
                 case CameraOperator.Follow.Static:
-                    CameraOperator.Instance.StaticPoint = _StaticPoint;
+                    CameraOperator.Instance.SetStaticPoint(_StaticPoint);
                     break;
                 default: 
                     break;    
             }
-            CameraOperator.Instance._FollowTarget = TypeOfTargeting;
+            CameraOperator.Instance.Set_FollowTarget(TypeOfTargeting);
         }
     }
     public void OnTriggerExit2D(Collider2D collider) {
         if(collider.tag == "Player" && CameraOperator.Instance != null){
-            CameraOperator.Instance._FollowTarget = CameraOperator.Follow.Dynamic;
+            CameraOperator.Instance.Set_FollowTarget(CameraOperator.Follow.Dynamic);
             if (GameObject.FindWithTag("Player") != null) 
-                CameraOperator.Instance.DynamicTarget = GameObject.FindWithTag("Player").transform;
+                CameraOperator.Instance.SetDynamicTarget(GameObject.FindWithTag("Player").transform);
         }
     }    
 }

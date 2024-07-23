@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ChangeCameraMode : MonoBehaviour
 {
-    public CameraOperator.CameraMode Mode;
+    [SerializeField] private CameraOperator.CameraMode Mode;
     public void OnTriggerEnter2D(Collider2D collider) {
         if(collider.tag == "Player" && CameraOperator.Instance != null){
-            CameraOperator.Instance._CameraMode = Mode;
+            CameraOperator.Instance.Set_CameraMode(Mode);
         }
     }
     public void OnTriggerExit2D(Collider2D collider) {
         if(collider.tag == "Player" && CameraOperator.Instance != null){
-            CameraOperator.Instance._CameraMode = CameraOperator.CameraMode.Normal;
+            CameraOperator.Instance.Set_CameraMode(CameraOperator.CameraMode.Normal);
         }
     }    
 }

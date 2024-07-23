@@ -13,19 +13,19 @@ public class CameraOperator : Singleton<CameraOperator>
         _Time = 0f;
     }
     // private variable storing camera position
-    private UnityEngine.Vector3 cameraPos;    
+    private UnityEngine.Vector3 cameraPos = new(0,0,-10f);    
     // How fast will the camera follow player
-    public float CameraSpeed = 12f;
+    [SerializeField] private float CameraSpeed = 12f;
     // How fast will the camera zoom in and out
-    public float ZoomSpeed = 4f;
+    [SerializeField] private float ZoomSpeed = 4f;
     // Player
-    public Transform DynamicTarget;
+    [SerializeField] private Transform DynamicTarget = GameObject.FindWithTag("Player").transform;
     // Another object you might want the camera to lock onto
-    public UnityEngine.Vector3 StaticPoint = new(0f,0f,-10f);
+    [SerializeField] private UnityEngine.Vector3 StaticPoint = new(0f,0f,-10f);
     // Size of camera for normal view
-    public float NormalSize = 12f;
+    [SerializeField] private float NormalSize = 12f;
     // Size of camera for vista points
-    public float VistaSize = 25f;
+    [SerializeField] private float VistaSize = 25f;
     // Who the camera is currently following
     public enum Follow{
         Dynamic,
@@ -37,25 +37,18 @@ public class CameraOperator : Singleton<CameraOperator>
         VistaPoint
     }
     // default camera settings
-    public Follow _FollowTarget = Follow.Dynamic;
-    public CameraMode _CameraMode = CameraMode.Normal;
-    public bool IsShaking = false;
-    public float ShakeStrength = 0.35f;
-    public bool XAxisShakeEnabled = true;
-    public bool YAxisShakeEnabled = true;
+    [SerializeField] private Follow _FollowTarget = Follow.Dynamic;
+    [SerializeField] private CameraMode _CameraMode = CameraMode.Normal;
+    [SerializeField] private bool IsShaking = false;
+    [SerializeField] private float ShakeStrength = 0.35f;
+    [SerializeField] private bool XAxisShakeEnabled = true;
+    [SerializeField] private bool YAxisShakeEnabled = true;
     /// <summary>
     /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
     /// </summary>
     /// <param name="X"></param>
     /// <param name="Y"></param>
     /// <param name="Z"></param>
-    public void followStaticPoint(float X, float Y, float Z){
-        StaticPoint = new(X,Y,Z);
-        _FollowTarget = Follow.Static;
-    }
-    public void followStaticPoint(float X, float Y){
-        followStaticPoint(X,Y,-10f);
-    }
     /// <summary>
     /// Changes the size of camera to a specified size
     /// </summary>
@@ -88,7 +81,79 @@ public class CameraOperator : Singleton<CameraOperator>
         XAxisShakeEnabled = true;
         YAxisShakeEnabled = true;
     }
-    // Update is called once per frame
+    public float GetCameraSpeed(){
+        return CameraSpeed;
+    }
+    public void SetCameraSpeed(float val){
+        CameraSpeed = val;
+    }
+
+    public float GetZoomSpeed(){
+        return ZoomSpeed;
+    }
+    public void SetZoomSpeed(float val){
+        ZoomSpeed = val;
+    }
+    public Transform GetDynamicTarget(){
+        return DynamicTarget;
+    }
+    public void SetDynamicTarget(Transform t){
+        DynamicTarget = t;
+    }
+    public UnityEngine.Vector3 GetStaticPoint(){
+        return StaticPoint;
+    }
+    public void SetStaticPoint(UnityEngine.Vector3 vec){
+        StaticPoint = vec;
+    }
+    public float GetNormalSize(){
+        return NormalSize;
+    }
+    public void SetNormalSize(float f){
+        NormalSize = f;
+    }
+    public float GetVistaSize(){
+        return VistaSize;
+    }
+    public void SetVistaSize(float f){
+        VistaSize = f;
+    }
+    public Follow Get_FollowTarget(){
+        return _FollowTarget;
+    }
+    public void Set_FollowTarget(Follow fol){
+        _FollowTarget = fol;
+    }
+    public CameraMode Get_CameraMode(){
+        return _CameraMode;
+    }
+    public void Set_CameraMode(CameraMode cm){
+        _CameraMode = cm;
+    }
+    public bool GetIsShaking(){
+        return IsShaking;
+    }
+    public void SetIsShaking(bool boolean){
+        IsShaking = boolean;
+    }
+    public float GetShakeStrength(){
+        return ShakeStrength;
+    }
+    public void SetShakeStrength(float f){
+        ShakeStrength = f;
+    }
+    public bool GetXAxisShakeEnabled(){
+        return XAxisShakeEnabled;
+    }
+    public void SetXAxisShakeEnabled(bool boolean){
+        XAxisShakeEnabled = boolean;
+    }
+    public bool GetYAxisShakeEnabled(){
+        return YAxisShakeEnabled;
+    }
+    public void SetYAxisShakeEnabled(bool boolean){
+        YAxisShakeEnabled = boolean;
+    }    
     void Update(){
         _Time += Time.deltaTime; 
         if (IsShaking && _Time < 1){
