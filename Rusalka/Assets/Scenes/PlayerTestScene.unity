@@ -618,14 +618,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraSpeed: 10
-  ZoomSpeed: 4.3
+  CameraSpeed: 12
+  ZoomSpeed: 4
   DynamicTarget: {fileID: 8106460906999982899}
   StaticPoint: {x: 0, y: 0, z: -10}
-  NormalSize: 10
-  VistaSize: 90
+  NormalSize: 12
+  VistaSize: 25
   _FollowTarget: 0
   _CameraMode: 0
+  IsShaking: 0
+  ShakeStrenght: 3.7
 --- !u!1 &1492079927
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,10 +935,6 @@ PrefabInstance:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
-      propertyPath: AirResistance
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8488810274593946015, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Name

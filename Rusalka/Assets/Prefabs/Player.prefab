@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9199526853031486953}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,12 +127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cabdb067c29504c9fe790c8f474c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 20
-  UpGravityForce: 120
-  DownGravityForce: 118
-  FloatGravityForce: 10
-  JumpForce: 50
-  ReleaseSpeed: 30
+  MovementSpeed: 4
+  UpGravityForce: 40
+  DownGravityForce: 45
+  FloatGravityForce: 2
+  JumpForce: 14
+  ReleaseSpeed: 11
+  AirResistance: 12
   CoyoteTime: 0.07
 --- !u!61 &7233582519964086166
 BoxCollider2D:
@@ -177,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.332, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &9199526853031486953
 MonoBehaviour:
@@ -192,6 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 8488810274593946015}
-  GrappleSpeed: 25.2
+  GrappleSpeed: 30
   GrapplePointExhaustionTime: 0.5
   DrawDebug: 1
