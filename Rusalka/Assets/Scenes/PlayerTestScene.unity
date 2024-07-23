@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810e0c3a4158664468554c7597e7194d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeOfTargeting: 1
-  Target: {fileID: 777965322}
-  _StaticPoint: {x: 1, y: 1, z: -10}
+  typeOfTargeting: 0
+  target: {fileID: 2012246131}
+  staticPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &496647848
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -436,9 +436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2040b79d22c9ba4d8323cf376b21abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ShakeStrength: 0.35
-  XShakeOn: 1
-  YShakeOn: 1
+  shakeStrength: 0.3
+  xShakeOn: 1
+  yShakeOn: 1
 --- !u!1 &777965319
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,18 +804,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraSpeed: 12
-  ZoomSpeed: 4
-  DynamicTarget: {fileID: 8106460906999982899}
-  StaticPoint: {x: 0, y: 0, z: -10}
-  NormalSize: 12
-  VistaSize: 25
-  _FollowTarget: 0
-  _CameraMode: 0
-  IsShaking: 0
-  ShakeStrength: 0.35
-  XAxisShakeEnabled: 1
-  YAxisShakeEnabled: 0
+  cameraSpeed: 12
+  zoomSpeed: 4
+  dynamicTarget: {fileID: 0}
+  staticPoint: {x: 0, y: 0, z: -10}
+  normalSize: 12
+  vistaSize: 25
+  cameraTarget: 0
+  cameraMode: 0
+  isShaking: 0
+  shakeStrength: 0.35
+  xAxisShakeEnabled: 1
+  yAxisShakeEnabled: 1
 --- !u!1 &1492079927
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93bcee8764310c4c860b371678101ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mode: 1
+  mode: 1
+  newSize: 5
 --- !u!61 &1900566520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1224,11 +1225,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
---- !u!4 &8106460906999982899 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
-  m_PrefabInstance: {fileID: 7542789867647895757}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
