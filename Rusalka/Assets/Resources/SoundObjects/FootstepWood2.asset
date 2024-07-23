@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: FootstepWood2
   Clip: {fileID: 8300000, guid: a50736bb22c560d4f8d6bc078f0c1d47, type: 3}
-  BaseVolume: 1
+  BaseVolume: 0.6
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

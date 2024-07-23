@@ -1299,6 +1299,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!4 &572122827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+  m_PrefabInstance: {fileID: 1033903450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &649771831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5999dca9d7cd7ed4cb1e8376edc04340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 2051775825}
+  Player: {fileID: 0}
   moveSpeed: 2
 --- !u!1 &796557777
 GameObject:
@@ -3204,11 +3209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraSpeed: 1
   ZoomSpeed: 4.3
-  Target: {fileID: 2051775825}
-  FixedTarget: {fileID: 0}
-  Point: {x: 0, y: 0, z: -10}
-  ZoomInSize: 8
-  ZoomOutSize: 15
+  DynamicTarget: {fileID: 572122827}
+  StaticPoint: {x: 0, y: 0, z: -10}
+  NormalSize: 3
+  VistaSize: 10
   _FollowTarget: 0
   _CameraMode: 0
 --- !u!1 &2045296711
@@ -3378,11 +3382,6 @@ Transform:
   - {fileID: 796557778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2051775825 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4541684673702772095, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
-  m_PrefabInstance: {fileID: 1033903450}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2100579737
 GameObject:
   m_ObjectHideFlags: 0

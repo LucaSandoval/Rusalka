@@ -13,21 +13,26 @@ public class GrappleBehavior : MonoBehaviour
 {
     // Reference to player
     public GameObject Player;
-    GameObject[] grapplePoints;
+
     [Tooltip("Speed the player will fly to the grapple point with")]
     public float GrappleSpeed = 500f;
-    private GrapplePointBehavior bestPoint = null;
+    
     [Tooltip("The time that the player will be unable to grapple to the same grapple point again")]
     public float GrapplePointExhaustionTime = 0.5f;
     public bool DrawDebug = false;
 
     private (bool, Vector2) BestGrapplePoint;
+    private GrapplePointBehavior bestPoint = null;
+    private GameObject[] grapplePoints;
+    private PlayerController playerController;
+
 
     // Start is called before the first frame update
     void Start()
     {
         grapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
         BestGrapplePoint = (false, Vector2.zero);
+        playerController = Player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -54,7 +59,6 @@ public class GrappleBehavior : MonoBehaviour
         Vector2 bestGrapplePoint = Vector2.zero;
         
         foreach(GameObject point in grapplePoints) { 
-
             // Reference to script with grapple point behavior 
             GrapplePointBehavior pointBehavior = point.GetComponent<GrapplePointBehavior>();
 
@@ -80,8 +84,7 @@ public class GrappleBehavior : MonoBehaviour
                             bestGrapplePoint = point.transform.position;
                             bestPoint = pointBehavior;
                         }
-                    }
-                    
+                    }  
                 }
             }
             else
@@ -89,24 +92,23 @@ public class GrappleBehavior : MonoBehaviour
                 print("Womp Womp");
             }
         }
-        if (pointAvailable)
+        if (pointAvailable && DrawDebug)
         {
-            if (DrawDebug)
-            {
-                Debug.DrawLine(transform.position, bestGrapplePoint, Color.green);
-            }
-            
+            Debug.DrawLine(transform.position, bestGrapplePoint, Color.green);
         }
         BestGrapplePoint = (pointAvailable, directionToBestPoint);
     }
 
+    /*
+     * Launches the player with a given speed to the designated best grapple point if available
+     */
     private void GrappleToPoint()
     {
         Rigidbody2D rb = Player.GetComponent<Rigidbody2D>();
         if (BestGrapplePoint.Item1)
         {
             bestPoint.DisableInteractibility(GrapplePointExhaustionTime);
-            rb.AddForce(BestGrapplePoint.Item2.normalized * GrappleSpeed);
+            playerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleSpeed, true);
         }
     }
 }
