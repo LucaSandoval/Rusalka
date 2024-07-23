@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// IMPORTANT : Set DefaultTarget to Player object
+/// </summary>
 public class ChangeCameraTarget : MonoBehaviour
 {
     public CameraOperator.Follow TypeOfTargeting;
-    public Transform DefaultTarget;
     public Transform Target; 
     public Vector3 _StaticPoint;
 
@@ -28,7 +29,8 @@ public class ChangeCameraTarget : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collider) {
         if(collider.tag == "Player" && CameraOperator.Instance != null){
             CameraOperator.Instance._FollowTarget = CameraOperator.Follow.Dynamic;
-            CameraOperator.Instance.DynamicTarget = DefaultTarget;
+            if (GameObject.FindWithTag("Player") != null) 
+                CameraOperator.Instance.DynamicTarget = GameObject.FindWithTag("Player").transform;
         }
     }    
 }

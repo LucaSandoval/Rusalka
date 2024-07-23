@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class ChangeCameraMode : MonoBehaviour
 {
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    // }
     public CameraOperator.CameraMode Mode;
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-       if (CameraOperator.Instance._CameraMode != Mode){
+    public void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "Player" && CameraOperator.Instance != null){
             CameraOperator.Instance._CameraMode = Mode;
-       }
+        }
     }
+    public void OnTriggerExit2D(Collider2D collider) {
+        if(collider.tag == "Player" && CameraOperator.Instance != null){
+            CameraOperator.Instance._CameraMode = CameraOperator.CameraMode.Normal;
+        }
+    }    
 }
