@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9199526853031486953}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   FloatGravityForce: 2
   JumpForce: 14
   ReleaseSpeed: 11
-  AirResistance: 7
+  AirResistance: 12
   CoyoteTime: 0.07
 --- !u!61 &7233582519964086166
 BoxCollider2D:
@@ -193,6 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 8488810274593946015}
-  GrappleSpeed: 25.2
+  GrappleSpeed: 30
   GrapplePointExhaustionTime: 0.5
   DrawDebug: 1

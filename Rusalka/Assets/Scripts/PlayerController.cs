@@ -64,9 +64,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetAxisRaw("Horizontal") * velocity.x < 0)
                 {
-                    velocity.x -= Input.GetAxisRaw("Horizontal") * Time.deltaTime * AirResistance;
+                    velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
                 }
-                velocity.x -= Time.deltaTime * AirResistance -Mathf.Sign(velocity.x);
+                velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
             if (velocity.x != 0)
             {
@@ -80,8 +80,6 @@ public class PlayerController : MonoBehaviour
                     spr.flipX = true;
                 }
             }
-        
-
         if (!grounded)
         {
             float currGrav = DownGravityForce;
@@ -175,5 +173,6 @@ public class PlayerController : MonoBehaviour
     public void SetInGrapple(bool inGrapple)
     {
         this.inGrapple = inGrapple;
+        Debug.Log(this.inGrapple);
     }
 }
