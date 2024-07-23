@@ -7,7 +7,7 @@ using System;
 /// Controls the player's footstep sound effects, allowing them to dynamically change depending on the 
 /// surface below the player.
 /// </summary>
-public class PlayerFootstepController : MonoBehaviour
+public class PlayerFootstepSoundController : MonoBehaviour
 {
     public PlayerController playerController;
     [Header("Sound Effects")]
