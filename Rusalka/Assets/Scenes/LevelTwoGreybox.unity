@@ -268,6 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlipInterval: 3
   Flipped: 1
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
   player: {fileID: 767296716}
 --- !u!1 &104542183
 GameObject:
@@ -3591,6 +3593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlipInterval: 3
   Flipped: 0
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
   player: {fileID: 767296716}
 --- !u!1 &1799161066
 GameObject:
@@ -3737,6 +3741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlipInterval: 3
   Flipped: 0
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
   player: {fileID: 767296716}
 --- !u!1 &1830978014
 GameObject:
@@ -4032,7 +4038,9 @@ MonoBehaviour:
   _FollowTarget: 0
   _CameraMode: 0
   IsShaking: 0
-  ShakeStrenght: 3.7
+  ShakeStrength: 0.35
+  XAxisShakeEnabled: 1
+  YAxisShakeEnabled: 1
 --- !u!1 &2045296711
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,6 +4353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlipInterval: 3
   Flipped: 1
+  StartColor: {r: 0, g: 0.972549, b: 0.13971668, a: 0}
+  EndColor: {r: 1, g: 1, b: 1, a: 0}
   player: {fileID: 767296716}
 --- !u!1001 &8805885699964124589
 PrefabInstance:
