@@ -36,14 +36,16 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // set base values
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 0);
         grounded = false;
         collide = GetComponent<BoxCollider2D>();
         spr = GetComponent<SpriteRenderer>();
         facing = 1;
+        inGrapple = false;
 
-        //scales values based on the size of the character
+        // scales values based on the size of the character
         currCoyoteTime = CoyoteTime;
         MovementSpeed *= transform.localScale.x;
         UpGravityForce *= transform.localScale.y;
@@ -54,16 +56,15 @@ public class PlayerController : MonoBehaviour
         AirResistance *= transform.localScale.y;
         SwimSpeed *= transform.localScale.x;
         SwimSink *= transform.localScale.y;
-
-        inGrapple = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        // BASIC MOVEMENT! (ground and air)
         if (!inGrapple && !inWater)
         {
+            // Horizontal movement adapts to speed (for grappling purposes)
             if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
             {
                 velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
                 }
                 velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
+
+            // Facing direction
             if (velocity.x != 0)
             {
                 facing = (int)Mathf.Sign(velocity.x);
@@ -89,19 +92,23 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            // JUMP/GRAVITY CODE
             if (!grounded)
             {
                 float currGrav = DownGravityForce;
+                // Setting the float
                 if (Input.GetButtonDown("Jump"))
                 {
                     velocity.y = 0;
                     isFloat = true;
                 }
+                // Unsetting the float
                 if (Input.GetButtonUp("Jump"))
                 {
                     isFloat = false;
                 }
 
+                // Changes gravity force
                 if (velocity.y > 0)
                 {
                     currGrav = UpGravityForce;
@@ -111,11 +118,15 @@ public class PlayerController : MonoBehaviour
                     currGrav = FloatGravityForce;
                 }
 
+                // Subtracts gravity from Y velocity
                 velocity.y -= currGrav * Time.deltaTime;
+
+                // Subtracts time from coyote time
                 currCoyoteTime -= Time.deltaTime;
             }
             else
             {
+                // Resets if grounded
                 isFloat = false;
                 currCoyoteTime = CoyoteTime;
                 if (velocity.y < 0)
@@ -124,6 +135,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            // Jump
             if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0)
             {
                 velocity.y = JumpForce;
@@ -135,6 +147,7 @@ public class PlayerController : MonoBehaviour
                 velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
             }
         }
+        // SWIMMING CODE
         else if (inWater && !inGrapple) {
             velocity.x = Input.GetAxisRaw("Horizontal") * SwimSpeed;
             velocity.y = Input.GetAxisRaw("Vertical") * SwimSpeed;
