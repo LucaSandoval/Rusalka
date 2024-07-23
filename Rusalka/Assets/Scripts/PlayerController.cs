@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded; // whether or not the player is standing on the ground
     private float currCoyoteTime; // the amount of inair time in seconds the player has left while they can still jump
     private bool isFloat; //whether or not the player should be floating
+    private float currFloatGrav; // the last float gravity saved
 
     private Vector2 velocity; // the current x and y velocity of the player
     private Rigidbody2D rb; // the player's rigidbody
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         facing = 1;
         inGrapple = false;
+        currFloatGrav = 0;
 
         // scales values based on the size of the character
         currCoyoteTime = CoyoteTime;
@@ -97,14 +99,15 @@ public class PlayerController : MonoBehaviour
             {
                 float currGrav = DownGravityForce;
                 // Setting the float
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") && velocity.y < 0)
                 {
-                    velocity.y = 0;
+                    velocity.y = currFloatGrav;
                     isFloat = true;
                 }
                 // Unsetting the float
                 if (Input.GetButtonUp("Jump"))
                 {
+                    currFloatGrav = velocity.y;
                     isFloat = false;
                 }
 
