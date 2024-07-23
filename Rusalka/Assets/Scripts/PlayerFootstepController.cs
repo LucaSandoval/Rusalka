@@ -22,7 +22,7 @@ public class PlayerFootstepController : MonoBehaviour
     {
         if (playerController != null)
         {
-            if (playerController.isGrounded())
+            if (playerController.IsGrounded())
             {
                 // Check for the surface type of the first hit solid surface below you 
                 RaycastHit2D[] Hits = Physics2D.RaycastAll(transform.position, Vector2.down);
