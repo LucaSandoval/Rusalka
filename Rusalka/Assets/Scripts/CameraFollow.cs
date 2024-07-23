@@ -36,7 +36,7 @@ public class CameraFollow : MonoBehaviour
     public void ResizeCamera(Camera C, float Size){
         C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
     }
-    // default camera values
+    // default camera settings
     public FollowTarget _FollowTarget = FollowTarget.Dynamic;
     public CameraMode _CameraMode = CameraMode.Normal;
     // private variable storing camera position
