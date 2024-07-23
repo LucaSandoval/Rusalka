@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6764508871418539106}
   - component: {fileID: 1816440805684750038}
   - component: {fileID: 7233582519964086166}
+  - component: {fileID: 9199526853031486953}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -178,3 +179,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.32, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &9199526853031486953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488810274593946015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286c75e61cdbe2843ac3082221ed2afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 8488810274593946015}
+  GrappleSpeed: 25.2
+  GrapplePointExhaustionTime: 0.5
+  DrawDebug: 1

@@ -6,7 +6,7 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraFollow : Singleton<CameraFollow>
+public class CameraOperator : Singleton<CameraOperator>
 {
     // private variable storing camera position
     private UnityEngine.Vector3 cameraPos;    
@@ -23,9 +23,10 @@ public class CameraFollow : Singleton<CameraFollow>
     // Size of camera for vista points
     public float VistaSize = 10f;
     // Who the camera is currently following
-    public enum FollowTarget{
+    public enum Follow{
         Dynamic,
-        Static
+        Static,
+        Shake
     }
     // Is camera zoomed in on the player or doing a vista point
     public enum CameraMode{
@@ -34,7 +35,7 @@ public class CameraFollow : Singleton<CameraFollow>
     }
 
     // default camera settings
-    public FollowTarget _FollowTarget = FollowTarget.Dynamic;
+    public Follow _FollowTarget = Follow.Dynamic;
     public CameraMode _CameraMode = CameraMode.Normal;
 
     /// <summary>
@@ -45,7 +46,7 @@ public class CameraFollow : Singleton<CameraFollow>
     /// <param name="Z"></param>
     public void followStaticPoint(float X, float Y, float Z){
         StaticPoint = new(X,Y,Z);
-        _FollowTarget = FollowTarget.Static;
+        _FollowTarget = Follow.Static;
     }
     public void followStaticPoint(float X, float Y){
         followStaticPoint(X,Y,-10f);
@@ -63,13 +64,18 @@ public class CameraFollow : Singleton<CameraFollow>
         Camera Cam = Camera.main;
         // moves the camera acording to the target
         switch(_FollowTarget){
-            case FollowTarget.Dynamic:
+            case Follow.Dynamic:
                 cameraPos = new UnityEngine.Vector3(DynamicTarget.position.x, DynamicTarget.position.y, -10f);
                 transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed * Time.fixedDeltaTime);
                 break;
-            case FollowTarget.Static:
+            case Follow.Static:
                 cameraPos = StaticPoint;
                 transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed/3 * Time.fixedDeltaTime);
+                break;
+            case Follow.Shake:
+                StaticPoint = cameraPos;
+                transform.position = UnityEngine.Vector3.Slerp(transform.position, cameraPos, CameraSpeed/3 * Time.fixedDeltaTime);
+                transform.position = UnityEngine.Vector3.Slerp(cameraPos, transform.position, CameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
                 break;
