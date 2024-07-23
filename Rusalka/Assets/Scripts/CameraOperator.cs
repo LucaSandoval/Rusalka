@@ -8,6 +8,10 @@ using UnityEngine;
 
 public class CameraOperator : Singleton<CameraOperator>
 {
+    void Start(){
+        _Time = 0f;
+    }
+    private float _Time;
     // private variable storing camera position
     private UnityEngine.Vector3 cameraPos;    
     // How fast will the camera follow player
@@ -68,9 +72,11 @@ public class CameraOperator : Singleton<CameraOperator>
     }
     // Update is called once per frame
     void Update(){
-        if (IsShaking){
+        _Time += Time.deltaTime; 
+        if (IsShaking && _Time < 1){
             CameraShake();
         }
+        if (_Time >= 1) _Time = 0;
     }
     void FixedUpdate()
     {
