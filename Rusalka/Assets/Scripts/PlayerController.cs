@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (!inGrapple)
         {
             if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
@@ -80,8 +80,8 @@ public class PlayerController : MonoBehaviour
                     spr.flipX = true;
                 }
             }
-        }
         
+
         if (!grounded)
         {
             float currGrav = DownGravityForce;
@@ -94,13 +94,16 @@ public class PlayerController : MonoBehaviour
             {
                 isFloat = false;
             }
+
             if (velocity.y > 0)
             {
                 currGrav = UpGravityForce;
             }
-            else if (isFloat) {
+            else if (isFloat)
+            {
                 currGrav = FloatGravityForce;
             }
+
             velocity.y -= currGrav * Time.deltaTime;
             currCoyoteTime -= Time.deltaTime;
         }
@@ -108,7 +111,8 @@ public class PlayerController : MonoBehaviour
         {
             isFloat = false;
             currCoyoteTime = CoyoteTime;
-            if(velocity.y < 0){
+            if (velocity.y < 0)
+            {
                 velocity.y = 0;
             }
         }
@@ -119,9 +123,11 @@ public class PlayerController : MonoBehaviour
         }
         else
 
-        if (Input.GetButtonUp("Jump") && velocity.y > 0) {
+        if (Input.GetButtonUp("Jump") && velocity.y > 0)
+        {
             velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
         }
+    }
     }
 
     private void FixedUpdate()
@@ -162,6 +168,12 @@ public class PlayerController : MonoBehaviour
     public void SetVelocity(Vector2 velocity, bool inGrapple)
     {
         this.velocity = velocity;
+        this.inGrapple = inGrapple;
+    }
+
+    // Set the value for inGrapple
+    public void SetInGrapple(bool inGrapple)
+    {
         this.inGrapple = inGrapple;
     }
 }
