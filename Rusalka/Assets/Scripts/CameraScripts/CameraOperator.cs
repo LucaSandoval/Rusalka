@@ -19,7 +19,7 @@ public class CameraOperator : Singleton<CameraOperator>
     // How fast will the camera zoom in and out
     [SerializeField] private float ZoomSpeed = 4f;
     // Player
-    [SerializeField] private Transform DynamicTarget = GameObject.FindWithTag("Player").transform;
+    [SerializeField] private Transform DynamicTarget;
     // Another object you might want the camera to lock onto
     [SerializeField] private UnityEngine.Vector3 StaticPoint = new(0f,0f,-10f);
     // Size of camera for normal view
