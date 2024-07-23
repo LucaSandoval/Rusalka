@@ -11,6 +11,7 @@ public class CameraOperator : Singleton<CameraOperator>
     private float _Time;
     void Start(){
         _Time = 0f;
+        DynamicTarget = GameObject.FindWithTag("Player").transform;
     }
     // private variable storing camera position
     private UnityEngine.Vector3 cameraPos = new(0,0,-10f);    
