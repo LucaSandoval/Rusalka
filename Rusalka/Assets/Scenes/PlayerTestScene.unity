@@ -938,6 +938,18 @@ PrefabInstance:
       propertyPath: ReleaseSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: UpGravityForce
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: DownGravityForce
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: FloatGravityForce
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8488810274593946015, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Name
       value: Player

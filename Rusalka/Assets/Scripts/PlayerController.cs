@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             else if (isFloat) {
                 currGrav = FloatGravityForce;
             }
-            velocity.y -= currGrav;
+            velocity.y -= currGrav * Time.deltaTime;
             currCoyoteTime -= Time.deltaTime;
         }
         else
