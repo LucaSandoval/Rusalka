@@ -131,7 +131,7 @@ public class GrappleBehavior : MonoBehaviour
     // Update the line render for a frame
     private void UpdateLine()
     {
-        print(InGrapple);
+        //print(InGrapple);
         if (InGrapple)
         {
             LineRenderer.enabled = true;
