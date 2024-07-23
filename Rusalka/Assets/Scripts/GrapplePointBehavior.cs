@@ -70,19 +70,23 @@ public class GrapplePointBehavior : MonoBehaviour
         return interactible;
     }
 
+    // Report that the player is no longer grappling to point on enter
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().SetInGrapple(false);
+            collision.gameObject.GetComponent<GrappleBehavior>().SetInGrapple(false);
         }
     }
 
+    // Report that the player is no longer grappling to point on exit
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().SetInGrapple(false);
+            collision.gameObject.GetComponent<GrappleBehavior>().SetInGrapple(false);
         }
     }
 }
