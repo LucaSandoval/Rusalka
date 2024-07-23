@@ -34,7 +34,16 @@ public class PlayerController : MonoBehaviour
         collide = GetComponent<BoxCollider2D>();
         spr = GetComponent<SpriteRenderer>();
         facing = 1;
+
+        //scales values based on the size of the character
         currCoyoteTime = CoyoteTime;
+        MovementSpeed *= transform.localScale.x;
+        UpGravityForce *= transform.localScale.y;
+        DownGravityForce *= transform.localScale.y;
+        FloatGravityForce *= transform.localScale.y;
+        JumpForce *= transform.localScale.y;
+        ReleaseSpeed *= transform.localScale.y;
+
     }
 
     // Update is called once per frame
