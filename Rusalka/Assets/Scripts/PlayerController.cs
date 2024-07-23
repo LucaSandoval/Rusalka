@@ -175,5 +175,6 @@ public class PlayerController : MonoBehaviour
     public void SetInGrapple(bool inGrapple)
     {
         this.inGrapple = inGrapple;
+        Debug.Log(this.inGrapple);
     }
 }
