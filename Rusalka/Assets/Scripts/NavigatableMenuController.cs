@@ -9,7 +9,7 @@ using UnityEngine;
 public class NavigatableMenuController : Singleton<NavigatableMenuController>
 {
     private List<NavigatableMenuButton> activeButtons;
-    private const float inputDelayMaxTime = 0.1f;
+    private const float inputDelayMaxTime = 0.25f;
     private float inputDelayTimer;
     private int selectionId;
 
