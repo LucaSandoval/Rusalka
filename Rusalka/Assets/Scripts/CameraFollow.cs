@@ -6,8 +6,10 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : Singleton<CameraFollow>
 {
+    // private variable storing camera position
+    private UnityEngine.Vector3 cameraPos;    
     // How fast will the camera follow player
     public float CameraSpeed = 3.3f;
     // How fast will the camera zoom in and out
@@ -30,17 +32,11 @@ public class CameraFollow : MonoBehaviour
         Normal,
         VistaPoint
     }
-    /// <summary>
-    /// Changes the size of camera to a specified size
-    /// </summary>
-    public void ResizeCamera(Camera C, float Size){
-        C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
-    }
+
     // default camera settings
     public FollowTarget _FollowTarget = FollowTarget.Dynamic;
     public CameraMode _CameraMode = CameraMode.Normal;
-    // private variable storing camera position
-    private UnityEngine.Vector3 cameraPos;
+
     /// <summary>
     /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
     /// </summary>
@@ -54,6 +50,12 @@ public class CameraFollow : MonoBehaviour
     public void followStaticPoint(float X, float Y){
         followStaticPoint(X,Y,-10f);
     }
+    /// <summary>
+    /// Changes the size of camera to a specified size
+    /// </summary>
+    public void ResizeCamera(Camera C, float Size){
+        C.orthographicSize = Mathf.SmoothStep(C.orthographicSize, Size, ZoomSpeed * Time.fixedDeltaTime);
+    }    
     // Update is called once per frame
     void FixedUpdate()
     {

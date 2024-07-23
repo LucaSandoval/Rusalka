@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fe3bdfdfb85b94e8d44aa266e6fc6d, type: 3}
-  m_Name: FootstepWood
+  m_Name: FootstepWater2
   m_EditorClassIdentifier: 
-  SoundName: FootstepWood
-  Clip: {fileID: 8300000, guid: 8ff577ce01b2fdc419831d183713e61e, type: 3}
+  SoundName: FootstepWater2
+  Clip: {fileID: 8300000, guid: 1583e163b34e68044a999e457d2ab516, type: 3}
   BaseVolume: 0.6
   BasePitch: 1
   ShouldLoop: 0
