@@ -133,7 +133,7 @@ MonoBehaviour:
   FloatGravityForce: 2
   JumpForce: 14
   ReleaseSpeed: 11
-  AirResistance: 7
+  AirResistance: 12
   CoyoteTime: 0.07
 --- !u!61 &7233582519964086166
 BoxCollider2D:
@@ -193,6 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 8488810274593946015}
-  GrappleSpeed: 25.2
+  GrappleSpeed: 30
   GrapplePointExhaustionTime: 0.5
   DrawDebug: 1
