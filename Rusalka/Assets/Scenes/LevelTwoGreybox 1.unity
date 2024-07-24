@@ -525,7 +525,6 @@ GameObject:
   - component: {fileID: 97073013}
   - component: {fileID: 97073012}
   - component: {fileID: 97073014}
-  - component: {fileID: 97073015}
   m_Layer: 6
   m_Name: RockFlip (14)
   m_TagString: Untagged
@@ -652,7 +651,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97073010}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -660,20 +659,6 @@ MonoBehaviour:
   FlipInterval: 3
   Flipped: 1
   player: {fileID: 767296716}
---- !u!114 &97073015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97073010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 0
 --- !u!1001 &123796787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1466,11 +1451,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.8
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.8
+      value: 34.7
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1535,10 +1520,6 @@ PrefabInstance:
     - target: {fileID: 9199526853031486953, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: DrawDebug
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9199526853031486953, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
-      propertyPath: GrappleAngleForgiveness
-      value: 0.426
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2431,7 +2412,7 @@ Transform:
   m_GameObject: {fileID: 703669827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.10505096, w: 0.99446684}
-  m_LocalPosition: {x: 52.417004, y: 15.0382, z: -0.2548226}
+  m_LocalPosition: {x: 52.34, y: 14.64, z: -0.2548226}
   m_LocalScale: {x: 16.268959, y: 0.6704753, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2906,7 +2887,6 @@ GameObject:
   - component: {fileID: 836501093}
   - component: {fileID: 836501092}
   - component: {fileID: 836501091}
-  - component: {fileID: 836501094}
   m_Layer: 6
   m_Name: RockFlip (17)
   m_TagString: Untagged
@@ -2936,7 +2916,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836501089}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -3041,20 +3021,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &836501094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836501089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 1
 --- !u!1 &921007694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +3948,6 @@ GameObject:
   - component: {fileID: 1084244099}
   - component: {fileID: 1084244098}
   - component: {fileID: 1084244097}
-  - component: {fileID: 1084244100}
   m_Layer: 6
   m_Name: RockFlip (15)
   m_TagString: Untagged
@@ -4012,7 +3977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084244095}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -4117,20 +4082,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1084244100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1084244095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 1
 --- !u!1 &1113979451
 GameObject:
   m_ObjectHideFlags: 0
@@ -5548,7 +5499,6 @@ GameObject:
   - component: {fileID: 1596497844}
   - component: {fileID: 1596497843}
   - component: {fileID: 1596497842}
-  - component: {fileID: 1596497845}
   m_Layer: 6
   m_Name: RockFlip (18)
   m_TagString: Untagged
@@ -5578,7 +5528,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596497840}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -5683,20 +5633,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1596497845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596497840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 1
 --- !u!1 &1600619833
 GameObject:
   m_ObjectHideFlags: 0
@@ -5709,7 +5645,6 @@ GameObject:
   - component: {fileID: 1600619837}
   - component: {fileID: 1600619836}
   - component: {fileID: 1600619835}
-  - component: {fileID: 1600619838}
   m_Layer: 6
   m_Name: RockFlip (16)
   m_TagString: Untagged
@@ -5739,7 +5674,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600619833}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -5844,20 +5779,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1600619838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600619833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 0
 --- !u!1 &1724058461
 GameObject:
   m_ObjectHideFlags: 0
@@ -6015,7 +5936,7 @@ Transform:
   m_GameObject: {fileID: 1781318856}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.75975734, w: 0.6502067}
-  m_LocalPosition: {x: 57.97, y: 44.54, z: -0.2548226}
+  m_LocalPosition: {x: 58, y: 44.3, z: -0.2548226}
   m_LocalScale: {x: 24.338203, y: 0.6704753, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6276,7 +6197,6 @@ GameObject:
   - component: {fileID: 1799161068}
   - component: {fileID: 1799161069}
   - component: {fileID: 1799161070}
-  - component: {fileID: 1799161071}
   m_Layer: 6
   m_Name: RockFlip (13)
   m_TagString: Untagged
@@ -6403,7 +6323,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799161066}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -6411,20 +6331,6 @@ MonoBehaviour:
   FlipInterval: 3
   Flipped: 0
   player: {fileID: 767296716}
---- !u!114 &1799161071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799161066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 1
 --- !u!1 &1830978014
 GameObject:
   m_ObjectHideFlags: 0
@@ -7417,7 +7323,6 @@ GameObject:
   - component: {fileID: 2100579739}
   - component: {fileID: 2100579740}
   - component: {fileID: 2100579741}
-  - component: {fileID: 2100579742}
   m_Layer: 6
   m_Name: RockFlip (12)
   m_TagString: Untagged
@@ -7544,7 +7449,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100579737}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e29ec19b15c61e46b0ce6ae311b3397, type: 3}
   m_Name: 
@@ -7552,20 +7457,6 @@ MonoBehaviour:
   FlipInterval: 3
   Flipped: 1
   player: {fileID: 767296716}
---- !u!114 &2100579742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100579737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  Flipped: 0
 --- !u!1001 &8805885699964124589
 PrefabInstance:
   m_ObjectHideFlags: 0

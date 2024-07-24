@@ -9,7 +9,7 @@ using UnityEngine;
 public class NavigatableMenuController : Singleton<NavigatableMenuController>
 {
     private List<NavigatableMenuButton> activeButtons;
-    private const float inputDelayMaxTime = 0.25f;
+    private const float inputDelayMaxTime = 0.15f;
     private float inputDelayTimer;
     private int selectionId;
 
@@ -25,7 +25,7 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
     /// </summary>
     public void SetActiveButtons(List<NavigatableMenuButton> buttons)
     {
-        activeButtons = buttons;
+        activeButtons = new List<NavigatableMenuButton>(buttons);
         selectionId = 0;
         SelectCurrentButton();
     }
@@ -35,6 +35,11 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
     /// </summary>
     public void ClearActiveButtons()
     {
+        foreach(NavigatableMenuButton button in activeButtons)
+        {
+            button.Deselect();
+        }
+        selectionId = 0;
         activeButtons.Clear();
     }
 
