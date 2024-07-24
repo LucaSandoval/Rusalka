@@ -52,7 +52,7 @@ public class GrappleBehavior : MonoBehaviour
     void Update()
     {
         TargetGrapplePoint();
-          if (Input.GetButtonDown("Fire1")) {
+          if (Input.GetAxisRaw("Fire1") > 0) {
             GrappleToPoint();
           }
         UpdateLine();
