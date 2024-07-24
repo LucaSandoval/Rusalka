@@ -103,9 +103,9 @@ public class PlayerController : MonoBehaviour
             {
                 float currGrav = DownGravityForce;
                 // Setting the float
-                if (Input.GetButtonDown("Jump") && velocity.y < 0)
+                if (Input.GetButtonDown("Jump"))
                 {
-                    velocity.y = currFloatGrav;
+                    velocity.y = Mathf.Min(0, currFloatGrav);
                     isFloat = true;
                 }
                 // Unsetting the float
