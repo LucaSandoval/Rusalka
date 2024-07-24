@@ -8,17 +8,12 @@ using UnityEngine;
 public class GrapplePointBehavior : MonoBehaviour
 {
     // Distance that grapple points can be targetted
-    public float TriggerRange = 5f;
-    public bool DrawDebug = false;
+    [Tooltip("Interactible radius around grapple point")]
+    [SerializeField] private float TriggerRange = 5f;
+    [SerializeField] private bool DrawDebug = false;
 
     // Is this grapple point a selectible target
     private bool interactible = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
