@@ -84,28 +84,14 @@ public class PlayerController : MonoBehaviour
                 velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
 
-            // Facing direction
-            if (velocity.x != 0)
-            {
-                facing = (int)Mathf.Sign(velocity.x);
-                if (facing == 1)
-                {
-                    spr.flipX = false;
-                }
-                else if (facing == -1)
-                {
-                    spr.flipX = true;
-                }
-            }
-
             // JUMP/GRAVITY CODE
             if (!grounded)
             {
                 float currGrav = DownGravityForce;
                 // Setting the float
-                if (Input.GetButtonDown("Jump") && velocity.y < 0)
+                if (Input.GetButtonDown("Jump"))
                 {
-                    velocity.y = currFloatGrav;
+                    velocity.y = Mathf.Min(0, currFloatGrav);
                     isFloat = true;
                 }
                 // Unsetting the float
@@ -158,12 +144,25 @@ public class PlayerController : MonoBehaviour
         // SWIMMING CODE
         else if (inWater && !inGrapple) {
             isFloat = false;
-            velocity.x = Input.GetAxis("Horizontal");
-            velocity.y = Input.GetAxis("Vertical");
+            velocity.x = Input.GetAxisRaw("Horizontal");
+            velocity.y = Input.GetAxisRaw("Vertical");
             velocity.Normalize();
             velocity *= SwimSpeed;
             if(velocity.x == 0 && velocity.y == 0) {
                 velocity.y -= SwimSink * Time.deltaTime;
+            }
+        }
+        // Facing direction
+        if (velocity.x != 0)
+        {
+            facing = (int)Mathf.Sign(velocity.x);
+            if (facing == 1)
+            {
+                spr.flipX = false;
+            }
+            else if (facing == -1)
+            {
+                spr.flipX = true;
             }
         }
     }
