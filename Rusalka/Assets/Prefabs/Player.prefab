@@ -138,7 +138,7 @@ MonoBehaviour:
   CoyoteTime: 0.07
   SwimSpeed: 7
   SwimSink: 40
-  SwimExitForce: 13
+  SwimExitForce: 11
 --- !u!61 &7233582519964086166
 BoxCollider2D:
   m_ObjectHideFlags: 0
