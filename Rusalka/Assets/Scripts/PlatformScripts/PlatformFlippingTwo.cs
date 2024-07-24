@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlatformFlippingTwo : MonoBehaviour
 {
-    public float FlipInterval;
-    public float FadeDuration;
-    public bool Flipped;
+    public float FlipInterval = 2f; // Time before flipping
+    public float FadeDuration = 1f; // Duration of the fade effect
+    public bool Flipped = false;
 
     private SpriteRenderer Sprite;
     private BoxCollider2D Collider;
@@ -26,21 +26,24 @@ public class PlatformFlippingTwo : MonoBehaviour
     {
         while (true)
         {
-            // Start fading out
-            yield return StartCoroutine(FadePlatform(true, FadeDuration));
+            if (Flipped)
+            {
+                // Start fading out
+                yield return StartCoroutine(FadePlatform(true, FadeDuration));
+                Collider.enabled = false;
+            }
+            else
+            {
+                // Enable collider and start fading in
+                Collider.enabled = true;
+                yield return StartCoroutine(FadePlatform(false, FadeDuration));
+            }
+
+            // Wait for the remaining interval minus the fade duration
             yield return new WaitForSeconds(FlipInterval - FadeDuration);
 
             // Flip the state
             Flipped = !Flipped;
-
-            // Apply the flipped state to the BoxCollider
-            Collider.enabled = Flipped;
-
-            if (Flipped)
-            {
-                // Start fading in
-                yield return StartCoroutine(FadePlatform(false, FadeDuration));
-            }
         }
     }
 

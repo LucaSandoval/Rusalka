@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 1
 --- !u!61 &337515102
 BoxCollider2D:
@@ -1451,11 +1451,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.1
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1491,7 +1491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: JumpForce
-      value: 10.4
+      value: 9.4
       objectReference: {fileID: 0}
     - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: ReleaseSpeed
@@ -1499,7 +1499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: MovementSpeed
-      value: 3.8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: UpGravityForce
@@ -1557,7 +1557,7 @@ Transform:
   m_GameObject: {fileID: 399046620}
   serializedVersion: 2
   m_LocalRotation: {x: -0.99997026, y: 0.0077189803, z: -0, w: 0}
-  m_LocalPosition: {x: 0.016, y: -0.482, z: 0}
+  m_LocalPosition: {x: 0.015, y: -0.446, z: 0}
   m_LocalScale: {x: 0.6200006, y: 0.036516216, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2156,7 +2156,7 @@ Transform:
   m_GameObject: {fileID: 649771831}
   serializedVersion: 2
   m_LocalRotation: {x: -0.99997026, y: 0.0077189803, z: -0, w: 0}
-  m_LocalPosition: {x: 0.01234, y: -0.37632, z: 0}
+  m_LocalPosition: {x: 0.014, y: -0.275, z: 0}
   m_LocalScale: {x: 0.042991024, y: 0.89684606, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2707,7 +2707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 0
 --- !u!61 &790068614
 BoxCollider2D:
@@ -3233,12 +3233,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941297897}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.2652, y: -4.1934, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -23.589144, y: -12.596128, z: 0.23758924}
   m_LocalScale: {x: 74.94136, y: 0.6868, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2050680570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &941297900
 BoxCollider2D:
@@ -3592,7 +3592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 0
 --- !u!61 &1002857493
 BoxCollider2D:
@@ -4113,7 +4113,7 @@ Transform:
   m_GameObject: {fileID: 1113979451}
   serializedVersion: 2
   m_LocalRotation: {x: -0.99997026, y: 0.0077189803, z: -0, w: 0}
-  m_LocalPosition: {x: 0.016, y: -0.665, z: 0}
+  m_LocalPosition: {x: 0.017, y: -0.621, z: 0}
   m_LocalScale: {x: 0.35935232, y: 0.036516216, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 1
 --- !u!61 &1221488535
 BoxCollider2D:
@@ -5781,7 +5781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 1
 --- !u!1 &1724058461
 GameObject:
@@ -6772,7 +6772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 1
 --- !u!61 &1946945837
 BoxCollider2D:
@@ -7044,7 +7044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlipInterval: 3
-  FadeDuration: 3
+  FadeDuration: 1
   Flipped: 0
 --- !u!61 &2001734040
 BoxCollider2D:
@@ -7304,7 +7304,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 51.854343, y: 8.402729, z: -0.23758924}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 921007695}
@@ -7324,6 +7324,7 @@ Transform:
   - {fileID: 1830978015}
   - {fileID: 796557778}
   - {fileID: 1442299372}
+  - {fileID: 941297899}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2066104871 stripped
@@ -7527,6 +7528,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1982182979}
-  - {fileID: 941297899}
   - {fileID: 390555655}
   - {fileID: 2050680570}
