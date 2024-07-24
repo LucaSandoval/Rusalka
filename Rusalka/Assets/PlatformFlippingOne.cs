@@ -31,7 +31,7 @@ public class PlatformFlippingOne : MonoBehaviour
         if (Input.GetButtonDown("Jump") && player.IsGrounded())
         {
             
-            Debug.Log(player.IsGrounded());
+            //Debug.Log(player.IsGrounded());
             
         }
     }

@@ -43,6 +43,10 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private float shakeStrength = 0.35f;
     [SerializeField] private bool xAxisShakeEnabled = true;
     [SerializeField] private bool yAxisShakeEnabled = true;
+    [SerializeField] private float xAxisOffset = 0.1f;
+    [SerializeField] private float yAxisOffset = 0.1f;
+    [SerializeField] private bool xAxisMoveEnabled = true;
+    [SerializeField] private bool yAxisMoveEnabled = true;    
     /// <summary>
     /// Changes the size of camera to a specified size
     /// </summary>
@@ -60,8 +64,8 @@ public class CameraOperator : Singleton<CameraOperator>
         transform.position = Vector3.Slerp(transform.position, 
         new Vector3
         (
-            xAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.x, 
-            yAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.y,
+            (xAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.x) - xAxisOffset, 
+            (yAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.y) - yAxisOffset,
             cameraPos.z
         ), 
         cameraSpeed/3 * Time.fixedDeltaTime);
@@ -147,7 +151,31 @@ public class CameraOperator : Singleton<CameraOperator>
     }
     public void SetYAxisShakeEnabled(bool boolean){
         yAxisShakeEnabled = boolean;
-    }    
+    }
+    public float GetXAxisOffset(){
+        return xAxisOffset;
+    }
+    public void SetXAxisOffset(float val){
+        xAxisOffset = val;
+    }
+    public float GetYAxisOffset(){
+        return yAxisOffset;
+    }
+    public void SetYAxisOffset(float val){
+        yAxisOffset = val;
+    }
+    public bool GetXAxisMoveEnabled(){
+        return xAxisMoveEnabled;
+    }
+    public void SetXAxisMoveEnabled(bool boolean){
+        xAxisMoveEnabled = boolean;
+    }
+    public bool GetYAxisMoveEnabled(){
+        return yAxisMoveEnabled;
+    }
+    public void SetYAxisMoveEnabled(bool boolean){
+        yAxisMoveEnabled = boolean;
+    }
     void Update(){
         shakeTime += Time.deltaTime; 
         if (isShaking && shakeTime < 1){
@@ -164,8 +192,12 @@ public class CameraOperator : Singleton<CameraOperator>
         // moves the camera acording to the target
         switch(cameraTarget){
             case Target.Dynamic:
-                cameraPos = new Vector3(dynamicTarget.position.x, dynamicTarget.position.y, -10f);
-                transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
+                cameraPos = new Vector3(
+                    (xAxisMoveEnabled ? dynamicTarget.position.x : cameraPos.x) - xAxisOffset, 
+                    (yAxisMoveEnabled ? dynamicTarget.position.y : cameraPos.y) - yAxisOffset, 
+                    -10f);
+                transform.position = Vector3.Slerp(
+                    transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
                 break;
             case Target.Static:
                 cameraPos = staticPoint;
