@@ -35,6 +35,9 @@ public class GrappleBehavior : MonoBehaviour
     [Range(0f, 1f)]
     [Tooltip("Margin of error for the angle that a grapple point can be behing you and still targetable")]
     private float GrappleAngleForgiveness;
+    private float DistanceToGrapple = 0;
+    private Vector2 OriginalPosition = Vector2.zero;
+    [SerializeField] private bool DevDebugMovement = false;
 
 
     // Start is called before the first frame update
@@ -55,7 +58,21 @@ public class GrappleBehavior : MonoBehaviour
           if (Input.GetAxisRaw("Fire1") > 0) {
             GrappleToPoint();
           }
+          // Tool for developers to move freely in the scene
+          if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
+            Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            PlayerController.SetVelocity(dashDirection * 30); 
+          }
         UpdateLine();
+        if (InGrapple)
+        {
+            if (DistanceToGrapple <= Vector2.Distance(OriginalPosition, transform.position))
+            {
+                InGrapple = false;
+                PlayerController.SetInGrapple(false);
+            }
+        }
+        
     }
 
     // Analyzes all grapple points available and returns if there is a optimal point, and its direction
@@ -93,6 +110,7 @@ public class GrappleBehavior : MonoBehaviour
                             bestGrapplePoint = point.transform.position;
                             BestPoint = pointBehavior;
                             BestGrapplePosition = point.transform.position;
+                            DistanceToGrapple = distanceToPoint;
                         }
                     }  
                 }
@@ -113,6 +131,7 @@ public class GrappleBehavior : MonoBehaviour
             BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
             PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleSpeed, true);
             InGrapple = true;
+            OriginalPosition = transform.position;
         }
     }
     
@@ -141,11 +160,5 @@ public class GrappleBehavior : MonoBehaviour
         }
         
         
-    }
-
-    // Set InGrapple boolean
-    public void SetInGrapple(bool inGrapple)
-    {
-        InGrapple = inGrapple;
     }
 }

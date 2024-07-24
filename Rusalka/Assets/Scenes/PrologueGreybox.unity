@@ -228,21 +228,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraSpeed: 12
-  ZoomSpeed: 4
-  DynamicTarget: {fileID: 324661306}
-  StaticPoint: {x: 0, y: 0, z: -10}
-  NormalSize: 12
-  VistaSize: 25
-  _FollowTarget: 1
-  _CameraMode: 0
-  IsShaking: 0
-  ShakeStrenght: 0.35
---- !u!4 &324661306 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
-  m_PrefabInstance: {fileID: 720084912}
-  m_PrefabAsset: {fileID: 0}
+  cameraSpeed: 12
+  zoomSpeed: 4
+  dynamicTarget: {fileID: 0}
+  staticPoint: {x: 0, y: 0, z: -10}
+  normalSize: 12
+  vistaSize: 25
+  cameraTarget: 0
+  cameraMode: 0
+  isShaking: 0
+  shakeStrength: 0.35
+  xAxisShakeEnabled: 1
+  yAxisShakeEnabled: 1
+  xAxisOffset: 0.1
+  yAxisOffset: 0.1
+  xAxisMoveEnabled: 1
+  yAxisMoveEnabled: 1
 --- !u!1 &388810665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,7 +1277,7 @@ Transform:
   m_GameObject: {fileID: 1998608584}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.04, y: 3.22, z: 0.05087945}
+  m_LocalPosition: {x: -51.05, y: 3.22, z: 0.05087945}
   m_LocalScale: {x: 0.6038366, y: 5.030156, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

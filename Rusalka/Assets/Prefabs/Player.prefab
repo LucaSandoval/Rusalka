@@ -200,7 +200,8 @@ MonoBehaviour:
   GrapplePointExhaustionTime: 0.5
   DrawDebug: 0
   GrappleHairRenderPositionOffset: 0
-  GrappleAngleForgiveness: 0
+  GrappleAngleForgiveness: 0.051
+  DevDebugMovement: 0
 --- !u!120 &8622034474380833248
 LineRenderer:
   serializedVersion: 2
