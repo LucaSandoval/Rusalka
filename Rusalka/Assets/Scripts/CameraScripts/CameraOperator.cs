@@ -20,7 +20,6 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private float cameraSpeed = 12f;
     // How fast will the camera zoom in and out
     [SerializeField] private float zoomSpeed = 4f;
-    // Player
     [SerializeField] private Transform dynamicTarget;
     // Another object you might want the camera to lock onto
     [SerializeField] private Vector3 staticPoint = new(0f,0f,-10f);
@@ -66,8 +65,8 @@ public class CameraOperator : Singleton<CameraOperator>
         transform.position = Vector3.Slerp(transform.position, 
         new Vector3
         (
-            (xAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.x) - xAxisOffset, 
-            (yAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) : cameraPos.y) - yAxisOffset,
+            xAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - xAxisOffset : cameraPos.x, 
+            yAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - yAxisOffset : cameraPos.y ,
             cameraPos.z
         ), 
         cameraSpeed/3 * Time.fixedDeltaTime);
@@ -195,8 +194,8 @@ public class CameraOperator : Singleton<CameraOperator>
         switch(cameraTarget){
             case Target.Dynamic:
                 cameraPos = new Vector3(
-                    (xAxisMoveEnabled ? dynamicTarget.position.x - xAxisOffset : cameraPos.x) , 
-                    (yAxisMoveEnabled ? dynamicTarget.position.y - yAxisOffset : cameraPos.y) , 
+                    xAxisMoveEnabled ? dynamicTarget.position.x - xAxisOffset : cameraPos.x , 
+                    yAxisMoveEnabled ? dynamicTarget.position.y - yAxisOffset : cameraPos.y , 
                     -10f);
                 transform.position = Vector3.Slerp(
                     transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);

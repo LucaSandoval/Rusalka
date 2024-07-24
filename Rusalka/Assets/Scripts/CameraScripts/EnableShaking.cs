@@ -21,7 +21,6 @@ public class EnableShaking : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collider) {
         if(collider.CompareTag("Player") && CameraOperator.Instance != null){
             CameraOperator.Instance.SetIsShaking(false);
-            CameraOperator.Instance.ResetCameraShake();
             }
     }
 }
