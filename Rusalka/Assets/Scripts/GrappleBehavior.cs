@@ -58,8 +58,8 @@ public class GrappleBehavior : MonoBehaviour
           if (Input.GetAxisRaw("Fire1") > 0) {
             GrappleToPoint();
           }
+          // Tool for developers to move freely in the scene
           if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
-
             Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             PlayerController.SetVelocity(dashDirection * 30); 
           }
@@ -160,11 +160,5 @@ public class GrappleBehavior : MonoBehaviour
         }
         
         
-    }
-
-    // Set InGrapple boolean
-    public void SetInGrapple(bool inGrapple)
-    {
-        InGrapple = inGrapple;
     }
 }
