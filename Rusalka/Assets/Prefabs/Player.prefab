@@ -128,16 +128,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cabdb067c29504c9fe790c8f474c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 4
-  UpGravityForce: 40
-  DownGravityForce: 45
-  FloatGravityForce: 2
-  JumpForce: 14
-  ReleaseSpeed: 6
+  MovementSpeed: 5
+  UpGravityForce: 37
+  DownGravityForce: 32
+  FloatGravityForce: 2.5
+  JumpForce: 9.4
+  ReleaseSpeed: 5
   AirResistance: 12
   CoyoteTime: 0.07
   SwimSpeed: 1.4
-  SwimSink: 38
+  SwimSink: 40
 --- !u!61 &7233582519964086166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,8 +198,9 @@ MonoBehaviour:
   Player: {fileID: 8488810274593946015}
   GrappleSpeed: 30
   GrapplePointExhaustionTime: 0.5
-  DrawDebug: 1
+  DrawDebug: 0
   GrappleHairRenderPositionOffset: 0
+  GrappleAngleForgiveness: 0
 --- !u!120 &8622034474380833248
 LineRenderer:
   serializedVersion: 2

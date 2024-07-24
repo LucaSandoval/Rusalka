@@ -15,12 +15,13 @@ public class GrappleBehavior : MonoBehaviour
     public GameObject Player;
 
     [Tooltip("Speed the player will fly to the grapple point with")]
-    public float GrappleSpeed = 500f;
+    [SerializeField] private float GrappleSpeed = 500f;
     
     [Tooltip("The time that the player will be unable to grapple to the same grapple point again")]
-    public float GrapplePointExhaustionTime = 0.5f;
-    public bool DrawDebug = false;
-    public float GrappleHairRenderPositionOffset;
+    [SerializeField] private float GrapplePointExhaustionTime = 0.5f;
+    [SerializeField] private bool DrawDebug = false;
+    [Tooltip("Offset from the center of the player to shift the y-axis of the line render")]
+    [SerializeField] private float GrappleHairRenderPositionOffset;
 
     private (bool, Vector2) BestGrapplePoint;
     private GrapplePointBehavior BestPoint = null;
@@ -29,6 +30,11 @@ public class GrappleBehavior : MonoBehaviour
     private PlayerController PlayerController;
     private LineRenderer LineRenderer;
     private bool InGrapple;
+
+    [SerializeField]
+    [Range(0f, 1f)]
+    [Tooltip("Margin of error for the angle that a grapple point can be behing you and still targetable")]
+    private float GrappleAngleForgiveness;
 
 
     // Start is called before the first frame update
@@ -40,7 +46,6 @@ public class GrappleBehavior : MonoBehaviour
         BestGrapplePoint = (false, Vector2.zero);
         PlayerController = Player.GetComponent<PlayerController>();
         GrappleHairRenderPositionOffset = 0.5f;
-        
     }
 
     // Update is called once per frame
@@ -51,12 +56,6 @@ public class GrappleBehavior : MonoBehaviour
             GrappleToPoint();
           }
         UpdateLine();
-        
-        // Draw the right vector (direction character is facing)
-        //Debug.DrawLine(transform.position, transform.position + transform.right * 2, Color.red);
-
-        // Draw the left vector (opposite direction)
-        //Debug.DrawLine(transform.position, transform.position - transform.right * 2, Color.blue);
     }
 
     // Analyzes all grapple points available and returns if there is a optimal point, and its direction
@@ -78,11 +77,9 @@ public class GrappleBehavior : MonoBehaviour
             {
                 Vector2 directionToPoint = point.transform.position - gameObject.transform.position;
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPoint.normalized, distanceToPoint, LayerMask.GetMask("Floor"));
-                Debug.DrawRay(transform.position, directionToPoint.normalized * distanceToPoint, Color.red);
-
+                if (DrawDebug) Debug.DrawRay(transform.position, directionToPoint.normalized * distanceToPoint, Color.red);
                 //Determine if the selected point is facing in your direction
-                bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= 0;
-                if (hit.collider != null) print("We hit something");
+                bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= -GrappleAngleForgiveness;
                 if (forwardFacing && directionToPoint.y > -1 && hit.collider == null)
                 {
                     if (pointBehavior.IsInteractible())
@@ -100,12 +97,8 @@ public class GrappleBehavior : MonoBehaviour
                     }  
                 }
             }
-            
         }
-        if (pointAvailable && DrawDebug)
-        {
-            Debug.DrawLine(transform.position, bestGrapplePoint, Color.green);
-        }
+        if (pointAvailable && DrawDebug) Debug.DrawLine(transform.position, bestGrapplePoint, Color.green);
         BestGrapplePoint = (pointAvailable, directionToBestPoint);
     }
 

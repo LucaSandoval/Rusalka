@@ -84,20 +84,6 @@ public class PlayerController : MonoBehaviour
                 velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
 
-            // Facing direction
-            if (velocity.x != 0)
-            {
-                facing = (int)Mathf.Sign(velocity.x);
-                if (facing == 1)
-                {
-                    spr.flipX = false;
-                }
-                else if (facing == -1)
-                {
-                    spr.flipX = true;
-                }
-            }
-
             // JUMP/GRAVITY CODE
             if (!grounded)
             {
@@ -105,13 +91,13 @@ public class PlayerController : MonoBehaviour
                 // Setting the float
                 if (Input.GetButtonDown("Jump"))
                 {
-                    velocity.y = Mathf.Min(0, currFloatGrav);
+                    velocity.y = currFloatGrav;
                     isFloat = true;
                 }
                 // Unsetting the float
                 if (Input.GetButtonUp("Jump"))
                 {
-                    currFloatGrav = velocity.y;
+                    currFloatGrav = Mathf.Min(0, currFloatGrav);
                     isFloat = false;
                 }
 
@@ -135,6 +121,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Resets if grounded
                 isFloat = false;
+                currFloatGrav = 0;
                 currCoyoteTime = CoyoteTime;
                 if (velocity.y < 0)
                 {
@@ -157,13 +144,28 @@ public class PlayerController : MonoBehaviour
         }
         // SWIMMING CODE
         else if (inWater && !inGrapple) {
+            currFloatGrav = 0;
             isFloat = false;
-            velocity.x = Input.GetAxis("Horizontal");
-            velocity.y = Input.GetAxis("Vertical");
+            velocity.x = Input.GetAxisRaw("Horizontal");
+            velocity.y = Input.GetAxisRaw("Vertical");
             velocity.Normalize();
             velocity *= SwimSpeed;
             if(velocity.x == 0 && velocity.y == 0) {
                 velocity.y -= SwimSink * Time.deltaTime;
+            }
+        }
+        else currFloatGrav = 0;
+        // Facing direction
+        if (velocity.x != 0)
+        {
+            facing = (int)Mathf.Sign(velocity.x);
+            if (facing == 1)
+            {
+                spr.flipX = false;
+            }
+            else if (facing == -1)
+            {
+                spr.flipX = true;
             }
         }
     }
