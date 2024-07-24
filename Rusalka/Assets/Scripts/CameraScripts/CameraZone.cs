@@ -10,22 +10,40 @@ public class CameraZone : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         staticPoint.z = -10f;
     }
+    [Header("Camera Mode")]
     [SerializeField] private bool changeCameraMode = false;
+    [SerializeField] private CameraOperator.CameraMode mode;
+    [Header("Camera Size")]
     [SerializeField] private bool changeCameraSize = false;
-    [SerializeField] private bool changeCameraTarget = false;
-    [SerializeField] private bool changeCameraOffset = false;
-    [SerializeField] private bool lockXAxis = false;
-    [SerializeField] private bool lockYAxis = false;
-    [SerializeField] private bool enableCameraShake = false;
-    [SerializeField] private bool changeCameraSpeed = false;
-    [SerializeField] private bool changeZoomSpeed = false;
-    [SerializeField] private float newSize;
+    [SerializeField] private float Size;
     private float ogSize;
+    [Header("Camera Target")]
+    [SerializeField] private bool changeCameraTarget = false;
+    [SerializeField] private CameraOperator.Target camTarget;
+    [SerializeField] private Transform dynamicTarget;
+    [SerializeField] private Vector3 staticPoint;
+    [Header("Camera Offset")]
+    [SerializeField] private bool changeCameraOffset = false;
+    [SerializeField] private float xAxisOffset;
+    [SerializeField] private float yAxisOffset;
+    private float ogXOffset;
+    private float ogYOffset;
+    [Header("Camera Shake")]
+    [SerializeField] private bool enableCameraShake = false;
+    [SerializeField] private bool xAxisShake;
+    [SerializeField] private bool yAxisShake;
+    [SerializeField] private float shakeStrength;
     private float ogShakeStrength;
     private bool ogXShake;
     private bool ogYShake;
-    private float ogXOffset;
-    private float ogYOffset;
+    [Header("Lock Camera")]
+    [SerializeField] private bool lockXAxis = false;
+    [SerializeField] private bool lockYAxis = false;
+    [Header("Camera Speed")]
+    [SerializeField] private bool changeCameraSpeed = false;
+    [SerializeField] private bool changeZoomSpeed = false;
+    [SerializeField] private float camSpeed;
+    [SerializeField] private float zoomSpeed;
     private float ogCamSpeed;
     private float ogZoomSpeed;
     public void ChangeCameraSpeed(){
@@ -44,11 +62,11 @@ public class CameraZone : MonoBehaviour
         switch(mode){
             case CameraOperator.CameraMode.Normal:
                 ogSize = CameraOperator.Instance.GetNormalSize();
-                CameraOperator.Instance.SetNormalSize(newSize);
+                CameraOperator.Instance.SetNormalSize(Size);
                 break;
             case CameraOperator.CameraMode.VistaPoint:
                 ogSize = CameraOperator.Instance.GetVistaSize();
-                CameraOperator.Instance.SetVistaSize(newSize);
+                CameraOperator.Instance.SetVistaSize(Size);
                 break;
             default:
                 break;
@@ -85,19 +103,6 @@ public class CameraZone : MonoBehaviour
     public void ChangeCameraLock(){
         if (lockXAxis) CameraOperator.Instance.SetXAxisMoveEnabled(false);
         if (lockYAxis) CameraOperator.Instance.SetYAxisMoveEnabled(false);
-    }
-    public void OnTriggerEnter2D(Collider2D collider){
-       if(collider.CompareTag("Player") && CameraOperator.Instance != null)
-       {
-            if(changeCameraMode) ChangeCameraMode();
-            if(changeCameraSize) ChangeCameraSize();
-            if(changeCameraTarget) ChangeCameraTarget();
-            if(enableCameraShake) ChangeCameraShake();
-            if(changeCameraOffset) ChangeCameraOffset();
-            if(lockXAxis || lockYAxis) ChangeCameraLock();
-            if(changeCameraSpeed) ChangeCameraSpeed();
-            if(changeZoomSpeed) ChangeZoomSpeed();
-       }
     }
     public void ResetCameraShake(){
         CameraOperator.Instance.SetShakeStrength(ogShakeStrength);
@@ -139,6 +144,19 @@ public class CameraZone : MonoBehaviour
     public void ResetZoomSpeed(){
         CameraOperator.Instance.SetZoomSpeed(ogZoomSpeed);
     }
+    public void OnTriggerEnter2D(Collider2D collider){
+       if(collider.CompareTag("Player") && CameraOperator.Instance != null)
+       {
+            if(changeCameraMode) ChangeCameraMode();
+            if(changeCameraSize) ChangeCameraSize();
+            if(changeCameraTarget) ChangeCameraTarget();
+            if(enableCameraShake) ChangeCameraShake();
+            if(changeCameraOffset) ChangeCameraOffset();
+            if(lockXAxis || lockYAxis) ChangeCameraLock();
+            if(changeCameraSpeed) ChangeCameraSpeed();
+            if(changeZoomSpeed) ChangeZoomSpeed();
+       }
+    }
     public void OnTriggerExit2D(Collider2D collider){
         if(collider.CompareTag("Player") && CameraOperator.Instance != null)
         {
@@ -152,15 +170,4 @@ public class CameraZone : MonoBehaviour
             if(changeZoomSpeed) ResetZoomSpeed();
         }
     }
-    [SerializeField] private float camSpeed;
-    [SerializeField] private float zoomSpeed;
-    [SerializeField] private Transform dynamicTarget;
-    [SerializeField] private Vector3 staticPoint;
-    [SerializeField] private CameraOperator.Target camTarget;
-    [SerializeField] private CameraOperator.CameraMode mode;
-    [SerializeField] private float shakeStrength;
-    [SerializeField] private bool xAxisShake;
-    [SerializeField] private bool yAxisShake;
-    [SerializeField] private float xAxisOffset;
-    [SerializeField] private float yAxisOffset;
 }
