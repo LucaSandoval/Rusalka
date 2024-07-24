@@ -72,14 +72,6 @@ public class CameraOperator : Singleton<CameraOperator>
         cameraSpeed/3 * Time.fixedDeltaTime);
         cameraPos = OgPos;
     }
-    /// <summary>
-    /// Resets Camera Shake Strength to 0.15f and enables both axies of shake (x and y);
-    /// </summary>
-    public void ResetCameraShake(){
-        shakeStrength = 0.15f;
-        xAxisShakeEnabled = true;
-        yAxisShakeEnabled = true;
-    }
     public float GetCameraSpeed(){
         return cameraSpeed;
     }
@@ -190,7 +182,7 @@ public class CameraOperator : Singleton<CameraOperator>
     {
         // fetching main camera object
         Camera Cam = Camera.main;
-        // moves the camera acording to the target
+        // moves the camera as specified by the target
         switch(cameraTarget){
             case Target.Dynamic:
                 cameraPos = new Vector3(
@@ -207,7 +199,7 @@ public class CameraOperator : Singleton<CameraOperator>
             default:
                 break;
         }
-        // zoomes in or out if needed
+        // swaps between camera modes as specified
         switch (cameraMode){
             case CameraMode.Normal:
                 ResizeCamera(Cam, normalSize);

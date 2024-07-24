@@ -20,8 +20,6 @@ public class GrapplePointBehavior : MonoBehaviour
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.1f;
-        lineRenderer.endWidth = 0.1f;
         lineRenderer.positionCount = Segments + 1;
         lineRenderer.useWorldSpace = true;
 
