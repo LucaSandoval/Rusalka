@@ -8,17 +8,12 @@ using UnityEngine;
 public class GrapplePointBehavior : MonoBehaviour
 {
     // Distance that grapple points can be targetted
+    [Tooltip("Interactible radius around grapple point")]
     public float TriggerRange = 5f;
-    public bool DrawDebug = false;
+    [SerializeField] private bool DrawDebug = false;
 
     // Is this grapple point a selectible target
     private bool interactible = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -70,19 +65,23 @@ public class GrapplePointBehavior : MonoBehaviour
         return interactible;
     }
 
+    // Report that the player is no longer grappling to point on enter
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().SetInGrapple(false);
+            collision.gameObject.GetComponent<GrappleBehavior>().SetInGrapple(false);
         }
     }
 
+    // Report that the player is no longer grappling to point on exit
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().SetInGrapple(false);
+            collision.gameObject.GetComponent<GrappleBehavior>().SetInGrapple(false);
         }
     }
 }
