@@ -9,17 +9,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float MovementSpeed; // The horizontal movement speed
     [SerializeField] private float UpGravityForce; // How hard gravity affects the player when they are moving upwards
-
-    [SerializeField]
-    private float DownGravityForce; // How hard gravity affects the player when they are moving downwards
-
+    [SerializeField] private float DownGravityForce; // How hard gravity affects the player when they are moving downwards
     [SerializeField] private float FloatGravityForce; // How hard gravity affects the player when they are floating
     [SerializeField] private float JumpForce; //How hard the player jumps
-
-    [SerializeField]
-    private float
-        ReleaseSpeed; //The y velocity of the player when they release jump prematurely. Should be a positive number.
-
+    [SerializeField] private float ReleaseSpeed; //The y velocity of the player when they release jump prematurely. Should be a positive number.
     [SerializeField] private float AirResistance; //Applies when the player is moving very fast.
     [SerializeField] private float CoyoteTime; // the amount of inair time in seconds the player can still jump
 
@@ -57,12 +50,9 @@ public class PlayerController : MonoBehaviour
         inGrapple = false;
     }
 
-    public Animator Animator;
-
     // Update is called once per frame
     void Update()
     {
-        Animator.SetFloat("Speed", Mathf.Abs(velocity.x));
 
         if (!inGrapple)
         {
@@ -76,10 +66,8 @@ public class PlayerController : MonoBehaviour
                 {
                     velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
                 }
-
                 velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
-
             if (velocity.x != 0)
             {
                 facing = (int)Mathf.Sign(velocity.x);
@@ -92,69 +80,52 @@ public class PlayerController : MonoBehaviour
                     spr.flipX = true;
                 }
             }
-
-            if (!grounded)
+        if (!grounded)
+        {
+            float currGrav = DownGravityForce;
+            if (Input.GetButtonDown("Jump"))
             {
-                float currGrav = DownGravityForce;
-                if (Input.GetButtonDown("Jump"))
-                {
-                    velocity.y = 0;
-                    isFloat = true;
-                }
-
-                if (Input.GetButtonUp("Jump"))
-                {
-                    isFloat = false;
-                }
-
-                if (velocity.y > 0)
-                {
-                    currGrav = UpGravityForce;
-                }
-                else if (isFloat)
-                {
-                    currGrav = FloatGravityForce;
-                }
-
-                velocity.y -= currGrav * Time.deltaTime;
-                currCoyoteTime -= Time.deltaTime;
+                velocity.y = 0;
+                isFloat = true;
             }
-            else
+            if (Input.GetButtonUp("Jump"))
             {
                 isFloat = false;
-                currCoyoteTime = CoyoteTime;
-                if (velocity.y < 0)
-                {
-                    velocity.y = 0;
-                }
             }
 
-
-            if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0)
+            if (velocity.y > 0)
             {
-                velocity.y = JumpForce;
-
-                Animator.SetBool("Jump", true);
+                currGrav = UpGravityForce;
             }
-            else if (Input.GetButtonUp("Jump") && velocity.y > 0)
+            else if (isFloat)
             {
-                velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
+                currGrav = FloatGravityForce;
             }
 
-            if (grounded && Animator.GetBool("Jump") && velocity.y == 0)
+            velocity.y -= currGrav * Time.deltaTime;
+            currCoyoteTime -= Time.deltaTime;
+        }
+        else
+        {
+            isFloat = false;
+            currCoyoteTime = CoyoteTime;
+            if (velocity.y < 0)
             {
-                Animator.SetBool("Jump", false);
-            }
-
-            if (isFloat)
-            {
-                Animator.SetBool("IsFloating", true);
-            }
-            else
-            {
-                Animator.SetBool("IsFloating", false);
+                velocity.y = 0;
             }
         }
+
+        if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0)
+        {
+            velocity.y = JumpForce;
+        }
+        else
+
+        if (Input.GetButtonUp("Jump") && velocity.y > 0)
+        {
+            velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
+        }
+    }
     }
 
     private void FixedUpdate()
@@ -164,24 +135,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(
-            new Vector2(transform.position.x - collide.bounds.extents.x + .01f,
-                transform.position.y - collide.bounds.extents.y),
-            new Vector2(transform.position.x + collide.bounds.extents.x - .01f,
-                transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"));
         if (grounded)
         {
             inGrapple = false;
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(
-            new Vector2(transform.position.x - collide.bounds.extents.x + .01f,
-                transform.position.y - collide.bounds.extents.y),
-            new Vector2(transform.position.x + collide.bounds.extents.x - .01f,
-                transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
     }
 
     // Returns 1 when facing right and -1 when facing left
@@ -191,14 +153,12 @@ public class PlayerController : MonoBehaviour
     }
 
     // Returns true when grounded
-    public bool IsGrounded()
-    {
+    public bool IsGrounded() {
         return grounded;
     }
 
     // Set the velocity of the player
-    public void SetVelocity(Vector2 velocity)
-    {
+    public void SetVelocity(Vector2 velocity) {
         this.velocity = velocity;
     }
 
