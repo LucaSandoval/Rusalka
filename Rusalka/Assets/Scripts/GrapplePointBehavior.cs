@@ -9,7 +9,7 @@ public class GrapplePointBehavior : MonoBehaviour
 {
     // Distance that grapple points can be targetted
     [Tooltip("Interactible radius around grapple point")]
-    [SerializeField] private float TriggerRange = 5f;
+    public float TriggerRange = 5f;
     [SerializeField] private bool DrawDebug = false;
 
     // Is this grapple point a selectible target
