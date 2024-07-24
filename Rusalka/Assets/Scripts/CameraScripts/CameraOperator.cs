@@ -8,9 +8,11 @@ using UnityEngine;
 public class CameraOperator : Singleton<CameraOperator>
 {
     private float shakeTime;
+    // private GameObject[] focusPoints;
     void Start(){
         shakeTime = 0f;
         dynamicTarget = GameObject.FindWithTag("Player").transform;
+        // focusPoints = GameObject.FindGameObjectsWithTag("FocusPoint");
     }
     // private variable storing camera position
     private Vector3 cameraPos = new(0,0,-10f);    
@@ -193,8 +195,8 @@ public class CameraOperator : Singleton<CameraOperator>
         switch(cameraTarget){
             case Target.Dynamic:
                 cameraPos = new Vector3(
-                    (xAxisMoveEnabled ? dynamicTarget.position.x : cameraPos.x) - xAxisOffset, 
-                    (yAxisMoveEnabled ? dynamicTarget.position.y : cameraPos.y) - yAxisOffset, 
+                    (xAxisMoveEnabled ? dynamicTarget.position.x - xAxisOffset : cameraPos.x) , 
+                    (yAxisMoveEnabled ? dynamicTarget.position.y - yAxisOffset : cameraPos.y) , 
                     -10f);
                 transform.position = Vector3.Slerp(
                     transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
