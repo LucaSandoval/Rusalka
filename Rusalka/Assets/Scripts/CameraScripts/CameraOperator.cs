@@ -44,12 +44,6 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private bool xAxisShakeEnabled = true;
     [SerializeField] private bool yAxisShakeEnabled = true;
     /// <summary>
-    /// Sets a point which camera will move towards and changes _FollowTarget to FollowTarget.Static
-    /// </summary>
-    /// <param name="X"></param>
-    /// <param name="Y"></param>
-    /// <param name="Z"></param>
-    /// <summary>
     /// Changes the size of camera to a specified size
     /// </summary>
     public void ResizeCamera(Camera C, float Size){
