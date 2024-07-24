@@ -193,8 +193,8 @@ public class CameraOperator : Singleton<CameraOperator>
         switch(cameraTarget){
             case Target.Dynamic:
                 cameraPos = new Vector3(
-                    xAxisMoveEnabled ? dynamicTarget.position.x : cameraPos.x, 
-                    yAxisMoveEnabled ? dynamicTarget.position.y : cameraPos.y, 
+                    (xAxisMoveEnabled ? dynamicTarget.position.x : cameraPos.x) - xAxisOffset, 
+                    (yAxisMoveEnabled ? dynamicTarget.position.y : cameraPos.y) - yAxisOffset, 
                     -10f);
                 transform.position = Vector3.Slerp(
                     transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
