@@ -65,6 +65,7 @@ public class GrapplePointBehavior : MonoBehaviour
         return interactible;
     }
 
+    /*
     // Report that the player is no longer grappling to point on enter
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -84,4 +85,5 @@ public class GrapplePointBehavior : MonoBehaviour
             collision.gameObject.GetComponent<GrappleBehavior>().SetInGrapple(false);
         }
     }
+    */
 }
