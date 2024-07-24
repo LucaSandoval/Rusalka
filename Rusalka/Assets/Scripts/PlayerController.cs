@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [Header("Swim")]
     [SerializeField] private float SwimSpeed; // The horizontal movement speed while swimming
     [SerializeField] private float SwimSink; // How hard gravity affects you in the water
+    [SerializeField] private float SwimExitForce; // How hard the player jumps out of water
 
     private int facing; // the direction the player is facing
     private bool grounded; // whether or not the player is standing on the ground
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr; // the player's sprite
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
+    private float currSwimSpeed;
 
     public delegate void PlayerJumpEvent();
     public event PlayerJumpEvent OnPlayerJumped;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
         facing = 1;
         inGrapple = false;
         currFloatGrav = 0;
+        currSwimSpeed = 0;
 
         // scales values based on the size of the character
         currCoyoteTime = CoyoteTime;
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour
         AirResistance *= transform.localScale.y;
         SwimSpeed *= transform.localScale.x;
         SwimSink *= transform.localScale.y;
+        SwimExitForce *= transform.localScale.y;
     }
 
     // Update is called once per frame
@@ -148,8 +152,13 @@ public class PlayerController : MonoBehaviour
             isFloat = false;
             velocity.x = Input.GetAxisRaw("Horizontal");
             velocity.y = Input.GetAxisRaw("Vertical");
+            if (velocity.x != 0 || velocity.y != 0) {
+                currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+            }
+            else currSwimSpeed = 0;
+            print(currSwimSpeed);
             velocity.Normalize();
-            velocity *= SwimSpeed;
+            velocity *= currSwimSpeed;
             if(velocity.x == 0 && velocity.y == 0) {
                 velocity.y -= SwimSink * Time.deltaTime;
             }
@@ -168,6 +177,10 @@ public class PlayerController : MonoBehaviour
                 spr.flipX = true;
             }
         }
+
+        if (!inWater) {
+            currSwimSpeed = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -177,7 +190,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"))
+        || Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .5f), LayerMask.GetMask("Slope"));
         if (grounded)
         {
             inGrapple = false;
@@ -185,7 +199,8 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"))
+        || Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .5f), LayerMask.GetMask("Slope"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -199,6 +214,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Water")
         {
+            if (velocity.y > 0)
+            {
+                velocity.y = SwimExitForce * (currSwimSpeed / SwimSpeed);
+            }
             inWater = false;
         }
     }

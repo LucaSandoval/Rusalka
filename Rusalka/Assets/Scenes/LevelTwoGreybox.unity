@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 69522292}
   - component: {fileID: 69522294}
   - component: {fileID: 69522293}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 194681912}
   - component: {fileID: 194681913}
   - component: {fileID: 194681914}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1192,7 +1192,7 @@ GameObject:
   - component: {fileID: 259941241}
   - component: {fileID: 259941242}
   - component: {fileID: 259941243}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1322,7 @@ GameObject:
   - component: {fileID: 289101091}
   - component: {fileID: 289101092}
   - component: {fileID: 289101093}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1537,7 +1537,7 @@ GameObject:
   - component: {fileID: 399046621}
   - component: {fileID: 399046622}
   - component: {fileID: 399046623}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Mast (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2266,7 +2266,7 @@ GameObject:
   - component: {fileID: 649771832}
   - component: {fileID: 649771833}
   - component: {fileID: 649771834}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Mast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2526,7 +2526,7 @@ GameObject:
   - component: {fileID: 703669828}
   - component: {fileID: 703669830}
   - component: {fileID: 703669829}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2667,7 +2667,7 @@ GameObject:
   - component: {fileID: 787370561}
   - component: {fileID: 787370562}
   - component: {fileID: 787370563}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3422,7 +3422,7 @@ GameObject:
   - component: {fileID: 950617579}
   - component: {fileID: 950617581}
   - component: {fileID: 950617580}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3552,7 +3552,7 @@ GameObject:
   - component: {fileID: 966319165}
   - component: {fileID: 966319167}
   - component: {fileID: 966319166}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3947,7 +3947,7 @@ GameObject:
   - component: {fileID: 1082355565}
   - component: {fileID: 1082355566}
   - component: {fileID: 1082355567}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4223,7 +4223,7 @@ GameObject:
   - component: {fileID: 1113979452}
   - component: {fileID: 1113979453}
   - component: {fileID: 1113979454}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Mast (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5238,7 +5238,7 @@ GameObject:
   - component: {fileID: 1477967690}
   - component: {fileID: 1477967692}
   - component: {fileID: 1477967691}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5368,7 +5368,7 @@ GameObject:
   - component: {fileID: 1522963095}
   - component: {fileID: 1522963097}
   - component: {fileID: 1522963096}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5498,7 +5498,7 @@ GameObject:
   - component: {fileID: 1524464161}
   - component: {fileID: 1524464163}
   - component: {fileID: 1524464162}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Rock (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6880,7 +6880,7 @@ GameObject:
   - component: {fileID: 1874855666}
   - component: {fileID: 1874855667}
   - component: {fileID: 1874855668}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}

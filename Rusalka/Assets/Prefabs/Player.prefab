@@ -136,8 +136,9 @@ MonoBehaviour:
   ReleaseSpeed: 5
   AirResistance: 12
   CoyoteTime: 0.07
-  SwimSpeed: 1.4
+  SwimSpeed: 7
   SwimSink: 40
+  SwimExitForce: 13
 --- !u!61 &7233582519964086166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,6 +202,7 @@ MonoBehaviour:
   DrawDebug: 0
   GrappleHairRenderPositionOffset: 0
   GrappleAngleForgiveness: 0
+  DevDebugMovement: 0
 --- !u!120 &8622034474380833248
 LineRenderer:
   serializedVersion: 2

@@ -241,11 +241,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!4 &176124093 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
-  m_PrefabInstance: {fileID: 1883239738}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336097151
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,18 +476,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraSpeed: 12
-  ZoomSpeed: 4
-  DynamicTarget: {fileID: 176124093}
-  StaticPoint: {x: 0, y: 0, z: -10}
-  NormalSize: 12
-  VistaSize: 25
-  _FollowTarget: 0
-  _CameraMode: 0
-  IsShaking: 0
-  ShakeStrength: 0.35
-  XAxisShakeEnabled: 1
-  YAxisShakeEnabled: 1
+  cameraSpeed: 12
+  zoomSpeed: 4
+  dynamicTarget: {fileID: 0}
+  staticPoint: {x: 0, y: 0, z: -10}
+  normalSize: 12
+  vistaSize: 25
+  cameraTarget: 0
+  cameraMode: 0
+  isShaking: 0
+  shakeStrength: 0.35
+  xAxisShakeEnabled: 1
+  yAxisShakeEnabled: 1
+  xAxisOffset: 0.1
+  yAxisOffset: 0.1
+  xAxisMoveEnabled: 1
+  yAxisMoveEnabled: 1
 --- !u!1 &518489777
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +804,10 @@ PrefabInstance:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: SwimSpeed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8488810274593946015, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Name
