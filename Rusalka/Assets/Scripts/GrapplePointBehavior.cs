@@ -11,10 +11,22 @@ public class GrapplePointBehavior : MonoBehaviour
     [Tooltip("Interactible radius around grapple point")]
     public float TriggerRange = 5f;
     [SerializeField] private bool DrawDebug = false;
+    private LineRenderer lineRenderer;
+    private int Segments = 36;
 
     // Is this grapple point a selectible target
     private bool interactible = true;
 
+    private void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+        lineRenderer.positionCount = Segments + 1;
+        lineRenderer.useWorldSpace = true;
+
+        DrawVisibleCircle();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -63,5 +75,17 @@ public class GrapplePointBehavior : MonoBehaviour
     public bool IsInteractible()
     {
         return interactible;
+    }
+
+   
+    private void DrawVisibleCircle()
+    {
+        float angle = 0f;
+        for (int i = 0; i <= Segments; i++)
+        {
+            angle += Mathf.PI * 2 / Segments;
+            Vector3 newPoint = transform.position + new Vector3(Mathf.Cos(angle) * TriggerRange, Mathf.Sin(angle) * TriggerRange, 0f);
+            lineRenderer.SetPosition(i, newPoint);
+        }
     }
 }
