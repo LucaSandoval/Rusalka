@@ -174,6 +174,7 @@ public class CameraZone : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D collider){
         if(collider.CompareTag("Player") && CameraOperator.Instance != null && hasEntered){ 
+            hasEntered = false;
             if (!hasReset) Reset();
             currNumTimes++;
             if(!notTemporary && currNumTimes >= howManyTimes){
