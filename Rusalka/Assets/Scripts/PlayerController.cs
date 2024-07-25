@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
         }
         else currFloatGrav = 0;
         // Facing direction
-        if (Math.Abs(velocity.x) >= MovementSpeed)
+        if (Math.Abs(velocity.x) >= 0.5f)
         {
             Debug.Log(velocity.x);
             facing = (int)Mathf.Sign(velocity.x);
