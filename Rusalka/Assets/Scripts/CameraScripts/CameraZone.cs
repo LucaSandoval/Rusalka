@@ -6,8 +6,6 @@ public class CameraZone : MonoBehaviour
 {
     private Transform player;
     private PlayerController playerController;
-    //prevents OnTriggerExit2D from calling the first time the player enters the collider... why is this even happening???
-    private bool hasEntered = false;
     void Start(){
         player = GameObject.FindWithTag("Player").transform;
         staticPoint.z = -10f;
@@ -159,7 +157,6 @@ public class CameraZone : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null)
        {
-            hasEntered = true;
             hasReset = false;
             if(changeCameraMode) ChangeCameraMode();
             if(changeCameraSize) ChangeCameraSize();
@@ -173,8 +170,7 @@ public class CameraZone : MonoBehaviour
        }
     }
     public void OnTriggerExit2D(Collider2D collider){
-        if(collider.CompareTag("Player") && CameraOperator.Instance != null && hasEntered){ 
-            hasEntered = false;
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){ 
             if (!hasReset) Reset();
             currNumTimes++;
             if(!notTemporary && currNumTimes >= howManyTimes){
