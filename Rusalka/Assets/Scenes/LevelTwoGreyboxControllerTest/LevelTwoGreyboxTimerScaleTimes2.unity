@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: TriggerRange
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4646,6 +4646,10 @@ PrefabInstance:
       propertyPath: DrawDebug
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: TriggerRange
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.08
@@ -7623,7 +7627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: TriggerRange
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
