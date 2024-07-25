@@ -167,7 +167,6 @@ public class CameraZone : MonoBehaviour
     }
     public IEnumerator StopPlayer(){
         playerController.SetCanMove(false);
-        Debug.Log("done");
         yield return new WaitForSeconds(seconds);
         playerController.SetCanMove(true);
         Reset();
