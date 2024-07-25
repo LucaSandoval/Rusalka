@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 46786353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7899853, w: 0.61312586}
-  m_LocalPosition: {x: 53.1, y: 20.8, z: -0.2548226}
-  m_LocalScale: {x: 24.338203, y: 0.6704753, z: 1}
+  m_LocalPosition: {x: 54.3287, y: 25.5965, z: -0.2548226}
+  m_LocalScale: {x: 14.434989, y: 0.6704753, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1830978015}
@@ -410,8 +410,8 @@ Transform:
   m_GameObject: {fileID: 75973265}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.4154079, w: 0.90963525}
-  m_LocalPosition: {x: 27.39, y: 11.94, z: -0.2548226}
-  m_LocalScale: {x: 12.425693, y: 0.6704753, z: 1}
+  m_LocalPosition: {x: 24.8277, y: 14.3323, z: -0.2548226}
+  m_LocalScale: {x: 19.24647, y: 0.6704753, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1830978015}
@@ -2415,13 +2415,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703669827}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.10505096, w: 0.99446684}
-  m_LocalPosition: {x: 51.6, y: 17.3, z: -0.2548226}
-  m_LocalScale: {x: 16.268959, y: 0.6704753, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.09670028, w: 0.99531364}
+  m_LocalPosition: {x: 47.93, y: 17.88, z: -0.2548226}
+  m_LocalScale: {x: 9.906169, y: 0.6704753, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1830978015}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.06}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.098}
 --- !u!61 &703669829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4705,11 +4705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.1
+      value: 18.4
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.z
