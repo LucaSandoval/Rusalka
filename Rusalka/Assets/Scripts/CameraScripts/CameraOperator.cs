@@ -15,7 +15,12 @@ public class CameraOperator : Singleton<CameraOperator>
         // focusPoints = GameObject.FindGameObjectsWithTag("FocusPoint");
     }
     // private variable storing camera position
-    private Vector3 cameraPos = new(0,0,-10f);    
+    private Vector3 cameraPos = new(0,0,-10f);
+    [SerializeField] private float minXBoundary;
+    [SerializeField] private float maxXBoundary;
+
+    [SerializeField] private float minYBoundary;
+    [SerializeField] private float maxYBoundary;        
     // How fast will the camera follow player
     [SerializeField] private float cameraSpeed = 12f;
     // How fast will the camera zoom in and out
@@ -185,9 +190,11 @@ public class CameraOperator : Singleton<CameraOperator>
         // moves the camera as specified by the target
         switch(cameraTarget){
             case Target.Dynamic:
+                float x = dynamicTarget.position.x - xAxisOffset;
+                float y = dynamicTarget.position.y - yAxisOffset;
                 cameraPos = new Vector3(
-                    xAxisMoveEnabled ? dynamicTarget.position.x - xAxisOffset : cameraPos.x , 
-                    yAxisMoveEnabled ? dynamicTarget.position.y - yAxisOffset : cameraPos.y , 
+                    xAxisMoveEnabled ? (x > maxXBoundary ? maxXBoundary : (x < minXBoundary ? minXBoundary : x)) : cameraPos.x , 
+                    yAxisMoveEnabled ? (y > maxYBoundary ? maxYBoundary : (y < minYBoundary ? minYBoundary : y)) : cameraPos.y , 
                     -10f);
                 transform.position = Vector3.Slerp(
                     transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
