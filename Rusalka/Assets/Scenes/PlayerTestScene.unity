@@ -209,9 +209,9 @@ MonoBehaviour:
   changeCameraOffset: 0
   xAxisOffset: 0.1
   yAxisOffset: 0.1
-  enableCameraShake: 0
-  xAxisShake: 0
-  yAxisShake: 0
+  enableCameraShake: 1
+  xAxisShake: 1
+  yAxisShake: 1
   shakeStrength: 0.4
   lockXAxis: 0
   lockYAxis: 0
@@ -219,6 +219,8 @@ MonoBehaviour:
   changeZoomSpeed: 0
   camSpeed: 0
   zoomSpeed: 0
+  stopPlayerMovement: 1
+  seconds: 2
 --- !u!4 &232496539
 Transform:
   m_ObjectHideFlags: 0
