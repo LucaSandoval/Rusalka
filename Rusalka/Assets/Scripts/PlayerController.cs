@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 slopeCheckPos = transform.position - new Vector3(0f, collide.bounds.extents.y);
                 if (grounded)
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(slopeCheckPos, Vector2.down, 0.1f, LayerMask.GetMask("Floor"));
+                    RaycastHit2D hit = Physics2D.Raycast(slopeCheckPos, Vector2.down, 0.5f, LayerMask.GetMask("Floor"));
                     if (hit && hit.transform.gameObject.layer == 6)
                     {
                         Debug.DrawRay(hit.point, hit.normal, Color.green);
@@ -241,6 +241,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.sharedMaterial = HighFriction;
         }
+
+        //Debug.DrawLine(new Vector2(transform.position.x + .001f, transform.position.y - collide.bounds.extents.y),
+        //    new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y - .01f), Color.yellow);
     }
 
     private void FixedUpdate()
@@ -250,8 +253,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x + .001f, transform.position.y - collide.bounds.extents.y), 
-            new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
+        grounded = CheckForGrounded();
         if (grounded)
         {
             inGrapple = false;
@@ -260,8 +262,15 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y), 
-            new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
+        grounded = CheckForGrounded();
+    }
+
+    private bool CheckForGrounded()
+    {
+        float xPadding = 0.001f;
+        float yPadding = 0.01f;
+        return Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
+            new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
