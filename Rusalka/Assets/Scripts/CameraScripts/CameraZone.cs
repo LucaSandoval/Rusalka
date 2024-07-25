@@ -53,8 +53,8 @@ public class CameraZone : MonoBehaviour
     [SerializeField] private bool stopPlayerMovement = false;
     [SerializeField] private float seconds = 0f;
     [Header("Is the Zone Temporary")]
-    [SerializeField] private bool notTemporary = true;
-    [SerializeField] private int howManyTimes;
+    [SerializeField] private bool Temporary = false;
+    [SerializeField] private int howManyTimes = 1;
     private int currNumTimes;
     public void ChangeCameraSpeed(){
         ogCamSpeed = CameraOperator.Instance.GetCameraSpeed();
@@ -154,30 +154,6 @@ public class CameraZone : MonoBehaviour
     public void ResetZoomSpeed(){
         CameraOperator.Instance.SetZoomSpeed(ogZoomSpeed);
     }
-    public void OnTriggerEnter2D(Collider2D collider){
-       if(collider.CompareTag("Player") && CameraOperator.Instance != null)
-       {
-            hasReset = false;
-            if(changeCameraMode) ChangeCameraMode();
-            if(changeCameraSize) ChangeCameraSize();
-            if(changeCameraTarget) ChangeCameraTarget();
-            if(enableCameraShake) ChangeCameraShake();
-            if(changeCameraOffset) ChangeCameraOffset();
-            if(lockXAxis || lockYAxis) ChangeCameraLock();
-            if(changeCameraSpeed) ChangeCameraSpeed();
-            if(changeZoomSpeed) ChangeZoomSpeed();
-            if(stopPlayerMovement) StartCoroutine(StopPlayer());
-       }
-    }
-    public void OnTriggerExit2D(Collider2D collider){
-        if(collider.CompareTag("Player") && CameraOperator.Instance != null){ 
-            if (!hasReset) Reset();
-            currNumTimes++;
-            if(!notTemporary && currNumTimes >= howManyTimes){
-                Destroy(gameObject);
-            }
-        }
-    }
     public void Reset(){
         if(changeCameraMode) ResetCameraMode();
         if(changeCameraSize) ResetCameraSize();            
@@ -195,5 +171,29 @@ public class CameraZone : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         playerController.SetCanMove(true);
         Reset();
+    }    
+    public void OnTriggerEnter2D(Collider2D collider){
+       if(collider.CompareTag("Player") && CameraOperator.Instance != null)
+       {
+            hasReset = false;
+            if(changeCameraMode) ChangeCameraMode();
+            if(changeCameraSize) ChangeCameraSize();
+            if(changeCameraTarget) ChangeCameraTarget();
+            if(enableCameraShake) ChangeCameraShake();
+            if(changeCameraOffset) ChangeCameraOffset();
+            if(lockXAxis || lockYAxis) ChangeCameraLock();
+            if(changeCameraSpeed) ChangeCameraSpeed();
+            if(changeZoomSpeed) ChangeZoomSpeed();
+            if(stopPlayerMovement) StartCoroutine(StopPlayer());
+       }
+    }
+    public void OnTriggerExit2D(Collider2D collider){
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null){ 
+            if(!hasReset) Reset();
+            if(Temporary){
+                currNumTimes++;
+                if (currNumTimes >= howManyTimes) Destroy(gameObject);
+            }
+        }
     }
 }
