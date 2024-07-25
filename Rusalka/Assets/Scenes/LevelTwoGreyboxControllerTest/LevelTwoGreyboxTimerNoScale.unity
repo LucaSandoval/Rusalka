@@ -7208,6 +7208,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1867730169 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+  m_PrefabInstance: {fileID: 390555655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1874855665
 GameObject:
   m_ObjectHideFlags: 0
@@ -7729,9 +7734,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minXBoundary: -1000
+  maxXBoundary: 1000
+  minYBoundary: -1000
+  maxYBoundary: 1000
   cameraSpeed: 12
   zoomSpeed: 4
-  dynamicTarget: {fileID: 0}
+  dynamicTarget: {fileID: 1867730169}
   staticPoint: {x: 0, y: 0, z: -10}
   normalSize: 12
   vistaSize: 25
