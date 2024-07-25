@@ -217,7 +217,6 @@ public class PlayerController : MonoBehaviour
         // Facing direction
         if (Math.Abs(velocity.x) >= 0.5f)
         {
-            Debug.Log(velocity.x);
             facing = (int)Mathf.Sign(velocity.x);
             if (facing == 1)
             {
