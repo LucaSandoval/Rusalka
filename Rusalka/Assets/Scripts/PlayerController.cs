@@ -217,7 +217,6 @@ public class PlayerController : MonoBehaviour
         // Facing direction
         if (Math.Abs(velocity.x) >= 0.5f)
         {
-            Debug.Log(velocity.x);
             facing = (int)Mathf.Sign(velocity.x);
             if (facing == 1)
             {
@@ -251,7 +250,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x + .001f, transform.position.y - collide.bounds.extents.y), 
+            new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
         if (grounded)
         {
             inGrapple = false;
@@ -260,7 +260,8 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y), 
+            new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
