@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZone : MonoBehaviour
 {
     private Transform player;
     private PlayerController playerController;
+    //prevents OnTriggerExit2D from calling the first time the player enters the collider... why is this even happening???
+    private bool hasEntered = false;
     void Start(){
         player = GameObject.FindWithTag("Player").transform;
         staticPoint.z = -10f;
         playerController = player.GetComponent<PlayerController>();
+        currNumTimes = 0;
     }
     private bool hasReset = false;
     [Header("Camera Mode")]
@@ -52,6 +54,10 @@ public class CameraZone : MonoBehaviour
     [Header("Pause Player Movement")]
     [SerializeField] private bool stopPlayerMovement = false;
     [SerializeField] private float seconds = 0f;
+    [Header("Is the Zone Temporary")]
+    [SerializeField] private bool notTemporary = true;
+    [SerializeField] private int howManyTimes;
+    private int currNumTimes;
     public void ChangeCameraSpeed(){
         ogCamSpeed = CameraOperator.Instance.GetCameraSpeed();
         CameraOperator.Instance.SetCameraSpeed(camSpeed);
@@ -153,7 +159,7 @@ public class CameraZone : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null)
        {
-            Debug.Log("Its working");
+            hasEntered = true;
             hasReset = false;
             if(changeCameraMode) ChangeCameraMode();
             if(changeCameraSize) ChangeCameraSize();
@@ -167,7 +173,13 @@ public class CameraZone : MonoBehaviour
        }
     }
     public void OnTriggerExit2D(Collider2D collider){
-        if(collider.CompareTag("Player") && CameraOperator.Instance != null && !hasReset) Reset();
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null && hasEntered){ 
+            if (!hasReset) Reset();
+            currNumTimes++;
+            if(!notTemporary && currNumTimes >= howManyTimes){
+                Destroy(gameObject);
+            }
+        }
     }
     public void Reset(){
         if(changeCameraMode) ResetCameraMode();
@@ -178,7 +190,7 @@ public class CameraZone : MonoBehaviour
         if(lockXAxis || lockYAxis) ResetCameraLock();
         if(changeCameraSpeed) ResetCameraSpeed();
         if(changeZoomSpeed) ResetZoomSpeed();
-        hasReset = true;
+        hasReset = true;        
     }
     public IEnumerator StopPlayer(){
         playerController.SetCanMove(false);
