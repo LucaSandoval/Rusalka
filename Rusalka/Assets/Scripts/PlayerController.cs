@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float SwimSink; // How hard gravity affects you in the water
     [SerializeField] private float SwimExitForce; // How hard the player jumps out of water
 
+    [Header("Physics Materials")]
+    public PhysicsMaterial2D NoFriction;
+    public PhysicsMaterial2D HighFriction;
+
     private int facing; // the direction the player is facing
     private bool grounded; // whether or not the player is standing on the ground
     private float currCoyoteTime; // the amount of inair time in seconds the player has left while they can still jump
@@ -33,13 +37,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 velocity; // the current x and y velocity of the player
     private Rigidbody2D rb; // the player's rigidbody
-    private BoxCollider2D collide; //the player's collider
+    private Collider2D collide; //the player's collider
     private SpriteRenderer spr; // the player's sprite
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
     private float currSwimSpeed;
     private bool canMove;
     private bool canFloat;
+    private bool OnSlope;
 
     public delegate void PlayerJumpEvent();
     public event PlayerJumpEvent OnPlayerJumped;
@@ -51,7 +56,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 0);
         grounded = false;
-        collide = GetComponent<BoxCollider2D>();
+        collide = GetComponent<Collider2D>();
         spr = GetComponent<SpriteRenderer>();
         facing = 1;
         inGrapple = false;
@@ -78,107 +83,137 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            // BASIC MOVEMENT! (ground and air)
-            if (!inGrapple && !inWater)
+        // BASIC MOVEMENT! (ground and air)
+        if (!inGrapple && !inWater)
+        {
+            // Horizontal movement adapts to speed (for grappling purposes)
+            if ((grounded || Mathf.Abs(velocity.x) <= MovementSpeed) && canMove)
             {
-                // Horizontal movement adapts to speed (for grappling purposes)
-                if ((grounded || Mathf.Abs(velocity.x) <= MovementSpeed) && canMove)
+                // Slope check
+                Vector2 slopeNormalPerp = new Vector2();
+                Vector2 slopeCheckPos = transform.position - new Vector3(0f, collide.bounds.extents.y);
+                if (grounded)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(slopeCheckPos, Vector2.down, 0.1f, LayerMask.GetMask("Floor"));
+                    if (hit && hit.transform.gameObject.layer == 6)
+                    {
+                        Debug.DrawRay(hit.point, hit.normal, Color.green);
+                        slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
+                        Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
+                        float slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
+                        OnSlope = slopeDownAngle > 0.1f;
+                    }
+                    else
+                    {
+                        OnSlope = false;
+                    }
+                }
+                else
+                {
+                    OnSlope = false;
+                }
+
+                if (OnSlope)
+                {
+                    velocity.x = -slopeNormalPerp.x * MovementSpeed * Input.GetAxisRaw("Horizontal");
+                    velocity.y = -slopeNormalPerp.y * MovementSpeed * Input.GetAxisRaw("Horizontal");
+                }
+                else
                 {
                     velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
                 }
-                else
+            }
+            else
+            {
+                if (Input.GetAxisRaw("Horizontal") * velocity.x < 0 && canMove)
                 {
-                    if (Input.GetAxisRaw("Horizontal") * velocity.x < 0 && canMove)
-                    {
-                        velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
-                    }
                     velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
                 }
-
-                // JUMP/GRAVITY CODE
-                if (!grounded)
-                {
-                    float currGrav = DownGravityForce;
-                    // Setting the float
-                    if (Input.GetButtonDown("Jump") && canMove && canFloat)
-                    {
-                        velocity.y = currFloatGrav;
-                        isFloat = true;
-                    }
-                    // Unsetting the float
-                    if (Input.GetButtonUp("Jump") && canMove && canFloat)
-                    {
-                        currFloatGrav = Mathf.Min(0, currFloatGrav);
-                        isFloat = false;
-                    }
-
-                    // Changes gravity force
-                    if (velocity.y > 0)
-                    {
-                        currGrav = UpGravityForce;
-                    }
-                    else if (isFloat && canFloat && canMove)
-                    {
-                        currGrav = FloatGravityForce;
-                    }
-
-                    // Subtracts gravity from Y velocity
-                    velocity.y -= currGrav * Time.deltaTime;
-
-                    // Subtracts time from coyote time
-                    currCoyoteTime -= Time.deltaTime;
-                }
-                else
-                {
-                    // Resets if grounded
-                    isFloat = false;
-                    hasJumped = false;
-                    currFloatGrav = 0;
-                    currCoyoteTime = CoyoteTime;
-                    if (velocity.y < 0)
-                    {
-                        velocity.y = 0;
-                    }
-                }
-
-                // Jump
-                if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0 && canMove)
-                {
-                    velocity.y = JumpForce;
-                    OnPlayerJumped?.Invoke();
-                }
-                else
-
-                if (Input.GetButtonUp("Jump") && velocity.y > 0 && canMove && !hasJumped)
-                {
-                    hasJumped = true;
-                    velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
-                }
+                velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
             }
-            // SWIMMING CODE
-            else if (inWater && !inGrapple)
+
+            // JUMP/GRAVITY CODE
+            if (!grounded)
             {
-                currFloatGrav = 0;
-                isFloat = false;
-                if (canMove)
+                float currGrav = DownGravityForce;
+                // Setting the float
+                if (Input.GetButtonDown("Jump") && canMove && canFloat)
                 {
-                    velocity.x = Input.GetAxisRaw("Horizontal");
-                    velocity.y = Input.GetAxisRaw("Vertical");
+                    velocity.y = currFloatGrav;
+                    isFloat = true;
                 }
-                if (velocity.x != 0 || velocity.y != 0)
+                // Unsetting the float
+                if (Input.GetButtonUp("Jump") && canMove && canFloat)
                 {
-                    currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+                    currFloatGrav = Mathf.Min(0, currFloatGrav);
+                    isFloat = false;
                 }
-                else currSwimSpeed = 0;
-                print(currSwimSpeed);
-                velocity.Normalize();
-                velocity *= currSwimSpeed;
-                if (velocity.x == 0 && velocity.y == 0)
+
+                // Changes gravity force
+                if (velocity.y > 0)
                 {
-                    velocity.y -= SwimSink * Time.deltaTime;
+                    currGrav = UpGravityForce;
                 }
+                else if (isFloat && canFloat && canMove)
+                {
+                    currGrav = FloatGravityForce;
+                }
+
+                // Subtracts gravity from Y velocity
+                velocity.y -= currGrav * Time.deltaTime;
+
+                // Subtracts time from coyote time
+                currCoyoteTime -= Time.deltaTime;
             }
-            else currFloatGrav = 0;
+            else
+            {
+                // Resets if grounded
+                isFloat = false;
+                hasJumped = false;
+                currFloatGrav = 0;
+                currCoyoteTime = CoyoteTime;
+            }
+
+            // Jump
+            if (Input.GetButtonDown("Jump") && currCoyoteTime >= 0 && canMove)
+            {
+                velocity.y = JumpForce;
+                grounded = false;
+                OnPlayerJumped?.Invoke();
+                OnSlope = false;
+            }
+            else
+
+            if (Input.GetButtonUp("Jump") && velocity.y > 0 && canMove && !hasJumped)
+            {
+                hasJumped = true;
+                velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
+            }
+        }
+        // SWIMMING CODE
+        else if (inWater && !inGrapple)
+        {
+            currFloatGrav = 0;
+            isFloat = false;
+            if (canMove)
+            {
+                velocity.x = Input.GetAxisRaw("Horizontal");
+                velocity.y = Input.GetAxisRaw("Vertical");
+            }
+            if (velocity.x != 0 || velocity.y != 0)
+            {
+                currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+            }
+            else currSwimSpeed = 0;
+            print(currSwimSpeed);
+            velocity.Normalize();
+            velocity *= currSwimSpeed;
+            if (velocity.x == 0 && velocity.y == 0)
+            {
+                velocity.y -= SwimSink * Time.deltaTime;
+            }
+        }
+        else currFloatGrav = 0;
         // Facing direction
         if (Math.Abs(velocity.x) >= MovementSpeed)
         {
@@ -197,6 +232,16 @@ public class PlayerController : MonoBehaviour
         if (!inWater) {
             currSwimSpeed = 0;
         }
+
+        // Physics Material
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
+        {
+            rb.sharedMaterial = NoFriction;
+        }
+        else
+        {
+            rb.sharedMaterial = HighFriction;
+        }
     }
 
     private void FixedUpdate()
@@ -206,15 +251,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
         if (grounded)
         {
             inGrapple = false;
+            velocity.y = 0;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = false;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
+        {
+            grounded = false;
+        }
+        //grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .01f), LayerMask.GetMask("Floor"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
