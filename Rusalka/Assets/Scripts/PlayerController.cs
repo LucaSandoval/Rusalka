@@ -276,4 +276,11 @@ public class PlayerController : MonoBehaviour
     {
         return inWater;
     }
+    public void SetCanMove(bool canMove) {
+        this.canMove = canMove;
+    }
+    public void SetCanFloat(bool canFloat)
+    {
+        this.canFloat = canFloat;
+    }
 }
