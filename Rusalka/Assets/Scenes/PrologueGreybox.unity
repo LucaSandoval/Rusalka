@@ -404,10 +404,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42ba800072cdfb44dad0806a7a40ab04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minXBoundary: -52
+  maxXBoundary: -39
+  minYBoundary: 0
+  maxYBoundary: 5
   cameraSpeed: 12
   zoomSpeed: 4
   dynamicTarget: {fileID: 441787308}
-  staticPoint: {x: 0, y: 0, z: -10}
+  staticPoint: {x: -46.6592, y: 2.1, z: -10}
   normalSize: 1.88
   vistaSize: 25
   cameraTarget: 1
@@ -1164,7 +1168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1435640165
 Transform:
   m_ObjectHideFlags: 0
@@ -1175,7 +1179,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.58, y: -0.038677692, z: 0.19672835}
-  m_LocalScale: {x: 0.5161203, y: 1, z: 1}
+  m_LocalScale: {x: 0.58063537, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1353749000}
@@ -1213,6 +1217,10 @@ MonoBehaviour:
   changeZoomSpeed: 0
   camSpeed: 10
   zoomSpeed: 0
+  stopPlayerMovement: 0
+  seconds: 0
+  Temporary: 0
+  howManyTimes: 0
 --- !u!61 &1435640167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1982,6 +1990,10 @@ MonoBehaviour:
   changeZoomSpeed: 0
   camSpeed: 10
   zoomSpeed: 0
+  stopPlayerMovement: 0
+  seconds: 0
+  Temporary: 0
+  howManyTimes: 0
 --- !u!1 &1998608584
 GameObject:
   m_ObjectHideFlags: 0
