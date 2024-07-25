@@ -159,8 +159,11 @@ public class PlayerController : MonoBehaviour
             {
                 currFloatGrav = 0;
                 isFloat = false;
-                velocity.x = Input.GetAxisRaw("Horizontal");
-                velocity.y = Input.GetAxisRaw("Vertical");
+                if (canMove)
+                {
+                    velocity.x = Input.GetAxisRaw("Horizontal");
+                    velocity.y = Input.GetAxisRaw("Vertical");
+                }
                 if (velocity.x != 0 || velocity.y != 0)
                 {
                     currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
