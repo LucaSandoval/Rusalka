@@ -16,6 +16,7 @@ public class CameraZone : MonoBehaviour
     [Header("Camera Mode")]
     [SerializeField] private bool changeCameraMode = false;
     [SerializeField] private CameraOperator.CameraMode mode;
+    private CameraOperator.CameraMode ogMode;
     [Header("Camera Size")]
     [SerializeField] private bool changeCameraSize = false;
     [SerializeField] private float Size;
@@ -25,6 +26,9 @@ public class CameraZone : MonoBehaviour
     [SerializeField] private CameraOperator.Target camTarget;
     [SerializeField] private Transform dynamicTarget;
     [SerializeField] private Vector3 staticPoint;
+    private CameraOperator.Target ogTarget;
+    private Transform ogDynamicTarget;
+    private Vector3 ogPoint;
     [Header("Camera Offset")]
     [SerializeField] private bool changeCameraOffset = false;
     [SerializeField] private float xAxisOffset;
@@ -65,6 +69,7 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetZoomSpeed(zoomSpeed);
     }
     public void ChangeCameraMode(){
+        ogMode = CameraOperator.Instance.GetCameraMode();
         CameraOperator.Instance.SetCameraMode(mode);
             
     }
@@ -83,17 +88,20 @@ public class CameraZone : MonoBehaviour
         }
     }
     public void ChangeCameraTarget(){
+        ogMode = CameraOperator.Instance.GetCameraMode();
         switch(camTarget){
                 case CameraOperator.Target.Dynamic:
+                    ogDynamicTarget = CameraOperator.Instance.GetDynamicTarget();
                     CameraOperator.Instance.SetDynamicTarget(dynamicTarget);
                     break;
                 case CameraOperator.Target.Static:
+                    ogPoint = CameraOperator.Instance.GetStaticPoint();
                     CameraOperator.Instance.SetStaticPoint(staticPoint);
                     break;
                 default: 
                     break;    
             }
-            CameraOperator.Instance.SetCameraTarget(camTarget);
+        CameraOperator.Instance.SetCameraTarget(camTarget);
     }
     public void ChangeCameraShake(){
         CameraOperator.Instance.SetIsShaking(true);
@@ -133,8 +141,7 @@ public class CameraZone : MonoBehaviour
         }        
     }
     public void ResetCameraMode(){
-
-        CameraOperator.Instance.SetCameraMode(CameraOperator.CameraMode.Normal);
+        CameraOperator.Instance.SetCameraMode(ogMode);
     }
     public void ResetCameraLock(){
         if (lockXAxis) CameraOperator.Instance.SetXAxisMoveEnabled(true);
@@ -145,8 +152,17 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetYAxisOffset(ogYOffset);
     }
     public void ResetCameraTarget(){
-        CameraOperator.Instance.SetCameraTarget(CameraOperator.Target.Dynamic);
-        CameraOperator.Instance.SetDynamicTarget(player);
+        switch(ogTarget){
+            case CameraOperator.Target.Dynamic:
+                CameraOperator.Instance.SetDynamicTarget(ogDynamicTarget);
+                break;
+            case CameraOperator.Target.Static:
+                CameraOperator.Instance.SetStaticPoint(ogPoint);
+                break;
+            default: 
+                break;
+        }
+        CameraOperator.Instance.SetCameraTarget(ogTarget);
     }
     public void ResetCameraSpeed(){
         CameraOperator.Instance.SetCameraSpeed(ogCamSpeed);
