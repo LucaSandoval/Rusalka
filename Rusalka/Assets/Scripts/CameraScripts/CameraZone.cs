@@ -1,15 +1,20 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZone : MonoBehaviour
 {
     private Transform player;
+    private PlayerController playerController;
+    //prevents OnTriggerExit2D from calling the first time the player enters the collider... why is this even happening???
+    private bool hasEntered = false;
     void Start(){
         player = GameObject.FindWithTag("Player").transform;
         staticPoint.z = -10f;
+        playerController = player.GetComponent<PlayerController>();
+        currNumTimes = 0;
     }
+    private bool hasReset = false;
     [Header("Camera Mode")]
     [SerializeField] private bool changeCameraMode = false;
     [SerializeField] private CameraOperator.CameraMode mode;
@@ -45,7 +50,14 @@ public class CameraZone : MonoBehaviour
     [SerializeField] private float camSpeed;
     [SerializeField] private float zoomSpeed;
     private float ogCamSpeed;
-    private float ogZoomSpeed;
+    private float ogZoomSpeed;    
+    [Header("Pause Player Movement")]
+    [SerializeField] private bool stopPlayerMovement = false;
+    [SerializeField] private float seconds = 0f;
+    [Header("Is the Zone Temporary")]
+    [SerializeField] private bool notTemporary = true;
+    [SerializeField] private int howManyTimes;
+    private int currNumTimes;
     public void ChangeCameraSpeed(){
         ogCamSpeed = CameraOperator.Instance.GetCameraSpeed();
         CameraOperator.Instance.SetCameraSpeed(camSpeed);
@@ -147,6 +159,8 @@ public class CameraZone : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null)
        {
+            hasEntered = true;
+            hasReset = false;
             if(changeCameraMode) ChangeCameraMode();
             if(changeCameraSize) ChangeCameraSize();
             if(changeCameraTarget) ChangeCameraTarget();
@@ -155,19 +169,35 @@ public class CameraZone : MonoBehaviour
             if(lockXAxis || lockYAxis) ChangeCameraLock();
             if(changeCameraSpeed) ChangeCameraSpeed();
             if(changeZoomSpeed) ChangeZoomSpeed();
+            if(stopPlayerMovement) StartCoroutine(StopPlayer());
        }
     }
     public void OnTriggerExit2D(Collider2D collider){
-        if(collider.CompareTag("Player") && CameraOperator.Instance != null)
-        {
-            if(changeCameraMode) ResetCameraMode();
-            if(changeCameraSize) ResetCameraSize();            
-            if(changeCameraTarget) ResetCameraTarget();
-            if(enableCameraShake) ResetCameraShake();
-            if(changeCameraOffset) ResetCameraOffset();
-            if(lockXAxis || lockYAxis) ResetCameraLock();
-            if(changeCameraSpeed) ResetCameraSpeed();
-            if(changeZoomSpeed) ResetZoomSpeed();
+        if(collider.CompareTag("Player") && CameraOperator.Instance != null && hasEntered){ 
+            hasEntered = false;
+            if (!hasReset) Reset();
+            currNumTimes++;
+            if(!notTemporary && currNumTimes >= howManyTimes){
+                Destroy(gameObject);
+            }
         }
+    }
+    public void Reset(){
+        if(changeCameraMode) ResetCameraMode();
+        if(changeCameraSize) ResetCameraSize();            
+        if(changeCameraTarget) ResetCameraTarget();
+        if(enableCameraShake) ResetCameraShake();
+        if(changeCameraOffset) ResetCameraOffset();
+        if(lockXAxis || lockYAxis) ResetCameraLock();
+        if(changeCameraSpeed) ResetCameraSpeed();
+        if(changeZoomSpeed) ResetZoomSpeed();
+        hasReset = true;        
+    }
+    public IEnumerator StopPlayer(){
+        playerController.SetCanMove(false);
+        Debug.Log("done");
+        yield return new WaitForSeconds(seconds);
+        playerController.SetCanMove(true);
+        Reset();
     }
 }

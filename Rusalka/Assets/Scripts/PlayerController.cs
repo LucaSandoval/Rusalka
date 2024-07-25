@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Events;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -81,13 +82,13 @@ public class PlayerController : MonoBehaviour
             if (!inGrapple && !inWater)
             {
                 // Horizontal movement adapts to speed (for grappling purposes)
-                if (grounded || Mathf.Abs(velocity.x) <= MovementSpeed)
+                if ((grounded || Mathf.Abs(velocity.x) <= MovementSpeed) && canMove)
                 {
                     velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
                 }
                 else
                 {
-                    if (Input.GetAxisRaw("Horizontal") * velocity.x < 0)
+                    if (Input.GetAxisRaw("Horizontal") * velocity.x < 0 && canMove)
                     {
                         velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
                     }
@@ -116,7 +117,7 @@ public class PlayerController : MonoBehaviour
                     {
                         currGrav = UpGravityForce;
                     }
-                    else if (isFloat && canFloat)
+                    else if (isFloat && canFloat && canMove)
                     {
                         currGrav = FloatGravityForce;
                     }
@@ -179,8 +180,9 @@ public class PlayerController : MonoBehaviour
             }
             else currFloatGrav = 0;
         // Facing direction
-        if (velocity.x != 0)
+        if (Math.Abs(velocity.x) >= MovementSpeed)
         {
+            Debug.Log(velocity.x);
             facing = (int)Mathf.Sign(velocity.x);
             if (facing == 1)
             {
@@ -204,8 +206,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f),  LayerMask.GetMask("Floor"))
-        || Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .5f), LayerMask.GetMask("Slope"));
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"));
         if (grounded)
         {
             inGrapple = false;
@@ -213,8 +214,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .001f), LayerMask.GetMask("Floor"))
-        || Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + .01f, transform.position.y - collide.bounds.extents.y), new Vector2(transform.position.x + collide.bounds.extents.x - .01f, transform.position.y - collide.bounds.extents.y - .5f), LayerMask.GetMask("Slope"));
+        grounded = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -275,5 +275,12 @@ public class PlayerController : MonoBehaviour
     public bool IsInWater()
     {
         return inWater;
+    }
+    public void SetCanMove(bool canMove) {
+        this.canMove = canMove;
+    }
+    public void SetCanFloat(bool canFloat)
+    {
+        this.canFloat = canFloat;
     }
 }
