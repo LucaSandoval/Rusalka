@@ -55,14 +55,8 @@ public class PlayerAnimator : MonoBehaviour
     private void HandleJump()
      {
          anim.SetFloat("VelocityY", player.GetHorizontalMovementSpeed());
-         if (!player.IsGrounded())
-         {
-             anim.SetBool("Jump", true);
-         }else
-         {
-             anim.SetBool("Jump", false);
-         }
-    }
+         anim.SetBool("IsGrounded", player.IsGrounded());
+     }
 
     private void HandleDirection()
     {
