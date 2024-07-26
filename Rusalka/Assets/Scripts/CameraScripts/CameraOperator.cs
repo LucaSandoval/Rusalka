@@ -15,12 +15,15 @@ public class CameraOperator : Singleton<CameraOperator>
         // focusPoints = GameObject.FindGameObjectsWithTag("FocusPoint");
     }
     // private variable storing camera position
-    private Vector3 cameraPos = new(0,0,-10f);
+    private Vector3 targetPos = new(0,0,-10f);
     [SerializeField] private float minXBoundary;
     [SerializeField] private float maxXBoundary;
 
     [SerializeField] private float minYBoundary;
-    [SerializeField] private float maxYBoundary;        
+    [SerializeField] private float maxYBoundary;
+    // Currently feels way too clunky
+    // [SerializeField] private float minXDistanceFollow;
+    // [SerializeField] private float minYDistanceFollow;
     // How fast will the camera follow player
     [SerializeField] private float cameraSpeed = 12f;
     // How fast will the camera zoom in and out
@@ -66,16 +69,16 @@ public class CameraOperator : Singleton<CameraOperator>
     ///  <list>+Works with all Follow targets and Camera Modes</list>
     /// </summary>    
     public void CameraShake(){
-        Vector3 OgPos = cameraPos;
+        Vector3 OgPos = targetPos;
         transform.position = Vector3.Slerp(transform.position, 
         new Vector3
         (
-            xAxisShakeEnabled ? cameraPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - xAxisOffset : cameraPos.x, 
-            yAxisShakeEnabled ? cameraPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - yAxisOffset : cameraPos.y ,
-            cameraPos.z
+            xAxisShakeEnabled ? targetPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - xAxisOffset : targetPos.x, 
+            yAxisShakeEnabled ? targetPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - yAxisOffset : targetPos.y ,
+            targetPos.z
         ), 
         cameraSpeed/3 * Time.fixedDeltaTime);
-        cameraPos = OgPos;
+        targetPos = OgPos;
     }
     public float GetCameraSpeed(){
         return cameraSpeed;
@@ -211,21 +214,32 @@ public class CameraOperator : Singleton<CameraOperator>
     {
         // fetching main camera object
         Camera Cam = Camera.main;
+        // Current attempt to implement this looks way too clunky
+        // float facing = 1;
+        // bool grounded = true;
+        // if (dynamicTarget.CompareTag("Player"))
+        // {
+        //     facing = dynamicTarget.GetComponent<PlayerController>().Facing().x > 0 ? 1 : -1;
+        //     grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();
+        // }
         // moves the camera as specified by the target
         switch(cameraTarget){
             case Target.Dynamic:
-                float x = dynamicTarget.position.x - xAxisOffset;
-                float y = dynamicTarget.position.y - yAxisOffset;
-                cameraPos = new Vector3(
-                    xAxisMoveEnabled ? (x > maxXBoundary ? maxXBoundary : (x < minXBoundary ? minXBoundary : x)) : cameraPos.x , 
-                    yAxisMoveEnabled ? (y > maxYBoundary ? maxYBoundary : (y < minYBoundary ? minYBoundary : y)) : cameraPos.y , 
-                    -10f);
+                float x = dynamicTarget.position.x;
+                // float x = dynamicTarget.position.x - xAxisOffset * facing;
+                float y = dynamicTarget.position.y;
+                // float y = dynamicTarget.position.y - yAxisOffset;
+                targetPos = new Vector3(0,0,-10f);
+                targetPos.x = xAxisMoveEnabled ? (x > maxXBoundary ? maxXBoundary : x < minXBoundary ? minXBoundary : x) : targetPos.x;
+                    // (Math.Abs(x) > minXDistanceFollow ? x - minXDistanceFollow : transform.position.x ))) : 
+                targetPos.y = yAxisMoveEnabled ? (y > maxYBoundary ? maxYBoundary : y < minYBoundary ? minYBoundary : y) : targetPos.y;
+                    // (Math.Abs(y) > minYDistanceFollow ? y - minYDistanceFollow : transform.position.y ))) : ;
                 transform.position = Vector3.Slerp(
-                    transform.position, cameraPos, cameraSpeed * Time.fixedDeltaTime);
+                    transform.position, targetPos, cameraSpeed * Time.fixedDeltaTime);
                 break;
             case Target.Static:
-                cameraPos = staticPoint;
-                transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed/3 * Time.fixedDeltaTime);
+                targetPos = staticPoint;
+                transform.position = Vector3.Slerp(transform.position, targetPos, cameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
                 break;

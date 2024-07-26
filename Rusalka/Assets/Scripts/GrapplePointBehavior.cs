@@ -13,6 +13,7 @@ public class GrapplePointBehavior : MonoBehaviour
     [SerializeField] private bool DrawDebug = false;
     private LineRenderer lineRenderer;
     private int Segments = 36;
+    public bool renderRadius;
 
     // Is this grapple point a selectible target
     private bool interactible = true;
@@ -23,7 +24,10 @@ public class GrapplePointBehavior : MonoBehaviour
         lineRenderer.positionCount = Segments + 1;
         lineRenderer.useWorldSpace = true;
 
-        DrawVisibleCircle();
+        if (renderRadius)
+        {
+            DrawVisibleCircle();
+        }
     }
     // Update is called once per frame
     void Update()
