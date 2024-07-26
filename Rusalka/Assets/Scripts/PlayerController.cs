@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ReleaseSpeed; //The y velocity of the player when they release jump prematurely. Should be a positive number.
     [SerializeField] private float AirResistance; //Applies when the player is moving very fast.
     [SerializeField] private float CoyoteTime; // the amount of inair time in seconds the player can still jump
-    
+
     [Header("Swim")]
     [SerializeField] private float SwimSpeed; // The horizontal movement speed while swimming
     [SerializeField] private float SwimSink; // How hard gravity affects you in the water
@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
     private bool canFloat;
     private bool OnSlope;
-
+    private Vector3 lastPos;
+    
     public delegate void PlayerJumpEvent();
     public event PlayerJumpEvent OnPlayerJumped;
 
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         canFloat = true;
         hasJumped = false;
+        lastPos = transform.position;
     }
 
     // Update is called once per frame
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         // BASIC MOVEMENT! (ground and air)
         if (!inGrapple && !inWater)
-        {
+        { 
             // Horizontal movement adapts to speed (for grappling purposes)
             if ((grounded || Mathf.Abs(velocity.x) <= MovementSpeed) && canMove)
             {
@@ -194,33 +196,39 @@ public class PlayerController : MonoBehaviour
                 hasJumped = true;
                 velocity.y = Mathf.Min(velocity.y, ReleaseSpeed);
             }
+            
         }
         // SWIMMING CODE
         else if (inWater && !inGrapple)
         {
+            Debug.Log(jumpedInWater + " " + velocity.y + " " + SwimSink * Time.deltaTime);
             currFloatGrav = 0;
             isFloat = false;
-            float swimx = 0;
-            float swimy = 0;
             if (canMove && !jumpedInWater)
             {
-                swimx = Input.GetAxisRaw("Horizontal");
-                swimy = Input.GetAxisRaw("Vertical");
+                velocity.x = Input.GetAxisRaw("Horizontal");
+                velocity.y = Input.GetAxisRaw("Vertical");
             }
 
-            if (swimx == 0 && swimy == 0 && !jumpedInWater)
+            if (!jumpedInWater)
             {
-                currSwimSpeed = 0;
-                velocity.y -= SwimSink * Time.deltaTime;
-            }
-            else if (!jumpedInWater){
-                currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
-                velocity = new Vector2(swimx, swimy);
+                if (velocity.x != 0 || velocity.y != 0)
+                {
+                    currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+                }
+                else currSwimSpeed = 0;
+                velocity.Normalize();
                 velocity *= currSwimSpeed;
             }
-            if (jumpedInWater) {
-                velocity.y += SwimSink * 100 * Time.deltaTime;
-                if (velocity.y >= 0) {
+            if (velocity.x == 0 && velocity.y == 0 && !jumpedInWater)
+            {
+                velocity.y -= SwimSink * Time.deltaTime;
+            }
+            if (jumpedInWater)
+            {
+                velocity.y += SwimSink / 1.5f * Time.deltaTime;
+                if (velocity.y >= 0)
+                {
                     jumpedInWater = false;
                 }
             }
@@ -240,7 +248,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!inWater) {
+        if (!inWater)
+        {
             currSwimSpeed = 0;
         }
 
@@ -254,17 +263,9 @@ public class PlayerController : MonoBehaviour
             rb.sharedMaterial = NoFriction;
         }
 
-        if (inGrapple) {
-            isFloat = false;
-        }
-
-        // Grounded check 
-        if (velocity.y <= 0)
+        if (inGrapple)
         {
-            float xPadding = 0.001f; //0.01f
-            float yPadding = 0.01f;
-            grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
-            new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
+            isFloat = false;
         }
     }
 
@@ -273,9 +274,51 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        grounded = CheckForGrounded();
+        if (grounded)
+        {
+            inGrapple = false;
+            velocity.y = 0;
+        }
+
+        // Check if the player bonked their head
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            // Check if the collision normal indicates a collision from below
+            if (contact.normal.y <= -0.5f)
+            {
+                velocity.y = 0;
+                break;
+            }
+            // Detect horizontal bonk
+            if (Mathf.Abs(contact.normal.x) >= 0.5f)
+            {
+                velocity.x = 0;
+                break;
+            }
+        }
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        grounded = CheckForGrounded();
+    }
+
+    private bool CheckForGrounded()
+    {
+        float xPadding = 0.0f; //0.01f
+        float yPadding = 0.001f;
+        return Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
+            new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Water") {
+        if (collision.tag == "Water")
+        {
             inWater = true;
             if (velocity.y < 0 && !jumpedInWater)
             {
@@ -305,12 +348,14 @@ public class PlayerController : MonoBehaviour
     }
 
     // Returns true when grounded
-    public bool IsGrounded() {
+    public bool IsGrounded()
+    {
         return grounded;
     }
 
     // Set the velocity of the player
-    public void SetVelocity(Vector2 velocity) {
+    public void SetVelocity(Vector2 velocity)
+    {
         this.velocity = velocity;
     }
 
@@ -338,7 +383,8 @@ public class PlayerController : MonoBehaviour
     {
         return inWater;
     }
-    public void SetCanMove(bool canMove) {
+    public void SetCanMove(bool canMove)
+    {
         this.canMove = canMove;
     }
     public void SetCanFloat(bool canFloat)
@@ -351,7 +397,7 @@ public class PlayerController : MonoBehaviour
     {
         return Mathf.Abs(velocity.x);
     }
-    
+
     public float GetHorizontalMovementSpeed()
     {
         return velocity.y;
@@ -361,4 +407,5 @@ public class PlayerController : MonoBehaviour
     {
         return isFloat;
     }
+
 }
