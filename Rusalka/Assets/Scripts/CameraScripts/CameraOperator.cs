@@ -174,6 +174,30 @@ public class CameraOperator : Singleton<CameraOperator>
     public void SetYAxisMoveEnabled(bool boolean){
         yAxisMoveEnabled = boolean;
     }
+    public float GetMinXBoundary(){
+        return minXBoundary;
+    }
+    public void SetMinXBoundary(float f){
+        minXBoundary = f;
+    }
+    public float GetMinYBoundary(){
+        return minYBoundary;
+    }
+    public void SetMinYBoundary(float f){
+        minYBoundary = f;
+    }
+    public float GetMaxXBoundary(){
+        return maxXBoundary;
+    }
+    public void SetMaxXBoundary(float f){
+        maxXBoundary = f;
+    }
+    public float GetMaxYBoundary(){
+        return maxYBoundary;
+    }
+    public void SetMaxYBoundary(float f){
+        maxYBoundary = f;
+    }                 
     void Update(){
         shakeTime += Time.deltaTime; 
         if (isShaking && shakeTime < 1){

@@ -13,6 +13,16 @@ public class CameraZone : MonoBehaviour
         currNumTimes = 0;
     }
     private bool hasReset = false;
+    [Header("Camera Boundary")]
+    [SerializeField] private bool changeCameraBoundaries = false;    
+    [SerializeField] private float minXBoundary;
+    [SerializeField] private float maxXBoundary;
+    [SerializeField] private float minYBoundary;
+    [SerializeField] private float maxYBoundary;
+    private float ogMinXBoundary;
+    private float ogMaxXBoundary;
+    private float ogMinYBoundary;
+    private float ogMaxYBoundary;
     [Header("Camera Mode")]
     [SerializeField] private bool changeCameraMode = false;
     [SerializeField] private CameraOperator.CameraMode mode;
@@ -122,6 +132,16 @@ public class CameraZone : MonoBehaviour
         if (lockXAxis) CameraOperator.Instance.SetXAxisMoveEnabled(false);
         if (lockYAxis) CameraOperator.Instance.SetYAxisMoveEnabled(false);
     }
+    public void ChangeCameraBoundaries(){
+        ogMinXBoundary = CameraOperator.Instance.GetMinXBoundary();
+        ogMaxXBoundary = CameraOperator.Instance.GetMaxXBoundary();
+        ogMinYBoundary = CameraOperator.Instance.GetMinYBoundary();
+        ogMaxYBoundary = CameraOperator.Instance.GetMaxYBoundary();
+        CameraOperator.Instance.SetMinXBoundary(minXBoundary);
+        CameraOperator.Instance.SetMaxXBoundary(maxXBoundary);
+        CameraOperator.Instance.SetMinYBoundary(minYBoundary);
+        CameraOperator.Instance.SetMaxYBoundary(maxYBoundary); 
+    }
     public void ResetCameraShake(){
         CameraOperator.Instance.SetShakeStrength(ogShakeStrength);
         CameraOperator.Instance.SetXAxisShakeEnabled(ogXShake);
@@ -170,6 +190,12 @@ public class CameraZone : MonoBehaviour
     public void ResetZoomSpeed(){
         CameraOperator.Instance.SetZoomSpeed(ogZoomSpeed);
     }
+    public void ResetCameraBoundaries(){
+        CameraOperator.Instance.SetMinXBoundary(ogMinXBoundary);
+        CameraOperator.Instance.SetMaxXBoundary(ogMaxXBoundary);
+        CameraOperator.Instance.SetMinYBoundary(ogMinYBoundary);
+        CameraOperator.Instance.SetMaxYBoundary(ogMaxYBoundary); 
+    }
     public void Reset(){
         if(changeCameraMode) ResetCameraMode();
         if(changeCameraSize) ResetCameraSize();            
@@ -179,6 +205,7 @@ public class CameraZone : MonoBehaviour
         if(lockXAxis || lockYAxis) ResetCameraLock();
         if(changeCameraSpeed) ResetCameraSpeed();
         if(changeZoomSpeed) ResetZoomSpeed();
+        if(changeCameraBoundaries) ResetCameraBoundaries();
         hasReset = true;        
     }
     public IEnumerator StopPlayer(){
@@ -199,6 +226,7 @@ public class CameraZone : MonoBehaviour
             if(lockXAxis || lockYAxis) ChangeCameraLock();
             if(changeCameraSpeed) ChangeCameraSpeed();
             if(changeZoomSpeed) ChangeZoomSpeed();
+            if(changeCameraBoundaries) ChangeCameraBoundaries();
             if(stopPlayerMovement) StartCoroutine(StopPlayer());
        }
     }
