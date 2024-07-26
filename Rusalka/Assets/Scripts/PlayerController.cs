@@ -251,6 +251,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.sharedMaterial = NoFriction;
         }
+
+        if (inGrapple) {
+            isFloat = false;
+        }
     }
 
     private void FixedUpdate()
