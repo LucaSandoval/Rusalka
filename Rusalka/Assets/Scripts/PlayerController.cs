@@ -219,7 +219,7 @@ public class PlayerController : MonoBehaviour
                 velocity *= currSwimSpeed;
             }
             if (jumpedInWater) {
-                velocity.y += SwimSink / 1.5f * Time.deltaTime;
+                velocity.y += SwimSink * 100 * Time.deltaTime;
                 if (velocity.y >= 0) {
                     jumpedInWater = false;
                 }
