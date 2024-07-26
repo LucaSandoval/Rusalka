@@ -7071,7 +7071,6 @@ GameObject:
   - component: {fileID: 1099259367}
   - component: {fileID: 1099259366}
   - component: {fileID: 1099259365}
-  - component: {fileID: 1099259368}
   m_Layer: 6
   m_Name: Square (129)
   m_TagString: Untagged
@@ -7206,21 +7205,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1099259368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099259363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 4
-  FadeDuration: 1
-  Flipped: 0
 --- !u!1 &1113979451
 GameObject:
   m_ObjectHideFlags: 0
@@ -7363,7 +7347,6 @@ GameObject:
   - component: {fileID: 1118181490}
   - component: {fileID: 1118181489}
   - component: {fileID: 1118181488}
-  - component: {fileID: 1118181491}
   m_Layer: 6
   m_Name: Square (127)
   m_TagString: Untagged
@@ -7498,21 +7481,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1118181491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118181486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 2
-  FadeDuration: 1
-  Flipped: 0
 --- !u!1 &1132903630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,7 +7888,6 @@ GameObject:
   - component: {fileID: 1192048681}
   - component: {fileID: 1192048680}
   - component: {fileID: 1192048679}
-  - component: {fileID: 1192048682}
   m_Layer: 6
   m_Name: Square (134)
   m_TagString: Untagged
@@ -8055,21 +8022,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1192048682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192048677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 4
-  FadeDuration: 1
-  Flipped: 0
 --- !u!1 &1200260139
 GameObject:
   m_ObjectHideFlags: 0
@@ -12291,7 +12243,6 @@ GameObject:
   - component: {fileID: 1866636556}
   - component: {fileID: 1866636555}
   - component: {fileID: 1866636554}
-  - component: {fileID: 1866636557}
   m_Layer: 6
   m_Name: Square (136)
   m_TagString: Untagged
@@ -12426,21 +12377,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1866636557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866636552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlipInterval: 3
-  FadeDuration: 1
-  Flipped: 0
 --- !u!4 &1867730169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
