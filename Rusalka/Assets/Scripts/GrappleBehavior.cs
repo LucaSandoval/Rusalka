@@ -53,7 +53,7 @@ public class GrappleBehavior : MonoBehaviour
     void Update()
     {
        
-          if (Input.GetAxisRaw("Fire1") > 0) {
+          if (Input.GetButtonDown("Fire1")) {
             TargetGrapplePoint();
             GrappleSpeedBoost();
           }
