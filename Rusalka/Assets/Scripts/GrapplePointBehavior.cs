@@ -15,6 +15,11 @@ public class GrapplePointBehavior : MonoBehaviour
     private int Segments = 36;
     public bool renderRadius;
 
+    [Tooltip("Speed the player will fly to the grapple point with")]
+    public float GrappleEnterSpeed = 25f;
+    [Tooltip("Speed that the player will be launched once they reach the grapple point")]
+    public float GrappleExitSpeed = 25f;
+
     // Is this grapple point a selectible target
     private bool interactible = true;
 
