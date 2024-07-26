@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerRange: 12
-  DrawDebug: 0
+  DrawDebug: 1
+  renderRadius: 0
 --- !u!120 &4130211962002546013
 LineRenderer:
   serializedVersion: 2

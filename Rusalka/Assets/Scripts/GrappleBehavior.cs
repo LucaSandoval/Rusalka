@@ -16,7 +16,8 @@ public class GrappleBehavior : MonoBehaviour
 
     [Tooltip("Speed the player will fly to the grapple point with")]
     [SerializeField] private float GrappleSpeed = 500f;
-    
+    [Tooltip("Speed that the player will be launched once they reach the grapple point")]
+    [SerializeField] private float GrappleLaunchSpeed = 30f;
     [Tooltip("The time that the player will be unable to grapple to the same grapple point again")]
     [SerializeField] private float GrapplePointExhaustionTime = 0.5f;
     [SerializeField] private bool DrawDebug = false;
@@ -54,9 +55,10 @@ public class GrappleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TargetGrapplePoint();
+       
           if (Input.GetAxisRaw("Fire1") > 0) {
-            GrappleToPoint();
+            TargetGrapplePoint();
+            GrappleSpeedBoost(GrappleSpeed, true);
           }
           // Tool for developers to move freely in the scene
           if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
@@ -70,6 +72,9 @@ public class GrappleBehavior : MonoBehaviour
             {
                 InGrapple = false;
                 PlayerController.SetInGrapple(false);
+                //PlayerController.SetVelocity(new Vector2(GrappleLaunchSpeed, GrappleLaunchSpeed));
+                //GrappleSpeedBoost(GrappleLaunchSpeed, false);
+                //OutOfGrappleLaunch();
             }
         }
         
@@ -123,15 +128,17 @@ public class GrappleBehavior : MonoBehaviour
     /*
      * Launches the player with a given speed to the designated best grapple point if available
      */
-    private void GrappleToPoint()
-    {
-        Rigidbody2D rb = Player.GetComponent<Rigidbody2D>();
+    private void GrappleSpeedBoost(float speed, bool enterGrapple)
+    { 
         if (BestGrapplePoint.Item1)
         {
-            BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
-            PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleSpeed, true);
-            InGrapple = true;
-            OriginalPosition = transform.position;
+            if (InGrapple) BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
+            PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * speed, enterGrapple);
+            if (enterGrapple)
+            {
+                InGrapple = true;
+                OriginalPosition = transform.position;
+            }
         }
     }
     
@@ -158,7 +165,10 @@ public class GrappleBehavior : MonoBehaviour
         {
             LineRenderer.enabled = false;
         }
-        
-        
+    }
+
+    private void OutOfGrappleLaunch()
+    {
+        PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleLaunchSpeed);
     }
 }
