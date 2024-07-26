@@ -24,7 +24,7 @@ public class PlayerAnimator : MonoBehaviour
 
         HandleDirection();
         HandleJump();
-        // HandleFloat();
+        HandleFloat();
         // HandleSwimming();
     }
 
@@ -42,14 +42,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleFloat()
     {
-        if (player.GetIsFloat())
-        {
-            anim.SetBool("IsFloating", true);
-        }
-        else
-        {
-            anim.SetBool("IsFloating", false);
-        }
+        anim.SetBool("IsFloating", player.GetIsFloat());
     }
 
     private void HandleJump()
