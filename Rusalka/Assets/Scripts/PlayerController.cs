@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
     private float currSwimSpeed;
+    private bool jumpedInWater; // Whether or not the player has jumped into the water
     private bool canMove;
     private bool canFloat;
     private bool OnSlope;
@@ -102,7 +103,6 @@ public class PlayerController : MonoBehaviour
                         Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
                         float slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
                         OnSlope = slopeDownAngle > 0.1f;
-                        Debug.Log(slopeDownAngle);
                     }
                     else
                     {
@@ -194,24 +194,33 @@ public class PlayerController : MonoBehaviour
         // SWIMMING CODE
         else if (inWater && !inGrapple)
         {
+            Debug.Log(jumpedInWater + " " + velocity.y + " " + SwimSink * Time.deltaTime);
             currFloatGrav = 0;
             isFloat = false;
-            if (canMove)
+            if (canMove && !jumpedInWater)
             {
                 velocity.x = Input.GetAxisRaw("Horizontal");
                 velocity.y = Input.GetAxisRaw("Vertical");
             }
-            if (velocity.x != 0 || velocity.y != 0)
-            {
-                currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+
+            if (!jumpedInWater) {
+                if (velocity.x != 0 || velocity.y != 0)
+                {
+                    currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+                }
+                else currSwimSpeed = 0;
+                velocity.Normalize();
+                velocity *= currSwimSpeed;
             }
-            else currSwimSpeed = 0;
-            print(currSwimSpeed);
-            velocity.Normalize();
-            velocity *= currSwimSpeed;
-            if (velocity.x == 0 && velocity.y == 0)
+            if (velocity.x == 0 && velocity.y == 0 && !jumpedInWater)
             {
                 velocity.y -= SwimSink * Time.deltaTime;
+            }
+            if (jumpedInWater) {
+                velocity.y += SwimSink / 1.5f * Time.deltaTime;
+                if (velocity.y >= 0) {
+                    jumpedInWater = false;
+                }
             }
         }
         else currFloatGrav = 0;
@@ -275,6 +284,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Water") {
             inWater = true;
+            if (velocity.y < 0 && !jumpedInWater)
+            {
+                velocity.x = 0;
+                jumpedInWater = true;
+            }
         }
     }
 
@@ -287,6 +301,7 @@ public class PlayerController : MonoBehaviour
                 velocity.y = SwimExitForce * (currSwimSpeed / SwimSpeed);
             }
             inWater = false;
+            jumpedInWater = false;
         }
     }
 
