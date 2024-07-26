@@ -352,4 +352,20 @@ public class PlayerController : MonoBehaviour
     {
         this.canFloat = canFloat;
     }
+
+    //Get the value of character speed
+    public float GetMovementSpeed()
+    {
+        return Mathf.Abs(velocity.x);
+    }
+    
+    public float GetHorizontalMovementSpeed()
+    {
+        return velocity.y;
+    }
+
+    public bool GetIsFloat()
+    {
+        return isFloat;
+    }
 }
