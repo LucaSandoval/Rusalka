@@ -107,6 +107,10 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         OnSlope = false;
+                        if (!hit)
+                        {
+                            grounded = false;
+                        }
                     }
                 }
                 else
@@ -146,7 +150,7 @@ public class PlayerController : MonoBehaviour
                 // Unsetting the float
                 if (Input.GetButtonUp("Jump") && canMove && canFloat)
                 {
-                    currFloatGrav = Mathf.Min(0, currFloatGrav);
+                    currFloatGrav = Mathf.Min(0, velocity.y);
                     isFloat = false;
                 }
 
@@ -251,6 +255,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.sharedMaterial = NoFriction;
         }
+
+        if (inGrapple) {
+            isFloat = false;
+        }
     }
 
     private void FixedUpdate()
@@ -274,8 +282,8 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckForGrounded()
     {
-        float xPadding = 0.01f; //0.01f
-        float yPadding = 0.01f;
+        float xPadding = 0.0f; //0.01f
+        float yPadding = 0.001f;
         return Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
             new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
     }
