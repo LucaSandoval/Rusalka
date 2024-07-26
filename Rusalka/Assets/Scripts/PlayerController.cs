@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
                 // Unsetting the float
                 if (Input.GetButtonUp("Jump") && canMove && canFloat)
                 {
-                    currFloatGrav = Mathf.Min(0, currFloatGrav);
+                    currFloatGrav = Mathf.Min(0, velocity.y);
                     isFloat = false;
                 }
 
