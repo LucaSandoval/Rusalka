@@ -198,27 +198,25 @@ public class PlayerController : MonoBehaviour
         // SWIMMING CODE
         else if (inWater && !inGrapple)
         {
-            Debug.Log(jumpedInWater + " " + velocity.y + " " + SwimSink * Time.deltaTime);
             currFloatGrav = 0;
             isFloat = false;
+            float swimx = 0;
+            float swimy = 0;
             if (canMove && !jumpedInWater)
             {
-                velocity.x = Input.GetAxisRaw("Horizontal");
-                velocity.y = Input.GetAxisRaw("Vertical");
+                swimx = Input.GetAxisRaw("Horizontal");
+                swimy = Input.GetAxisRaw("Vertical");
             }
 
-            if (!jumpedInWater) {
-                if (velocity.x != 0 || velocity.y != 0)
-                {
-                    currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
-                }
-                else currSwimSpeed = 0;
-                velocity.Normalize();
-                velocity *= currSwimSpeed;
-            }
-            if (velocity.x == 0 && velocity.y == 0 && !jumpedInWater)
+            if (swimx == 0 && swimy == 0 && !jumpedInWater)
             {
+                currSwimSpeed = 0;
                 velocity.y -= SwimSink * Time.deltaTime;
+            }
+            else if (!jumpedInWater){
+                currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
+                velocity = new Vector2(swimx, swimy);
+                velocity *= currSwimSpeed;
             }
             if (jumpedInWater) {
                 velocity.y += SwimSink / 1.5f * Time.deltaTime;
