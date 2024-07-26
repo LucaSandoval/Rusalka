@@ -59,6 +59,7 @@ public class GrappleBehavior : MonoBehaviour
           if (Input.GetAxisRaw("Fire1") > 0) {
             TargetGrapplePoint();
             GrappleSpeedBoost(GrappleSpeed, true);
+           // print(BestGrapplePoint.Item2 + "Direction Of best 1");
           }
           // Tool for developers to move freely in the scene
           if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
@@ -75,6 +76,7 @@ public class GrappleBehavior : MonoBehaviour
                 //PlayerController.SetVelocity(new Vector2(GrappleLaunchSpeed, GrappleLaunchSpeed));
                 //GrappleSpeedBoost(GrappleLaunchSpeed, false);
                 //OutOfGrappleLaunch();
+                //print(BestGrapplePoint.Item2 + "Dirention of best 2");
             }
         }
         
