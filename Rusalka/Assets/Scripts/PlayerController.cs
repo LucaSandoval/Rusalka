@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
                         Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
                         float slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
                         OnSlope = slopeDownAngle > 0.1f;
+                        Debug.Log(slopeDownAngle);
                     }
                     else
                     {
@@ -233,17 +234,14 @@ public class PlayerController : MonoBehaviour
         }
 
         // Physics Material
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0)
-        {
-            rb.sharedMaterial = NoFriction;
-        }
-        else
+        if ((Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 0) && grounded)
         {
             rb.sharedMaterial = HighFriction;
         }
-
-        //Debug.DrawLine(new Vector2(transform.position.x + .001f, transform.position.y - collide.bounds.extents.y),
-        //    new Vector2(transform.position.x - .001f, transform.position.y - collide.bounds.extents.y - .01f), Color.yellow);
+        else
+        {
+            rb.sharedMaterial = NoFriction;
+        }
     }
 
     private void FixedUpdate()
@@ -267,7 +265,7 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckForGrounded()
     {
-        float xPadding = 0.001f;
+        float xPadding = 0.01f; //0.01f
         float yPadding = 0.01f;
         return Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
             new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
