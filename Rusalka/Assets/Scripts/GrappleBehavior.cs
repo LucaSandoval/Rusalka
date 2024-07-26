@@ -39,6 +39,7 @@ public class GrappleBehavior : MonoBehaviour
     private float DistanceToGrapple = 0;
     private Vector2 OriginalPosition = Vector2.zero;
     [SerializeField] private bool DevDebugMovement = false;
+    private Vector2 lastKnownAngleOfLaunch = Vector2.zero;
 
 
     // Start is called before the first frame update
@@ -58,8 +59,8 @@ public class GrappleBehavior : MonoBehaviour
        
           if (Input.GetAxisRaw("Fire1") > 0) {
             TargetGrapplePoint();
-            GrappleSpeedBoost(GrappleSpeed, true);
-           // print(BestGrapplePoint.Item2 + "Direction Of best 1");
+            GrappleSpeedBoost(GrappleSpeed);
+           print(BestGrapplePoint.Item2 + "Direction Of best 1");
           }
           // Tool for developers to move freely in the scene
           if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
@@ -73,10 +74,8 @@ public class GrappleBehavior : MonoBehaviour
             {
                 InGrapple = false;
                 PlayerController.SetInGrapple(false);
-                //PlayerController.SetVelocity(new Vector2(GrappleLaunchSpeed, GrappleLaunchSpeed));
-                //GrappleSpeedBoost(GrappleLaunchSpeed, false);
-                //OutOfGrappleLaunch();
-                //print(BestGrapplePoint.Item2 + "Dirention of best 2");
+                OutOfGrappleLaunch();
+                print(BestGrapplePoint.Item2 + "Dirention of best 2");
             }
         }
         
@@ -130,17 +129,15 @@ public class GrappleBehavior : MonoBehaviour
     /*
      * Launches the player with a given speed to the designated best grapple point if available
      */
-    private void GrappleSpeedBoost(float speed, bool enterGrapple)
+    private void GrappleSpeedBoost(float speed)
     { 
         if (BestGrapplePoint.Item1)
         {
             if (InGrapple) BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
-            PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * speed, enterGrapple);
-            if (enterGrapple)
-            {
-                InGrapple = true;
-                OriginalPosition = transform.position;
-            }
+            PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * speed, true);
+            InGrapple = true;
+            OriginalPosition = transform.position;
+            lastKnownAngleOfLaunch = BestGrapplePoint.Item2.normalized;
         }
     }
     
@@ -169,8 +166,11 @@ public class GrappleBehavior : MonoBehaviour
         }
     }
 
+    /*
+     * Responsible for setting speed of player out of grapple point
+     */
     private void OutOfGrappleLaunch()
     {
-        PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * GrappleLaunchSpeed);
+        PlayerController.SetVelocity(lastKnownAngleOfLaunch * GrappleLaunchSpeed);
     }
 }
