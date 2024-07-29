@@ -198,7 +198,7 @@ public class CameraOperator : Singleton<CameraOperator>
     public void SetYDistance(float f){
         yDistance = f;
     }
-    private IEnumerator shakeCamera()
+    public IEnumerator ShakeCamera()
     {
         Vector3 cameraPos = transform.position; 
         if (xAxisShakeEnabled)
@@ -275,7 +275,7 @@ public class CameraOperator : Singleton<CameraOperator>
         }
         if (isShaking && shakeTime < 1)
         {
-            StartCoroutine(shakeCamera());
+            StartCoroutine(ShakeCamera());
         }
         if (shakeTime > 1) shakeTime = 0;
     }
