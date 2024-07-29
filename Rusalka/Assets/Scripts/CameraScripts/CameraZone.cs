@@ -99,13 +99,13 @@ public class CameraZone : MonoBehaviour
     }
     public void ChangeCameraTarget(){
         ogMode = CameraOperator.Instance.GetCameraMode();
-        switch(camTarget){
+        ogDynamicTarget = CameraOperator.Instance.GetDynamicTarget();
+        ogPoint = CameraOperator.Instance.GetStaticPoint();
+        switch (camTarget){
                 case CameraOperator.Target.Dynamic:
-                    ogDynamicTarget = CameraOperator.Instance.GetDynamicTarget();
                     CameraOperator.Instance.SetDynamicTarget(dynamicTarget);
                     break;
                 case CameraOperator.Target.Static:
-                    ogPoint = CameraOperator.Instance.GetStaticPoint();
                     CameraOperator.Instance.SetStaticPoint(staticPoint);
                     break;
                 default: 
