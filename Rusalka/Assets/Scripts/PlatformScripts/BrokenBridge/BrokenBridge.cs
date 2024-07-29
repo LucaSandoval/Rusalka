@@ -7,14 +7,11 @@ public class BrokenBridge : MonoBehaviour
 {
     public float TimeToTrigger = 2.5f;
 
+    [SerializeField] private Transform parentTransform;
+
     private bool isActivated = false;
     private float speedWatch = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -25,11 +22,12 @@ public class BrokenBridge : MonoBehaviour
             if (speedWatch >= TimeToTrigger)
             {
                 FirePlatformActivation();
+                enabled = false;
             }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -37,7 +35,7 @@ public class BrokenBridge : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -46,9 +44,9 @@ public class BrokenBridge : MonoBehaviour
         }
     }
 
-    private void FirePlatformActivation()
+    private void FirePlatformActivation()   
     {
         Debug.Log("BrokenBridge::FirePlatformActivation() the platform has been triggered");
-        transform.position -= new Vector3(transform.position.x, transform.position.y,11.0f);
+        parentTransform.position -= new Vector3(parentTransform.position.x, parentTransform.position.y,11.0f);
     }
 }
