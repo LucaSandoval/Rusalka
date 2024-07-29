@@ -11,6 +11,7 @@ public class Interactible : MonoBehaviour
     public float fadeSpeed;
     public static bool inInteraction = false;
     private PlayerController playerController;
+    private Collider2D col;
     // Gameobject if you want to cover something up
     public GameObject privacyCurtain;
 
@@ -23,6 +24,7 @@ public class Interactible : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
+        col = playerController.GetComponent<Collider2D>();
     }
     void Update()
     {
@@ -72,6 +74,8 @@ public class Interactible : MonoBehaviour
     {
         StartCoroutine(FadeToBlackAndBackCouroutine());
         
+        StartCoroutine(RefreshCollider());
+
     }
 
     private IEnumerator FadeToBlackAndBackCouroutine()
@@ -82,7 +86,7 @@ public class Interactible : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration);
         playerController.enabled = true;
         yield return StartCoroutine(Fade(1, 0));
-       
+        
         inInteraction = false;
         
     }
@@ -100,5 +104,18 @@ public class Interactible : MonoBehaviour
             yield return null;
         }
         fadeImage.color = new Color(color.r, color.g, color.b, endAlpha);
+    }
+
+    private IEnumerator RefreshCollider()
+    {
+        yield return new WaitForSeconds(fadeDuration + fadeSpeed);
+        // Disable the collider
+        col.enabled = false;
+
+        // Wait for a frame to ensure the physics system updates
+        yield return null;
+
+        // Re-enable the collider
+        col.enabled = true;
     }
 }

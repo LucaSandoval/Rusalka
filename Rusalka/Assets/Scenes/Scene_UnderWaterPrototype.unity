@@ -25007,6 +25007,8 @@ MonoBehaviour:
   maxXBoundary: 1000
   minYBoundary: -1000
   maxYBoundary: 1000
+  xDistance: 0
+  yDistance: 0
   cameraSpeed: 12
   zoomSpeed: 4
   dynamicTarget: {fileID: 1833303122}
@@ -32321,11 +32323,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 358.64
+      value: 145.9
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.44
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
