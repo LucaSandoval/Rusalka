@@ -20,7 +20,8 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private float maxXBoundary;
     [SerializeField] private float minYBoundary;
     [SerializeField] private float maxYBoundary;
-    // Currently feels way too clunky
+    // xDistance - how far the camera is going to be from the player in x axis when they are moving
+    // yDistance - how far away from the camera player has to move in y axis for it to start following them
     [SerializeField] private float xDistance;
     [SerializeField] private float yDistance;
     // How fast will the camera follow player
