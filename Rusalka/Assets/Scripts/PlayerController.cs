@@ -20,9 +20,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float CoyoteTime; // the amount of inair time in seconds the player can still jump
     
     [Header("Swim")]
-    [SerializeField] private float SwimSpeed; // The horizontal movement speed while swimming
+    [SerializeField] private float SwimSpeed; // The top movement speed while swimming
     [SerializeField] private float SwimSink; // How hard gravity affects you in the water
     [SerializeField] private float SwimExitForce; // How hard the player jumps out of water
+    [SerializeField] private float SwimAcceleration; // how quickly the player accelerates to top speed underwater
+    [SerializeField] private float SwimDecceleration; // how quickly the player decelerates to a stop underwater
 
     [Header("Physics Materials")]
     public PhysicsMaterial2D NoFriction;
@@ -223,28 +225,24 @@ public class PlayerController : MonoBehaviour
                 swimy = Input.GetAxisRaw("Vertical");
             }
 
-            // Acceleration/Deceleration Values
-            float swimAcceleration = 20f;
-            float swimDecceleration = 10f;
-
             float xAccel = 0;
             float yAccel = 0;
             // Seperate accelerate & decelerate on both the x and y axis 
             if (Mathf.Abs(swimx) > 0)
             {
-                xAccel = swimx * Time.deltaTime * swimAcceleration;
+                xAccel = swimx * Time.deltaTime * SwimAcceleration;
             }
             else
             {
-                xAccel = (currSwimSpeed.x > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
+                xAccel = (currSwimSpeed.x > 0) ? -(Time.deltaTime * SwimDecceleration) : (Time.deltaTime * SwimDecceleration);
             }
             if (Mathf.Abs(swimy) > 0)
             {
-                yAccel = swimy * Time.deltaTime * swimAcceleration;
+                yAccel = swimy * Time.deltaTime * SwimAcceleration;
             }
             else
             {
-                yAccel = (currSwimSpeed.y > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
+                yAccel = (currSwimSpeed.y > 0) ? -(Time.deltaTime * SwimDecceleration) : (Time.deltaTime * SwimDecceleration);
             }
 
             currSwimSpeed += new Vector2(xAccel, yAccel);
