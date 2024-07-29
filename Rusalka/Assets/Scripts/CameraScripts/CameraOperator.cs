@@ -46,7 +46,7 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private Target cameraTarget = Target.Dynamic;
     [SerializeField] private CameraMode cameraMode = CameraMode.Normal;
     [SerializeField] private bool isShaking = false;
-    [SerializeField] private float shakeStrength = 0.35f;
+    [SerializeField] private float shakeStrength = 2f;
     [SerializeField] private bool xAxisShakeEnabled = true;
     [SerializeField] private bool yAxisShakeEnabled = true;
     [SerializeField] private float xAxisOffset = 0.1f;
@@ -198,7 +198,7 @@ public class CameraOperator : Singleton<CameraOperator>
     public void SetYDistance(float f){
         yDistance = f;
     }
-    private IEnumerator shakeCamera()
+    public IEnumerator ShakeCamera()
     {
         Vector3 cameraPos = transform.position; 
         if (xAxisShakeEnabled)
@@ -239,7 +239,7 @@ public class CameraOperator : Singleton<CameraOperator>
                         newCameraPosition.x = maxXBoundary;
                     else if (x < minXBoundary) 
                         newCameraPosition.x = minXBoundary;
-                    else if (movementSpeed < 0.1 || isShaking)
+                    else if (movementSpeed < 0.1)
                         newCameraPosition.x = x;
                     else
                         newCameraPosition.x = x + facing * xDistance;
@@ -275,7 +275,7 @@ public class CameraOperator : Singleton<CameraOperator>
         }
         if (isShaking && shakeTime < 1)
         {
-            StartCoroutine(shakeCamera());
+            StartCoroutine(ShakeCamera());
         }
         if (shakeTime > 1) shakeTime = 0;
     }

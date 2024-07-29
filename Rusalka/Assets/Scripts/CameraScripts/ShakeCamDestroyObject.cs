@@ -29,5 +29,4 @@ public class CameraShakeForTime : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
