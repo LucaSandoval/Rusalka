@@ -200,16 +200,14 @@ public class CameraOperator : Singleton<CameraOperator>
     }
     public IEnumerator ShakeCamera()
     {
-        Vector3 cameraPos = transform.position;
-        cameraPos.x += xAxisOffset;
-        cameraPos.y += yAxisOffset;
+        Vector3 cameraPos = transform.position; 
         if (xAxisShakeEnabled)
         {
-            cameraPos.x += UnityEngine.Random.Range(-shakeStrength, shakeStrength);
+            cameraPos.x += UnityEngine.Random.Range(-shakeStrength, shakeStrength) + xAxisOffset;
         }
         if (yAxisShakeEnabled)
         {
-            cameraPos.y += UnityEngine.Random.Range(-shakeStrength, shakeStrength);
+            cameraPos.y += UnityEngine.Random.Range(-shakeStrength, shakeStrength) + yAxisOffset;
         }
         transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed / 3 * Time.fixedDeltaTime);
         yield return new WaitForSeconds(Time.fixedDeltaTime);
