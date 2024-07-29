@@ -213,7 +213,7 @@ public class CameraZone : MonoBehaviour
         playerController.SetCanMove(false);
         yield return new WaitForSeconds(seconds);
         playerController.SetCanMove(true);
-        Reset();
+        //Reset();
     }    
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null)

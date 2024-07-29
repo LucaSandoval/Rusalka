@@ -8,14 +8,11 @@ using UnityEngine;
 public class CameraOperator : Singleton<CameraOperator>
 {
     private float shakeTime;
-    // private GameObject[] focusPoints;
     void Start(){
-        shakeTime = 0f;
         dynamicTarget = GameObject.FindWithTag("Player").transform;
-        // focusPoints = GameObject.FindGameObjectsWithTag("FocusPoint");
+        shakeTime = 0f;
     }
     // private variable storing camera position
-    private Vector3 targetPos = new(0,0,-10f);
     [SerializeField] private float minXBoundary;
     [SerializeField] private float maxXBoundary;
     [SerializeField] private float minYBoundary;
@@ -68,18 +65,6 @@ public class CameraOperator : Singleton<CameraOperator>
     ///  <list>+Uses an "internal" timer</list>
     ///  <list>+Works with all Follow targets and Camera Modes</list>
     /// </summary>    
-    public void CameraShake(){
-        Vector3 OgPos = targetPos;
-        transform.position = Vector3.Slerp(transform.position, 
-        new Vector3
-        (
-            xAxisShakeEnabled ? targetPos.x + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - xAxisOffset : targetPos.x, 
-            yAxisShakeEnabled ? targetPos.y + UnityEngine.Random.Range(-shakeStrength, shakeStrength) - yAxisOffset : targetPos.y ,
-            targetPos.z
-        ), 
-        cameraSpeed/3 * Time.fixedDeltaTime);
-        targetPos = OgPos;
-    }
     public float GetCameraSpeed(){
         return cameraSpeed;
     }
@@ -213,14 +198,20 @@ public class CameraOperator : Singleton<CameraOperator>
     public void SetYDistance(float f){
         yDistance = f;
     }
-    void Update(){
-        shakeTime += Time.deltaTime; 
-        if (isShaking && shakeTime < 1){
-            CameraShake();
+    private IEnumerator shakeCamera()
+    {
+        Vector3 cameraPos = transform.position; 
+        if (xAxisShakeEnabled)
+        {
+            cameraPos.x += UnityEngine.Random.Range(-shakeStrength, shakeStrength) - xAxisOffset;
         }
-        if (shakeTime >= 1){ 
-            shakeTime = 0;
-        }    
+        if (yAxisShakeEnabled)
+        {
+            cameraPos.y += UnityEngine.Random.Range(-shakeStrength, shakeStrength) - yAxisOffset;
+        }
+        transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed / 3 * Time.fixedDeltaTime);
+        yield return new WaitForSeconds(Time.fixedDeltaTime);
+
     }
     void FixedUpdate()
     {
@@ -230,44 +221,43 @@ public class CameraOperator : Singleton<CameraOperator>
         float facing = 1;
         bool grounded = true;
         float movementSpeed = 0;
-        float horizontalSpeed = 0;
+        shakeTime += Time.fixedDeltaTime;
         if (dynamicTarget.CompareTag("Player"))
         {
             facing = dynamicTarget.GetComponent<PlayerController>().Facing().x > 0 ? 1 : -1;
             grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();
             movementSpeed = dynamicTarget.GetComponent<PlayerController>().GetMovementSpeed();
-            horizontalSpeed = dynamicTarget.GetComponent<PlayerController>().GetHorizontalMovementSpeed();
         }
         // moves the camera as specified by the target
         switch(cameraTarget){
             case Target.Dynamic:
                 float x = dynamicTarget.position.x;
                 float y = dynamicTarget.position.y;
-                targetPos = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+                Vector3 newCameraPosition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
                 if (xAxisMoveEnabled){
                     if (x > maxXBoundary) 
-                        targetPos.x = maxXBoundary;
+                        newCameraPosition.x = maxXBoundary;
                     else if (x < minXBoundary) 
-                        targetPos.x = minXBoundary;
-                    else if (movementSpeed < 0.1)
-                        targetPos.x = x;
+                        newCameraPosition.x = minXBoundary;
+                    else if (movementSpeed < 0.1 || isShaking)
+                        newCameraPosition.x = x;
                     else
-                        targetPos.x = x + facing * xDistance;
+                        newCameraPosition.x = x + facing * xDistance;
                 }
                 if (yAxisMoveEnabled){
                     if (y > maxYBoundary)
-                        targetPos.y = maxYBoundary;
+                        newCameraPosition.y = maxYBoundary;
                     else if (y < minYBoundary)
-                        targetPos.y = minYBoundary;
+                        newCameraPosition.y = minYBoundary;
                     else if (grounded || Math.Abs(y - transform.position.y) > yDistance)
-                        targetPos.y = y;
+                        newCameraPosition.y = y;
                 }
                 transform.position = Vector3.Slerp(
-                    transform.position, targetPos, cameraSpeed * Time.fixedDeltaTime);
+                    transform.position, newCameraPosition, cameraSpeed * Time.fixedDeltaTime);
                 break;
             case Target.Static:
-                targetPos = staticPoint;
-                transform.position = Vector3.Slerp(transform.position, targetPos, cameraSpeed/3 * Time.fixedDeltaTime);
+                newCameraPosition = staticPoint;
+                transform.position = Vector3.Slerp(transform.position, newCameraPosition, cameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
                 break;
@@ -283,5 +273,10 @@ public class CameraOperator : Singleton<CameraOperator>
             default: 
                 break;        
         }
+        if (isShaking && shakeTime < 1)
+        {
+            StartCoroutine(shakeCamera());
+        }
+        if (shakeTime > 1) shakeTime = 0;
     }
 }
