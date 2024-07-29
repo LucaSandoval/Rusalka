@@ -41,8 +41,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spr; // the player's sprite
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
-    private float currSwimSpeed;
-    private bool jumpedInWater; // Whether or not the player has jumped into the water
+    private Vector2 currSwimSpeed;
     private bool canMove;
     private bool canFloat;
     private bool OnSlope;
@@ -62,7 +61,7 @@ public class PlayerController : MonoBehaviour
         facing = 1;
         inGrapple = false;
         currFloatGrav = 0;
-        currSwimSpeed = 0;
+        currSwimSpeed = Vector2.zero;
 
         // scales values based on the size of the character
         currCoyoteTime = CoyoteTime;
@@ -203,28 +202,48 @@ public class PlayerController : MonoBehaviour
             isFloat = false;
             float swimx = 0;
             float swimy = 0;
-            if (canMove && !jumpedInWater)
+            // Gather input
+            if (canMove)
             {
                 swimx = Input.GetAxisRaw("Horizontal");
                 swimy = Input.GetAxisRaw("Vertical");
             }
 
-            if (swimx == 0 && swimy == 0 && !jumpedInWater)
+            // Acceleration/Deceleration Values
+            float swimAcceleration = 20f;
+            float swimDecceleration = 10f;
+
+            float xAccel = 0;
+            float yAccel = 0;
+            // Seperate accelerate & decelerate on both the x and y axis 
+            if (Mathf.Abs(swimx) > 0)
             {
-                currSwimSpeed = 0;
-                velocity.y -= SwimSink * Time.deltaTime;
+                xAccel = swimx * Time.deltaTime * swimAcceleration;
             }
-            else if (!jumpedInWater){
-                currSwimSpeed = Mathf.Min(currSwimSpeed + Time.deltaTime * SwimSpeed, SwimSpeed);
-                velocity = new Vector2(swimx, swimy);
-                velocity *= currSwimSpeed;
+            else
+            {
+                xAccel = (currSwimSpeed.x > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
             }
-            if (jumpedInWater) {
-                velocity.y += SwimSink * 100 * Time.deltaTime;
-                if (velocity.y >= 0) {
-                    jumpedInWater = false;
-                }
+            if (Mathf.Abs(swimy) > 0)
+            {
+                yAccel = swimy * Time.deltaTime * swimAcceleration;
             }
+            else
+            {
+                yAccel = (currSwimSpeed.y > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
+            }
+
+            currSwimSpeed += new Vector2(xAccel, yAccel);
+
+            // Sink
+            float currentSinkFactor = 0;
+            currentSinkFactor = Mathf.Lerp(0, -SwimSink, Mathf.InverseLerp(1f, 0, currSwimSpeed.y));
+            Vector2 sinkVector = new Vector2(0, currentSinkFactor);
+
+            // Clamp swim speed to max
+            currSwimSpeed = new Vector2(Mathf.Clamp(currSwimSpeed.x, -SwimSpeed, SwimSpeed), Mathf.Clamp(currSwimSpeed.y, -SwimSpeed, SwimSpeed));
+            // Apply velocity
+            velocity = currSwimSpeed + sinkVector;
         }
         else currFloatGrav = 0;
         // Facing direction
@@ -242,7 +261,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (!inWater) {
-            currSwimSpeed = 0;
+            currSwimSpeed = Vector2.zero;
         }
 
         // Physics Material
@@ -260,12 +279,18 @@ public class PlayerController : MonoBehaviour
         }
 
         // Grounded check 
-        if (velocity.y <= 0)
+        if (inWater == false)
         {
-            float xPadding = 0.001f; //0.01f
-            float yPadding = 0.01f;
-            grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
-            new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
+            if (velocity.y <= 0)
+            {
+                float xPadding = 0.001f; //0.01f
+                float yPadding = 0.01f;
+                grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
+                new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
+            }
+        } else
+        {
+            grounded = false;
         }
     }
 
@@ -301,10 +326,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Water") {
             inWater = true;
-            if (velocity.y < 0 && !jumpedInWater)
+            if (velocity.y < 0)
             {
-                velocity.x = 0;
-                jumpedInWater = true;
+                // Give an entry force into water
+                currSwimSpeed = velocity * 0.9f;
             }
         }
     }
@@ -315,10 +340,10 @@ public class PlayerController : MonoBehaviour
         {
             if (velocity.y > 0)
             {
-                velocity.y = SwimExitForce * (currSwimSpeed / SwimSpeed);
+                // Give exagerated water exit force
+                velocity.y = SwimExitForce * (currSwimSpeed.y / SwimSpeed);
             }
             inWater = false;
-            jumpedInWater = false;
         }
     }
 

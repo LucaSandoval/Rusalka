@@ -223,8 +223,8 @@ MonoBehaviour:
   ReleaseSpeed: 5
   AirResistance: 12
   CoyoteTime: 0.07
-  SwimSpeed: 7
-  SwimSink: 0.3
+  SwimSpeed: 3.5
+  SwimSink: 1
   SwimExitForce: 11
   NoFriction: {fileID: 6200000, guid: a5c01df84c857d04a95abe884e82d5c1, type: 2}
   HighFriction: {fileID: 6200000, guid: 83293cb21d463624c9784dc3050bcf8d, type: 2}
