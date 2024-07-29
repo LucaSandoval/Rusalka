@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             {
                 float currGrav = DownGravityForce;
                 // Setting the float
-                if (Input.GetButtonDown("Jump") && canMove && canFloat)
+                if (Input.GetButtonDown("Jump") && canMove && canFloat && currCoyoteTime <= 0)
                 {
                     velocity.y = currFloatGrav;
                     isFloat = true;
@@ -186,6 +186,7 @@ public class PlayerController : MonoBehaviour
                 grounded = false;
                 OnPlayerJumped?.Invoke();
                 OnSlope = false;
+                currCoyoteTime = 0;
             }
             else
 
