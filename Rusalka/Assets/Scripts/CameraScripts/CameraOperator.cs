@@ -18,12 +18,11 @@ public class CameraOperator : Singleton<CameraOperator>
     private Vector3 targetPos = new(0,0,-10f);
     [SerializeField] private float minXBoundary;
     [SerializeField] private float maxXBoundary;
-
     [SerializeField] private float minYBoundary;
     [SerializeField] private float maxYBoundary;
     // Currently feels way too clunky
-    // [SerializeField] private float minXDistanceFollow;
-    // [SerializeField] private float minYDistanceFollow;
+    [SerializeField] private float xDistance;
+    [SerializeField] private float yDistance;
     // How fast will the camera follow player
     [SerializeField] private float cameraSpeed = 12f;
     // How fast will the camera zoom in and out
@@ -215,13 +214,15 @@ public class CameraOperator : Singleton<CameraOperator>
         // fetching main camera object
         Camera Cam = Camera.main;
         // Current attempt to implement this looks way too clunky
-        // float facing = 1;
-        // bool grounded = true;
-        // if (dynamicTarget.CompareTag("Player"))
-        // {
-        //     facing = dynamicTarget.GetComponent<PlayerController>().Facing().x > 0 ? 1 : -1;
-        //     grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();
-        // }
+        float facing = 1;
+        bool grounded = true;
+        float movementSpeed = 0;
+        if (dynamicTarget.CompareTag("Player"))
+        {
+            facing = dynamicTarget.GetComponent<PlayerController>().Facing().x > 0 ? 1 : -1;
+            grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();
+            movementSpeed = dynamicTarget.GetComponent<PlayerController>().GetMovementSpeed();
+        }
         // moves the camera as specified by the target
         switch(cameraTarget){
             case Target.Dynamic:
@@ -229,10 +230,27 @@ public class CameraOperator : Singleton<CameraOperator>
                 // float x = dynamicTarget.position.x - xAxisOffset * facing;
                 float y = dynamicTarget.position.y;
                 // float y = dynamicTarget.position.y - yAxisOffset;
-                targetPos = new Vector3(0,0,-10f);
-                targetPos.x = xAxisMoveEnabled ? (x > maxXBoundary ? maxXBoundary : x < minXBoundary ? minXBoundary : x) : targetPos.x;
+                targetPos = new Vector3(transform.position.x,transform.position.y,-10f);
+                if (xAxisMoveEnabled){
+                    if (x > maxXBoundary) 
+                        targetPos.x = maxXBoundary;
+                    else if (x < minXBoundary) 
+                        targetPos.x = minXBoundary;
+                    else if (movementSpeed < 0.1)
+                        targetPos.x = x;
+                    else
+                        targetPos.x = x + facing * xDistance;
+                }
+                if (yAxisMoveEnabled){
+                    if (y > maxYBoundary)
+                        targetPos.y = maxYBoundary;
+                    else if (y < minYBoundary)
+                        targetPos.y = minYBoundary;
+                    else
+                        targetPos.y = y;
+                }
                     // (Math.Abs(x) > minXDistanceFollow ? x - minXDistanceFollow : transform.position.x ))) : 
-                targetPos.y = yAxisMoveEnabled ? (y > maxYBoundary ? maxYBoundary : y < minYBoundary ? minYBoundary : y) : targetPos.y;
+                // targetPos.y = yAxisMoveEnabled ? (y > maxYBoundary ? maxYBoundary : y < minYBoundary ? minYBoundary : y) : transform.position.y;
                     // (Math.Abs(y) > minYDistanceFollow ? y - minYDistanceFollow : transform.position.y ))) : ;
                 transform.position = Vector3.Slerp(
                     transform.position, targetPos, cameraSpeed * Time.fixedDeltaTime);
