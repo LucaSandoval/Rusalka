@@ -252,8 +252,8 @@ public class CameraOperator : Singleton<CameraOperator>
                     else if (grounded || Math.Abs(y - transform.position.y) > yDistance)
                         newCameraPosition.y = y;
                 }
-                    newCameraPosition.x -= xAxisOffset;
-                    newCameraPosition.y -= yAxisOffset;
+                newCameraPosition.x -= xAxisOffset;
+                newCameraPosition.y -= yAxisOffset;
                 transform.position = Vector3.Slerp(
                     transform.position, newCameraPosition, cameraSpeed * Time.fixedDeltaTime);
                 break;
