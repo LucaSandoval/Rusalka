@@ -1055,8 +1055,8 @@ MonoBehaviour:
   shakeStrength: 0.35
   xAxisShakeEnabled: 0
   yAxisShakeEnabled: 1
-  xAxisOffset: 0.1
-  yAxisOffset: 0.1
+  xAxisOffset: 0.3
+  yAxisOffset: 0.3
   xAxisMoveEnabled: 1
   yAxisMoveEnabled: 1
 --- !u!1 &1492079927
