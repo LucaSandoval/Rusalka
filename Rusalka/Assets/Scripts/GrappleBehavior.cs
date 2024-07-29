@@ -93,7 +93,7 @@ public class GrappleBehavior : MonoBehaviour
             if (distanceToPoint <= pointBehavior.TriggerRange) 
             {
                 Vector2 directionToPoint = point.transform.position - gameObject.transform.position;
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPoint.normalized, distanceToPoint, LayerMask.GetMask("Floor", "Slope"));
+                RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.5f, 1.7f), 0, directionToPoint.normalized, distanceToPoint, LayerMask.GetMask("Floor", "Slope"));
                 if (DrawDebug) Debug.DrawRay(transform.position, directionToPoint.normalized * distanceToPoint, Color.red);
                 //Determine if the selected point is facing in your direction
                 bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= -GrappleAngleForgiveness;
@@ -134,17 +134,22 @@ public class GrappleBehavior : MonoBehaviour
             lastKnownAngleOfLaunch = BestGrapplePoint.Item2.normalized;
         }
     }
-    
-    // Setup the initial parameters for the line render
+
+    /*
+     * Setup the initial parameters for the line render
+     */
     private void SetupLineRender()
     {
+        //Temporary for now until we have more assets for the hair grapple animation
         LineRenderer.positionCount = 2;
         LineRenderer.SetPosition(0, transform.position);
         LineRenderer.SetPosition(1, transform.position);
         LineRenderer.enabled = false;
     }
 
-    // Update the line render for a frame
+    /*
+     * Update the line render for a frame based on current state
+     */
     private void UpdateLine()
     {
         if (InGrapple)

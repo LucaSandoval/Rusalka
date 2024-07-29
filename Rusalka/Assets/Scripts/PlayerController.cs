@@ -273,10 +273,13 @@ public class PlayerController : MonoBehaviour
         foreach (ContactPoint2D contact in collision.contacts)
         {
             // Detect vertical bonk
-            if (contact.normal.y <= -0.5f)
+            if (collision.gameObject.GetComponent<PlatformEffector2D>() == null)
             {
-                velocity.y = 0;
-                break;
+                if (contact.normal.y <= -0.5f)
+                {
+                    velocity.y = 0;
+                    break;
+                }
             }
 
             // Detect horizontal bonk
