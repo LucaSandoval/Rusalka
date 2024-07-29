@@ -305,6 +305,9 @@ MonoBehaviour:
   maxXBoundary: 5
   minYBoundary: 5
   maxYBoundary: 5
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 0
   mode: 0
   changeCameraSize: 0
@@ -992,9 +995,11 @@ MonoBehaviour:
   maxXBoundary: 100
   minYBoundary: -100
   maxYBoundary: 100
-  cameraSpeed: 30
+  xDistance: 3
+  yDistance: 0.5
+  cameraSpeed: 2
   zoomSpeed: 4
-  dynamicTarget: {fileID: 0}
+  dynamicTarget: {fileID: 852409195}
   staticPoint: {x: 0, y: 0, z: -10}
   normalSize: 4
   vistaSize: 25
