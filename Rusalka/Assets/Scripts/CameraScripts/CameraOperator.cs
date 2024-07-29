@@ -46,7 +46,7 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private Target cameraTarget = Target.Dynamic;
     [SerializeField] private CameraMode cameraMode = CameraMode.Normal;
     [SerializeField] private bool isShaking = false;
-    [SerializeField] private float shakeStrength = 0.35f;
+    [SerializeField] private float shakeStrength = 2f;
     [SerializeField] private bool xAxisShakeEnabled = true;
     [SerializeField] private bool yAxisShakeEnabled = true;
     [SerializeField] private float xAxisOffset = 0.1f;
