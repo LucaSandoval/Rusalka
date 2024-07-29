@@ -268,6 +268,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            // Detect vertical bonk
+            if (contact.normal.y <= -0.5f)
+            {
+                velocity.y = 0;
+                break;
+            }
+
+            // Detect horizontal bonk
+            if (Mathf.Abs(contact.normal.x) >= 0.5f)
+            {
+                velocity.x = 0;
+                break;
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
