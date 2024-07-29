@@ -239,7 +239,7 @@ public class CameraOperator : Singleton<CameraOperator>
                         newCameraPosition.x = maxXBoundary;
                     else if (x < minXBoundary) 
                         newCameraPosition.x = minXBoundary;
-                    else if (movementSpeed < 0.1 || isShaking)
+                    else if (movementSpeed < 0.1)
                         newCameraPosition.x = x;
                     else
                         newCameraPosition.x = x + facing * xDistance;
