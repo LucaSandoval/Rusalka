@@ -2484,11 +2484,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.2
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.9
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9705,6 +9705,9 @@ MonoBehaviour:
   maxXBoundary: 0
   minYBoundary: 0
   maxYBoundary: 0
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 1
   mode: 1
   changeCameraSize: 0
@@ -10475,6 +10478,9 @@ MonoBehaviour:
   maxXBoundary: 0
   minYBoundary: 0
   maxYBoundary: 0
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 1
   mode: 0
   changeCameraSize: 1
@@ -13410,6 +13416,9 @@ MonoBehaviour:
   maxXBoundary: 0
   minYBoundary: 0
   maxYBoundary: 0
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 1
   mode: 1
   changeCameraSize: 0
@@ -13678,9 +13687,9 @@ MonoBehaviour:
   maxXBoundary: 1000
   minYBoundary: -1000
   maxYBoundary: 1000
-  xDistance: 0
-  yDistance: 0
-  cameraSpeed: 12
+  xDistance: 3
+  yDistance: 0.5
+  cameraSpeed: 3
   zoomSpeed: 4
   dynamicTarget: {fileID: 1867730169}
   staticPoint: {x: 0, y: 0, z: -10}
