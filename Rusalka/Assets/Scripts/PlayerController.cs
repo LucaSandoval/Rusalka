@@ -83,6 +83,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameIsNotPaused())
+        {
+            DoMovement();
+        }
+    }
+
+    private bool GameIsNotPaused()
+    {
+        return (PauseController.Instance == null) ||
+            PauseController.Instance != null && !PauseController.Instance.IsGamePaused();
+    }
+
+    private void DoMovement()
+    {
         // BASIC MOVEMENT! (ground and air)
         if (!inGrapple && !inWater)
         {
@@ -260,7 +274,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!inWater) {
+        if (!inWater)
+        {
             currSwimSpeed = Vector2.zero;
         }
 
@@ -274,7 +289,8 @@ public class PlayerController : MonoBehaviour
             rb.sharedMaterial = NoFriction;
         }
 
-        if (inGrapple) {
+        if (inGrapple)
+        {
             isFloat = false;
         }
 
@@ -288,7 +304,8 @@ public class PlayerController : MonoBehaviour
                 grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
                 new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
             }
-        } else
+        }
+        else
         {
             grounded = false;
         }
@@ -319,7 +336,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        if (GameIsNotPaused())
+        {
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        } 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
