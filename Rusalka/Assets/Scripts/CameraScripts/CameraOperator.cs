@@ -217,7 +217,7 @@ public class CameraOperator : Singleton<CameraOperator>
     {
         // fetching main camera object
         Camera Cam = Camera.main;
-        // Current attempt to implement this looks way too clunky
+        if (PauseController.Instance == null || !PauseController.Instance.IsGamePaused()){
         float facing = 1;
         bool grounded = true;
         float movementSpeed = 0;
@@ -278,5 +278,6 @@ public class CameraOperator : Singleton<CameraOperator>
             StartCoroutine(ShakeCamera());
         }
         if (shakeTime > 1) shakeTime = 0;
+    }
     }
 }
