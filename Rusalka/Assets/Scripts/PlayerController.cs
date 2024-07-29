@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
     private Vector2 currSwimSpeed;
-    private bool jumpedInWater; // Whether or not the player has jumped into the water
     private bool canMove;
     private bool canFloat;
     private bool OnSlope;
@@ -204,57 +203,47 @@ public class PlayerController : MonoBehaviour
             float swimx = 0;
             float swimy = 0;
             // Gather input
-            if (canMove && !jumpedInWater)
+            if (canMove)
             {
                 swimx = Input.GetAxisRaw("Horizontal");
                 swimy = Input.GetAxisRaw("Vertical");
             }
 
-            if (!jumpedInWater)
+            // Acceleration/Deceleration Values
+            float swimAcceleration = 20f;
+            float swimDecceleration = 10f;
+
+            float xAccel = 0;
+            float yAccel = 0;
+            // Seperate accelerate & decelerate on both the x and y axis 
+            if (Mathf.Abs(swimx) > 0)
             {
-
-                // Gradually accelerate
-                float swimAcceleration = 20f;
-                float swimDecceleration = 10f;
-
-                float xAccel = 0;
-                float yAccel = 0;
-
-                if (Mathf.Abs(swimx) > 0)
-                {
-                    xAccel = swimx * Time.deltaTime * swimAcceleration;
-                } else
-                {
-                    xAccel = (currSwimSpeed.x > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
-                }
-                if (Mathf.Abs(swimy) > 0)
-                {
-                    yAccel = swimy * Time.deltaTime * swimAcceleration;
-                }
-                else
-                {
-                    yAccel = (currSwimSpeed.y > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
-                }
-
-                currSwimSpeed += new Vector2(xAccel, yAccel);
-
-                // Sink
-                float currentSinkFactor = 0;
-                currentSinkFactor = Mathf.Lerp(0, -SwimSink, Mathf.InverseLerp(1f, 0, currSwimSpeed.y));
-                Vector2 sinkVector = new Vector2(0, currentSinkFactor);
-
-                // Clamp swim speed to max
-                currSwimSpeed = new Vector2(Mathf.Clamp(currSwimSpeed.x, -SwimSpeed, SwimSpeed), Mathf.Clamp(currSwimSpeed.y, -SwimSpeed, SwimSpeed));
-                // Apply velocity
-                velocity = currSwimSpeed + sinkVector;
+                xAccel = swimx * Time.deltaTime * swimAcceleration;
+            }
+            else
+            {
+                xAccel = (currSwimSpeed.x > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
+            }
+            if (Mathf.Abs(swimy) > 0)
+            {
+                yAccel = swimy * Time.deltaTime * swimAcceleration;
+            }
+            else
+            {
+                yAccel = (currSwimSpeed.y > 0) ? -(Time.deltaTime * swimDecceleration) : (Time.deltaTime * swimDecceleration);
             }
 
-            if (jumpedInWater) {
-                velocity.y += SwimSink * 30 * Time.deltaTime;
-                if (velocity.y >= 0) {
-                    jumpedInWater = false;
-                }
-            }
+            currSwimSpeed += new Vector2(xAccel, yAccel);
+
+            // Sink
+            float currentSinkFactor = 0;
+            currentSinkFactor = Mathf.Lerp(0, -SwimSink, Mathf.InverseLerp(1f, 0, currSwimSpeed.y));
+            Vector2 sinkVector = new Vector2(0, currentSinkFactor);
+
+            // Clamp swim speed to max
+            currSwimSpeed = new Vector2(Mathf.Clamp(currSwimSpeed.x, -SwimSpeed, SwimSpeed), Mathf.Clamp(currSwimSpeed.y, -SwimSpeed, SwimSpeed));
+            // Apply velocity
+            velocity = currSwimSpeed + sinkVector;
         }
         else currFloatGrav = 0;
         // Facing direction
@@ -337,9 +326,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Water") {
             inWater = true;
-            if (velocity.y < 0 && !jumpedInWater)
+            if (velocity.y < 0)
             {
-                // Give an entry force
+                // Give an entry force into water
                 currSwimSpeed = velocity * 0.9f;
             }
         }
@@ -351,10 +340,10 @@ public class PlayerController : MonoBehaviour
         {
             if (velocity.y > 0)
             {
+                // Give exagerated water exit force
                 velocity.y = SwimExitForce * (currSwimSpeed.y / SwimSpeed);
             }
             inWater = false;
-            jumpedInWater = false;
         }
     }
 
