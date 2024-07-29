@@ -23,6 +23,12 @@ public class CameraZone : MonoBehaviour
     private float ogMaxXBoundary;
     private float ogMinYBoundary;
     private float ogMaxYBoundary;
+    [Header("X/Y Distance")]
+    [SerializeField] private bool changeXYDistance = false;
+    [SerializeField] private float xDistance;
+    [SerializeField] private float yDistance;
+    private float ogXDistance;
+    private float ogYDistance;
     [Header("Camera Mode")]
     [SerializeField] private bool changeCameraMode = false;
     [SerializeField] private CameraOperator.CameraMode mode;
@@ -99,18 +105,10 @@ public class CameraZone : MonoBehaviour
     }
     public void ChangeCameraTarget(){
         ogMode = CameraOperator.Instance.GetCameraMode();
-        switch(camTarget){
-                case CameraOperator.Target.Dynamic:
-                    ogDynamicTarget = CameraOperator.Instance.GetDynamicTarget();
-                    CameraOperator.Instance.SetDynamicTarget(dynamicTarget);
-                    break;
-                case CameraOperator.Target.Static:
-                    ogPoint = CameraOperator.Instance.GetStaticPoint();
-                    CameraOperator.Instance.SetStaticPoint(staticPoint);
-                    break;
-                default: 
-                    break;    
-            }
+        ogDynamicTarget = CameraOperator.Instance.GetDynamicTarget();
+        ogPoint = CameraOperator.Instance.GetStaticPoint();
+        CameraOperator.Instance.SetDynamicTarget(dynamicTarget);
+        CameraOperator.Instance.SetStaticPoint(staticPoint);
         CameraOperator.Instance.SetCameraTarget(camTarget);
     }
     public void ChangeCameraShake(){
@@ -142,6 +140,12 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetMinYBoundary(minYBoundary);
         CameraOperator.Instance.SetMaxYBoundary(maxYBoundary); 
     }
+    public void ChangeXYDistance(){
+        ogXDistance = CameraOperator.Instance.GetXDistance();
+        ogYDistance = CameraOperator.Instance.GetYDistance();
+        CameraOperator.Instance.SetXDistance(xDistance);
+        CameraOperator.Instance.SetYDistance(yDistance);
+    }
     public void ResetCameraShake(){
         CameraOperator.Instance.SetShakeStrength(ogShakeStrength);
         CameraOperator.Instance.SetXAxisShakeEnabled(ogXShake);
@@ -172,16 +176,8 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetYAxisOffset(ogYOffset);
     }
     public void ResetCameraTarget(){
-        switch(ogTarget){
-            case CameraOperator.Target.Dynamic:
-                CameraOperator.Instance.SetDynamicTarget(ogDynamicTarget);
-                break;
-            case CameraOperator.Target.Static:
-                CameraOperator.Instance.SetStaticPoint(ogPoint);
-                break;
-            default: 
-                break;
-        }
+        CameraOperator.Instance.SetDynamicTarget(ogDynamicTarget);
+        CameraOperator.Instance.SetStaticPoint(ogPoint);
         CameraOperator.Instance.SetCameraTarget(ogTarget);
     }
     public void ResetCameraSpeed(){
@@ -196,6 +192,10 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetMinYBoundary(ogMinYBoundary);
         CameraOperator.Instance.SetMaxYBoundary(ogMaxYBoundary); 
     }
+    public void ResetXYDistance(){
+        CameraOperator.Instance.SetXDistance(ogXDistance);
+        CameraOperator.Instance.SetYDistance(ogYDistance);
+    }
     public void Reset(){
         if(changeCameraMode) ResetCameraMode();
         if(changeCameraSize) ResetCameraSize();            
@@ -205,6 +205,7 @@ public class CameraZone : MonoBehaviour
         if(lockXAxis || lockYAxis) ResetCameraLock();
         if(changeCameraSpeed) ResetCameraSpeed();
         if(changeZoomSpeed) ResetZoomSpeed();
+        if(changeXYDistance) ResetXYDistance();
         if(changeCameraBoundaries) ResetCameraBoundaries();
         hasReset = true;        
     }
@@ -227,6 +228,7 @@ public class CameraZone : MonoBehaviour
             if(changeCameraSpeed) ChangeCameraSpeed();
             if(changeZoomSpeed) ChangeZoomSpeed();
             if(changeCameraBoundaries) ChangeCameraBoundaries();
+            if(changeXYDistance) ChangeXYDistance();
             if(stopPlayerMovement) StartCoroutine(StopPlayer());
        }
     }
