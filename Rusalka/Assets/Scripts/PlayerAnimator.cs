@@ -6,6 +6,7 @@ public class PlayerAnimator : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private SpriteRenderer headSprite;
+    [SerializeField] private SpriteRenderer sprite;
     
     private PlayerController player;
     
@@ -23,12 +24,23 @@ public class PlayerAnimator : MonoBehaviour
         HandleDirection();
         HandleJump();
         HandleFloat();
-        // HandleSwimming();
+        HandleSwimming();
     }
 
     private void HandleSwimming()
     {
+        float direction = Mathf.Clamp(Input.GetAxis("Horizontal"), -1.0f, 1.0f);
+        if (direction != 0.0f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90.0f * direction);
+        }else if ( Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
         anim.SetBool("Swimming", player.IsInWater());
+        //anim.SetFloat("SwimmingSpeed", );
+        
     }
 
     private void HandleFloat()
@@ -38,7 +50,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleJump()
      {
-         anim.SetFloat("VelocityY", player.GetHorizontalMovementSpeed());
+         anim.SetFloat("VelocityY", player.GetVerticalMovementVelocity());
          anim.SetBool("IsGrounded", player.IsGrounded());
      }
 
