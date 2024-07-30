@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerRange: 12
-  DrawDebug: 1
+  DrawDebug: 0
   renderRadius: 0
   reticle: {fileID: 7845148044005332562}
   GrappleEnterSpeed: 25
-  GrappleExitSpeed: 25
+  GrappleExitSpeed: 30
 --- !u!120 &4130211962002546013
 LineRenderer:
   serializedVersion: 2
