@@ -226,11 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: 1
-  polish: 2
-  german: 3
-  french: 4
-  spanish: 5
+  english: Settings
+  polish: Ustawienia
+  german: Einstellungen
+  french: Settings (French)
+  spanish: "Configuraci\xF3n"
 --- !u!1 &345721605
 GameObject:
   m_ObjectHideFlags: 0

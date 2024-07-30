@@ -12,7 +12,7 @@ public class MainMenuButton : NavigatableMenuButton
     public override void Choose()
     {
         Debug.Log("Chose Button!");
-        if (gameObject.name == "LanguageButton")
+        if (gameObject.name.Equals("LanguageButton"))
         {
             switch (GlobalSettings.GlobalLanguage)
             {
@@ -23,6 +23,12 @@ public class MainMenuButton : NavigatableMenuButton
                 case Language.Spanish: GlobalSettings.GlobalLanguage = Language.English; break;
                 default: break;
             }
+        }
+        else if (gameObject.name.Equals("ExitButton")) 
+        {
+            Debug.Log("Game should close if its not the editor");
+            //UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit(); 
         }
     }
 
