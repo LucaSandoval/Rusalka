@@ -55,8 +55,10 @@ public class CameraZone : MonoBehaviour
     [SerializeField] private bool enableCameraShake = false;
     [SerializeField] private bool xAxisShake;
     [SerializeField] private bool yAxisShake;
-    [SerializeField] private float shakeStrength;
-    private float ogShakeStrength;
+    [SerializeField] private float xShakeStrength;
+    [SerializeField] private float yShakeStrength;
+    private float ogXShakeStrength;
+    private float ogYShakeStrength;
     private bool ogXShake;
     private bool ogYShake;
     [Header("Lock Camera")]
@@ -117,8 +119,10 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetXAxisShakeEnabled(xAxisShake);
         ogYShake = CameraOperator.Instance.GetYAxisShakeEnabled();
         CameraOperator.Instance.SetYAxisShakeEnabled(yAxisShake);
-        ogShakeStrength = CameraOperator.Instance.GetShakeStrength();
-        CameraOperator.Instance.SetShakeStrength(shakeStrength);
+        ogXShakeStrength = CameraOperator.Instance.GetXShakeStrength();
+        CameraOperator.Instance.SetXShakeStrength(xShakeStrength);
+        ogYShakeStrength = CameraOperator.Instance.GetYShakeStrength();
+        CameraOperator.Instance.SetYShakeStrength(yShakeStrength);
     }
     public void ChangeCameraOffset(){
         ogXOffset = CameraOperator.Instance.GetXAxisOffset();
@@ -147,7 +151,8 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetYDistance(yDistance);
     }
     public void ResetCameraShake(){
-        CameraOperator.Instance.SetShakeStrength(ogShakeStrength);
+        CameraOperator.Instance.SetXShakeStrength(ogXShakeStrength);
+        CameraOperator.Instance.SetYShakeStrength(ogYShakeStrength);
         CameraOperator.Instance.SetXAxisShakeEnabled(ogXShake);
         CameraOperator.Instance.SetYAxisShakeEnabled(ogYShake);
         CameraOperator.Instance.SetIsShaking(false);
