@@ -244,9 +244,9 @@ public class CameraOperator : Singleton<CameraOperator>
                 float y = dynamicTarget.position.y;
                 Vector3 newCameraPosition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
                 if (xAxisMoveEnabled){
-                    if (x > maxXBoundary) 
+                    if (x - xAxisOffset > maxXBoundary) 
                         newCameraPosition.x = maxXBoundary;
-                    else if (x < minXBoundary) 
+                    else if (x - xAxisOffset < minXBoundary) 
                         newCameraPosition.x = minXBoundary;
                     else if (movementSpeed < 0.1)
                         newCameraPosition.x = x - xAxisOffset;
@@ -254,9 +254,9 @@ public class CameraOperator : Singleton<CameraOperator>
                         newCameraPosition.x = x + facing * xDistance - xAxisOffset;
                 }
                 if (yAxisMoveEnabled){
-                    if (y > maxYBoundary)
+                    if (y - yAxisOffset > maxYBoundary)
                         newCameraPosition.y = maxYBoundary;
-                    else if (y < minYBoundary)
+                    else if (y - yAxisOffset < minYBoundary)
                         newCameraPosition.y = minYBoundary;
                     else if (grounded || Math.Abs(y - transform.position.y) > yDistance)
                         newCameraPosition.y = y - yAxisOffset;
