@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     public event PlayerJumpEvent OnPlayerJumped;
 
     private float xCheckPadding = 0.001f; //0.01f
-    private float yCheckPadding = 0.03f;
+    private float yCheckPadding = 0.09f;
 
     // Start is called before the first frame update
     void Start()
@@ -330,8 +330,8 @@ public class PlayerController : MonoBehaviour
         {
             if (velocity.y <= 0)
             {
-                grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xCheckPadding, transform.position.y - collide.bounds.extents.y),
-                new Vector2(transform.position.x + collide.bounds.extents.x - xCheckPadding, transform.position.y - collide.bounds.extents.y - yCheckPadding), LayerMask.GetMask("Floor"));
+                grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x, transform.position.y - collide.bounds.extents.y),
+                new Vector2(transform.position.x + collide.bounds.extents.x, transform.position.y - collide.bounds.extents.y - yCheckPadding), LayerMask.GetMask("Floor"));
             }
         }
         else
