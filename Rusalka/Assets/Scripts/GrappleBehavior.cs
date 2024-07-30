@@ -52,13 +52,13 @@ public class GrappleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-          if (Input.GetButtonDown("Fire1")) {
-            TargetGrapplePoint();
+        TargetGrapplePoint();
+        if (Input.GetButtonDown("Fire1"))
+        { 
             GrappleSpeedBoost();
-          }
-          // Tool for developers to move freely in the scene
-          if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
+        }
+        // Tool for developers to move freely in the scene
+        if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
             Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             PlayerController.SetVelocity(dashDirection * 30); 
           }
@@ -101,6 +101,7 @@ public class GrappleBehavior : MonoBehaviour
                 {
                     if (pointBehavior.IsInteractible())
                     {
+                        pointBehavior.ToggleReticle(true);
                         // If current distance is the shortest we have seen, then make it the most optimal point
                         if (distanceToPoint < bestDistance)
                         {
@@ -113,6 +114,10 @@ public class GrappleBehavior : MonoBehaviour
                             DistanceToGrapple = distanceToPoint;
                         }
                     }  
+                }
+                else
+                {
+                    pointBehavior.ToggleReticle(false);
                 }
             }
         }
