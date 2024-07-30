@@ -62,6 +62,9 @@ public class Interactible : MonoBehaviour
         }
     }
 
+    /*
+     * Start coroutine and make next point non-interactible while in couroutine
+     */
     void Interact()
     {
         playerController.enabled = false;
@@ -70,6 +73,9 @@ public class Interactible : MonoBehaviour
        
     }
 
+    /*
+     * Fades screen to black, then back to normal and teleports player while blacked out
+     */
     public void FadeToBlackAndBack()
     {
         StartCoroutine(FadeToBlackAndBackCouroutine());
@@ -91,6 +97,9 @@ public class Interactible : MonoBehaviour
         
     }
 
+    /*
+     * Fades UI texture from specidied alpha values
+     */
     private IEnumerator Fade(float startAlpha, float endAlpha)
     {
         float elapsedTime = 0f;
@@ -106,6 +115,9 @@ public class Interactible : MonoBehaviour
         fadeImage.color = new Color(color.r, color.g, color.b, endAlpha);
     }
 
+    /*
+     * Refreshes the players collider to account for new camera zone
+     */
     private IEnumerator RefreshCollider()
     {
         yield return new WaitForSeconds(fadeDuration + fadeSpeed);

@@ -86,7 +86,9 @@ public class GrapplePointBehavior : MonoBehaviour
         return interactible;
     }
 
-   
+   /*
+    * Enables line renderer that draws radius
+    */
     private void DrawVisibleCircle()
     {
         float angle = 0f;
@@ -98,6 +100,9 @@ public class GrapplePointBehavior : MonoBehaviour
         }
     }
 
+    /*
+     * Toggles reticle on grapple point 
+     */
     public void ToggleReticle(bool toggle)
     {
         reticle.SetActive(toggle);
