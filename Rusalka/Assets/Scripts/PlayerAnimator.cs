@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -7,7 +5,7 @@ public class PlayerAnimator : MonoBehaviour
     [Header("Preferences")] [SerializeField]
     private Animator anim;
 
-    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private SpriteRenderer headSprite;
     
     private PlayerController player;
     
@@ -30,14 +28,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleSwimming()
     {
-        if (player.IsInWater())
-        {
-            anim.SetBool("Swimming", true);
-        }
-        else
-        {
-            anim.SetBool("Swimming", false);
-        }
+        anim.SetBool("Swimming", player.IsInWater());
     }
 
     private void HandleFloat()
@@ -53,13 +44,14 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleDirection()
     {
-        if (player.GetMovementSpeed() > 0.01f && player.IsGrounded())
+        anim.SetFloat("Speed", player.GetMovementSpeed());
+        if (player.Facing().x == 1)
         {
-            anim.SetFloat("Speed", player.GetMovementSpeed());
+            headSprite.flipX = false;
         }
-        else
+        else if (player.Facing().x == -1)
         {
-            anim.SetFloat("Speed", player.GetMovementSpeed());
+            headSprite.flipX = true;
         }
     }
 }
