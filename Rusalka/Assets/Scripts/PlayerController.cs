@@ -221,6 +221,10 @@ public class PlayerController : MonoBehaviour
                 hasJumped = false;
                 currFloatGrav = 0;
                 currCoyoteTime = CoyoteTime;
+                if (!OnSlope && velocity.y <= 0)
+                {
+                    velocity.y = 0;
+                }
             }
 
             // Jump
