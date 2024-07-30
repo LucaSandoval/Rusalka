@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Slope check
                 Vector2 slopeNormalPerp = new Vector2();
-                float slopeCheckDistance = 0.05f;
+                float slopeCheckDistance = 0.1f;
                 Vector2 leftFootCast = transform.position - new Vector3(collide.bounds.extents.x + xCheckPadding, collide.bounds.extents.y);
                 Vector2 rightFootCast = transform.position + new Vector3(collide.bounds.extents.x - xCheckPadding, -collide.bounds.extents.y);
                 if (grounded)
@@ -456,7 +456,7 @@ public class PlayerController : MonoBehaviour
         return Mathf.Abs(velocity.x);
     }
     
-    public float GetHorizontalMovementSpeed()
+    public float GetVerticalMovementVelocity()
     {
         return velocity.y;
     }
@@ -464,5 +464,10 @@ public class PlayerController : MonoBehaviour
     public bool GetIsFloat()
     {
         return isFloat;
+    }
+
+    public float GetSwimmingMovementVelocity()
+    {
+        return velocity.magnitude;
     }
 }
