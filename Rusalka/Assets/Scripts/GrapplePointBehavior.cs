@@ -14,6 +14,7 @@ public class GrapplePointBehavior : MonoBehaviour
     private LineRenderer lineRenderer;
     private int Segments = 36;
     public bool renderRadius;
+    [SerializeField] private GameObject reticle;
 
     [Tooltip("Speed the player will fly to the grapple point with")]
     public float GrappleEnterSpeed = 25f;
@@ -66,6 +67,7 @@ public class GrapplePointBehavior : MonoBehaviour
     {
         if (interactible)
         {
+            reticle.SetActive(false);
             interactible = false;
             StartCoroutine(ReenableInteractibility(duration));
         }
@@ -84,7 +86,9 @@ public class GrapplePointBehavior : MonoBehaviour
         return interactible;
     }
 
-   
+   /*
+    * Enables line renderer that draws radius
+    */
     private void DrawVisibleCircle()
     {
         float angle = 0f;
@@ -94,5 +98,13 @@ public class GrapplePointBehavior : MonoBehaviour
             Vector3 newPoint = transform.position + new Vector3(Mathf.Cos(angle) * TriggerRange, Mathf.Sin(angle) * TriggerRange, 0f);
             lineRenderer.SetPosition(i, newPoint);
         }
+    }
+
+    /*
+     * Toggles reticle on grapple point 
+     */
+    public void ToggleReticle(bool toggle)
+    {
+        reticle.SetActive(toggle);
     }
 }
