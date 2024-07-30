@@ -645,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1112,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1647,7 +1647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1716,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2982,7 +2982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3467,7 +3467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5398,7 +5398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6468,7 +6468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7078,7 +7078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8510,7 +8510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130211962002546013, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_ApplyActiveColorSpace
@@ -9045,7 +9045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9695,6 +9695,9 @@ MonoBehaviour:
   maxXBoundary: 0
   minYBoundary: 0
   maxYBoundary: 0
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 1
   mode: 1
   changeCameraSize: 0
@@ -10465,6 +10468,9 @@ MonoBehaviour:
   maxXBoundary: 0
   minYBoundary: 0
   maxYBoundary: 0
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 1
   mode: 0
   changeCameraSize: 1
@@ -10564,7 +10570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13381,6 +13387,9 @@ MonoBehaviour:
   maxXBoundary: 0
   minYBoundary: 0
   maxYBoundary: 0
+  changeXYDistance: 0
+  xDistance: 0
+  yDistance: 0
   changeCameraMode: 1
   mode: 1
   changeCameraSize: 0
@@ -13485,7 +13494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13649,6 +13658,8 @@ MonoBehaviour:
   maxXBoundary: 1000
   minYBoundary: -1000
   maxYBoundary: 1000
+  xDistance: 0
+  yDistance: 0
   cameraSpeed: 12
   zoomSpeed: 4
   dynamicTarget: {fileID: 1867730169}
@@ -14253,7 +14264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x

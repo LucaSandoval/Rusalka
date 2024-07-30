@@ -46,7 +46,8 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private Target cameraTarget = Target.Dynamic;
     [SerializeField] private CameraMode cameraMode = CameraMode.Normal;
     [SerializeField] private bool isShaking = false;
-    [SerializeField] private float shakeStrength = 2f;
+    [SerializeField] private float xShakeStrength = 2f;
+    [SerializeField] private float yShakeStrength = 2f;
     [SerializeField] private bool xAxisShakeEnabled = true;
     [SerializeField] private bool yAxisShakeEnabled = true;
     [SerializeField] private float xAxisOffset = 0.1f;
@@ -120,11 +121,19 @@ public class CameraOperator : Singleton<CameraOperator>
     public void SetIsShaking(bool boolean){
         isShaking = boolean;
     }
-    public float GetShakeStrength(){
-        return shakeStrength;
+    public float GetXShakeStrength(){
+        return xShakeStrength;
     }
-    public void SetShakeStrength(float f){
-        shakeStrength = f;
+    public void SetXShakeStrength(float f){
+        xShakeStrength = f;
+    }
+    public float GetYShakeStrength()
+    {
+        return yShakeStrength;
+    }
+    public void SetYShakeStrength(float f)
+    {
+        yShakeStrength = f;
     }
     public bool GetXAxisShakeEnabled(){
         return xAxisShakeEnabled;
@@ -203,11 +212,11 @@ public class CameraOperator : Singleton<CameraOperator>
         Vector3 cameraPos = transform.position; 
         if (xAxisShakeEnabled)
         {
-            cameraPos.x += UnityEngine.Random.Range(-shakeStrength, shakeStrength) + xAxisOffset;
+            cameraPos.x += UnityEngine.Random.Range(-xShakeStrength, xShakeStrength);
         }
         if (yAxisShakeEnabled)
         {
-            cameraPos.y += UnityEngine.Random.Range(-shakeStrength, shakeStrength) + yAxisOffset;
+            cameraPos.y += UnityEngine.Random.Range(-yShakeStrength, yShakeStrength);
         }
         transform.position = Vector3.Slerp(transform.position, cameraPos, cameraSpeed / 3 * Time.fixedDeltaTime);
         yield return new WaitForSeconds(Time.fixedDeltaTime);
@@ -240,9 +249,9 @@ public class CameraOperator : Singleton<CameraOperator>
                     else if (x < minXBoundary) 
                         newCameraPosition.x = minXBoundary;
                     else if (movementSpeed < 0.1)
-                        newCameraPosition.x = x;
+                        newCameraPosition.x = x - xAxisOffset;
                     else
-                        newCameraPosition.x = x + facing * xDistance;
+                        newCameraPosition.x = x + facing * xDistance - xAxisOffset;
                 }
                 if (yAxisMoveEnabled){
                     if (y > maxYBoundary)
@@ -250,10 +259,8 @@ public class CameraOperator : Singleton<CameraOperator>
                     else if (y < minYBoundary)
                         newCameraPosition.y = minYBoundary;
                     else if (grounded || Math.Abs(y - transform.position.y) > yDistance)
-                        newCameraPosition.y = y;
+                        newCameraPosition.y = y - yAxisOffset;
                 }
-                newCameraPosition.x -= xAxisOffset;
-                newCameraPosition.y -= yAxisOffset;
                 transform.position = Vector3.Slerp(
                     transform.position, newCameraPosition, cameraSpeed * Time.fixedDeltaTime);
                 break;

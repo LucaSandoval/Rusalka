@@ -424,7 +424,8 @@ MonoBehaviour:
   cameraTarget: 1
   cameraMode: 0
   isShaking: 0
-  shakeStrength: 0.35
+  xShakeStrength: 2
+  yShakeStrength: 2
   xAxisShakeEnabled: 1
   yAxisShakeEnabled: 1
   xAxisOffset: 0.1
@@ -976,6 +977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: JumpForce
+      value: 4.83
+      objectReference: {fileID: 0}
     - target: {fileID: 5455803512659818443, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1054,7 +1059,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1652,7 +1657,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1746,7 +1751,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 1
@@ -2633,7 +2639,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 1

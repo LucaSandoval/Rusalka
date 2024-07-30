@@ -973,6 +973,10 @@ PrefabInstance:
       propertyPath: DrawDebug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: GrappleExitSpeed
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -3531,6 +3535,10 @@ PrefabInstance:
       propertyPath: DrawDebug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: GrappleExitSpeed
+      value: 39.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7
@@ -5202,8 +5210,8 @@ PrefabInstance:
       value: GrapplePoint (17)
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
-      propertyPath: DrawDebug
-      value: 0
+      propertyPath: GrappleExitSpeed
+      value: 33.7
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7081,6 +7089,10 @@ PrefabInstance:
       propertyPath: DrawDebug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: GrappleExitSpeed
+      value: 34.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.4
@@ -8523,6 +8535,10 @@ PrefabInstance:
       propertyPath: DrawDebug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: GrappleExitSpeed
+      value: 34.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4130211962002546013, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_ApplyActiveColorSpace
       value: 1
@@ -9726,7 +9742,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -10499,7 +10516,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -11842,6 +11860,10 @@ PrefabInstance:
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: GrappleExitSpeed
+      value: 35.5
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13437,7 +13459,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -13528,6 +13551,10 @@ PrefabInstance:
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: DrawDebug
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
+      propertyPath: GrappleExitSpeed
+      value: 34.3
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13702,7 +13729,8 @@ MonoBehaviour:
   cameraTarget: 0
   cameraMode: 0
   isShaking: 0
-  shakeStrength: 0.35
+  xShakeStrength: 2
+  yShakeStrength: 2
   xAxisShakeEnabled: 1
   yAxisShakeEnabled: 1
   xAxisOffset: 0.1

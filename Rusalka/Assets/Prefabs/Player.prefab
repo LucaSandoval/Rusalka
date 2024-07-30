@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cabdb067c29504c9fe790c8f474c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxClimbableSlopeAngle: 70
   MovementSpeed: 3
   UpGravityForce: 30
   DownGravityForce: 27

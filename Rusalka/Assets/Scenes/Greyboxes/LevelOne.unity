@@ -7807,6 +7807,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &549606220
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5740500363969588990, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_Name
+      value: SoundController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.301302
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.4854078
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -91.86018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
 --- !u!1 &550221340
 GameObject:
   m_ObjectHideFlags: 0
@@ -8711,7 +8768,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -8897,6 +8955,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2088675170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &693457523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: musicFile
+      value: Lvl1MusicUnderwaterCastle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.8160305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.29694107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -91.46548
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235975870495461392, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_Name
+      value: MusicStart
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
 --- !u!1 &698329328
 GameObject:
   m_ObjectHideFlags: 0
@@ -19188,7 +19307,8 @@ MonoBehaviour:
   cameraTarget: 0
   cameraMode: 0
   isShaking: 0
-  shakeStrength: 0.35
+  xShakeStrength: 2
+  yShakeStrength: 2
   xAxisShakeEnabled: 1
   yAxisShakeEnabled: 1
   xAxisOffset: 1.9
@@ -24034,7 +24154,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -25177,3 +25298,5 @@ SceneRoots:
   - {fileID: 759752694}
   - {fileID: 663265732}
   - {fileID: 2025132215}
+  - {fileID: 693457523}
+  - {fileID: 549606220}
