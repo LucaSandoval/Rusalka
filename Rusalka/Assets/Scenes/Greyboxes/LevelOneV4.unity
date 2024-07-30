@@ -7605,7 +7605,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -8901,7 +8902,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -13211,7 +13213,8 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
@@ -20016,11 +20019,12 @@ MonoBehaviour:
   cameraTarget: 0
   cameraMode: 0
   isShaking: 0
-  shakeStrength: 0.35
+  xShakeStrength: 2
+  yShakeStrength: 2
   xAxisShakeEnabled: 1
   yAxisShakeEnabled: 1
-  xAxisOffset: 1.9
-  yAxisOffset: -3.2
+  xAxisOffset: -0.3
+  yAxisOffset: -1
   xAxisMoveEnabled: 1
   yAxisMoveEnabled: 1
 --- !u!1 &1663556053
@@ -25331,11 +25335,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a2f3d566b46f64095a28dcf012cccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeCameraBoundaries: 0
-  minXBoundary: 7.4
-  maxXBoundary: 9.4
-  minYBoundary: 0
-  maxYBoundary: 0
+  changeCameraBoundaries: 1
+  minXBoundary: 40
+  maxXBoundary: 60
+  minYBoundary: -15
+  maxYBoundary: -5
   changeXYDistance: 0
   xDistance: 0
   yDistance: 0
@@ -25353,13 +25357,14 @@ MonoBehaviour:
   enableCameraShake: 0
   xAxisShake: 0
   yAxisShake: 0
-  shakeStrength: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
   lockXAxis: 0
   lockYAxis: 0
   changeCameraSpeed: 0
-  changeZoomSpeed: 0
+  changeZoomSpeed: 1
   camSpeed: 0
-  zoomSpeed: 0
+  zoomSpeed: 6
   stopPlayerMovement: 0
   seconds: 0
   Temporary: 0
@@ -25418,8 +25423,8 @@ Transform:
   m_GameObject: {fileID: 2025132212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: -6.9, z: -0.9614589}
-  m_LocalScale: {x: 72.77942, y: 64.86563, z: 1}
+  m_LocalPosition: {x: 39, y: -6.9, z: -0.9614589}
+  m_LocalScale: {x: 70, y: 64.86563, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -26475,11 +26480,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.8
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
