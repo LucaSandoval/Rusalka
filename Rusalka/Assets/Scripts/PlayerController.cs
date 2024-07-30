@@ -470,4 +470,9 @@ public class PlayerController : MonoBehaviour
     {
         return velocity.magnitude;
     }
+    
+    public float GetMaxSwimmingSpeed()
+    {
+        return SwimSpeed;
+    }
 }
