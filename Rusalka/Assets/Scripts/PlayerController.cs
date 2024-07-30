@@ -10,7 +10,6 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [Header("Basic")]
-    [SerializeField] private float MaxClimbableSlopeAngle;
     [SerializeField] private float MovementSpeed; // The horizontal movement speed
     [SerializeField] private float UpGravityForce; // How hard gravity affects the player when they are moving upwards
     [SerializeField] private float DownGravityForce; // How hard gravity affects the player when they are moving downwards
@@ -51,9 +50,6 @@ public class PlayerController : MonoBehaviour
 
     public delegate void PlayerJumpEvent();
     public event PlayerJumpEvent OnPlayerJumped;
-
-    private float xCheckPadding = 0.001f; //0.01f
-    private float yCheckPadding = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -101,25 +97,6 @@ public class PlayerController : MonoBehaviour
             PauseController.Instance != null && !PauseController.Instance.IsGamePaused();
     }
 
-    // Performs a slope raycast at a certain point, returning info about the hit (if it connected, is a slope, and the perp. vector)
-    private Tuple<Tuple<bool, bool>, Vector2> PerformSlopeCast(Vector2 origin, float distance)
-    {
-        bool HitAnything = false;
-        bool HitOnSlope = false;
-        Vector2 slopeNormalPerp = new Vector2();
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, distance, LayerMask.GetMask("Floor"));
-        if (hit && hit.transform.gameObject.layer == 6)
-        {
-            Debug.DrawRay(hit.point, hit.normal, Color.green);
-            slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
-            Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
-            float slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
-            HitOnSlope = slopeDownAngle > 0.1f;
-            HitAnything = slopeDownAngle <= MaxClimbableSlopeAngle;
-        }
-        return new Tuple<Tuple<bool, bool>, Vector2>(new Tuple<bool, bool>(HitAnything, HitOnSlope), slopeNormalPerp);
-    }
-
     private void DoMovement()
     {
         // BASIC MOVEMENT! (ground and air)
@@ -130,27 +107,25 @@ public class PlayerController : MonoBehaviour
             {
                 // Slope check
                 Vector2 slopeNormalPerp = new Vector2();
-                float slopeCheckDistance = 0.5f;
-                Vector2 leftFootCast = transform.position - new Vector3(collide.bounds.extents.x + xCheckPadding, collide.bounds.extents.y);
-                Vector2 rightFootCast = transform.position + new Vector3(collide.bounds.extents.x - xCheckPadding, -collide.bounds.extents.y);
+                Vector2 slopeCheckPos = transform.position - new Vector3(0f, collide.bounds.extents.y);
                 if (grounded)
                 {
-                    // Left foot cast
-                    Tuple<Tuple<bool, bool>, Vector2> leftFootResult = PerformSlopeCast(leftFootCast, slopeCheckDistance);
-                    // Right foot cast
-                    Tuple<Tuple<bool, bool>, Vector2> rightFootResult = PerformSlopeCast(rightFootCast, slopeCheckDistance);
-                    if (leftFootResult.Item1.Item1)
+                    RaycastHit2D hit = Physics2D.Raycast(slopeCheckPos, Vector2.down, 0.5f, LayerMask.GetMask("Floor"));
+                    if (hit && hit.transform.gameObject.layer == 6)
                     {
-                        OnSlope = leftFootResult.Item1.Item2;
-                        slopeNormalPerp = leftFootResult.Item2;
-                    } else if (rightFootResult.Item1.Item1)
-                    {
-                        OnSlope = rightFootResult.Item1.Item2;
-                        slopeNormalPerp = rightFootResult.Item2;
-                    } else
+                        Debug.DrawRay(hit.point, hit.normal, Color.green);
+                        slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
+                        Debug.DrawRay(hit.point, slopeNormalPerp, Color.red);
+                        float slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
+                        OnSlope = slopeDownAngle > 0.1f;
+                    }
+                    else
                     {
                         OnSlope = false;
-                        grounded = false;
+                        if (!hit)
+                        {
+                            grounded = false;
+                        }
                     }
                 }
                 else
@@ -321,9 +296,11 @@ public class PlayerController : MonoBehaviour
         if (inWater == false)
         {
             if (velocity.y <= 0)
-            {            
-                grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xCheckPadding, transform.position.y - collide.bounds.extents.y),
-                new Vector2(transform.position.x + collide.bounds.extents.x - xCheckPadding, transform.position.y - collide.bounds.extents.y - yCheckPadding), LayerMask.GetMask("Floor"));
+            {
+                float xPadding = 0.001f; //0.01f
+                float yPadding = 0.01f;
+                grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x + xPadding, transform.position.y - collide.bounds.extents.y),
+                new Vector2(transform.position.x + collide.bounds.extents.x - xPadding, transform.position.y - collide.bounds.extents.y - yPadding), LayerMask.GetMask("Floor"));
             }
         }
         else
@@ -397,6 +374,12 @@ public class PlayerController : MonoBehaviour
     // Returns true when grounded
     public bool IsGrounded() {
         return grounded;
+    }
+
+    // Returns true when grounded
+    public void SetGrounded(bool grounded)
+    {
+        this.grounded = grounded;
     }
 
     // Set the velocity of the player

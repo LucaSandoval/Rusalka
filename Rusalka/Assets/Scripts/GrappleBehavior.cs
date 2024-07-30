@@ -120,6 +120,10 @@ public class GrappleBehavior : MonoBehaviour
                     pointBehavior.ToggleReticle(false);
                 }
             }
+            else
+            {
+                pointBehavior.ToggleReticle(false);
+            }
         }
         if (pointAvailable && DrawDebug) Debug.DrawLine(transform.position, bestGrapplePoint, Color.green);
         BestGrapplePoint = (pointAvailable, directionToBestPoint);
@@ -134,6 +138,7 @@ public class GrappleBehavior : MonoBehaviour
         {
             if (InGrapple) BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
             PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * BestPoint.GrappleEnterSpeed, true);
+            PlayerController.SetGrounded(false);
             InGrapple = true;
             OriginalPosition = transform.position;
             lastKnownAngleOfLaunch = BestGrapplePoint.Item2.normalized;
