@@ -33,6 +33,7 @@ public class PlayerAnimator : MonoBehaviour
 
         if (!player.IsInWater())
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             return;
         }
         
