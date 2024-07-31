@@ -44,6 +44,15 @@ public class PlayerFootstepController : MonoBehaviour
         }
     }
 
+    // Plays a sound effect for the player 'stepping' while in water, ie. kicking their legs and making a splash
+    public void PlayerSwimKick()
+    {
+        if (PlayerController.IsInWater())
+        {
+            SoundController.Instance?.PlaySoundOneShotRandomPitch("Swim", 0.07f);
+        }
+    }
+
     // Triggers a footstep, including the proper sound effect and potential particle effect.
     public void PlayerFootstep()
     {
