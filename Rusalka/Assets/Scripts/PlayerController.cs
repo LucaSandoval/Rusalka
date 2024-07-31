@@ -456,9 +456,9 @@ public class PlayerController : MonoBehaviour
         return Mathf.Abs(velocity.x);
     }
     
-    public float GetVerticalMovementVelocity()
+    public Vector2 GetMovementVelocity()
     {
-        return velocity.y;
+        return velocity;
     }
 
     public bool GetIsFloat()
