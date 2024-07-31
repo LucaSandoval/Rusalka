@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
@@ -7,6 +8,9 @@ public class PlayerAnimator : MonoBehaviour
 
     [SerializeField] private SpriteRenderer headSprite;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private float swimmingAnimationTurningSpeed = 300.0f;
+    
+    private float interpCurrent;
     
     private PlayerController player;
     
@@ -14,6 +18,7 @@ public class PlayerAnimator : MonoBehaviour
     void Start()
     {
         player = GetComponentInParent<PlayerController>();
+        interpCurrent = transform.up.z;
     }
 
     // Update is called once per frame
@@ -27,6 +32,9 @@ public class PlayerAnimator : MonoBehaviour
         HandleSwimming();
     }
 
+    private float angle = 0.0f;
+    private float diff = 0.0f; 
+
     private void HandleSwimming()
     {
         anim.SetBool("Swimming", player.IsInWater());
@@ -37,19 +45,29 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
         
-        Vector2 direction = player.GetMovementVelocity().normalized;
-        //float directionVertical = Mathf.Clamp(Input.GetAxis("Vertical"), -1.0f, 1.0f);
-        if (direction.x >= 0)
+        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        float diff = Vector2.SignedAngle(transform.up, direction);
+
+        float a = 180.0f - diff;
+
+        if (a < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.up, direction) * -1);
-            Debug.Log(Vector2.Angle(Vector2.up, direction) * -1);
+            interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + a, Time.deltaTime * swimmingAnimationTurningSpeed);
+            Debug.Log("here");
         }
-        else if(direction.x < 0)
+        else if(a > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.up, direction));
-            Debug.Log(Vector2.Angle(Vector2.up, direction) + " Left");
+            interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + diff, Time.deltaTime * swimmingAnimationTurningSpeed); 
+        }
+        else if(a == 0 && direction != Vector2.zero)
+        {
+            interpCurrent += 180.0f;
         }
 
+        //interpCurrent = Mathf.MoveTowards(interpCurrent, diff, Time.deltaTime * swimmingAnimationTurningSpeed); 
+        transform.rotation = Quaternion.Euler(0, 0, interpCurrent);
+        
         anim.SetFloat("SwimmingSpeed", Mathf.Lerp(0.7f, 1.2f, Mathf.InverseLerp(0, player.GetMaxSwimmingSpeed(), player.GetSwimmingMovementVelocity())));
         //Debug.Log(direction + " " + directionVertical);
     }
