@@ -190,6 +190,7 @@ public class PlayerController : MonoBehaviour
                 {
                     velocity.y = currFloatGrav;
                     isFloat = true;
+                    SoundController.Instance?.PlaySoundRandomPitch("StartFloat", 0.05f);
                 }
                 // Unsetting the float
                 if (Input.GetButtonUp("Jump") && canMove && canFloat)
@@ -235,6 +236,7 @@ public class PlayerController : MonoBehaviour
                 OnPlayerJumped?.Invoke();
                 OnSlope = false;
                 currCoyoteTime = 0;
+                SoundController.Instance?.PlaySoundRandomPitch("Jump", 0.05f);
             }
             else
 
@@ -456,9 +458,9 @@ public class PlayerController : MonoBehaviour
         return Mathf.Abs(velocity.x);
     }
     
-    public float GetVerticalMovementVelocity()
+    public Vector2 GetMovementVelocity()
     {
-        return velocity.y;
+        return velocity;
     }
 
     public bool GetIsFloat()
