@@ -37,15 +37,19 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
         
-        float direction = Mathf.Clamp(Input.GetAxis("Horizontal"), -1.0f, 1.0f);
-        float directionVertical = Mathf.Clamp(Input.GetAxis("Vertical"), -1.0f, 1.0f);
-        if (direction != 0.0f)
+        Vector2 direction = player.GetMovementVelocity().normalized;
+        //float directionVertical = Mathf.Clamp(Input.GetAxis("Vertical"), -1.0f, 1.0f);
+        if (direction.x >= 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, -90.0f * direction);
-        }else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.up, direction) * -1);
+            Debug.Log(Vector2.Angle(Vector2.up, direction) * -1);
         }
+        else if(direction.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.up, direction));
+            Debug.Log(Vector2.Angle(Vector2.up, direction) + " Left");
+        }
+
         anim.SetFloat("SwimmingSpeed", Mathf.Lerp(0.7f, 1.2f, Mathf.InverseLerp(0, player.GetMaxSwimmingSpeed(), player.GetSwimmingMovementVelocity())));
         //Debug.Log(direction + " " + directionVertical);
     }
@@ -57,7 +61,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleJump()
      {
-         anim.SetFloat("VelocityY", player.GetVerticalMovementVelocity());
+         anim.SetFloat("VelocityY", player.GetMovementVelocity().y);
          anim.SetBool("IsGrounded", player.IsGrounded());
      }
 

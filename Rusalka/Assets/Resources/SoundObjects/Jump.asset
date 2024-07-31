@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Jump
   Clip: {fileID: 8300000, guid: 3fa868accd656fb4891d32c5c9a63144, type: 3}
-  BaseVolume: 1
+  BaseVolume: 0.7
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}
