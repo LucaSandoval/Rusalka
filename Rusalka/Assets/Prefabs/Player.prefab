@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 485961305512675488}
   - component: {fileID: 9211923533560084670}
   - component: {fileID: 3540048495240914216}
+  - component: {fileID: 5737768485361406895}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -330,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 8488810274593946015}
   GrapplePointExhaustionTime: 0.5
-  DrawDebug: 0
+  DrawDebug: 1
   GrappleHairRenderPositionOffset: 0
   GrappleAngleForgiveness: 0
   DevDebugMovement: 0
@@ -527,3 +528,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 485961305512675488}
   headSprite: {fileID: 1859223574116916595}
+  sprite: {fileID: 0}
+--- !u!114 &5737768485361406895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488810274593946015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 356ca0baddf050945a0919495f73f646, type: 2}
+    - {fileID: 11400000, guid: f036b61dd68dbaa4982687eed359c993, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1816440805684750038}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: SetCanMove
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1816440805684750038}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: SetCanMove
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
