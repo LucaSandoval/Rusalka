@@ -29,6 +29,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HandleSwimming()
     {
+        anim.SetBool("Swimming", player.IsInWater());
+
         if (!player.IsInWater())
         {
             return;
@@ -43,11 +45,8 @@ public class PlayerAnimator : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        Debug.Log(direction + " " + directionVertical);
-
-        anim.SetBool("Swimming", player.IsInWater());
         anim.SetFloat("SwimmingSpeed", Mathf.Lerp(0.7f, 1.2f, Mathf.InverseLerp(0, player.GetMaxSwimmingSpeed(), player.GetSwimmingMovementVelocity())));
-        
+        //Debug.Log(direction + " " + directionVertical);
     }
 
     private void HandleFloat()
