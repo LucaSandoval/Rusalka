@@ -6233,8 +6233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aeff40d346028743aded6456a0ce3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToTrigger: 2.5
-  parentTransform: {fileID: 913131871}
 --- !u!1 &294103090
 GameObject:
   m_ObjectHideFlags: 0
@@ -10552,6 +10550,7 @@ MonoBehaviour:
   zoomSpeed: 23
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &451088637
@@ -11584,6 +11583,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &480883635
@@ -15242,6 +15242,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &663265731
@@ -15757,6 +15758,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &687342682
@@ -16188,6 +16190,7 @@ MonoBehaviour:
   zoomSpeed: 23
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &739620834
@@ -16312,6 +16315,7 @@ MonoBehaviour:
   zoomSpeed: 6
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &740968421
@@ -20043,6 +20047,7 @@ MonoBehaviour:
   zoomSpeed: 6
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &866197558
@@ -21098,6 +21103,8 @@ GameObject:
   - component: {fileID: 913131871}
   - component: {fileID: 913131870}
   - component: {fileID: 913131869}
+  - component: {fileID: 913131872}
+  - component: {fileID: 913131873}
   m_Layer: 6
   m_Name: Bridge
   m_TagString: Untagged
@@ -21218,6 +21225,64 @@ Transform:
   - {fileID: 293661203}
   m_Father: {fileID: 1150045302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.375}
+--- !u!114 &913131872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913131868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd41b6528a7f064bb0bcac766d60332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StopTime: 2.5
+--- !u!61 &913131873
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913131868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &918278851
 GameObject:
   m_ObjectHideFlags: 0
@@ -23399,6 +23464,7 @@ MonoBehaviour:
   zoomSpeed: 6
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1065772538
@@ -24650,6 +24716,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1134643770
@@ -26541,6 +26608,7 @@ MonoBehaviour:
   zoomSpeed: 6
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1223363257
@@ -26879,6 +26947,7 @@ MonoBehaviour:
   zoomSpeed: 6
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1230022632
@@ -36741,6 +36810,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1751407245
@@ -37710,6 +37780,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1787213943
@@ -43934,6 +44005,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &1963778452
@@ -46100,6 +46172,7 @@ MonoBehaviour:
   zoomSpeed: 0
   stopPlayerMovement: 0
   seconds: 0
+  resetAfterwards: 0
   Temporary: 0
   howManyTimes: 1
 --- !u!61 &2025132214
@@ -48827,11 +48900,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 262.1
+      value: 131.7
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -386.6
+      value: -16.3
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
