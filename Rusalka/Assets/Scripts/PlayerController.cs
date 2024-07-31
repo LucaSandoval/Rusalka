@@ -390,6 +390,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Give an entry force into water
                 currSwimSpeed = velocity * 0.9f;
+                SoundController.Instance?.PlaySoundRandomPitch("DiveInWater", 0.05f);
             }
         }
     }
@@ -402,6 +403,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Give exagerated water exit force
                 velocity.y = SwimExitForce * (currSwimSpeed.y / SwimSpeed);
+                SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
             }
             inWater = false;
         }

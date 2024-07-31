@@ -562,7 +562,7 @@ MonoBehaviour:
     - FootstepWood
     - FootstepWood2
     FootstepParticleEffect: {fileID: 0}
-    LandingSound: 
+    LandingSound: LandWood
   - SurfaceType: 1
     FootstepSounds:
     - FootstepWater
