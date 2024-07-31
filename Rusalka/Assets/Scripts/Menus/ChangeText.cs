@@ -42,5 +42,10 @@ public class ChangeText : MonoBehaviour
             default:
                 break;
         }
+        if (gameObject.GetComponent<AudioManipulator>() != null)
+        {
+            float volume = gameObject.GetComponent<AudioManipulator>().getCurrentVolume();
+            textField.text += " (" + Mathf.Round(volume*100) + "%)";
+        }
     }
 }

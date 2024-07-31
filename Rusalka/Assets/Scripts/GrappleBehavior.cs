@@ -55,7 +55,7 @@ public class GrappleBehavior : MonoBehaviour
         TargetGrapplePoint();
         if (Input.GetButtonDown("Fire1"))
         { 
-            GrappleSpeedBoost();
+            GrappleSpeedBoost();          
         }
         // Tool for developers to move freely in the scene
         if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
@@ -142,6 +142,7 @@ public class GrappleBehavior : MonoBehaviour
             InGrapple = true;
             OriginalPosition = transform.position;
             lastKnownAngleOfLaunch = BestGrapplePoint.Item2.normalized;
+            SoundController.Instance?.PlaySoundOneShotRandomPitch("Grapple", 0.05f);
         }
     }
 

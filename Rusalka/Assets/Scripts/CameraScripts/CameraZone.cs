@@ -74,6 +74,7 @@ public class CameraZone : MonoBehaviour
     [Header("Pause Player Movement")]
     [SerializeField] private bool stopPlayerMovement = false;
     [SerializeField] private float seconds = 0f;
+    [SerializeField] private bool resetAfterwards = false;
     [Header("Is the Zone Temporary")]
     [SerializeField] private bool Temporary = false;
     [SerializeField] private int howManyTimes = 1;
@@ -218,7 +219,7 @@ public class CameraZone : MonoBehaviour
         playerController.SetCanMove(false);
         yield return new WaitForSeconds(seconds);
         playerController.SetCanMove(true);
-        //Reset();
+        if (resetAfterwards) Reset();
     }    
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null)
