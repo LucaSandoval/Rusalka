@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 485961305512675488}
   - component: {fileID: 9211923533560084670}
   - component: {fileID: 3540048495240914216}
+  - component: {fileID: 4330750129070095527}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -527,3 +528,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 485961305512675488}
   headSprite: {fileID: 1859223574116916595}
+  sprite: {fileID: 0}
+--- !u!114 &4330750129070095527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488810274593946015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce36c82971a280947b84c3c99a13116a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerController: {fileID: 1816440805684750038}
+  EffectSpawnPoint: {fileID: 0}
+  SurfaceSettings:
+  - SurfaceType: 2
+    FootstepSounds:
+    - FootstepStone
+    - FootstepStone2
+    FootstepParticleEffect: {fileID: 0}
+  - SurfaceType: 3
+    FootstepSounds:
+    - FootstepSand
+    - FootstepSand2
+    FootstepParticleEffect: {fileID: 0}
+  - SurfaceType: 0
+    FootstepSounds:
+    - FootstepWood
+    - FootstepWood2
+    FootstepParticleEffect: {fileID: 0}
+  - SurfaceType: 1
+    FootstepSounds:
+    - FootstepWater
+    - FootstepWater2
+    FootstepParticleEffect: {fileID: 0}

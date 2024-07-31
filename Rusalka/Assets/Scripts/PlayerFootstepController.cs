@@ -57,7 +57,7 @@ public class PlayerFootstepController : MonoBehaviour
                     }
                 }
 
-                PlayFootstepSoundForSurfaceType(FootstepSurfaceType.Wood);
+                PlayFootstepSoundForSurfaceType(FootstepSurfaceType.Stone);
             }
         }
     }

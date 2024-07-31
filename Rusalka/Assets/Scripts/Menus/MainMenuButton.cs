@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -12,7 +14,11 @@ public class MainMenuButton : NavigatableMenuButton
     public override void Choose()
     {
         Debug.Log("Chose Button!");
-        if (gameObject.name.Equals("LanguageButton"))
+        if (gameObject.name.Equals("StartButton"))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (gameObject.name.Equals("LanguageButton"))
         {
             switch (GlobalSettings.GlobalLanguage)
             {
