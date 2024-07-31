@@ -16,6 +16,9 @@ public class PlayerFootstepController : MonoBehaviour
 
     private int footstepSoundId = 0;
 
+    private const float landTimerMax = 0.2f;
+    private float currentLandTimer;
+
     /// <summary>
     /// Sound + Particle effect settings for different surface types
     /// </summary>
@@ -25,6 +28,20 @@ public class PlayerFootstepController : MonoBehaviour
         public FootstepSurfaceType SurfaceType;
         public string[] FootstepSounds;
         public GameObject FootstepParticleEffect;
+        public string LandingSound;
+    }
+
+    private void Start()
+    {
+        currentLandTimer = 0;
+    }
+
+    private void Update()
+    {
+        if (currentLandTimer > 0)
+        {
+            currentLandTimer -= Time.deltaTime;
+        }
     }
 
     // Triggers a footstep, including the proper sound effect and potential particle effect.
@@ -32,6 +49,17 @@ public class PlayerFootstepController : MonoBehaviour
     {
         PlayPlayerFootstepSound();
         // Particle Function
+    }
+
+    // Triggers a 'land', inclding the proper sound effect with a small delay to ensure the sound works properly.
+    public void PlayerLand()
+    {
+        if (currentLandTimer <= 0)
+        {
+            currentLandTimer = landTimerMax;
+            PlayerFootstepSurfaceSetting setting = GetSurfaceSettingForType(GetSurfaceBelowPlayer());
+            SoundController.Instance?.PlaySoundOneShotRandomPitch(setting.LandingSound, 0.07f);
+        }
     }
 
     // If the Player is on the ground, plays the appropriate player footstep sound effect
@@ -42,24 +70,28 @@ public class PlayerFootstepController : MonoBehaviour
         {
             if (PlayerController.IsGrounded())
             {
-                // Check for the surface type of the first hit solid surface below you 
-                RaycastHit2D[] Hits = Physics2D.RaycastAll(transform.position, Vector2.down);
-                // Sort by the closet point to player (ie. surface standing on)
-                Array.Sort(Hits, (x, y) => x.distance.CompareTo(y.distance));
-                // Search for a footstep surface in hits
-                foreach(RaycastHit2D Hit in Hits)
-                {
-                    FootstepSurface footstepSurface = Hit.transform.GetComponent<FootstepSurface>();
-                    if (footstepSurface != null)
-                    {
-                        PlayFootstepSoundForSurfaceType(footstepSurface.GetFootstepSurfaceType());
-                        return;
-                    }
-                }
-
-                PlayFootstepSoundForSurfaceType(FootstepSurfaceType.Stone);
+                PlayFootstepSoundForSurfaceType(GetSurfaceBelowPlayer());
             }
         }
+    }
+
+    // Finds a surface type below the player. If none exists, returns a fallback type. 
+    private FootstepSurfaceType GetSurfaceBelowPlayer()
+    {
+        // Check for the surface type of the first hit solid surface below you 
+        RaycastHit2D[] Hits = Physics2D.RaycastAll(transform.position, Vector2.down);
+        // Sort by the closet point to player (ie. surface standing on)
+        Array.Sort(Hits, (x, y) => x.distance.CompareTo(y.distance));
+        // Search for a footstep surface in hits
+        foreach (RaycastHit2D Hit in Hits)
+        {
+            FootstepSurface footstepSurface = Hit.transform.GetComponent<FootstepSurface>();
+            if (footstepSurface != null)
+            {
+                return footstepSurface.GetFootstepSurfaceType();
+            }
+        }
+        return FootstepSurfaceType.Stone;
     }
 
     // Given a footstep surface type, play the appropriate sound effect

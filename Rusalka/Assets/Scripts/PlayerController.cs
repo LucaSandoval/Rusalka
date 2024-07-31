@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb; // the player's rigidbody
     private Collider2D collide; //the player's collider
     private SpriteRenderer spr; // the player's sprite
+    private PlayerFootstepController footstepController;
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
     private Vector2 currSwimSpeed;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
         grounded = false;
         collide = GetComponent<Collider2D>();
         spr = GetComponent<SpriteRenderer>();
+        footstepController = GetComponent<PlayerFootstepController>();
         facing = 1;
         inGrapple = false;
         currFloatGrav = 0;
@@ -332,8 +334,15 @@ public class PlayerController : MonoBehaviour
         {
             if (velocity.y <= 0)
             {
-                grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x, transform.position.y - collide.bounds.extents.y),
+                bool oldGrounded = grounded;
+                bool newGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - collide.bounds.extents.x, transform.position.y - collide.bounds.extents.y),
                 new Vector2(transform.position.x + collide.bounds.extents.x, transform.position.y - collide.bounds.extents.y - yCheckPadding), LayerMask.GetMask("Floor"));
+                grounded = newGrounded;
+                if (!oldGrounded && newGrounded)
+                {
+                    footstepController?.PlayerLand();
+                }
+
             }
         }
         else

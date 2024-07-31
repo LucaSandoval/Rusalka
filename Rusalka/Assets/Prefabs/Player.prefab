@@ -550,21 +550,25 @@ MonoBehaviour:
     - FootstepStone
     - FootstepStone2
     FootstepParticleEffect: {fileID: 0}
+    LandingSound: LandStone
   - SurfaceType: 3
     FootstepSounds:
     - FootstepSand
     - FootstepSand2
     FootstepParticleEffect: {fileID: 0}
+    LandingSound: LandSand
   - SurfaceType: 0
     FootstepSounds:
     - FootstepWood
     - FootstepWood2
     FootstepParticleEffect: {fileID: 0}
+    LandingSound: 
   - SurfaceType: 1
     FootstepSounds:
     - FootstepWater
     - FootstepWater2
     FootstepParticleEffect: {fileID: 0}
+    LandingSound: 
 --- !u!114 &7169728206669560122
 MonoBehaviour:
   m_ObjectHideFlags: 0
