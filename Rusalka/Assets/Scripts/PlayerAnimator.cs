@@ -1,30 +1,34 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    [Header("Preferences")] [SerializeField]
-    private Animator anim;
-
+    [Header("Preferences")] 
+    
+    [Header("General")]
+    [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer headSprite;
-    [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private float swimmingAnimationTurningSpeed = 300.0f;
+    private PlayerController playerController;
+    //[SerializeField] private SpriteRenderer sprite;
+    
+    [Header("Swimming")]
+    [SerializeField] private float turningSpeed = 250.0f;
+    [SerializeField] private float maxTurnAngle = 130.0f;
     
     private float interpCurrent;
-    
-    private PlayerController player;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponentInParent<PlayerController>();
+        playerController = GetComponentInParent<PlayerController>();
         interpCurrent = transform.up.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player == null) return;
+        if (playerController == null) return;
 
         HandleDirection();
         HandleJump();
@@ -32,64 +36,58 @@ public class PlayerAnimator : MonoBehaviour
         HandleSwimming();
     }
 
-    private float angle = 0.0f;
-    private float diff = 0.0f; 
-
     private void HandleSwimming()
     {
-        anim.SetBool("Swimming", player.IsInWater());
-
-        if (!player.IsInWater())
+        anim.SetBool("Swimming", playerController.IsInWater());
+        
+        if (!playerController.IsInWater())
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
             return;
         }
         
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        // Difference between the character and direction we want to move in angles [-180, 180]
         float diff = Vector2.SignedAngle(transform.up, direction);
-        //Debug.Log(diff);
-
-        //float a = 180.0f - diff;
-
-        if(Math.Abs(Math.Abs(diff) - 180.0f) > 10.0f)
+        
+        // Rotate the character smoothly if the angle to rotate is smaller than certain angle threshold given by maxTurnAngle
+        // Otherwise turn the character to the opposite direction and play Turning Animation
+        if(Math.Abs(Math.Abs(diff) - 180.0f) > 180.0f - maxTurnAngle)
         {
-            interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + diff, Time.deltaTime * swimmingAnimationTurningSpeed); 
-            //Debug.Log(interpCurrent);
+            interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + diff, Time.deltaTime * turningSpeed);
         }
-        else if(Mathf.Abs(Mathf.Abs(diff) - 180.0f) < 5.0f && direction != Vector2.zero)
+        else if(direction != Vector2.zero)
         {
-            //Debug.Log("here3");
-            interpCurrent += 180.0f;
+            interpCurrent += diff;
             anim.SetTrigger("FireTurn");
         }
-
-        //interpCurrent = Mathf.MoveTowards(interpCurrent, diff, Time.deltaTime * swimmingAnimationTurningSpeed); 
+        
+        // Apply new rotation
         transform.rotation = Quaternion.Euler(0, 0, interpCurrent);
         
-        anim.SetFloat("SwimmingSpeed", Mathf.Lerp(0.7f, 1.2f, Mathf.InverseLerp(0, player.GetMaxSwimmingSpeed(), player.GetSwimmingMovementVelocity())));
-        //Debug.Log(direction + " " + directionVertical);
+        // Swimming Speed holds a value used as multiplayer for the playing speed of the Swim animation.
+        anim.SetFloat("SwimmingSpeed", Mathf.Lerp(0.7f, 1.2f, Mathf.InverseLerp(0, playerController.GetMaxSwimmingSpeed(), playerController.GetSwimmingMovementVelocity())));
     }
 
     private void HandleFloat()
     {
-        anim.SetBool("IsFloating", player.GetIsFloat());
+        anim.SetBool("IsFloating", playerController.GetIsFloat());
     }
 
     private void HandleJump()
      {
-         anim.SetFloat("VelocityY", player.GetMovementVelocity().y);
-         anim.SetBool("IsGrounded", player.IsGrounded());
+         anim.SetFloat("VelocityY", playerController.GetMovementVelocity().y);
+         anim.SetBool("IsGrounded", playerController.IsGrounded());
      }
 
     private void HandleDirection()
     {
-        anim.SetFloat("Speed", player.GetMovementSpeed());
-        if (player.Facing().x == 1)
+        anim.SetFloat("Speed", playerController.GetMovementSpeed());
+        if (playerController.Facing().x == 1)
         {
             headSprite.flipX = false;
         }
-        else if (player.Facing().x == -1)
+        else if (playerController.Facing().x == -1)
         {
             headSprite.flipX = true;
         }

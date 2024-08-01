@@ -315,6 +315,7 @@ public class PlayerController : MonoBehaviour
         if (!inWater)
         {
             currSwimSpeed = Vector2.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         // Physics Material
