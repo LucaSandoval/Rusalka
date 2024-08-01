@@ -48497,6 +48497,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1493474951}
     m_Modifications:
     - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: FadeTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: MusicFile
       value: Lvl2MusicWhiteVoid
       objectReference: {fileID: 0}
@@ -48542,7 +48546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6235975870495461392, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: m_Name
-      value: MusicAffect
+      value: Music Start - White Void
       objectReference: {fileID: 0}
     - target: {fileID: 6268585793193775570, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: m_Size.y
