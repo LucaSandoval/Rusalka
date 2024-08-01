@@ -13315,6 +13315,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: FadeTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: MusicFile
       value: Lvl1MusicUnderwaterCastle
       objectReference: {fileID: 0}
@@ -48498,7 +48502,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: FadeTime
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: MusicFile
