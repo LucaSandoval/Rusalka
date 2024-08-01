@@ -190,7 +190,10 @@ public class PlayerController : MonoBehaviour
                 // Setting the float
                 if (Input.GetButtonDown("Jump") && canMove && canFloat && currCoyoteTime <= 0)
                 {
-                    velocity.y = currFloatGrav;
+                    if (velocity.y <= 0)
+                    {
+                        velocity.y = currFloatGrav;
+                    };
                     isFloat = true;
                     SoundController.Instance?.PlaySoundRandomPitch("StartFloat", 0.05f);
                 }
