@@ -311,11 +311,11 @@ MonoBehaviour:
   ReleaseSpeed: 5
   AirResistance: 12
   CoyoteTime: 0.07
-  SwimSpeed: 3.5
-  SwimSink: 1
+  SwimSpeed: 6
+  SwimSink: 0.2
   SwimExitForce: 16.5
-  SwimAcceleration: 20
-  SwimDecceleration: 10
+  SwimAcceleration: 30
+  SwimDecceleration: 20
   NoFriction: {fileID: 6200000, guid: a5c01df84c857d04a95abe884e82d5c1, type: 2}
   HighFriction: {fileID: 6200000, guid: 83293cb21d463624c9784dc3050bcf8d, type: 2}
 --- !u!114 &9199526853031486953
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 8488810274593946015}
   GrapplePointExhaustionTime: 0.5
-  DrawDebug: 0
+  DrawDebug: 1
   GrappleHairRenderPositionOffset: 0
   GrappleAngleForgiveness: 0
   DevDebugMovement: 0
@@ -529,7 +529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 485961305512675488}
   headSprite: {fileID: 1859223574116916595}
-  sprite: {fileID: 0}
+  turningSpeed: 250
+  maxTurnAngle: 130
 --- !u!114 &4330750129070095527
 MonoBehaviour:
   m_ObjectHideFlags: 0
