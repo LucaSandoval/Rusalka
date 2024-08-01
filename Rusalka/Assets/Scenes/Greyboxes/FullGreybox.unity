@@ -6333,7 +6333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StopTime: 2.5
-  Parent: {fileID: 913131868}
+  parent: {fileID: 913131868}
 --- !u!1 &294103090
 GameObject:
   m_ObjectHideFlags: 0
