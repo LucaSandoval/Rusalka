@@ -51,18 +51,19 @@ public class PlayerAnimator : MonoBehaviour
 
         float a = 180.0f - diff;
 
-        if (a < 0)
+        if (a < -30.0f)
         {
             interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + a, Time.deltaTime * swimmingAnimationTurningSpeed);
             Debug.Log("here");
         }
-        else if(a > 0)
+        else if(a > 30.0f)
         {
             interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + diff, Time.deltaTime * swimmingAnimationTurningSpeed); 
         }
-        else if(a == 0 && direction != Vector2.zero)
+        else if(a >= -30.0f && a<=30.0f && direction != Vector2.zero)
         {
             interpCurrent += 180.0f;
+            anim.SetTrigger("FireTurn");
         }
 
         //interpCurrent = Mathf.MoveTowards(interpCurrent, diff, Time.deltaTime * swimmingAnimationTurningSpeed); 

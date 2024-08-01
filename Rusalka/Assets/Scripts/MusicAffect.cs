@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class MusicAffect : MonoBehaviour
 {
-    private enum AffectMode {
+    private enum AffectMode
+    {
         Start,
         Stop,
         FadeIn,
         FadeOut
     }
 
-    [SerializeField] AffectMode Mode;
-    [SerializeField] string MusicFile;
+    [SerializeField] private AffectMode Mode;
+    [SerializeField] private string MusicFile;
+    [SerializeField] private float FadeTime;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -30,10 +32,10 @@ public class MusicAffect : MonoBehaviour
                 SoundController.Instance.PauseSound(MusicFile);
                 break;
             case AffectMode.FadeIn:
-                SoundController.Instance.FadeInSound(MusicFile, .5f, 0);
+                SoundController.Instance.FadeInSound(MusicFile, FadeTime, 0);
                 break;
             case AffectMode.FadeOut:
-                SoundController.Instance.FadeOutSound(MusicFile, .5f);
+                SoundController.Instance.FadeOutSound(MusicFile, FadeTime);
                 break;
             default:
                 break;
