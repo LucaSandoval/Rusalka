@@ -40,11 +40,11 @@ public class MainMenuButton : NavigatableMenuButton
 
     public override void Deselect()
     {
-        if (!gameObject.name.Equals("BackButton")) bgImage.CrossFadeColor(Color.white, 0f, false, true);
+        bgImage.CrossFadeColor(Color.white, 0f, false, true);
     }
 
     public override void Select()
     {
-        if (!gameObject.name.Equals("BackButton")) bgImage.CrossFadeColor(Color.red, 0.2f, false, true);
+        bgImage.CrossFadeColor(Color.red, 0.2f, false, true);
     }
 }
