@@ -48,20 +48,18 @@ public class PlayerAnimator : MonoBehaviour
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         float diff = Vector2.SignedAngle(transform.up, direction);
+        //Debug.Log(diff);
 
-        float a = 180.0f - diff;
+        //float a = 180.0f - diff;
 
-        if (a < -30.0f)
-        {
-            interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + a, Time.deltaTime * swimmingAnimationTurningSpeed);
-            Debug.Log("here");
-        }
-        else if(a > 30.0f)
+        if(Math.Abs(Math.Abs(diff) - 180.0f) > 10.0f)
         {
             interpCurrent = Mathf.MoveTowards(interpCurrent, interpCurrent + diff, Time.deltaTime * swimmingAnimationTurningSpeed); 
+            //Debug.Log(interpCurrent);
         }
-        else if(a >= -30.0f && a<=30.0f && direction != Vector2.zero)
+        else if(Mathf.Abs(Mathf.Abs(diff) - 180.0f) < 5.0f && direction != Vector2.zero)
         {
+            //Debug.Log("here3");
             interpCurrent += 180.0f;
             anim.SetTrigger("FireTurn");
         }
