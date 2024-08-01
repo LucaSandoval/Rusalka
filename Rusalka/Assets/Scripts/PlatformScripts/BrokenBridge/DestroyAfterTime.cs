@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyAfterTime : MonoBehaviour
 {
     public float StopTime = 2.5f;
+    [SerializeField] private GameObject parent;
     public void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(ShakeAndDestroy(StopTime));
@@ -15,6 +16,6 @@ public class DestroyAfterTime : MonoBehaviour
         CameraOperator.Instance.SetIsShaking(true);
         yield return new WaitForSeconds(seconds);
         CameraOperator.Instance.SetIsShaking(false);
-        Destroy(gameObject);
+        Destroy(parent);
     }
 }
