@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8068995546200062621}
   - component: {fileID: 6912027818590653622}
   m_Layer: 0
-  m_Name: swaying_grass
+  m_Name: SwayingFoliage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
