@@ -84,6 +84,12 @@ public class GrappleBehavior : MonoBehaviour
                 OutOfGrappleLaunch();
             }
         }
+        // Tool for developers to move freely in the scene
+        if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0)
+        {
+            Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            PlayerController.SetVelocity(dashDirection * 30);
+        }
     }
 
     // Analyzes all grapple points available and returns if there is a optimal point, and its direction
