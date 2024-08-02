@@ -50,7 +50,6 @@ public class GrappleBehavior : MonoBehaviour
         GrapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
         BestGrapplePoint = (false, Vector2.zero);
         PlayerController = Player.GetComponent<PlayerController>();
-        GrappleHairRenderPositionOffset = 0.85f;
         currLinePosition = transform.position;
         doShoot = false;
         didShoot = false;
