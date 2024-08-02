@@ -88,7 +88,7 @@ public class PlayerFootstepController : MonoBehaviour
     private FootstepSurfaceType GetSurfaceBelowPlayer()
     {
         // Check for the surface type of the first hit solid surface below you 
-        RaycastHit2D[] Hits = Physics2D.RaycastAll(transform.position, Vector2.down);
+        RaycastHit2D[] Hits = Physics2D.RaycastAll(transform.position, Vector2.down, 2f);
         // Sort by the closet point to player (ie. surface standing on)
         Array.Sort(Hits, (x, y) => x.distance.CompareTo(y.distance));
         // Search for a footstep surface in hits
