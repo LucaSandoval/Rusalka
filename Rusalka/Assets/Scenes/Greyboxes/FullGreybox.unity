@@ -42997,6 +42997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9199526853031486953, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: GrappleAngleForgiveness
+      value: 0.589
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
