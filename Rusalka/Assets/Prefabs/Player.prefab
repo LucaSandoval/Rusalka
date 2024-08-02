@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 8488810274593946015}
   GrapplePointExhaustionTime: 0.5
+  ExtendSpeed: 90
   DrawDebug: 1
   GrappleHairRenderPositionOffset: 0
   GrappleAngleForgiveness: 0
@@ -344,7 +345,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8488810274593946015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -380,8 +381,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 174.58301, y: -12.922741, z: 0}
+  - {x: 174.58301, y: -12.072741, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -398,13 +399,40 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 1
       - serializedVersion: 3
-        time: 0.05591978
-        value: 0.5522365
+        time: 0.059170756
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.7023659
+        value: 0.87661785
+        inSlope: -0.8623045
+        outSlope: -0.8623045
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9125714
+        value: 0.21364868
+        inSlope: -0.020287437
+        outSlope: -0.020287437
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.20257603
+        outWeight: 1
+      - serializedVersion: 3
+        time: 1
+        value: 0.082092285
+        inSlope: -1.7343948
+        outSlope: -1.7343948
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.15679494
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
