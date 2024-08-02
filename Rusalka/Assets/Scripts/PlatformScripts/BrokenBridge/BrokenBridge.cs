@@ -9,9 +9,22 @@ public class BrokenBridge : MonoBehaviour
     [SerializeField] private GameObject parent;
     //[SerializeField] private Transform parentTransform;
 
+    [SerializeField] private GameObject[] stones;
+
+    private IBridgeCallable[] interactables;
+    
     private bool isActivated = false;
     private float speedWatch = 0.0f;
 
+    private void Start()
+    {
+        interactables = new IBridgeCallable[stones.Length];
+        
+        for (int i = 0; i < stones.Length; i++)
+        {
+            interactables[i] = stones[i].GetComponent<IBridgeCallable>();
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,6 +34,10 @@ public class BrokenBridge : MonoBehaviour
             speedWatch += Time.deltaTime;
             if (speedWatch >= TimeToTrigger)
             {
+                foreach (var interactable in interactables)
+                {
+                    interactable?.FireBreak();
+                }
                 CameraOperator.Instance.removeCameraZone(GetComponent<CameraZone>());
                 Destroy(parent);
             }
