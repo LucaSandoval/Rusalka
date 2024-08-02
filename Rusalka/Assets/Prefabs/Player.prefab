@@ -334,7 +334,7 @@ MonoBehaviour:
   GrapplePointExhaustionTime: 0.1
   ExtendSpeed: 90
   DrawDebug: 1
-  GrappleHairRenderPositionOffset: 0.5
+  GrappleHairRenderPositionOffset: 0.7
   GrappleAngleForgiveness: 0.242
   DevDebugMovement: 0
 --- !u!120 &8622034474380833248
