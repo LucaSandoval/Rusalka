@@ -62,7 +62,7 @@ public class GrappleBehavior : MonoBehaviour
         if (!InGrapple) {
             TargetGrapplePoint();
         }
-        if (Input.GetButtonDown("Fire1") && BestGrapplePoint.Item1)
+        if (Input.GetButtonDown("Fire1") && BestGrapplePoint.Item1 && !InGrapple)
         {
             InGrapple = true;
             PlayerController.SetVelocity(Vector2.zero, true);
