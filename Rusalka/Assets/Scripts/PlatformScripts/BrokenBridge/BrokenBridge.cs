@@ -6,8 +6,8 @@ using UnityEngine;
 public class BrokenBridge : MonoBehaviour
 {
     public float TimeToTrigger = 2.5f;
-
-    [SerializeField] private Transform parentTransform;
+    [SerializeField] private GameObject parent;
+    //[SerializeField] private Transform parentTransform;
 
     private bool isActivated = false;
     private float speedWatch = 0.0f;
@@ -22,7 +22,7 @@ public class BrokenBridge : MonoBehaviour
             if (speedWatch >= TimeToTrigger)
             {
                 FirePlatformActivation();
-                enabled = false;
+                Destroy(parent);
             }
         }
     }
@@ -47,6 +47,6 @@ public class BrokenBridge : MonoBehaviour
     private void FirePlatformActivation()   
     {
         Debug.Log("BrokenBridge::FirePlatformActivation() the platform has been triggered");
-        parentTransform.position -= new Vector3(parentTransform.position.x, parentTransform.position.y,11.0f);
+        //parentTransform.position -= new Vector3(parentTransform.position.x, parentTransform.position.y,11.0f);
     }
 }
