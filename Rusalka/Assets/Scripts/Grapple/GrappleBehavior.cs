@@ -46,7 +46,7 @@ public class GrappleBehavior : MonoBehaviour
         GrapplePoints = GameObject.FindGameObjectsWithTag("GrapplePoint");
         BestGrapplePoint = (false, Vector2.zero);
         PlayerController = Player.GetComponent<PlayerController>();
-        GrappleHairRenderPositionOffset = 0.5f;
+        GrappleHairRenderPositionOffset = 0.85f;
     }
 
     // Update is called once per frame
