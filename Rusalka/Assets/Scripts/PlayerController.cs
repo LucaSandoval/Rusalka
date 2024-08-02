@@ -492,4 +492,9 @@ public class PlayerController : MonoBehaviour
     {
         return SwimSpeed;
     }
+
+    public bool GetInGrapple()
+    {
+        return inGrapple;
+    }
 }
