@@ -106,6 +106,8 @@ MonoBehaviour:
   reticle: {fileID: 7845148044005332562}
   GrappleEnterSpeed: 25.8
   GrappleExitSpeed: 27
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!120 &4130211962002546013
 LineRenderer:
   serializedVersion: 2
