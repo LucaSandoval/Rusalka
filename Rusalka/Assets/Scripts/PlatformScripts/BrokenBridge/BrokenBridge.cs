@@ -22,6 +22,7 @@ public class BrokenBridge : MonoBehaviour
             if (speedWatch >= TimeToTrigger)
             {
                 FirePlatformActivation();
+                CameraOperator.Instance.removeCameraZone(GetComponent<CameraZone>());
                 Destroy(parent);
             }
         }
