@@ -16,6 +16,7 @@ public class GrappleBehavior : MonoBehaviour
 
     [Tooltip("The time that the player will be unable to grapple to the same grapple point again")]
     [SerializeField] private float GrapplePointExhaustionTime = 0.5f;
+    [SerializeField] private float ExtendSpeed = 200f;
     [SerializeField] private bool DrawDebug = false;
     [Tooltip("Offset from the center of the player to shift the y-axis of the line render")]
     [SerializeField] private float GrappleHairRenderPositionOffset;
@@ -27,6 +28,9 @@ public class GrappleBehavior : MonoBehaviour
     private PlayerController PlayerController;
     private LineRenderer LineRenderer;
     private bool InGrapple;
+    private Vector2 currLinePosition;
+    private bool doShoot;
+    private bool didShoot;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -47,23 +51,29 @@ public class GrappleBehavior : MonoBehaviour
         BestGrapplePoint = (false, Vector2.zero);
         PlayerController = Player.GetComponent<PlayerController>();
         GrappleHairRenderPositionOffset = 0.85f;
+        currLinePosition = transform.position;
+        doShoot = false;
+        didShoot = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         TargetGrapplePoint();
-        if (Input.GetButtonDown("Fire1"))
-        { 
-            GrappleSpeedBoost();          
+        if (Input.GetButtonDown("Fire1") && BestGrapplePoint.Item1)
+        {
+            InGrapple = true;
+            PlayerController.SetVelocity(Vector2.zero, true);
+            currLinePosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
         }
-        // Tool for developers to move freely in the scene
-        if (DevDebugMovement && Input.GetAxisRaw("Fire2") > 0) {
-            Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            PlayerController.SetVelocity(dashDirection * 30); 
-          }
         UpdateLine();
-        if (InGrapple)
+        if (doShoot)
+        {
+            GrappleSpeedBoost();
+            doShoot = false;
+            didShoot = true;
+        }
+        if (InGrapple && didShoot)
         {
             if (DistanceToGrapple <= Vector2.Distance(OriginalPosition, transform.position))
             {
@@ -72,7 +82,6 @@ public class GrappleBehavior : MonoBehaviour
                 OutOfGrappleLaunch();
             }
         }
-        
     }
 
     // Analyzes all grapple points available and returns if there is a optimal point, and its direction
@@ -134,16 +143,12 @@ public class GrappleBehavior : MonoBehaviour
      */
     private void GrappleSpeedBoost()
     { 
-        if (BestGrapplePoint.Item1)
-        {
-            if (InGrapple) BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
-            PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * BestPoint.GrappleEnterSpeed, true);
-            PlayerController.SetGrounded(false);
-            InGrapple = true;
-            OriginalPosition = transform.position;
-            lastKnownAngleOfLaunch = BestGrapplePoint.Item2.normalized;
-            SoundController.Instance?.PlaySoundOneShotRandomPitch("Grapple", 0.05f);
-        }
+        if (InGrapple) BestPoint.DisableInteractibility(GrapplePointExhaustionTime);
+        PlayerController.SetVelocity(BestGrapplePoint.Item2.normalized * BestPoint.GrappleEnterSpeed, true);
+        PlayerController.SetGrounded(false);
+        OriginalPosition = transform.position;
+        lastKnownAngleOfLaunch = BestGrapplePoint.Item2.normalized;
+        SoundController.Instance?.PlaySoundOneShotRandomPitch("Grapple", 0.05f);
     }
 
     /*
@@ -153,8 +158,9 @@ public class GrappleBehavior : MonoBehaviour
     {
         //Temporary for now until we have more assets for the hair grapple animation
         LineRenderer.positionCount = 2;
+        currLinePosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
         LineRenderer.SetPosition(0, transform.position);
-        LineRenderer.SetPosition(1, transform.position);
+        LineRenderer.SetPosition(1, currLinePosition);
         LineRenderer.enabled = false;
     }
 
@@ -167,8 +173,19 @@ public class GrappleBehavior : MonoBehaviour
         {
             LineRenderer.enabled = true;
             Vector2 originPosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
+            currLinePosition = Vector2.MoveTowards(currLinePosition, BestGrapplePosition, ExtendSpeed * Time.deltaTime);
             LineRenderer.SetPosition(0, originPosition);
-            LineRenderer.SetPosition(1, BestGrapplePosition);
+            if (!doShoot && !didShoot)
+            {
+                if (Mathf.Approximately(LineRenderer.GetPosition(1).x, BestGrapplePosition.x) && Mathf.Approximately(LineRenderer.GetPosition(1).y, BestGrapplePosition.y))
+                {
+                    doShoot = true;
+                }
+                LineRenderer.SetPosition(1, currLinePosition);
+            }
+            else {
+                LineRenderer.SetPosition(1, BestGrapplePosition);
+            }
         }
         else
         {
@@ -181,6 +198,10 @@ public class GrappleBehavior : MonoBehaviour
      */
     private void OutOfGrappleLaunch()
     {
+        didShoot = false;
+        doShoot = false;
+        SetupLineRender();
         PlayerController.SetVelocity(lastKnownAngleOfLaunch * BestPoint.GrappleExitSpeed);
+        currLinePosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
     }
 }
