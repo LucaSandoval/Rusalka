@@ -309,7 +309,7 @@ public class CameraOperator : Singleton<CameraOperator>
         /*bool grounded = true;
         float movementSpeed = 0;*/
         shakeTime += Time.fixedDeltaTime;
-        if (dynamicTarget.CompareTag("Player"))
+        if (dynamicTarget != null && dynamicTarget.CompareTag("Player"))
         {
             facing = dynamicTarget.GetComponent<PlayerController>().Facing().x > 0 ? 1 : -1;
             /*grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();

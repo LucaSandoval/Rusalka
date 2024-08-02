@@ -7,12 +7,16 @@ using UnityEngine;
 /// </summary>
 public class PauseController : Singleton<PauseController>
 {
-    private bool GamePaused;
-
+    private bool GamePaused = false;
+    private bool notInSettings = true;
     [Header("Pause Menu Parent")]
     public GameObject PauseMenuParent;
-    [Header("Menu Options")]
-    public List<NavigatableMenuButton> Options;
+    [Header("Pause Menu Children")]
+    public GameObject PauseMenuButtons;
+    public GameObject PauseMenuSettings;
+    [Header("Buttons")]
+    public List<NavigatableMenuButton> PauseOptions;
+    public List<NavigatableMenuButton> SettingsOptions;
 
     /// <summary>
     /// Sets the pause state of the game- true for paused, false for unpaused.
@@ -23,10 +27,13 @@ public class PauseController : Singleton<PauseController>
         PauseMenuParent.SetActive(paused);
         if (paused)
         {
-            NavigatableMenuController.Instance?.SetActiveButtons(Options);
+            ChangeActiveButtons();
         } else
         {
             NavigatableMenuController.Instance?.ClearActiveButtons();
+            PauseMenuButtons.SetActive(false);
+            PauseMenuSettings.SetActive(false);
+            notInSettings = true;
         }
     }
 
@@ -38,11 +45,28 @@ public class PauseController : Singleton<PauseController>
         return GamePaused;
     }
 
-    private void Update()
+    public void Update()
     {
         if (Input.GetButtonDown("Cancel"))
         {
             SetGamePause(!IsGamePaused());
         }
+    }
+    public void ChangeActiveButtons()
+    {
+        NavigatableMenuController.Instance?.ClearActiveButtons();
+        if (notInSettings)
+        {
+            PauseMenuButtons.SetActive(true);
+            PauseMenuSettings.SetActive(false);
+            NavigatableMenuController.Instance?.SetActiveButtons(PauseOptions);
+        }
+        else
+        {
+            PauseMenuButtons.SetActive(false);
+            PauseMenuSettings.SetActive(true);
+            NavigatableMenuController.Instance?.SetActiveButtons(SettingsOptions);
+        }
+        notInSettings = !notInSettings;
     }
 }

@@ -11,7 +11,18 @@ public class AudioManipulator : MonoBehaviour
     [SerializeField] private string soundName;
     public void Start()
     {
-        slider.value = 1;
+        switch (name)
+        {
+            case "MasterVolume":
+                slider.value = GlobalSettings.Instance.getMasterVolume();
+                break;
+            case "SFXVolume":
+                slider.value = GlobalSettings.Instance.getSFXVolume();
+                break;
+            case "MusicVolume":
+                slider.value = GlobalSettings.Instance.getMusicVolume();
+                break;
+        }
     }
     public void SetMusicVolume(){
         if (mixer != null) mixer.SetFloat(soundName, getDecibels(slider.value));

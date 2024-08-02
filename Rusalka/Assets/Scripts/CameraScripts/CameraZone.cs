@@ -54,10 +54,6 @@ public class CameraZone : MonoBehaviour
     [SerializeField] private bool changeZoomSpeed = false;
     [SerializeField] private float camSpeed;
     [SerializeField] private float zoomSpeed;  
-    [Header("Pause Player Movement")]
-    [SerializeField] private bool stopPlayerMovement = false;
-    [SerializeField] private float seconds = 0f;
-    [SerializeField] private bool resetAfterwards = false;
     [Header("Is the Zone Temporary")]
     [SerializeField] private bool Temporary = false;
     [SerializeField] private int howManyTimes = 1;
@@ -175,12 +171,6 @@ public class CameraZone : MonoBehaviour
         //if (changeXYDistance) ChangeXYDistance();
         if (changeCameraBoundaries) ChangeCameraBoundaries();
         }
-    public IEnumerator StopPlayer(){
-        playerController.SetCanMove(false);
-        yield return new WaitForSeconds(seconds);
-        playerController.SetCanMove(true);
-        //if (resetAfterwards) ResetChanges();
-    }    
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null){
             CameraOperator.Instance.addCameraZone(this);
