@@ -48,6 +48,7 @@ public class PlayerAnimator : MonoBehaviour
         
         if (!playerController.IsInWater())
         {
+            interpCurrent = transform.up.z;
             return;
         }
         

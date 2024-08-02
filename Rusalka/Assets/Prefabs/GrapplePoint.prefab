@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8756679824375684892}
   - component: {fileID: 1150291374823185641}
   - component: {fileID: 4130211962002546013}
+  - component: {fileID: 8195528685294710664}
   m_Layer: 0
   m_Name: GrapplePoint
   m_TagString: GrapplePoint
@@ -209,6 +210,27 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!95 &8195528685294710664
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365258557788275767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b8515e770dd5e34db5542d86d0dbd8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7845148044005332562
 GameObject:
   m_ObjectHideFlags: 0

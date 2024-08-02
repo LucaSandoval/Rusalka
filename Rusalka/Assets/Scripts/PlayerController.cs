@@ -393,7 +393,9 @@ public class PlayerController : MonoBehaviour
             if (velocity.y < 0)
             {
                 // Give an entry force into water
-                currSwimSpeed = velocity * 0.9f;
+                currSwimSpeed.x = velocity.x * 2.5f;
+                currSwimSpeed.y = -JumpForce;
+                velocity = currSwimSpeed;
                 SoundController.Instance?.PlaySoundRandomPitch("DiveInWater", 0.05f);
             }
         }
@@ -403,12 +405,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Water")
         {
-            if (velocity.y > 0)
+            velocity.y = Mathf.Abs(SwimExitForce * (currSwimSpeed.y / SwimSpeed));
+            // Min exit force to smooth out water to normal transitions
+            if (velocity.y <= JumpForce)
             {
-                // Give exagerated water exit force
-                velocity.y = SwimExitForce * (currSwimSpeed.y / SwimSpeed);
-                SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
+                velocity.y = JumpForce;
             }
+
+            SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
             inWater = false;
         }
     }
