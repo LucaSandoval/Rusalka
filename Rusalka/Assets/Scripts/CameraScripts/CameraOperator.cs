@@ -8,10 +8,8 @@ using UnityEngine;
 public class CameraOperator : Singleton<CameraOperator>
 {
     private float shakeTime;
-    void Start(){
-        dynamicTarget = GameObject.FindWithTag("Player").transform;
-        shakeTime = 0f;
-    }
+    [SerializeField] private List<CameraZone> zones;
+
     // private variable storing camera position
     [SerializeField] private float minXBoundary;
     [SerializeField] private float maxXBoundary;
@@ -19,8 +17,8 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private float maxYBoundary;
     // xDistance - how far the camera is going to be from the player in x axis when they are moving
     // yDistance - how far away from the camera player has to move in y axis for it to start following them
-    [SerializeField] private float xDistance;
-    [SerializeField] private float yDistance;
+    //[SerializeField] private float xDistance;
+    //[SerializeField] private float yDistance;
     // How fast will the camera follow player
     [SerializeField] private float cameraSpeed = 12f;
     // How fast will the camera zoom in and out
@@ -32,6 +30,87 @@ public class CameraOperator : Singleton<CameraOperator>
     [SerializeField] private float normalSize = 12f;
     // Size of camera for vista points
     [SerializeField] private float vistaSize = 25f;
+
+    /* -------------------------------------------
+       Default Static Variables for CameraOperator
+       ------------------------------------------- */
+    private static float minXBound;
+    private static float maxXBound;
+    private static float minYBound;
+    private static float maxYBound;
+    private static float camSpeed;
+    private static float zomSpeed;
+    private static Transform dynTarget;
+    private static Vector3 staPoint;
+    private static float smallSize;
+    private static float bigSize;
+    private static CameraMode mode;
+    private static Target target;
+    private static float xOffset;
+    private static float yOffset;
+    private static bool xShakeOn;
+    private static bool yShakeOn;
+    private static float xShakePow;
+    private static float yShakePow;
+
+    void Start()
+    {
+        dynamicTarget = GameObject.FindWithTag("Player").transform;
+        shakeTime = 0f;
+        zones = new List<CameraZone>();
+        // Assigning defaults
+        minXBound = minXBoundary;
+        maxXBound = maxXBoundary;
+        minYBound = minYBoundary;
+        maxYBound = maxYBoundary;
+        camSpeed = cameraSpeed;
+        zomSpeed = zoomSpeed;
+        dynTarget = dynamicTarget;
+        staPoint = staticPoint;
+        smallSize = normalSize;
+        bigSize = vistaSize;
+        mode = cameraMode;
+        target = cameraTarget;
+        xOffset = xAxisOffset;
+        yOffset = yAxisOffset;
+        xShakeOn = xAxisShakeEnabled;
+        yShakeOn = yAxisShakeEnabled;
+        xShakePow = xShakeStrength;
+        yShakePow = yShakeStrength;
+    }
+    private void resetToDefaults()
+    {
+        minXBoundary = minXBound;
+        minYBoundary = minYBound;
+        maxXBoundary = maxXBound;
+        maxYBoundary = maxYBound;
+        cameraSpeed = camSpeed;
+        zoomSpeed = zomSpeed;
+        dynamicTarget = dynTarget;
+        staticPoint = staPoint;
+        normalSize = smallSize;
+        vistaSize = bigSize;
+        cameraMode = mode;
+        cameraTarget = target;
+        xAxisOffset = xOffset; 
+        yAxisOffset = yOffset;
+        isShaking = false;
+        xAxisShakeEnabled = xShakeOn;
+        yAxisShakeEnabled = yShakeOn;
+        xShakeStrength = xShakePow;
+        yShakeStrength = yShakePow;
+        xAxisMoveEnabled = true;
+        yAxisMoveEnabled = true;
+    }
+    public void addCameraZone(CameraZone zone)
+    {
+        zones.Add(zone);
+        zones.Sort((x,y) => y.getPriority().CompareTo(x.getPriority()));
+    }
+    public void removeCameraZone(CameraZone zone)
+    {
+        zones.Remove(zone);
+    }
     // Who the camera is currently following
     public enum Target{
         Dynamic,
@@ -195,10 +274,10 @@ public class CameraOperator : Singleton<CameraOperator>
     public void SetMaxYBoundary(float f){
         maxYBoundary = f;
     }
-    public float GetXDistance(){
+    /*public float GetXDistance(){
         return xDistance;
     }
-    public void SetXDistance(float f){
+    /*public void SetXDistance(float f){
         xDistance = f;
     }
     public float GetYDistance(){
@@ -206,7 +285,7 @@ public class CameraOperator : Singleton<CameraOperator>
     }
     public void SetYDistance(float f){
         yDistance = f;
-    }
+    }*/
     public IEnumerator ShakeCamera()
     {
         Vector3 cameraPos = transform.position; 
@@ -228,15 +307,24 @@ public class CameraOperator : Singleton<CameraOperator>
         Camera Cam = Camera.main;
         if (PauseController.Instance == null || !PauseController.Instance.IsGamePaused()){
         float facing = 1;
-        bool grounded = true;
-        float movementSpeed = 0;
+        /*bool grounded = true;
+        float movementSpeed = 0;*/
         shakeTime += Time.fixedDeltaTime;
         if (dynamicTarget.CompareTag("Player"))
         {
             facing = dynamicTarget.GetComponent<PlayerController>().Facing().x > 0 ? 1 : -1;
-            grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();
-            movementSpeed = dynamicTarget.GetComponent<PlayerController>().GetMovementSpeed();
+            /*grounded = dynamicTarget.GetComponent<PlayerController>().IsGrounded();
+            movementSpeed = dynamicTarget.GetComponent<PlayerController>().GetMovementSpeed();*/
         }
+        if (zones.Count == 0)
+            {
+                // if player is in no camera zones, changes to camera reset back to default
+                resetToDefaults();
+            }
+        else
+            {
+                zones[0].ApplyChanges();
+            }
         // moves the camera as specified by the target
         switch(cameraTarget){
             case Target.Dynamic:
@@ -248,17 +336,15 @@ public class CameraOperator : Singleton<CameraOperator>
                         newCameraPosition.x = maxXBoundary;
                     else if (x - xAxisOffset < minXBoundary) 
                         newCameraPosition.x = minXBoundary;
-                    else if (movementSpeed < 0.1)
-                        newCameraPosition.x = x - xAxisOffset;
                     else
-                        newCameraPosition.x = x + facing * xDistance - xAxisOffset;
+                        newCameraPosition.x = x - xAxisOffset;
                 }
                 if (yAxisMoveEnabled){
                     if (y - yAxisOffset > maxYBoundary)
                         newCameraPosition.y = maxYBoundary;
                     else if (y - yAxisOffset < minYBoundary)
                         newCameraPosition.y = minYBoundary;
-                    else if (grounded || Math.Abs(y - transform.position.y) > yDistance)
+                    else
                         newCameraPosition.y = y - yAxisOffset;
                 }
                 transform.position = Vector3.Slerp(
