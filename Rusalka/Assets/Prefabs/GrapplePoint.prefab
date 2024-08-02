@@ -104,7 +104,7 @@ MonoBehaviour:
   DrawDebug: 0
   renderRadius: 0
   reticle: {fileID: 7845148044005332562}
-  GrappleEnterSpeed: 25
+  GrappleEnterSpeed: 25.8
   GrappleExitSpeed: 30
 --- !u!120 &4130211962002546013
 LineRenderer:

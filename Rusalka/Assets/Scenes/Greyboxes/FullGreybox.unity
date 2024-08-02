@@ -44413,7 +44413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150291374823185641, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: GrappleExitSpeed
-      value: 34.3
+      value: 30.5
       objectReference: {fileID: 0}
     - target: {fileID: 4130211962002546013, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_ApplyActiveColorSpace
@@ -51235,6 +51235,10 @@ PrefabInstance:
     - target: {fileID: 8488810274593946015, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199526853031486953, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+      propertyPath: DevDebugMovement
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9199526853031486953, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: GrappleAngleForgiveness

@@ -64,7 +64,7 @@ public class GrappleBehavior : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && BestGrapplePoint.Item1 && !InGrapple)
         {
             InGrapple = true;
-            PlayerController.SetVelocity(Vector2.zero, true);
+            
             currLinePosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
         }
         UpdateLine();
@@ -81,6 +81,7 @@ public class GrappleBehavior : MonoBehaviour
                 InGrapple = false;
                 PlayerController.SetInGrapple(false);
                 OutOfGrappleLaunch();
+               
             }
         }
         // Tool for developers to move freely in the scene
