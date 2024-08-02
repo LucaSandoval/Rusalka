@@ -59,7 +59,9 @@ public class GrappleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TargetGrapplePoint();
+        if (!InGrapple) {
+            TargetGrapplePoint();
+        }
         if (Input.GetButtonDown("Fire1") && BestGrapplePoint.Item1)
         {
             InGrapple = true;
