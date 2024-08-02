@@ -25,6 +25,8 @@ public class GrapplePointBehavior : MonoBehaviour
     private bool interactible = true;
 
     private Animator anim;
+    [SerializeField] private Color StartColor;
+    [SerializeField] private Color EndColor;
 
     private void Start()
     {

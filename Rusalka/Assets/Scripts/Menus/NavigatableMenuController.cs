@@ -112,7 +112,7 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
             }
             SelectCurrentButton();
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonUp("Jump"))
             {
                 ChooseCurrentButton();
             }

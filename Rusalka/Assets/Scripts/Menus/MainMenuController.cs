@@ -16,6 +16,7 @@ public class MainMenuController : MonoBehaviour
 
     void Start()
     {
+        NavigatableMenuController.Instance?.ClearActiveButtons();
         NavigatableMenuController.Instance?.SetActiveButtons(MenuOptions);
     }
     public void ChangeActiveButtons()
