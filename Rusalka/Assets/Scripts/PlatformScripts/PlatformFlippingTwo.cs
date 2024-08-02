@@ -8,13 +8,13 @@ public class PlatformFlippingTwo : MonoBehaviour
     public bool Flipped = false;
 
     private SpriteRenderer Sprite;
-    private BoxCollider2D Collider;
+    private EdgeCollider2D Collider;
 
     // Start is called before the first frame update
     void Start()
     {
         Sprite = GetComponent<SpriteRenderer>();
-        Collider = GetComponent<BoxCollider2D>();
+        Collider = GetComponent<EdgeCollider2D>();
 
         Sprite.enabled = Flipped;
         Collider.enabled = Flipped;
