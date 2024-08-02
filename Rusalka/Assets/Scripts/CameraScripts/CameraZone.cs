@@ -116,7 +116,7 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetXDistance(xDistance);
         CameraOperator.Instance.SetYDistance(yDistance);
     }*/
-    public void ResetCameraShake(){
+   /* public void ResetCameraShake(){
         CameraOperator.Instance.SetIsShaking(false);
     }   
     public void ResetCameraSize(){
@@ -145,12 +145,12 @@ public class CameraZone : MonoBehaviour
     public void ResetZoomSpeed(){
     }
     public void ResetCameraBoundaries(){
-    }
+    }*/
     /*public void ResetXYDistance(){
         CameraOperator.Instance.SetXDistance(ogXDistance);
         CameraOperator.Instance.SetYDistance(ogYDistance);
     }*/
-    public void ResetChanges(){
+   /* public void ResetChanges(){
         if(changeCameraMode) ResetCameraMode();
         if(changeCameraSize) ResetCameraSize();            
         if(changeCameraTarget) ResetCameraTarget();
@@ -161,7 +161,7 @@ public class CameraZone : MonoBehaviour
         if(changeZoomSpeed) ResetZoomSpeed();
         //if(changeXYDistance) ResetXYDistance();
         if(changeCameraBoundaries) ResetCameraBoundaries();       
-    }
+    }*/
     public void ApplyChanges()
     {
         if (changeCameraMode) ChangeCameraMode();
@@ -179,7 +179,7 @@ public class CameraZone : MonoBehaviour
         playerController.SetCanMove(false);
         yield return new WaitForSeconds(seconds);
         playerController.SetCanMove(true);
-        if (resetAfterwards) ResetChanges();
+        //if (resetAfterwards) ResetChanges();
     }    
     public void OnTriggerEnter2D(Collider2D collider){
        if(collider.CompareTag("Player") && CameraOperator.Instance != null){

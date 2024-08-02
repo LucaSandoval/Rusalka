@@ -9,7 +9,6 @@ public class CameraOperator : Singleton<CameraOperator>
 {
     private float shakeTime;
     [SerializeField] private List<CameraZone> zones;
-
     // private variable storing camera position
     [SerializeField] private float minXBoundary;
     [SerializeField] private float maxXBoundary;
@@ -322,7 +321,8 @@ public class CameraOperator : Singleton<CameraOperator>
                 resetToDefaults();
             }
         else
-            {
+            {   
+                // Otherwise it will use the settings from the highest priority zone
                 zones[0].ApplyChanges();
             }
         // moves the camera as specified by the target
@@ -347,12 +347,12 @@ public class CameraOperator : Singleton<CameraOperator>
                     else
                         newCameraPosition.y = y - yAxisOffset;
                 }
-                transform.position = Vector3.Slerp(
+                transform.position = Vector3.SlerpUnclamped(
                     transform.position, newCameraPosition, cameraSpeed * Time.fixedDeltaTime);
                 break;
             case Target.Static:
                 newCameraPosition = staticPoint;
-                transform.position = Vector3.Slerp(transform.position, newCameraPosition, cameraSpeed/3 * Time.fixedDeltaTime);
+                transform.position = Vector3.SlerpUnclamped(transform.position, newCameraPosition, cameraSpeed/3 * Time.fixedDeltaTime);
                 break;
             default:
                 break;

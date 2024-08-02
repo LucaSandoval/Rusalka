@@ -8,14 +8,12 @@ public class DestroyAfterTime : MonoBehaviour
     [SerializeField] private GameObject parent;
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(ShakeAndDestroy(StopTime));
+        StartCoroutine(CountdownToDestroy(StopTime));
     }
     // Start is called before the first frame update
-    public IEnumerator ShakeAndDestroy(float seconds)
+    public IEnumerator CountdownToDestroy(float seconds)
     {
-        CameraOperator.Instance.SetIsShaking(true);
         yield return new WaitForSeconds(seconds);
-        CameraOperator.Instance.SetIsShaking(false);
         Destroy(parent);
     }
 }
