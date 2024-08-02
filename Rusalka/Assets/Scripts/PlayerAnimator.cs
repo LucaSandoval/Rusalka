@@ -34,11 +34,17 @@ public class PlayerAnimator : MonoBehaviour
         HandleJump();
         HandleFloat();
         HandleSwimming();
+        //HandleGrappling();
+    }
+
+    private void HandleGrappling()
+    {
+        anim.SetBool("InGrapple", playerController.GetInGrapple());
     }
 
     private void HandleSwimming()
     {
-        anim.SetBool("Swimming", playerController.IsInWater());
+        anim.SetBool("IsSwimming", playerController.IsInWater());
         
         if (!playerController.IsInWater())
         {
