@@ -101,7 +101,7 @@ public class GrappleBehavior : MonoBehaviour
                 {
                     if (pointBehavior.IsInteractible())
                     {
-                        pointBehavior.ToggleReticle(true);
+                        pointBehavior.Targeted(true);
                         // If current distance is the shortest we have seen, then make it the most optimal point
                         if (distanceToPoint < bestDistance)
                         {
@@ -117,12 +117,12 @@ public class GrappleBehavior : MonoBehaviour
                 }
                 else
                 {
-                    pointBehavior.ToggleReticle(false);
+                    pointBehavior.Targeted(false);
                 }
             }
             else
             {
-                pointBehavior.ToggleReticle(false);
+                pointBehavior.Targeted(false);
             }
         }
         if (pointAvailable && DrawDebug) Debug.DrawLine(transform.position, bestGrapplePoint, Color.green);

@@ -24,11 +24,14 @@ public class GrapplePointBehavior : MonoBehaviour
     // Is this grapple point a selectible target
     private bool interactible = true;
 
+    private Animator anim;
+
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = Segments + 1;
         lineRenderer.useWorldSpace = true;
+        anim = GetComponent<Animator>();
 
         if (renderRadius)
         {
@@ -106,5 +109,13 @@ public class GrapplePointBehavior : MonoBehaviour
     public void ToggleReticle(bool toggle)
     {
         reticle.SetActive(toggle);
+    }
+
+    /*
+     * Sets animation state for grapple
+     */
+    public void Targeted(bool targeted)
+    {
+        anim.SetBool("Targeted", targeted);
     }
 }
