@@ -14564,7 +14564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlipInterval: 1.8
+  FlipInterval: 1.2
   FadeDuration: 0.5
   Flipped: 0
 --- !u!4 &513350945 stripped
@@ -28298,11 +28298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6263123
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.359497
+      value: -19.7
       objectReference: {fileID: 0}
     - target: {fileID: 4684078014086632197, guid: 5e6bd4d4923fa6c49acdcf58180d2aac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40992,7 +40992,8 @@ EdgeCollider2D:
   - {x: -1.0741134, y: 4.0719886}
   - {x: -1.1058129, y: -5.7537966}
   - {x: 1.11285, y: -6.580898}
-  - {x: 1.098549, y: 4.343656}
+  - {x: 1.1347322, y: 3.8563936}
+  - {x: 1.756634, y: 4.855093}
   - {x: 1.7974007, y: 5.1692286}
   - {x: -0.40591562, y: 6.4928746}
   - {x: -1.6842964, y: 4.8788037}
@@ -41334,7 +41335,7 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.3588822, y: -9.066937}
   - {x: -1.0208238, y: -9.078666}
-  - {x: -0.9708558, y: 7.021551}
+  - {x: -1.0359545, y: 6.430072}
   - {x: -1.6795987, y: 7.267872}
   - {x: -1.67813, y: 7.6474757}
   - {x: -0.3428802, y: 9.373741}
@@ -53356,11 +53357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 389
+      value: 429.2
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -391
+      value: -357.1
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
