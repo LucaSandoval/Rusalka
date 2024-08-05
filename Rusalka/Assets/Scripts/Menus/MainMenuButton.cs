@@ -21,7 +21,7 @@ public class MainMenuButton : NavigatableMenuButton
                 break;
             case "LanguageButton":
                 // Changes Language to the next one in the Language enum class
-                GlobalSettings.GlobalLanguage = (Language)(((int)GlobalSettings.GlobalLanguage + 1) % 5);
+                GlobalSettings.GlobalLanguage = (Language)(((int)GlobalSettings.GlobalLanguage + 1) % 6);
                 break;
             case "SettingsButton":
                 FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Settings);
