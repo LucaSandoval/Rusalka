@@ -19,7 +19,7 @@ public class PauseMenuButton : NavigatableMenuButton
                 PauseController.Instance.ChangeActiveButtons(pauseState.Settings);
                 break;
             case "Language":
-                GlobalSettings.GlobalLanguage = (Language)(((int)GlobalSettings.GlobalLanguage + 1) % 5);
+                GlobalSettings.GlobalLanguage = (Language)(((int)GlobalSettings.GlobalLanguage + 1) % 6);
                 break;
             case "Back":
                 PauseController.Instance.ChangeActiveButtons(pauseState.Menu);
@@ -38,6 +38,6 @@ public class PauseMenuButton : NavigatableMenuButton
 
     public override void Select()
     {
-        bgImage.CrossFadeColor(Color.red, 0.2f, false, true);
+        bgImage.CrossFadeColor(new Color(1, 0.77f, 0.1f, 1f), 0.2f, false, true);
     }
 }
