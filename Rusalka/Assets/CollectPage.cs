@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CollectPage : MonoBehaviour
 {
-    [SerializeField] NumPictures pictureCount;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        pictureCount.AddPiece();
+        NumPictures.Instance?.AddPiece();
+        SoundController.Instance?.PlaySound("PieceCollect");
         Destroy(gameObject);
     }
 }
