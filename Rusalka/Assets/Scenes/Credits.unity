@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &181996858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5740500363969588990, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_Name
+      value: SoundController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722465080405310599, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae3d6926b7c21b0488439ec80ec8e871, type: 3}
 --- !u!1 &302825094
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,9 +402,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Irina Ryabova
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: 2D Art
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (6)
+      value: Irina
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -447,9 +512,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Kevin Rodriguez
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Programming, Level Design
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (1)
+      value: Kevin R.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -617,9 +690,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Yan Rybchynskyi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Co-Art Direction, 2D Art / Animation
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (5)
+      value: Yan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -719,9 +800,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: "Berkay G\xFCney"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Co-Art Direction, 2D Art
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (3)
+      value: Berkay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -821,9 +910,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: "Marek Kisieli\u0144ski"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: UI / Camera Programming, Polish / German Localization
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (4)
+      value: Marek
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1262,9 +1359,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Koliia Ihnatenko
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Level / System Design, Programming
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (7)
+      value: Koliia
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1369,9 +1474,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Lily
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: ...
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (8)
+      value: Lily
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1433,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c156147db8208b4bbe03d0e93d8445b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkipIndicator: {fileID: 302825094}
 --- !u!1001 &2130739007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1521,9 +1635,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Kevin McGrath
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Level Prototyping / Design / Building
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name (2)
+      value: Kevin M.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1623,9 +1745,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6059228843566703459, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Luca Sandoval
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
+      propertyPath: m_text
+      value: Programming, System Design, Sound
+      objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
-      value: credits_name
+      value: Luca
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1639,3 +1769,4 @@ SceneRoots:
   - {fileID: 1083695576}
   - {fileID: 916197412}
   - {fileID: 439573972}
+  - {fileID: 181996858}
