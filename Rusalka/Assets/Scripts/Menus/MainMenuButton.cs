@@ -24,10 +24,13 @@ public class MainMenuButton : NavigatableMenuButton
                 GlobalSettings.GlobalLanguage = (Language)(((int)GlobalSettings.GlobalLanguage + 1) % 5);
                 break;
             case "SettingsButton":
-                FindObjectOfType<MainMenuController>().ChangeActiveButtons();
+                FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Settings);
                 break;
             case "BackButton":
-                FindObjectOfType<MainMenuController>().ChangeActiveButtons();
+                FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Menu);
+                break;
+            case "ControlsButton":
+                FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Controls);
                 break;
             case "ExitButton":
                 Debug.Log("Game should close if its not the editor");

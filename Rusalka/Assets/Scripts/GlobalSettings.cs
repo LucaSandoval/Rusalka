@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum Language
 {
-    English, Polish, German, French, Spanish
+    English, Polish, German, Turkish, Spanish, Ukrainian
 }
 public class GlobalSettings : Singleton<GlobalSettings>
 {
