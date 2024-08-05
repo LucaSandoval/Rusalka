@@ -120,4 +120,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 0.1
-  TravelDistance: 200
