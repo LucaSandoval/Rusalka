@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NumPictures : MonoBehaviour
+public class NumPictures : Singleton<NumPictures>
 {
     private int numPieces = 0;
 

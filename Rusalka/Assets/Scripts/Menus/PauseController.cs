@@ -5,6 +5,10 @@ using UnityEngine;
 /// <summary>
 /// Singleton class that controls pausing and unpausing the game.
 /// </summary>
+public enum pauseState
+{
+    Menu, Settings
+}
 public class PauseController : Singleton<PauseController>
 {
     private bool GamePaused = false;
@@ -21,13 +25,17 @@ public class PauseController : Singleton<PauseController>
     /// <summary>
     /// Sets the pause state of the game- true for paused, false for unpaused.
     /// </summary>
+    public void Start()
+    {
+        PauseMenuParent.SetActive(false);
+    }
     public void SetGamePause(bool paused)
     {
         GamePaused = paused;
         PauseMenuParent.SetActive(paused);
         if (paused)
         {
-            ChangeActiveButtons();
+            ChangeActiveButtons(pauseState.Menu);
         } else
         {
             NavigatableMenuController.Instance?.ClearActiveButtons();
@@ -52,21 +60,23 @@ public class PauseController : Singleton<PauseController>
             SetGamePause(!IsGamePaused());
         }
     }
-    public void ChangeActiveButtons()
+    public void ChangeActiveButtons(pauseState ps)
     {
         NavigatableMenuController.Instance?.ClearActiveButtons();
-        if (notInSettings)
+        switch(ps)
         {
-            PauseMenuButtons.SetActive(true);
-            PauseMenuSettings.SetActive(false);
-            NavigatableMenuController.Instance?.SetActiveButtons(PauseOptions);
+            case pauseState.Menu:
+                PauseMenuButtons.SetActive(true);
+                PauseMenuSettings.SetActive(false);
+                NavigatableMenuController.Instance?.SetActiveButtons(PauseOptions);
+                break;
+            case pauseState.Settings:
+                PauseMenuButtons.SetActive(false);
+                PauseMenuSettings.SetActive(true);
+                NavigatableMenuController.Instance?.SetActiveButtons(SettingsOptions);
+                break;
+            default: 
+                break;
         }
-        else
-        {
-            PauseMenuButtons.SetActive(false);
-            PauseMenuSettings.SetActive(true);
-            NavigatableMenuController.Instance?.SetActiveButtons(SettingsOptions);
-        }
-        notInSettings = !notInSettings;
     }
 }
