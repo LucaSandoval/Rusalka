@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 /// A Singleton class for playing and manipulating sounds. Any sound effect or song you want to play must first be created
 /// as a scriptable object (Sound.cs) and then referenced by the name given there for all functions.
 /// </summary>
-public class SoundController : SingletonPersistent<SoundController>
+public class SoundController : Singleton<SoundController>
 {
     // The path in the Resources Folder with which to look for Sound scriptable objects.
     public string SoundLookupPath;
