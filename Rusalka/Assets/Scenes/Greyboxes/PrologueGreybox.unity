@@ -1040,7 +1040,6 @@ GameObject:
   m_Component:
   - component: {fileID: 535263264}
   - component: {fileID: 535263263}
-  - component: {fileID: 535263265}
   - component: {fileID: 535263267}
   - component: {fileID: 535263266}
   - component: {fileID: 535263268}
@@ -1118,20 +1117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &535263265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535263262}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 286be7366dc18e3498374af9056c51be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Walktime: 1.5
-  endPosition: {x: -42.762, y: 1.462, z: 0}
 --- !u!320 &535263266
 PlayableDirector:
   m_ObjectHideFlags: 0
