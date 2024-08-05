@@ -102,6 +102,7 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
                 DeselectCurrentButton();
                 ChangeSelectionId(-1);
                 DelayInput();
+                SoundController.Instance?.PlaySoundOneShotRandomPitch("MenuCycle", 0.05f);
             }
             if (Input.GetAxisRaw("Vertical") < 0
                 && !IsInputDelayed())
@@ -109,12 +110,14 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
                 DeselectCurrentButton();
                 ChangeSelectionId(1);
                 DelayInput();
+                SoundController.Instance?.PlaySoundOneShotRandomPitch("MenuCycle", 0.05f);
             }
             SelectCurrentButton();
 
             if (Input.GetButtonUp("Jump"))
             {
                 ChooseCurrentButton();
+                SoundController.Instance?.PlaySoundOneShotRandomPitch("MenuSelect", 0.05f);
             }
         }
 
