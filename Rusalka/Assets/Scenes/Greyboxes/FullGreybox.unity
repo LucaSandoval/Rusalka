@@ -11489,8 +11489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd5e23865749bc4fb8992a7237521ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlipInterval: 1.2
-  FadeDuration: 0.5
+  FlipInterval: 2
+  FadeDuration: 0.7
   Flipped: 0
 --- !u!4 &513350945 stripped
 Transform:

@@ -9,6 +9,8 @@ TagManager:
   - TriggerOn
   - TriggerOff
   - Water Ceiling
+  - BirdTriggerLeft
+  - BirdTriggerRight
   layers:
   - Default
   - TransparentFX
