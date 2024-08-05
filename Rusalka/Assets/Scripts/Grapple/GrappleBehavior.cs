@@ -76,6 +76,12 @@ public class GrappleBehavior : MonoBehaviour
         }
         if (InGrapple && didShoot)
         {
+            if (BestGrapplePoint.Item2.normalized * BestPoint.GrappleEnterSpeed != PlayerController.GetMovementVelocity())
+            {
+                InGrapple = false;
+                PlayerController.SetInGrapple(false);
+                OutOfGrappleLaunch();
+            }
             if (DistanceToGrapple <= Vector2.Distance(OriginalPosition, transform.position))
             {
                 InGrapple = false;

@@ -48,6 +48,6 @@ public class MainMenuButton : NavigatableMenuButton
 
     public override void Select()
     {
-        bgImage.CrossFadeColor(Color.red, 0.2f, false, true);
+        bgImage.CrossFadeColor(new Color(1, 0.77f, 0.1f, 1f), 0.2f, false, true);
     }
 }
