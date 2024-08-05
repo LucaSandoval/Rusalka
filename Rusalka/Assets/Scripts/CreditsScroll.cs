@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CreditsScroll : MonoBehaviour
 {
+    public GameObject SkipIndicator;
     private bool CanScroll;
     private float scrollSpeed;
 
@@ -13,12 +14,13 @@ public class CreditsScroll : MonoBehaviour
     void Start()
     {
         CanScroll = false;
-        Invoke("StartScroll", 4.5f);
+        Invoke("StartScroll", 1.5f);
     }
 
     private void StartScroll()
     {
         CanScroll = true;
+        SoundController.Instance?.PlaySound("Lvl2MusicWhiteVoid");
     }
 
     private void Update()
@@ -26,6 +28,12 @@ public class CreditsScroll : MonoBehaviour
         if (CanScroll)
         {
             transform.position += new Vector3(0, scrollSpeed * Time.deltaTime, 0);
+
+            if (GetComponent<RectTransform>().anchoredPosition.y >= 3500)
+            {
+                CanScroll = false;
+                Debug.Log("Credits Finished!");
+            }
         }
 
         if (Input.GetButton("Jump"))
@@ -35,5 +43,7 @@ public class CreditsScroll : MonoBehaviour
         {
             scrollSpeed = scrollSpeedMin;
         }
+
+        SkipIndicator.SetActive(CanScroll);
     }
 }
