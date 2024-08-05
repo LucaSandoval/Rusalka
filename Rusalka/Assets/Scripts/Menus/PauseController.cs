@@ -12,7 +12,6 @@ public enum pauseState
 public class PauseController : Singleton<PauseController>
 {
     private bool GamePaused = false;
-    private bool notInSettings = true;
     [Header("Pause Menu Parent")]
     public GameObject PauseMenuParent;
     [Header("Pause Menu Children")]
@@ -41,7 +40,6 @@ public class PauseController : Singleton<PauseController>
             NavigatableMenuController.Instance?.ClearActiveButtons();
             PauseMenuButtons.SetActive(false);
             PauseMenuSettings.SetActive(false);
-            notInSettings = true;
         }
     }
 
