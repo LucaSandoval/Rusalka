@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7176296398882308518}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6.053688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,11 +101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD / Arrow Keys : Move
-
-    Space : Jump
-
-    (Hold for higher jump)'
+  m_text: Z / LMC / Enter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -189,6 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b60570b7163aa4289d3c646d7b05dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textForKeyboard: Keyboard
+  textForGamepad: Gamepad
+  inputDetection: {fileID: 0}
 --- !u!58 &8644340061825853984
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -221,6 +220,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013136387, y: -0.06869453}
+  m_Offset: {x: -2.1564474, y: -4.1709757}
   serializedVersion: 2
-  m_Radius: 8.89
+  m_Radius: 4.8032875
