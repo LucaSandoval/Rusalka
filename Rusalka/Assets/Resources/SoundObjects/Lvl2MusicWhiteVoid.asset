@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Lvl2MusicWhiteVoid
   Clip: {fileID: 8300000, guid: da465c41f593bf141824e1723664540a, type: 3}
-  BaseVolume: 0.7
+  BaseVolume: 0.2
   BasePitch: 1
   ShouldLoop: 1
   AudioMixerGroup: {fileID: 5936514294786830286, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

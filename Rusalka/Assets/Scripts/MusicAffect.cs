@@ -20,6 +20,7 @@ public class MusicAffect : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             MusicAction();
+            Destroy(gameObject);
         }
     }
 
