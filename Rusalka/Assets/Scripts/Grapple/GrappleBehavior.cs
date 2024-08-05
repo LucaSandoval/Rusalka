@@ -116,7 +116,7 @@ public class GrappleBehavior : MonoBehaviour
             if (distanceToPoint <= pointBehavior.TriggerRange) 
             {
                 Vector2 directionToPoint = point.transform.position - gameObject.transform.position;
-                RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.8f, 1.7f), 0, directionToPoint.normalized, distanceToPoint, LayerMask.GetMask("Floor", "Slope"));
+                RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.5f, 1.7f), 0, directionToPoint.normalized, distanceToPoint, LayerMask.GetMask("Floor", "Slope"));
                 if (DrawDebug) Debug.DrawRay(transform.position, directionToPoint.normalized * distanceToPoint, Color.red);
                 //Determine if the selected point is facing in your direction
                 bool forwardFacing = Vector2.Dot(Player.GetComponent<PlayerController>().Facing(), directionToPoint.normalized) >= -GrappleAngleForgiveness;
