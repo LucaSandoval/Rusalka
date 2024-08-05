@@ -399,6 +399,19 @@ public class PlayerController : MonoBehaviour
                 SoundController.Instance?.PlaySoundRandomPitch("DiveInWater", 0.05f);
             }
         }
+
+        if (collision.tag == "Water Ceiling")
+        {
+            inWater = true;
+            if (velocity.y > 0)
+            {
+                // Give an entry force into water
+                currSwimSpeed.x = velocity.x * 2.5f;
+                currSwimSpeed.y = JumpForce;
+                velocity = currSwimSpeed;
+                SoundController.Instance?.PlaySoundRandomPitch("DiveInWater", 0.05f);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -412,6 +425,12 @@ public class PlayerController : MonoBehaviour
                 velocity.y = JumpForce;
             }
 
+            SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
+            inWater = false;
+        }
+
+        if (collision.tag == "Water Ceiling")
+        {
             SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
             inWater = false;
         }

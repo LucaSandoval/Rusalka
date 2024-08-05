@@ -8,6 +8,7 @@ TagManager:
   - Water
   - TriggerOn
   - TriggerOff
+  - Water Ceiling
   layers:
   - Default
   - TransparentFX
