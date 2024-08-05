@@ -117,6 +117,7 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
             if (Input.GetButtonUp("Jump"))
             {
                 ChooseCurrentButton();
+                SoundController.Instance?.PlaySoundOneShotRandomPitch("MenuSelect", 0.05f);
             }
         }
 
