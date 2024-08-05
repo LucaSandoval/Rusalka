@@ -5,35 +5,54 @@ using UnityEngine;
 /// <summary>
 /// Class that controls main menu behavior.
 /// </summary>
+public enum Submenu
+{
+    Menu,
+    Settings,
+    Controls
+}
 public class MainMenuController : MonoBehaviour
 {
     [Header("Main Menu Options")]
     public List<NavigatableMenuButton> MenuOptions;
     public List<NavigatableMenuButton> SoundOptions;
-    private bool menuActive = true;
-    [SerializeField] GameObject menuButtons;
-    [SerializeField] GameObject soundButtons;
-
+    public List<NavigatableMenuButton> Controls;
+    [SerializeField] private GameObject menuButtons;
+    [SerializeField] private GameObject soundButtons;
+    [SerializeField] private GameObject controls;
     void Start()
     {
-        NavigatableMenuController.Instance?.ClearActiveButtons();
-        NavigatableMenuController.Instance?.SetActiveButtons(MenuOptions);
+        ChangeActiveButtons(Submenu.Menu);
     }
-    public void ChangeActiveButtons()
+    public void ChangeActiveButtons(Submenu submenu)
     {
         NavigatableMenuController.Instance?.ClearActiveButtons();
-        if (menuActive)
+        switch (submenu)
         {
-            menuButtons.SetActive(false);
-            soundButtons.SetActive(true);
-            NavigatableMenuController.Instance?.SetActiveButtons(SoundOptions);
+            case Submenu.Menu:
+                menuButtons.SetActive(true);
+                soundButtons.SetActive(false);
+                controls.SetActive(false);
+                NavigatableMenuController.Instance?.SetActiveButtons(MenuOptions);
+                break;
+            case Submenu.Settings:
+                menuButtons.SetActive(false);
+                soundButtons.SetActive(true);
+                controls.SetActive(false);
+                NavigatableMenuController.Instance?.SetActiveButtons(SoundOptions);
+                break;
+            case Submenu.Controls:
+                menuButtons.SetActive(false);
+                soundButtons.SetActive(false);
+                controls.SetActive(true);
+                NavigatableMenuController.Instance?.SetActiveButtons(Controls);
+                break;
+            default:
+                break;
         }
-        else
-        {
-            menuButtons.SetActive(true);
-            soundButtons.SetActive(false);
-            NavigatableMenuController.Instance?.SetActiveButtons(MenuOptions);
-        }
-        menuActive = !menuActive;
     }
+    /*public Submenu GetCurrentMenu()
+    {
+        return currentMenu;
+    }*/
 }

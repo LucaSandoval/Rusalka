@@ -11,8 +11,9 @@ public class ChangeText : MonoBehaviour
     [SerializeField] private string english;
     [SerializeField] private string polish;
     [SerializeField] private string german;
-    [SerializeField] private string french;
+    [SerializeField] private string turkish;
     [SerializeField] private string spanish;
+    [SerializeField] private string ukrainian;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +34,14 @@ public class ChangeText : MonoBehaviour
             case Language.German:
                 textField.text = german;
                 break;
-            case Language.French:
-                textField.text = french;
+            case Language.Turkish:
+                textField.text = turkish;
                 break;
             case Language.Spanish:
                 textField.text = spanish;
+                break;
+            case Language.Ukrainian: 
+                textField.text = ukrainian;
                 break;
             default:
                 break;
