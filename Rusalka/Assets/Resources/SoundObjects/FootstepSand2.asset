@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: FootstepSand2
   Clip: {fileID: 8300000, guid: d04db5dd234a135469616aa77b5eeded, type: 3}
-  BaseVolume: 0.15
+  BaseVolume: 0.05
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

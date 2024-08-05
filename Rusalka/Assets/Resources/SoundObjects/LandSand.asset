@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: LandSand
   Clip: {fileID: 8300000, guid: 8ccef693dc2258841a11c66d199b371c, type: 3}
-  BaseVolume: 0.2
+  BaseVolume: 0.09
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

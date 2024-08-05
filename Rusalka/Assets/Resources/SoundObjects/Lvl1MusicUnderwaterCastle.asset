@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: Lvl1MusicUnderwaterCastle
   Clip: {fileID: 8300000, guid: 5654aee0e417772438ecd483ec77ad4b, type: 3}
-  BaseVolume: 0.7
+  BaseVolume: 0.2
   BasePitch: 1
   ShouldLoop: 1
   AudioMixerGroup: {fileID: 5936514294786830286, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

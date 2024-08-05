@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: FootstepStone
   Clip: {fileID: 8300000, guid: 4f3a24cb7c57bf64e88c91028cbce926, type: 3}
-  BaseVolume: 0.09
+  BaseVolume: 0.015
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

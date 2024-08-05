@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: StartFloat
   Clip: {fileID: 8300000, guid: e618bdd8b7b24da4b881c943dfd5e658, type: 3}
-  BaseVolume: 0.2
+  BaseVolume: 0.1
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}
