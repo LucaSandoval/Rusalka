@@ -16,13 +16,13 @@ public class PauseMenuButton : NavigatableMenuButton
                 PauseController.Instance.SetGamePause(!PauseController.Instance.IsGamePaused());
                 break;
             case "Settings":
-                PauseController.Instance.ChangeActiveButtons();
+                PauseController.Instance.ChangeActiveButtons(pauseState.Settings);
                 break;
             case "Language":
                 GlobalSettings.GlobalLanguage = (Language)(((int)GlobalSettings.GlobalLanguage + 1) % 5);
                 break;
             case "Back":
-                PauseController.Instance.ChangeActiveButtons();
+                PauseController.Instance.ChangeActiveButtons(pauseState.Menu);
                 break;
             case "MainMenu":
                 PauseController.Instance.SetGamePause(!PauseController.Instance.IsGamePaused());
