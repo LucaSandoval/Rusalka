@@ -27773,6 +27773,7 @@ GameObject:
   - component: {fileID: 1094309223}
   - component: {fileID: 1094309222}
   - component: {fileID: 1094309224}
+  - component: {fileID: 1094309225}
   m_Layer: 6
   m_Name: platform1 (1)
   m_TagString: Untagged
@@ -27890,6 +27891,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1094309225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094309221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e3faf939c77a74084c49a40adabc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepSurface: 2
 --- !u!1001 &1095121959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52529,7 +52543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.1
+      value: -167.7
       objectReference: {fileID: 0}
     - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -58495,11 +58509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 419.3
+      value: 194.7
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -275.3
+      value: -380.2
       objectReference: {fileID: 0}
     - target: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_LocalPosition.z
