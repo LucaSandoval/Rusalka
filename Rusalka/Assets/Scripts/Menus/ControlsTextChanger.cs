@@ -38,6 +38,7 @@ public class ControlsTextChanger : MonoBehaviour
     void Update()
     {
         if (language != GlobalSettings.GlobalLanguage){
+            textField.text = "";
             string text = "";
             switch (GlobalSettings.GlobalLanguage)
             {
@@ -50,6 +51,7 @@ public class ControlsTextChanger : MonoBehaviour
                     text += " | ";
                     text += enController[i];
                     text += "\n";
+                    textField.fontSize = 79.5f;
                 }
                 break;
             case Language.Polish:
@@ -61,7 +63,8 @@ public class ControlsTextChanger : MonoBehaviour
                     text += " | ";
                     text += plController[i];
                     text += "\n";
-                }
+                    textField.fontSize = 65.75f;
+                    }
                 break;
             case Language.German:
                 for (int i = 0; i < germanAction.Length; i++)
@@ -72,7 +75,8 @@ public class ControlsTextChanger : MonoBehaviour
                     text += " | ";
                     text += deController[i];
                     text += "\n";
-                }
+                    textField.fontSize = 55;
+                 }
                 break;
             case Language.Turkish:
                 for (int i = 0; i < turkishAction.Length; i++)

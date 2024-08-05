@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: -200}
+  m_AnchoredPosition: {x: 250, y: -250}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90193135
@@ -218,8 +218,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 79.5
+  m_fontSizeBase: 79.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Exit
   polish: "Wyjd\u017A"
-  german: Exit (German)
+  german: Ausschalten
   turkish: 
   spanish: Salida
   ukrainian: 
@@ -538,7 +538,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 250, y: 0}
-  m_SizeDelta: {x: 540, y: 90}
+  m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157224109
 MonoBehaviour:
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Master Volume
   polish: "Og\xF3lna G\u0142o\u015Bno\u015B\u0107"
-  german: German
+  german: "Master-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
   ukrainian: 
@@ -1028,8 +1028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: START
-  polish: Rozpocznij
-  german: Start (German)
+  polish: ROZPOCZNIJ
+  german: STARTEN
   turkish: 
   spanish: Empezar
   ukrainian: 
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Back
   polish: "Wr\xF3\u0107"
-  german: Back (German)
+  german: "Zur\xFCckkehren"
   turkish: 
   spanish: Back (Spanish)
   ukrainian: 
@@ -2398,7 +2398,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 250, y: -300}
-  m_SizeDelta: {x: 540, y: 90}
+  m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1090463282
 MonoBehaviour:
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Music Volume
   polish: "G\u0142o\u015Bno\u015B\u0107 Muzyki"
-  german: German
+  german: "Musik-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
   ukrainian: 
@@ -2877,7 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Settings
   polish: Ustawienia
-  german: German
+  german: Einstellungen
   turkish: 
   spanish: Spanish
   ukrainian: 
@@ -3384,7 +3384,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 250, y: -150}
-  m_SizeDelta: {x: 540, y: 90}
+  m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1508530809
 MonoBehaviour:
@@ -3415,7 +3415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: SFX Volume
   polish: "Efekty D\u017Awi\u0119kowe"
-  german: German
+  german: "SFX-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
   ukrainian: 
@@ -4389,7 +4389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Controls
   polish: Sterowanie
-  german: Exit (German)
+  german: Steuerung
   turkish: 
   spanish: Salida
   ukrainian: 
@@ -4737,7 +4737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   english: Back
   polish: "Wr\xF3\u0107"
-  german: Back (German)
+  german: "Zur\xFCckkehren"
   turkish: 
   spanish: Back (Spanish)
   ukrainian: 
