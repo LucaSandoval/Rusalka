@@ -31,7 +31,7 @@ public class ControlsTextChanger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textField;
     void Start()
     {
-        language = Language.Polish;
+        language = Language.English;
     }
 
     // Update is called once per frame
@@ -46,36 +46,33 @@ public class ControlsTextChanger : MonoBehaviour
                 for(int i = 0; i < englishAction.Length; i++)
                 {
                     text += englishAction[i];
-                    text += " - ";
+                    text += " : ";
                     text += enKeyboard[i];
                     text += " | ";
                     text += enController[i];
                     text += "\n";
-                    textField.fontSize = 79.5f;
                 }
                 break;
             case Language.Polish:
                 for (int i = 0; i < polishAction.Length; i++)
                 {
                     text += polishAction[i];
-                    text += " - ";
+                    text += " : ";
                     text += plKeyboard[i];
                     text += " | ";
                     text += plController[i];
                     text += "\n";
-                    textField.fontSize = 65.75f;
                     }
                 break;
             case Language.German:
                 for (int i = 0; i < germanAction.Length; i++)
                  {
                     text += germanAction[i];
-                    text += " - ";
+                    text += " : ";
                     text += deKeyboard[i];
                     text += " | ";
                     text += deController[i];
                     text += "\n";
-                    textField.fontSize = 55;
                  }
                 break;
             case Language.Turkish:
@@ -87,13 +84,13 @@ public class ControlsTextChanger : MonoBehaviour
                     text += " | ";
                     text += tuController[i];
                     text += "\n";
-                }
+                    }
                 break;
             case Language.Spanish:
                 for (int i = 0; i  < spanishAction.Length; i++)
                 {
                     text += spanishAction[i];
-                    text += " - ";
+                    text += " : ";
                     text += esKeyboard[i];
                     text += " | ";
                     text += esController[i];
@@ -104,7 +101,7 @@ public class ControlsTextChanger : MonoBehaviour
                 for (int i = 0; i  < ukrainianAction.Length; i++)
                 {
                     text += ukrainianAction[i];
-                    text += " - ";
+                    text += " : ";
                     text += ukKeyboard[i];
                     text += " | ";
                     text += ukController[i];
