@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fe3bdfdfb85b94e8d44aa266e6fc6d, type: 3}
-  m_Name: FootstepWater
+  m_Name: LandWater
   m_EditorClassIdentifier: 
-  SoundName: FootstepWater
-  Clip: {fileID: 8300000, guid: 3a99d7b4ec0d37f49a73c8a47206ac8b, type: 3}
-  BaseVolume: 0.09
+  SoundName: LandWater
+  Clip: {fileID: 8300000, guid: 494b85af30c1fa64d93d4f58ad7b2a1a, type: 3}
+  BaseVolume: 0.1
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

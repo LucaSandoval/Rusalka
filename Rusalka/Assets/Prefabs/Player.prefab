@@ -598,7 +598,7 @@ MonoBehaviour:
     - FootstepWater
     - FootstepWater2
     FootstepParticleEffect: {fileID: 0}
-    LandingSound: 
+    LandingSound: LandWater
 --- !u!114 &7169728206669560122
 MonoBehaviour:
   m_ObjectHideFlags: 0
