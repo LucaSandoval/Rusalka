@@ -31,10 +31,12 @@ public class Interactible : MonoBehaviour
         if (PlayFadeIn)
         {
             FadeIntoScene();
+            PlayFadeIn = false;
         }
     }
     void Update()
     {
+        
         if (isPlayerInRange && !inInteraction && Input.GetKeyDown(KeyCode.E))
         {
             Interact();
@@ -93,11 +95,13 @@ public class Interactible : MonoBehaviour
 
     private void FadeIntoScene()
     {
-        gameObject.SetActive(false);
+        FadeInFromBlackCouroutine();
     }
 
     private IEnumerator FadeInFromBlackCouroutine()
     {
+        
+        yield return new WaitForSeconds(fadeDuration);
         yield return StartCoroutine(Fade(1, 0));
     }
     private IEnumerator FadeToBlackAndBackCouroutine()

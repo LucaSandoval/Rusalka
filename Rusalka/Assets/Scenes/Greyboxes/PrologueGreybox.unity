@@ -346,6 +346,7 @@ MonoBehaviour:
   interactionPrompt: {fileID: 1707961119}
   teleportPoint: {fileID: 1941036119}
   LoadDuringFade: 0
+  PlayFadeIn: 0
 --- !u!61 &191290269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -868,7 +869,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 8f0f0a90e638d834b8780541a0dcba9f, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -1170,7 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1912,12 +1913,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 993770864}
-  fadeDuration: 2.15
+  fadeDuration: 2.11
   fadeSpeed: 0.61
   privacyCurtain: {fileID: 1417062315}
   interactionPrompt: {fileID: 34639706}
   teleportPoint: {fileID: 1941036119}
   LoadDuringFade: 1
+  PlayFadeIn: 1
 --- !u!61 &1554681281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2512,6 +2514,7 @@ MonoBehaviour:
   interactionPrompt: {fileID: 2008365847}
   teleportPoint: {fileID: 191290270}
   LoadDuringFade: 0
+  PlayFadeIn: 0
 --- !u!61 &1941036121
 BoxCollider2D:
   m_ObjectHideFlags: 0
