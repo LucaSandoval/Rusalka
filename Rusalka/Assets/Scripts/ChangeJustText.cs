@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ChangeText : MonoBehaviour
+public class ChangeJustText : MonoBehaviour
 {
     private TextMeshProUGUI textField;
     [SerializeField] private string english;
@@ -12,15 +12,15 @@ public class ChangeText : MonoBehaviour
     [SerializeField] private string turkish;
     [SerializeField] private string spanish;
     [SerializeField] private string ukrainian;
-    // Start is called before the first frame update
     void Start()
     {
-        textField = GetComponentInChildren<TextMeshProUGUI>();
+        textField = GetComponent<TextMeshProUGUI>();
     }
+
     // Update is called once per frame
     void Update()
     {
-        switch(GlobalSettings.GlobalLanguage)
+        switch (GlobalSettings.GlobalLanguage)
         {
             case Language.English:
                 textField.text = english;
@@ -37,16 +37,11 @@ public class ChangeText : MonoBehaviour
             case Language.Spanish:
                 textField.text = spanish;
                 break;
-            case Language.Ukrainian: 
+            case Language.Ukrainian:
                 textField.text = ukrainian;
                 break;
             default:
                 break;
-        }
-        if (gameObject.GetComponent<AudioManipulator>() != null)
-        {
-            float volume = gameObject.GetComponent<AudioManipulator>().getCurrentVolume();
-            textField.text += " (" + Mathf.Round(volume*100) + "%)";
         }
     }
 }
