@@ -46946,10 +46946,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Post Processing Volume
       objectReference: {fileID: 0}
-    - target: {fileID: 1473098407682185334, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -53892,16 +53888,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -13.446156, y: 17.101624}
-  - {x: -9.743056, y: 16.461864}
-  - {x: -6.427738, y: 14.001649}
-  - {x: -4.0683594, y: 9.286518}
-  - {x: -3.1448238, y: 3.8345063}
-  - {x: -4.450144, y: -0.18826531}
-  - {x: -3.0462055, y: -4.285259}
-  - {x: -1.6283218, y: -4.2352104}
-  - {x: 1.7899057, y: 1.6418089}
-  - {x: 0.7191456, y: 4.427805}
+  - {x: -2.0166569, y: -5.5403457}
   - {x: 3.2531972, y: 13.257058}
   - {x: 4.387249, y: 12.242375}
   - {x: 4.31458, y: 9.597}
@@ -53921,8 +53908,7 @@ EdgeCollider2D:
   - {x: 17.362322, y: 6.4663973}
   - {x: 18.752668, y: 6.5775366}
   - {x: 19.881727, y: 5.4786077}
-  - {x: 5.63131, y: 1.2900987}
-  - {x: 1.437341, y: -8.659446}
+  - {x: 13.587905, y: 3.1808748}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
