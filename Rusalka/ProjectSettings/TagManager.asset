@@ -11,6 +11,7 @@ TagManager:
   - Water Ceiling
   - BirdTriggerLeft
   - BirdTriggerRight
+  - Fish
   layers:
   - Default
   - TransparentFX
