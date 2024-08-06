@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class Interactible : MonoBehaviour
 {
@@ -19,12 +21,17 @@ public class Interactible : MonoBehaviour
     public GameObject interactionPrompt;
     public Transform teleportPoint;
     private GameObject player;
-
+    public bool LoadDuringFade;
+    public bool PlayFadeIn;
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         col = playerController.GetComponent<Collider2D>();
+        if (PlayFadeIn)
+        {
+            FadeIntoScene();
+        }
     }
     void Update()
     {
@@ -84,12 +91,22 @@ public class Interactible : MonoBehaviour
 
     }
 
+    private void FadeIntoScene()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator FadeInFromBlackCouroutine()
+    {
+        yield return StartCoroutine(Fade(1, 0));
+    }
     private IEnumerator FadeToBlackAndBackCouroutine()
     {
         yield return StartCoroutine(Fade(0, 1));
         player.transform.position = teleportPoint.position;
         privacyCurtain.SetActive(false);
         yield return new WaitForSeconds(fadeDuration);
+        if (LoadDuringFade) SceneManager.LoadScene(1);
         playerController.enabled = true;
         yield return StartCoroutine(Fade(1, 0));
         
