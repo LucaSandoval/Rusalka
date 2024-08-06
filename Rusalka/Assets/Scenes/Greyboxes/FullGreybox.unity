@@ -16793,7 +16793,6 @@ GameObject:
   - component: {fileID: 670325546}
   - component: {fileID: 670325548}
   - component: {fileID: 670325547}
-  - component: {fileID: 670325549}
   m_Layer: 0
   m_Name: swim_tut
   m_TagString: Untagged
@@ -16817,7 +16816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.34, y: 2.07}
+  m_AnchoredPosition: {x: -2.0544586, y: -0.55532837}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670325547
@@ -16842,8 +16841,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'WASD / Arrow Keys : Swim'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3cfc05d733b273d46b12285e219cdc08, type: 2}
-  m_sharedMaterial: {fileID: -4359232492387873535, guid: 3cfc05d733b273d46b12285e219cdc08, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16867,8 +16866,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 11.45
+  m_fontSizeBase: 11.45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16932,7 +16931,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4359232492387873535, guid: 3cfc05d733b273d46b12285e219cdc08, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16954,25 +16953,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &670325549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670325545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be83013cd73d054da36d030e66883a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  english: 'WASD / Arrow Keys : Swim '
-  polish: "WASD / Strza\u0142ki : P\u0142y\u0144"
-  german: 'WASD / Pfeiltasten : Schwimmen'
-  turkish: "WASD / Ok tu\u015Flar\u0131 : Y\xFCzmek"
-  spanish: 'WASD / Teclas de flecha : Nadar'
-  ukrainian: "\u0428\u0410\u0421\u0414 / \u0421\u0442\u0440\u0456\u043B\u043A\u0438
-    : \u041F\u043B\u0430\u0432\u0430\u0442\u0438"
 --- !u!1 &686244416
 GameObject:
   m_ObjectHideFlags: 0
