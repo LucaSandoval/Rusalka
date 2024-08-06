@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,10 +17,12 @@ public class MainMenuButton : NavigatableMenuButton
     private Slider slider;
     private const float inputDelayMaxTime = 0.15f;
     private float inputDelayTimer;
+    [SerializeField] private PlayableDirector cutscene;
 
     public void Start()
     {
         slider = GetComponentInChildren<Slider>();
+        StartCoroutine(DisablePlayerMovement());
     }
     public override void Choose()
     {
@@ -30,6 +33,7 @@ public class MainMenuButton : NavigatableMenuButton
                 //SceneManager.LoadScene(1);
                 GameObject.Find("Title Text (WIP)").SetActive(false);
                 FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Stop);
+                cutscene.Play();
                 break;
             case "LanguageButton":
                 // Changes Language to the next one in the Language enum class
@@ -109,5 +113,11 @@ public class MainMenuButton : NavigatableMenuButton
             }
             }
         if (IsInputDelayed()) inputDelayTimer -= Time.deltaTime;
+    }
+
+    private IEnumerator DisablePlayerMovement()
+    {
+        yield return new WaitForSeconds(.2f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
     }
 }
