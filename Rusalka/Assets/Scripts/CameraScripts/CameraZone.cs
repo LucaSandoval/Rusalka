@@ -97,8 +97,8 @@ public class CameraZone : MonoBehaviour
         CameraOperator.Instance.SetYAxisOffset(yAxisOffset);
     }
     public void ChangeCameraLock(){
-        if (lockXAxis) CameraOperator.Instance.SetXAxisMoveEnabled(false);
-        if (lockYAxis) CameraOperator.Instance.SetYAxisMoveEnabled(false);
+        CameraOperator.Instance.SetXAxisMoveEnabled(!lockXAxis);
+        CameraOperator.Instance.SetYAxisMoveEnabled(!lockYAxis);
     }
     public void ChangeCameraBoundaries(){
         CameraOperator.Instance.SetMinXBoundary(minXBoundary);
