@@ -20,28 +20,31 @@ public class ChangeJustText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (GlobalSettings.GlobalLanguage)
-        {
-            case Language.English:
-                textField.text = english;
-                break;
-            case Language.Polish:
-                textField.text = polish;
-                break;
-            case Language.German:
-                textField.text = german;
-                break;
-            case Language.Turkish:
-                textField.text = turkish;
-                break;
-            case Language.Spanish:
-                textField.text = spanish;
-                break;
-            case Language.Ukrainian:
-                textField.text = ukrainian;
-                break;
-            default:
-                break;
+        if (textField != null)
+        {    
+            switch (GlobalSettings.GlobalLanguage)
+            {
+                case Language.English:
+                    textField.text = english;
+                    break;
+                case Language.Polish:
+                    textField.text = polish;
+                    break;
+                case Language.German:
+                    textField.text = german;
+                    break;
+                case Language.Turkish:
+                    textField.text = turkish;
+                    break;
+                case Language.Spanish:
+                    textField.text = spanish;
+                    break;
+                case Language.Ukrainian:
+                    textField.text = ukrainian;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
