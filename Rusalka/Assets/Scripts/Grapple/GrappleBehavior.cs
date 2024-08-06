@@ -32,6 +32,8 @@ public class GrappleBehavior : MonoBehaviour
     private bool doShoot;
     private bool didShoot;
 
+    private bool triggerUnset;
+
     [SerializeField]
     [Range(0f, 1f)]
     [Tooltip("Margin of error for the angle that a grapple point can be behing you and still targetable")]
@@ -53,6 +55,7 @@ public class GrappleBehavior : MonoBehaviour
         currLinePosition = transform.position;
         doShoot = false;
         didShoot = false;
+        triggerUnset = true;
     }
 
     // Update is called once per frame
@@ -61,11 +64,18 @@ public class GrappleBehavior : MonoBehaviour
         if (!InGrapple) {
             TargetGrapplePoint();
         }
-        if (Input.GetAxisRaw("Fire1") > 0 && BestGrapplePoint.Item1 && !InGrapple)
+        float triggerRaw = Input.GetAxisRaw("Fire1");
+        bool doFire = Input.GetButtonDown("Fire1") || (triggerRaw > 0 && triggerUnset);
+        if (doFire && BestGrapplePoint.Item1 && !InGrapple)
         {
             InGrapple = true;
             currLinePosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
         }
+        if (triggerRaw == 0)
+        {
+            triggerUnset = true;
+        }
+        else triggerUnset = false;
         UpdateLine();
         if (doShoot)
         {
