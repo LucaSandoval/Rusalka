@@ -399,8 +399,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 1
       - serializedVersion: 3
-        time: 0.026661906
-        value: 0.99253654
+        time: 0.32575324
+        value: 0.70895386
         inSlope: 1.0481706
         outSlope: 1.0481706
         tangentMode: 0
@@ -417,8 +417,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.96133846
-        value: 0.2882794
+        time: 0.9711041
+        value: 0.4002179
         inSlope: -0.020287437
         outSlope: -0.020287437
         tangentMode: 0
@@ -427,7 +427,7 @@ LineRenderer:
         outWeight: 1
       - serializedVersion: 3
         time: 1
-        value: 0.082092285
+        value: 0.26119995
         inSlope: -1.7343948
         outSlope: -1.7343948
         tangentMode: 0
