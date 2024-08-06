@@ -16,13 +16,12 @@ public class FlyFish : MonoBehaviour {
         if (points.Count >= 2) {
             Vector3 previousPosition = fish.position;
             fish.position = Interpolate(points, interpolateAmount);
-
+            
+            //rotate the fish sprite to the direction of the point.
             Vector3 direction = (fish.position - previousPosition).normalized;
             if (direction != Vector3.zero)
             {
-                Debug.Log(direction);
                 fish.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-                //fish.rotation = Quaternion.Euler(fish.rotation.x, fish.rotation.y, fish.rotation.z + 45.0f);
             }
         }
     }
