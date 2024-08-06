@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundName: FootstepWater2
   Clip: {fileID: 8300000, guid: 865f461c021db1b41b5176a8383f9def, type: 3}
-  BaseVolume: 0.09
+  BaseVolume: 0.06
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}
