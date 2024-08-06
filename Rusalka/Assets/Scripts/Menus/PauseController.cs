@@ -56,6 +56,7 @@ public class PauseController : Singleton<PauseController>
         if (Input.GetButtonDown("Cancel"))
         {
             SetGamePause(!IsGamePaused());
+            SoundController.Instance?.PlaySoundOneShotRandomPitch("Pause", 0.05f);
         }
     }
     public void ChangeActiveButtons(pauseState ps)
