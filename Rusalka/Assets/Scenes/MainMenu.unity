@@ -583,6 +583,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4059074485422212292, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 4125289761656762083, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -598,6 +602,24 @@ PrefabInstance:
     - target: {fileID: 4230332531385070350, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309412886545381609, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: m_text
+      value: "Move / Swim : Wasd / Arrow Keys | Left Joystick \nJump / Confirm :
+        Space | A\nFloat : Hold Space | Hold A\nGrapple : Enter / Z / Lmc | RT\nPause
+        : Escape | B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309412886545381609, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: m_fontSize
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309412886545381609, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309412886545381609, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4745575623748646086, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -614,6 +636,14 @@ PrefabInstance:
     - target: {fileID: 5042486878504027898, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
       propertyPath: m_Name
       value: NavigatableMenuController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215181580872884633, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: esKeyboard.Array.data[0]
+      value: "WASD / Teclas de direcci\xF3n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921814136894140511, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7665528981503964738, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
       propertyPath: m_AnchorMax.x
