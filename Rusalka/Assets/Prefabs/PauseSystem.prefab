@@ -878,6 +878,7 @@ GameObject:
   - component: {fileID: 4843742316159121528}
   - component: {fileID: 9108499773488532140}
   - component: {fileID: 8923152037643055738}
+  - component: {fileID: 7646681535872712473}
   m_Layer: 5
   m_Name: Title Text (WIP)
   m_TagString: Untagged
@@ -1001,6 +1002,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7646681535872712473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944404817096038841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be83013cd73d054da36d030e66883a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  english: Pause
+  polish: Pauza
+  german: Pause
+  turkish: Duraklat
+  spanish: Pausa
+  ukrainian: "\u041F\u0430\u0443\u0437\u0430"
 --- !u!1 &1377267738845606464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,7 +1410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: Music Volume
-  polish: Polski
+  polish: "G\u0142o\u015Bno\u015B\u0107 Muzyki"
   german: "Musik-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
@@ -2437,7 +2456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: Master Volume
-  polish: Polski
+  polish: "Og\xF3lna G\u0142o\u015Bno\u015B\u0107"
   german: "Master-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
@@ -3244,7 +3263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: SFX Volume
-  polish: Polski
+  polish: "Efekty D\u017Awi\u0119kowe"
   german: "SFX-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
