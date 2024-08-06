@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8418099125877771171, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: cutscene
+      value: 
+      objectReference: {fileID: 535263266}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1361,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5455803512659818443, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
       propertyPath: m_FlipX
@@ -2203,7 +2207,7 @@ Transform:
   m_GameObject: {fileID: 1435640164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.54, y: -0.038677692, z: 0.19672835}
+  m_LocalPosition: {x: 3.22, y: -0.038677692, z: 0.19672835}
   m_LocalScale: {x: 0.5516036, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2234,7 +2238,7 @@ MonoBehaviour:
   changeCameraTarget: 1
   camTarget: 1
   dynamicTarget: {fileID: 441787308}
-  staticPoint: {x: -46.6592, y: 2.1, z: -10}
+  staticPoint: {x: -47.05, y: 2.1, z: -10}
   changeCameraOffset: 0
   xAxisOffset: 0
   yAxisOffset: 2
@@ -3484,7 +3488,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 720084912}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63cabdb067c29504c9fe790c8f474c59, type: 3}
   m_Name: 
