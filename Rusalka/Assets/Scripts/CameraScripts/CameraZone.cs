@@ -165,7 +165,7 @@ public class CameraZone : MonoBehaviour
         if (changeCameraTarget) ChangeCameraTarget();
         if (enableCameraShake) ChangeCameraShake();
         if (changeCameraOffset) ChangeCameraOffset();
-        if (lockXAxis || lockYAxis) ChangeCameraLock();
+        ChangeCameraLock();
         if (changeCameraSpeed) ChangeCameraSpeed();
         if (changeZoomSpeed) ChangeZoomSpeed();
         //if (changeXYDistance) ChangeXYDistance();
