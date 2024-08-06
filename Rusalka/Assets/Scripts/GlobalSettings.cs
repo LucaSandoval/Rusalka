@@ -10,12 +10,16 @@ public enum Language
 public class GlobalSettings : Singleton<GlobalSettings>
 {
     public static Language GlobalLanguage = Language.English;
-    public static float MasterVolume = 1;
-    public static float SFXVolume = 1;
-    public static float MusicVolume = 1;
-    public void changeMasterVolume(Slider slider) { MasterVolume = slider.value; }
-    public void changeSFXVolume(Slider slider) { SFXVolume = slider.value; }
-    public void changeMusicVolume(Slider slider) { MusicVolume = slider.value; }
+    private static float MasterVolume = 1;
+    private static float SFXVolume = 1;
+    private static float MusicVolume = 1;
+
+    public void changeMasterVolume(Slider slider) { changeMasterVolume(slider.value); }
+    public void changeMasterVolume(float f) { MasterVolume = (f < 0 ? 0 : (f > 1 ? 1 : f)); }
+    public void changeSFXVolume(Slider slider) { changeSFXVolume(slider.value); }
+    public void changeSFXVolume(float f) { SFXVolume = (f < 0 ? 0 : (f > 1 ? 1 : f)); }
+    public void changeMusicVolume(Slider slider) { changeMusicVolume(slider.value); }
+    public void changeMusicVolume(float f) { MusicVolume = (f < 0 ? 0 : (f > 1 ? 1 : f)); }
     public float getMasterVolume() { return  MasterVolume; }
     public float getSFXVolume() {  return SFXVolume; }
     public float getMusicVolume() {  return MusicVolume; }
