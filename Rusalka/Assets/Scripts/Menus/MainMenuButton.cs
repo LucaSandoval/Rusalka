@@ -16,6 +16,7 @@ public class MainMenuButton : NavigatableMenuButton
     private Slider slider;
     private const float inputDelayMaxTime = 0.15f;
     private float inputDelayTimer;
+
     public void Start()
     {
         slider = GetComponentInChildren<Slider>();
@@ -26,7 +27,9 @@ public class MainMenuButton : NavigatableMenuButton
         switch (gameObject.name)
         {
             case "StartButton":
-                SceneManager.LoadScene(1);
+                //SceneManager.LoadScene(1);
+                GameObject.Find("Title Text (WIP)").SetActive(false);
+                FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Stop);
                 break;
             case "LanguageButton":
                 // Changes Language to the next one in the Language enum class
