@@ -9,7 +9,8 @@ public enum Submenu
 {
     Menu,
     Settings,
-    Controls
+    Controls,
+    Stop
 }
 public class MainMenuController : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class MainMenuController : MonoBehaviour
                 NavigatableMenuController.Instance?.SetActiveButtons(Controls);
                 break;
             default:
+                menuButtons.SetActive(false);
+                soundButtons.SetActive(false);
+                controls.SetActive(false);
                 break;
         }
     }

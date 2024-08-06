@@ -423,7 +423,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 250, y: -250}
-  m_SizeDelta: {x: 1000, y: 500}
+  m_SizeDelta: {x: 1920, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6369614020207627013
 CanvasRenderer:
@@ -453,17 +453,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move / Swim - Wasd / Arrows | Left Joystick
+  m_text: 'Move / Swim : Wasd / Arrow Keys | Left Joystick
 
-    Jump / Confirm - Space
-    | A
+    Jump / Confirm :
+    Space | A
 
-    Float - Hold Space | Hold A
+    Float : Hold Space | Hold A
 
-    Grapple - Enter / Z / Lmc | RT
+    Grapple : Enter / Z / Lmc | RT
 
     Pause
-    - Escape | B'
+    : Escape | B'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3cfc05d733b273d46b12285e219cdc08, type: 2}
   m_sharedMaterial: {fileID: -4359232492387873535, guid: 3cfc05d733b273d46b12285e219cdc08, type: 2}
@@ -490,8 +490,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 79.5
-  m_fontSizeBase: 79.5
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -563,20 +563,20 @@ MonoBehaviour:
   - Greifen
   - Pause
   turkishAction:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - "Hareket etmek / Y\xFCzmek"
+  - "Z\u0131pla / Onayla"
+  - "S\xFCz\xFClmek"
+  - Tutun
+  - Duraklat
   spanishAction:
-  - 
-  - 
-  - 
+  - Mover / Nadar
+  - Saltar / Confirmar
+  - Flotar
   - 
   - 
   ukrainianAction:
-  - 
-  - 
+  - "\u041F\u0435\u0440\u0435\u0457\u0436\u0434\u0436\u0430\u0442\u0438 / \u041F\u043B\u0430\u0432\u0430\u0442\u0438"
+  - "\u0421\u0442\u0440\u0438\u0431\u0430\u0442\u0438 / \u041F\u0456\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0438"
   - 
   - 
   - 
@@ -599,20 +599,20 @@ MonoBehaviour:
   - Enter / Z / Lmc
   - Escape
   tuKeyboard:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - "WASD / Ok Tu\u015Flar\u0131"
+  - "Bo\u015Fluk tu\u015Fu"
+  - "Bo\u015Fluk"
+  - "Enter / Z / Sol Fare Tu\u015Fu"
+  - Esc
   esKeyboard:
-  - 
-  - 
-  - 
+  - "WASD / Teclas de direcci\xF3n"
+  - Barra espaciadora
+  - Mantener presionada la barra espaciadora
   - 
   - 
   ukKeyboard:
-  - 
-  - 
+  - "\u0428\u0410\u0421\u0414 / \u0421\u0442\u0440\u0456\u043B\u043A\u0438"
+  - "\u041F\u0440\u043E\u0431\u0456\u043B"
   - 
   - 
   - 
@@ -635,23 +635,23 @@ MonoBehaviour:
   - RT
   - B
   tuController:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Sol Joystick
+  - A
+  - "A'ya bas\u0131l\u0131 tutun"
+  - RT
+  - B
   esController:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Joystick izquierdo
+  - Barra espaciadora
+  - Mantenga presionada la A
+  - RT
+  - B
   ukController:
+  - "\u041B\u0456\u0432\u0438\u0439 \u0434\u0436\u043E\u0439\u0441\u0442\u0438\u043A"
+  - "\u041F\u0440\u043E\u0431\u0456\u043B"
   - 
-  - 
-  - 
-  - 
-  - 
+  - RT
+  - B
   textField: {fileID: 4309412886545381609}
 --- !u!1 &987508257758785589
 GameObject:
@@ -910,7 +910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5722934974042404022
 RectTransform:
   m_ObjectHideFlags: 0

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 
 public class Interactible : MonoBehaviour
@@ -23,6 +22,7 @@ public class Interactible : MonoBehaviour
     private GameObject player;
     public bool LoadDuringFade;
     public bool PlayFadeIn;
+    public float FadeIntoSceneDarknessDuration;
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -31,7 +31,6 @@ public class Interactible : MonoBehaviour
         if (PlayFadeIn)
         {
             FadeIntoScene();
-            PlayFadeIn = false;
         }
     }
     void Update()
@@ -95,14 +94,14 @@ public class Interactible : MonoBehaviour
 
     private void FadeIntoScene()
     {
-        FadeInFromBlackCouroutine();
+        StartCoroutine(FadeInFromBlackCouroutine());
     }
 
     private IEnumerator FadeInFromBlackCouroutine()
     {
-        
-        yield return new WaitForSeconds(fadeDuration);
+        yield return new WaitForSeconds(FadeIntoSceneDarknessDuration);
         yield return StartCoroutine(Fade(1, 0));
+        PlayFadeIn = false;
     }
     private IEnumerator FadeToBlackAndBackCouroutine()
     {

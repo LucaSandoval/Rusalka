@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fe3bdfdfb85b94e8d44aa266e6fc6d, type: 3}
-  m_Name: Lvl2MusicWhiteVoid
+  m_Name: Pause
   m_EditorClassIdentifier: 
-  SoundName: Lvl2MusicWhiteVoid
-  Clip: {fileID: 8300000, guid: aa217155babdb7d43a478ffb889533cb, type: 3}
-  BaseVolume: 0.15
+  SoundName: Pause
+  Clip: {fileID: 8300000, guid: e63067b49fbe2984ca4aec0e01a01eda, type: 3}
+  BaseVolume: 0.04
   BasePitch: 1
-  ShouldLoop: 1
-  AudioMixerGroup: {fileID: 5936514294786830286, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}
+  ShouldLoop: 0
+  AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}
