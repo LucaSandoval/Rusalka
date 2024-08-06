@@ -105,6 +105,6 @@ public class MainMenuButton : NavigatableMenuButton
                     break;
             }
             }
-        else if (IsInputDelayed()) inputDelayTimer -= Time.deltaTime;
+        if (IsInputDelayed()) inputDelayTimer -= Time.deltaTime;
     }
 }

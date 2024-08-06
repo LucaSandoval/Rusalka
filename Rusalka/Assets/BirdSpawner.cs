@@ -38,8 +38,7 @@ public class BirdSpawner : MonoBehaviour
             Vector3 SpawnPosition = RandomPointInBounds(SpawnTriggerArea.bounds);
             Instantiate(BirdPrefab, SpawnPosition, Quaternion.identity);
 
-            Debug.Log("Bird Spawn");
-            Debug.Log(SpawnPosition);
+            
 
             yield return new WaitForSeconds(BirdSpawnTime);
         }

@@ -64,12 +64,12 @@ public class GrappleBehavior : MonoBehaviour
         if (Input.GetAxisRaw("Fire1") > 0 && BestGrapplePoint.Item1 && !InGrapple)
         {
             InGrapple = true;
-            
             currLinePosition = new Vector2(transform.position.x, transform.position.y + GrappleHairRenderPositionOffset);
         }
         UpdateLine();
         if (doShoot)
         {
+            BestGrapplePoint.Item2 = BestGrapplePosition - (Vector2) gameObject.transform.position;
             GrappleSpeedBoost();
             doShoot = false;
             didShoot = true;
