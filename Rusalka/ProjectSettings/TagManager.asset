@@ -52,8 +52,11 @@ TagManager:
   - name: Background
     uniqueID: 1143908543
     locked: 0
-  - name: Background props
+  - name: Background walls
     uniqueID: 1342235271
+    locked: 0
+  - name: Background props
+    uniqueID: 2346823733
     locked: 0
   - name: Player
     uniqueID: 3160326043
@@ -64,8 +67,11 @@ TagManager:
   - name: Platfrorms
     uniqueID: 4196529065
     locked: 0
-  - name: Foreground props
+  - name: Foreground walls
     uniqueID: 2626890105
+    locked: 0
+  - name: Foreground props
+    uniqueID: 2324886603
     locked: 0
   - name: Foreground
     uniqueID: 3559978421
