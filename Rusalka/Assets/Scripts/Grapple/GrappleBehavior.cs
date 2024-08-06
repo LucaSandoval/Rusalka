@@ -61,7 +61,7 @@ public class GrappleBehavior : MonoBehaviour
         if (!InGrapple) {
             TargetGrapplePoint();
         }
-        if (Input.GetButtonDown("Fire1") && BestGrapplePoint.Item1 && !InGrapple)
+        if (Input.GetAxisRaw("Fire1") > 0 && BestGrapplePoint.Item1 && !InGrapple)
         {
             InGrapple = true;
             
