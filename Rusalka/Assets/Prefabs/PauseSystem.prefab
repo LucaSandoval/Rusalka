@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: Music Volume
-  polish: Polski
+  polish: "G\u0142o\u015Bno\u015B\u0107 Muzyki"
   german: "Musik-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
@@ -2437,7 +2437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: Master Volume
-  polish: Polski
+  polish: "Og\xF3lna G\u0142o\u015Bno\u015B\u0107"
   german: "Master-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: SFX Volume
-  polish: Polski
+  polish: "Efekty D\u017Awi\u0119kowe"
   german: "SFX-Lautst\xE4rke"
   turkish: 
   spanish: Spanish
