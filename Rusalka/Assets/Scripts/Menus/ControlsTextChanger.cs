@@ -31,7 +31,7 @@ public class ControlsTextChanger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textField;
     void Start()
     {
-
+        language = Language.Polish;
     }
 
     // Update is called once per frame
