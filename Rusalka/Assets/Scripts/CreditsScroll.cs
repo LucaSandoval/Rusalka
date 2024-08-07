@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreditsScroll : MonoBehaviour
 {
@@ -8,19 +9,21 @@ public class CreditsScroll : MonoBehaviour
     private bool CanScroll;
     private float scrollSpeed;
 
-    private const float scrollSpeedMin = 90f;
-    private const float scrollSpeedMax = 750f;
+    private const float scrollSpeedMin = 120f;
+    private const float scrollSpeedMax = 850f;
+
+    public string creditsSong;
 
     void Start()
     {
         CanScroll = false;
-        Invoke("StartScroll", 1.5f);
+        Invoke("StartScroll", 4.5f);
     }
 
     private void StartScroll()
     {
         CanScroll = true;
-        SoundController.Instance?.PlaySound("Lvl2MusicWhiteVoid");
+        SoundController.Instance?.PlaySound(creditsSong);
     }
 
     private void Update()
@@ -29,10 +32,12 @@ public class CreditsScroll : MonoBehaviour
         {
             transform.position += new Vector3(0, scrollSpeed * Time.deltaTime, 0);
 
-            if (GetComponent<RectTransform>().anchoredPosition.y >= 3500)
+            if (GetComponent<RectTransform>().anchoredPosition.y >= 10900)
             {
                 CanScroll = false;
                 Debug.Log("Credits Finished!");
+                SoundController.Instance?.FadeOutSound(creditsSong, 3f);
+                Invoke("ReturnToMenu", 3f);
             }
         }
 
@@ -45,5 +50,10 @@ public class CreditsScroll : MonoBehaviour
         }
 
         SkipIndicator.SetActive(CanScroll);
+    }
+
+    private void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
