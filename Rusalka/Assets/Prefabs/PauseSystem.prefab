@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: -20, y: -10}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7430906576511069498
 CanvasRenderer:
@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &776076693561843775
@@ -282,7 +282,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7634390229661815105
 CanvasRenderer:
@@ -419,7 +419,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: -435}
-  m_SizeDelta: {x: 480, y: 90}
+  m_SizeDelta: {x: 480, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3358574584240432965
 CanvasRenderer:
@@ -484,11 +484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Back
-  polish: Wstecz
-  german: "Zur\xFCckkehren"
-  turkish: Geri
-  spanish: Volver
+  english: back
+  polish: wstecz
+  german: "zur\xFCckkehren"
+  turkish: geri
+  spanish: volver
   ukrainian: "\u0441\u043F\u0438\u043D\u0430"
 --- !u!1 &903462316244128889
 GameObject:
@@ -528,7 +528,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: -290}
-  m_SizeDelta: {x: 480, y: 90}
+  m_SizeDelta: {x: 480, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6190595228786324055
 CanvasRenderer:
@@ -593,12 +593,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Language
-  polish: "J\u0119zyk"
-  german: Sprache
-  turkish: Dil
-  spanish: Idioma
-  ukrainian: "\u041C\u043E\u0432\u0430"
+  english: language
+  polish: "j\u0119zyk"
+  german: sprache
+  turkish: dil
+  spanish: idioma
+  ukrainian: "\u043C\u043E\u0432\u0430"
 --- !u!1 &913957367528027073
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &341556153169235247
 CanvasRenderer:
@@ -767,8 +767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3771259459515021361
 CanvasRenderer:
@@ -902,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: 400}
+  m_AnchoredPosition: {x: -400, y: 390}
   m_SizeDelta: {x: 200, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9108499773488532140
@@ -942,8 +942,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279944447
-  m_fontColor: {r: 1, g: 0.77, b: 0.1, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1172,7 +1172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: 0}
-  m_SizeDelta: {x: 480, y: 90}
+  m_SizeDelta: {x: 480, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4662598197620293915
 CanvasRenderer:
@@ -1237,12 +1237,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Resume
-  polish: "Wzn\xF3w"
-  german: Fortsetzen
-  turkish: "\xD6zge\xE7mi\u015F"
-  spanish: Reanudar
-  ukrainian: "\u0420\u0435\u0437\u044E\u043C\u0435"
+  english: resume
+  polish: "wzn\xF3w"
+  german: fortsetzen
+  turkish: devam et
+  spanish: reanudar
+  ukrainian: "\u043F\u0440\u043E\u0434\u043E\u0432\u0436\u0438\u0442\u0438"
 --- !u!1 &2021108329118899398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,12 +1409,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Music Volume
-  polish: "G\u0142o\u015Bno\u015B\u0107 Muzyki"
-  german: "Musik-Lautst\xE4rke"
-  turkish: "M\xFCzik"
-  spanish: "M\xFAsica"
-  ukrainian: "\u0413\u0443\u0447\u043D\u0456\u0441\u0442\u044C \u043C\u0443\u0437\u0438\u043A\u0438"
+  english: music volume
+  polish: "g\u0142o\u015Bno\u015B\u0107 muzyki"
+  german: "musik-lautst\xE4rke"
+  turkish: "m\xFCzi\u0307k"
+  spanish: "m\xFAsica"
+  ukrainian: "\u0433\u0443\u0447\u043D\u0456\u0441\u0442\u044C \u043C\u0443\u0437\u0438\u043A\u0438"
 --- !u!114 &1810636372097352706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6497146448674092977
 CanvasRenderer:
@@ -1602,7 +1602,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: -145}
-  m_SizeDelta: {x: 480, y: 90}
+  m_SizeDelta: {x: 480, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7027178700923796775
 CanvasRenderer:
@@ -1667,12 +1667,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Settings
-  polish: Ustawienia
-  german: Einstellungen
-  turkish: "Ayarlar\u0131"
-  spanish: "Configuraci\xF3n"
-  ukrainian: "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0438"
+  english: settings
+  polish: ustawienia
+  german: einstellungen
+  turkish: ayarlar
+  spanish: "configuraci\xF3n"
+  ukrainian: "\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0438"
 --- !u!1 &2921861659627583218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,7 +1894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -396, y: 400}
+  m_AnchoredPosition: {x: -396, y: 390}
   m_SizeDelta: {x: 205, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7062218172498328206
@@ -2184,8 +2184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: -20, y: -10}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2963082118247688897
 CanvasRenderer:
@@ -2611,12 +2611,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Master Volume
-  polish: "Og\xF3lna G\u0142o\u015Bno\u015B\u0107"
-  german: "Master-Lautst\xE4rke"
-  turkish: Ana ses
-  spanish: Volumen maestro
-  ukrainian: "\u041C\u0430\u0439\u0441\u0442\u0435\u0440-\u043E\u0431'\u0454\u043C"
+  english: master volume
+  polish: "og\xF3lna g\u0142o\u015Bno\u015B\u0107"
+  german: "master-lautst\xE4rke"
+  turkish: ana ses
+  spanish: general
+  ukrainian: "\u043C\u0430\u0439\u0441\u0442\u0435\u0440-\u043E\u0431'\u0454\u043C"
 --- !u!114 &6048742522866751988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2816,8 +2816,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: -20, y: -10}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3007726294705077143
 CanvasRenderer:
@@ -3214,8 +3214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: -20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2482667192723659985
 CanvasRenderer:
@@ -3280,7 +3280,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3419,12 +3419,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: SFX Volume
-  polish: "Efekty D\u017Awi\u0119kowe"
-  german: "SFX-Lautst\xE4rke"
-  turkish: Ses Efektleri
-  spanish: Efectos de sonido
-  ukrainian: "\u0417\u0432\u0443\u043A\u043E\u0432\u0456 \u0435\u0444\u0435\u043A\u0442\u0438"
+  english: sfx volume
+  polish: "efekty d\u017Awi\u0119kowe"
+  german: "sfx-lautst\xE4rke"
+  turkish: ses efektleri
+  spanish: sonido
+  ukrainian: "\u0437\u0432\u0443\u043A\u043E\u0432\u0456 \u0435\u0444\u0435\u043A\u0442\u0438"
 --- !u!114 &7221149380450419499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3477,7 +3477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7908883136844151785
@@ -3629,7 +3629,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -70, y: -290}
-  m_SizeDelta: {x: 480, y: 90}
+  m_SizeDelta: {x: 480, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3433988398333553785
 CanvasRenderer:
@@ -3694,12 +3694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Main menu
-  polish: "Menu g\u0142\xF3wne"
-  german: "Hauptmen\xFC"
-  turkish: "Ana men\xFC"
-  spanish: "Men\xFA principal"
-  ukrainian: "\u0413\u043E\u043B\u043E\u0432\u043D\u0435 \u043C\u0435\u043D\u044E"
+  english: main menu
+  polish: "menu g\u0142\xF3wne"
+  german: "hauptmen\xFC"
+  turkish: "ana men\xFC"
+  spanish: "men\xFA principal"
+  ukrainian: "\u0433\u043E\u043B\u043E\u0432\u043D\u0435 \u043C\u0435\u043D\u044E"
 --- !u!1 &8407205107182060545
 GameObject:
   m_ObjectHideFlags: 0
