@@ -37,7 +37,7 @@ public class Interactible : MonoBehaviour
     void Update()
     {
         
-        if (isPlayerInRange && !inInteraction && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerInRange && !inInteraction && Input.GetButtonDown("Submit"))
         {
             Interact();
         }
