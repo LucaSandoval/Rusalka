@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c4e9b09ddaab0a4397777b82f4504c2
+guid: 91f103d3038b9ef48bd73ac135604519
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,49 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: firsttower_5
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 783
-        width: 419
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bf8d947ba6e3a84998fcc33cbc6d904
-      internalID: -1628679399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: firsttower_7
-      rect:
-        serializedVersion: 2
-        x: 698
-        y: 1064
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 091af72cf359666418a89405338ddec3
-      internalID: 336912905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -161,18 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      firsttower_0: -340702425
-      firsttower_1: 889828191
-      firsttower_10: -1051644339
-      firsttower_2: 163264739
-      firsttower_3: -1750108128
-      firsttower_4: 482555951
-      firsttower_5: -1628679399
-      firsttower_6: 2091641174
-      firsttower_7: 336912905
-      firsttower_8: 1379208538
-      firsttower_9: 1208994491
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -58,14 +58,14 @@ TagManager:
   - name: Background props
     uniqueID: 2346823733
     locked: 0
+  - name: Platfrorms
+    uniqueID: 4196529065
+    locked: 0
   - name: Player
     uniqueID: 3160326043
     locked: 0
   - name: Floor
     uniqueID: 3209117335
-    locked: 0
-  - name: Platfrorms
-    uniqueID: 4196529065
     locked: 0
   - name: Foreground walls
     uniqueID: 2626890105
