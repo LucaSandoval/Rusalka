@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Interactible : MonoBehaviour
 {
+    public string interactSound;
     private bool isPlayerInRange = false;
     public Image fadeImage;
     public float fadeDuration;
@@ -78,7 +79,7 @@ public class Interactible : MonoBehaviour
         playerController.enabled = false;
         FadeToBlackAndBack();
         inInteraction = true;
-       
+        SoundController.Instance?.PlaySound(interactSound);
     }
 
     /*

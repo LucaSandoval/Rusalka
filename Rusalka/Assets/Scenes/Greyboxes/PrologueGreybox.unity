@@ -721,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548e5e2193281f145a1556a22c0ff243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSound: DoorOpen
   fadeImage: {fileID: 993770864}
   fadeDuration: 0.3
   fadeSpeed: 0.3
@@ -1045,7 +1046,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1677,6 +1678,91 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+--- !u!1001 &921753930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: FadeTime
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565715705425052180, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: MusicFile
+      value: PrologueFolley
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726840252970807646, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235975870495461392, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_Name
+      value: MusicAffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268585793193775570, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_Size.x
+      value: 8.238991
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268585793193775570, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_Size.y
+      value: 5.2834263
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268585793193775570, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_Offset.x
+      value: 3.6194954
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268585793193775570, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
+      propertyPath: m_Offset.y
+      value: -2.1417131
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 517fe0af93bdfbd48a314b80ec233cc6, type: 3}
 --- !u!1 &939608836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2228,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056889784}
   m_CullTransparentMesh: 1
+--- !u!1001 &1156243139
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1473098407682185334, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_Name
+      value: Post Processing Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872574502423092807, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 173eac54cf21eb84b8203c1caa0ff449, type: 3}
 --- !u!1 &1280434075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3951423738304545074, guid: a4e898f558886e141808f9be7aada504, type: 3}
@@ -2267,6 +2410,7 @@ GameObject:
   - component: {fileID: 1404305597}
   - component: {fileID: 1404305598}
   - component: {fileID: 1404305599}
+  - component: {fileID: 1404305600}
   m_Layer: 6
   m_Name: Square (3)
   m_TagString: Untagged
@@ -2386,6 +2530,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1404305600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404305596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e3faf939c77a74084c49a40adabc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepSurface: 0
 --- !u!1 &1417062315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,6 +2798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548e5e2193281f145a1556a22c0ff243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSound: BedSit
   fadeImage: {fileID: 993770864}
   fadeDuration: 2.11
   fadeSpeed: 0.61
@@ -3237,6 +3395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548e5e2193281f145a1556a22c0ff243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSound: DoorOpen
   fadeImage: {fileID: 993770864}
   fadeDuration: 0.3
   fadeSpeed: 0.3
@@ -3907,3 +4066,5 @@ SceneRoots:
   - {fileID: 718484101}
   - {fileID: 984836323}
   - {fileID: 7009708546585716874}
+  - {fileID: 921753930}
+  - {fileID: 1156243139}
