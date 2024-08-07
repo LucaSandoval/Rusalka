@@ -35,11 +35,13 @@ public class PauseController : Singleton<PauseController>
         if (paused)
         {
             ChangeActiveButtons(pauseState.Menu);
+            SoundController.Instance?.PlaySoundOneShotRandomPitch("Pause", 0.05f);
         } else
         {
             NavigatableMenuController.Instance?.ClearActiveButtons();
             PauseMenuButtons.SetActive(false);
             PauseMenuSettings.SetActive(false);
+            SoundController.Instance?.PlaySoundOneShotRandomPitch("PauseClose", 0.05f);
         }
     }
 
@@ -56,7 +58,6 @@ public class PauseController : Singleton<PauseController>
         if (Input.GetButtonDown("Cancel"))
         {
             SetGamePause(!IsGamePaused());
-            SoundController.Instance?.PlaySoundOneShotRandomPitch("Pause", 0.05f);
         }
     }
     public void ChangeActiveButtons(pauseState ps)
