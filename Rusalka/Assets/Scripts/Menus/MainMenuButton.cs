@@ -55,6 +55,7 @@ public class MainMenuButton : NavigatableMenuButton
                 FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Menu);
                 break;
             case "ControlsButton":
+                Deselect();
                 FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Controls);
                 break;
             case "ExitButton":
@@ -74,7 +75,7 @@ public class MainMenuButton : NavigatableMenuButton
 
     public override void Select()
     {
-        bgImage.CrossFadeColor(new Color(1, 0.77f, 0.1f, 1f), 0.2f, false, true);
+        bgImage.CrossFadeColor(new Color(0.878f, 0.624f, 0.525f), 0.2f, false, true);
         isSelected = true;
     }
     // Delays the player input. 
