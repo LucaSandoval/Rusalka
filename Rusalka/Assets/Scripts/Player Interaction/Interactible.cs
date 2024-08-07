@@ -55,7 +55,7 @@ public class Interactible : MonoBehaviour
                 interactionPrompt.SetActive(true);
             }
         }
-        privacyCurtain.SetActive(true);
+        if (privacyCurtain != null) privacyCurtain.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -109,7 +109,7 @@ public class Interactible : MonoBehaviour
     {
         yield return StartCoroutine(Fade(0, 1));
         player.transform.position = teleportPoint.position;
-        privacyCurtain.SetActive(false);
+        if (privacyCurtain != null) privacyCurtain.SetActive(false);
         yield return new WaitForSeconds(fadeDuration);
         if (LoadDuringFade) SceneManager.LoadScene(1);
         playerController.enabled = true;
