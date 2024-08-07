@@ -100,6 +100,7 @@ public class Interactible : MonoBehaviour
 
     private IEnumerator FadeInFromBlackCouroutine()
     {
+        fadeImage.color = Color.black;
         yield return new WaitForSeconds(FadeIntoSceneDarknessDuration);
         yield return StartCoroutine(Fade(1, 0));
         PlayFadeIn = false;
