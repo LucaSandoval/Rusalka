@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fe3bdfdfb85b94e8d44aa266e6fc6d, type: 3}
-  m_Name: FootstepWood2
+  m_Name: BridgeFall
   m_EditorClassIdentifier: 
-  SoundName: FootstepWood2
-  Clip: {fileID: 8300000, guid: a50736bb22c560d4f8d6bc078f0c1d47, type: 3}
-  BaseVolume: 0.07
+  SoundName: BridgeFall
+  Clip: {fileID: 8300000, guid: add95397428b175498e3109853ca2923, type: 3}
+  BaseVolume: 0.25
   BasePitch: 1
   ShouldLoop: 0
   AudioMixerGroup: {fileID: 716448102962338521, guid: fe397738766a30d4da4cc91c7372d1c1, type: 2}

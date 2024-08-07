@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Interactible : MonoBehaviour
 {
+    public string interactSound;
     private bool isPlayerInRange = false;
     public Image fadeImage;
     public float fadeDuration;
@@ -36,7 +37,7 @@ public class Interactible : MonoBehaviour
     void Update()
     {
         
-        if (isPlayerInRange && !inInteraction && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerInRange && !inInteraction && Input.GetButtonDown("Submit"))
         {
             Interact();
         }
@@ -54,7 +55,7 @@ public class Interactible : MonoBehaviour
                 interactionPrompt.SetActive(true);
             }
         }
-        privacyCurtain.SetActive(true);
+        if (privacyCurtain != null) privacyCurtain.SetActive(true);
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -78,7 +79,7 @@ public class Interactible : MonoBehaviour
         playerController.enabled = false;
         FadeToBlackAndBack();
         inInteraction = true;
-       
+        SoundController.Instance?.PlaySound(interactSound);
     }
 
     /*
@@ -99,6 +100,7 @@ public class Interactible : MonoBehaviour
 
     private IEnumerator FadeInFromBlackCouroutine()
     {
+        fadeImage.color = Color.black;
         yield return new WaitForSeconds(FadeIntoSceneDarknessDuration);
         yield return StartCoroutine(Fade(1, 0));
         PlayFadeIn = false;
@@ -107,7 +109,7 @@ public class Interactible : MonoBehaviour
     {
         yield return StartCoroutine(Fade(0, 1));
         player.transform.position = teleportPoint.position;
-        privacyCurtain.SetActive(false);
+        if (privacyCurtain != null) privacyCurtain.SetActive(false);
         yield return new WaitForSeconds(fadeDuration);
         if (LoadDuringFade) SceneManager.LoadScene(1);
         playerController.enabled = true;
