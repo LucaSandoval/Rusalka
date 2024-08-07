@@ -6808,7 +6808,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1668077191
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3137394051db18549956e4ea1e4a6657, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -20691,7 +20691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a2f3d566b46f64095a28dcf012cccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 2
+  priority: 4
   changeCameraBoundaries: 0
   minXBoundary: 0
   maxXBoundary: 0
@@ -20714,7 +20714,7 @@ MonoBehaviour:
   xShakeStrength: 0
   yShakeStrength: 0
   lockXAxis: 0
-  lockYAxis: 1
+  lockYAxis: 0
   changeCameraSpeed: 0
   changeZoomSpeed: 0
   camSpeed: 0
@@ -34504,7 +34504,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -98438231
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -42332,7 +42332,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -98438231
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -42713,7 +42713,7 @@ Transform:
   m_GameObject: {fileID: 1314988691}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -192.6, y: 21.2, z: -0.54212725}
+  m_LocalPosition: {x: -204.2, y: 21.2, z: -0.54212725}
   m_LocalScale: {x: 29.295376, y: -318.8462, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45004,8 +45004,8 @@ Transform:
   m_GameObject: {fileID: 1367513648}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.21445379, w: 0.97673416}
-  m_LocalPosition: {x: 40.94, y: -19.11, z: -0.5288445}
-  m_LocalScale: {x: 22.463478, y: 30.816742, z: 1}
+  m_LocalPosition: {x: 41.9, y: -21.17, z: -0.5288445}
+  m_LocalScale: {x: 22.463478, y: 46.07103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 26575442}
@@ -58746,7 +58746,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -98438231
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -59876,8 +59876,9 @@ EdgeCollider2D:
   - {x: -16.782185, y: 13.597984}
   - {x: -15.972969, y: 15.576504}
   - {x: -14.081564, y: 16.99781}
-  - {x: -27.719515, y: 62.23433}
-  - {x: -18.4994, y: 37.55845}
+  - {x: -14.232874, y: 38.933132}
+  - {x: -16.73774, y: 57.56182}
+  - {x: -7.7613006, y: 54.168465}
   - {x: -13.358076, y: 39.135704}
   - {x: -8.223337, y: 39.331608}
   - {x: -3.0613904, y: 37.518425}
@@ -59903,7 +59904,9 @@ EdgeCollider2D:
   - {x: 4.387249, y: 12.242375}
   - {x: 4.31458, y: 9.597}
   - {x: 3.7653189, y: 8.186331}
-  - {x: 4.3199806, y: 6.793416}
+  - {x: 3.491826, y: 7.313417}
+  - {x: 4.088489, y: 6.0727735}
+  - {x: 4.366957, y: 5.697685}
   - {x: 5.0907435, y: 5.3350463}
   - {x: 7.2206116, y: 4.917122}
   - {x: 8.388972, y: 5.068692}
@@ -64007,7 +64010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a2f3d566b46f64095a28dcf012cccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 3
+  priority: 5
   changeCameraBoundaries: 0
   minXBoundary: 0
   maxXBoundary: 0
