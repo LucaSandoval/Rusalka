@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -339,8 +339,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -485,11 +485,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   english: Back
-  polish: "Wr\xF3\u0107"
+  polish: Wstecz
   german: "Zur\xFCckkehren"
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: Geri
+  spanish: Volver
+  ukrainian: "\u0441\u043F\u0438\u043D\u0430"
 --- !u!1 &903462316244128889
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,9 +596,9 @@ MonoBehaviour:
   english: Language
   polish: "J\u0119zyk"
   german: Sprache
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: Dil
+  spanish: Idioma
+  ukrainian: "\u041C\u043E\u0432\u0430"
 --- !u!1 &913957367528027073
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,8 +691,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -825,8 +825,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1240,9 +1240,9 @@ MonoBehaviour:
   english: Resume
   polish: "Wzn\xF3w"
   german: Fortsetzen
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: "\xD6zge\xE7mi\u015F"
+  spanish: Reanudar
+  ukrainian: "\u0420\u0435\u0437\u044E\u043C\u0435"
 --- !u!1 &2021108329118899398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,9 +1412,9 @@ MonoBehaviour:
   english: Music Volume
   polish: "G\u0142o\u015Bno\u015B\u0107 Muzyki"
   german: "Musik-Lautst\xE4rke"
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: "M\xFCzik"
+  spanish: "M\xFAsica"
+  ukrainian: "\u0413\u0443\u0447\u043D\u0456\u0441\u0442\u044C \u043C\u0443\u0437\u0438\u043A\u0438"
 --- !u!114 &1810636372097352706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,8 +1522,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1670,9 +1670,9 @@ MonoBehaviour:
   english: Settings
   polish: Ustawienia
   german: Einstellungen
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: "Ayarlar\u0131"
+  spanish: "Configuraci\xF3n"
+  ukrainian: "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0438"
 --- !u!1 &2921861659627583218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,8 +2242,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2614,9 +2614,9 @@ MonoBehaviour:
   english: Master Volume
   polish: "Og\xF3lna G\u0142o\u015Bno\u015B\u0107"
   german: "Master-Lautst\xE4rke"
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: Ana ses
+  spanish: Volumen maestro
+  ukrainian: "\u041C\u0430\u0439\u0441\u0442\u0435\u0440-\u043E\u0431'\u0454\u043C"
 --- !u!114 &6048742522866751988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2874,8 +2874,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3272,8 +3272,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3422,9 +3422,9 @@ MonoBehaviour:
   english: SFX Volume
   polish: "Efekty D\u017Awi\u0119kowe"
   german: "SFX-Lautst\xE4rke"
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: Ses Efektleri
+  spanish: Efectos de sonido
+  ukrainian: "\u0417\u0432\u0443\u043A\u043E\u0432\u0456 \u0435\u0444\u0435\u043A\u0442\u0438"
 --- !u!114 &7221149380450419499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3694,12 +3694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Exit to menu
-  polish: "Wr\xF3c do menu"
+  english: Main menu
+  polish: "Menu g\u0142\xF3wne"
   german: "Hauptmen\xFC"
-  turkish: 
-  spanish: Spanish
-  ukrainian: 
+  turkish: "Ana men\xFC"
+  spanish: "Men\xFA principal"
+  ukrainian: "\u0413\u043E\u043B\u043E\u0432\u043D\u0435 \u043C\u0435\u043D\u044E"
 --- !u!1 &8407205107182060545
 GameObject:
   m_ObjectHideFlags: 0
