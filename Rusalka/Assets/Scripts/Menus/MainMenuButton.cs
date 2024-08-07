@@ -31,7 +31,8 @@ public class MainMenuButton : NavigatableMenuButton
         {
             case "StartButton":
                 //SceneManager.LoadScene(1);
-                GameObject.Find("Title Text (WIP)").SetActive(false);
+                GameObject.Find("RUSALKA LOGO WHITE").SetActive(false);
+                GameObject.Find("RUSALKA LOGO Backdrop").SetActive(false);
                 FindObjectOfType<MainMenuController>().ChangeActiveButtons(Submenu.Stop);
                 cutscene.Play();
                 break;
