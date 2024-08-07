@@ -849,6 +849,67 @@ Transform:
   - {fileID: 898599545}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &471428610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8515941816652795332, guid: 299919bdf684db04e9d7447343111666, type: 3}
+  m_PrefabInstance: {fileID: 864210172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &471428611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471428610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 356ca0baddf050945a0919495f73f646, type: 2}
+    - {fileID: 11400000, guid: f036b61dd68dbaa4982687eed359c993, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 471428612}
+          m_TargetAssemblyTypeName: BlackBarBehavior, Assembly-CSharp
+          m_MethodName: EnableBars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 471428612}
+          m_TargetAssemblyTypeName: BlackBarBehavior, Assembly-CSharp
+          m_MethodName: DisableBars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &471428612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2409968097756189897, guid: 299919bdf684db04e9d7447343111666, type: 3}
+  m_PrefabInstance: {fileID: 864210172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471428610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9d98d77ef114445b6d4891f5c0d80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &560305760
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +968,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &716076991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4050685932974093047, guid: 299919bdf684db04e9d7447343111666, type: 3}
+  m_PrefabInstance: {fileID: 864210172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &768955673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1276,118 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1445631466359803780, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
   m_PrefabInstance: {fileID: 7542789867647895757}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &864210172
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2409968097756189897, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: topFinalPosition
+      value: 
+      objectReference: {fileID: 716076991}
+    - target: {fileID: 6905175068576000048, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1403861171}
+    - target: {fileID: 6905175068576000048, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336672031454700890, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515941816652795332, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      propertyPath: m_Name
+      value: Cutscene Bars
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8515941816652795332, guid: 299919bdf684db04e9d7447343111666, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 471428611}
+  m_SourcePrefab: {fileID: 100100000, guid: 299919bdf684db04e9d7447343111666, type: 3}
 --- !u!1 &898599544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,6 +2933,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 471428612}
+          m_TargetAssemblyTypeName: BlackBarBehavior, Assembly-CSharp
+          m_MethodName: EnableBars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1568879251}
@@ -3749,3 +3939,4 @@ SceneRoots:
   - {fileID: 232496539}
   - {fileID: 1501747577}
   - {fileID: 356199020}
+  - {fileID: 864210172}
