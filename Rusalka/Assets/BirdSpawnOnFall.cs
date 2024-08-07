@@ -10,7 +10,7 @@ public class BirdSpawnOnFall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spawn = new Vector3(150, -422, 0);
+        Spawn = new Vector3(155, -422, 0);
     }
 
     // Update is called once per frame
