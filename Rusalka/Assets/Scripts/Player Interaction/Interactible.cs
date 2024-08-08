@@ -26,6 +26,7 @@ public class Interactible : MonoBehaviour
     public float FadeIntoSceneDarknessDuration;
     private void Start()
     {
+        inInteraction = false;
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         col = playerController.GetComponent<Collider2D>();
