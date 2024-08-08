@@ -1,25 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BlackBarBehavior : MonoBehaviour
 {
-    [SerializeField] private GameObject TopBar;
-    [SerializeField] private GameObject BottomBar;
-    [SerializeField] private float BarPositionMovement;
+    [SerializeField] private RectTransform TopBar;
+    [SerializeField] private RectTransform BottomBar;
+    [SerializeField] private float BarPositionMovementPercentage = 0.1f; // Percentage of the canvas height
     [SerializeField] private float BarMovementTime;
 
-    private Vector3 topBarStartPosition;
-    private Vector3 bottomBarStartPosition;
-
+    private Vector2 topBarStartPosition;
+    private Vector2 bottomBarStartPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        topBarStartPosition = TopBar.transform.position;
-        bottomBarStartPosition = BottomBar.transform.position;
+        topBarStartPosition = TopBar.anchoredPosition;
+        bottomBarStartPosition = BottomBar.anchoredPosition;
     }
 
     public void EnableBars()
@@ -34,52 +30,54 @@ public class BlackBarBehavior : MonoBehaviour
 
     private IEnumerator RollInBars()
     {
-        TopBar.SetActive(true);
-        BottomBar.SetActive(true);
+        TopBar.gameObject.SetActive(true);
+        BottomBar.gameObject.SetActive(true);
         float elapsedTime = 0f;
 
-        Vector3 topBarTargetPosition = topBarStartPosition + new Vector3(0, -BarPositionMovement, 0);
-        Vector3 bottomBarTargetPosition = bottomBarStartPosition + new Vector3(0, BarPositionMovement, 0);
+        float canvasHeight = TopBar.GetComponentInParent<Canvas>().GetComponent<RectTransform>().rect.height;
+        float movementDistance = canvasHeight * BarPositionMovementPercentage;
+
+        Vector2 topBarTargetPosition = topBarStartPosition + new Vector2(0, -movementDistance);
+        Vector2 bottomBarTargetPosition = bottomBarStartPosition + new Vector2(0, movementDistance);
 
         while (elapsedTime < BarMovementTime)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / BarMovementTime;
 
-            TopBar.transform.position = Vector3.Lerp(topBarStartPosition, topBarTargetPosition, t);
-            BottomBar.transform.position = Vector3.Lerp(bottomBarStartPosition, bottomBarTargetPosition, t);
+            TopBar.anchoredPosition = Vector2.Lerp(topBarStartPosition, topBarTargetPosition, t);
+            BottomBar.anchoredPosition = Vector2.Lerp(bottomBarStartPosition, bottomBarTargetPosition, t);
 
             yield return new WaitForEndOfFrame();
         }
 
         // Ensure the bars reach the target positions
-        TopBar.transform.position = topBarTargetPosition;
-        BottomBar.transform.position = bottomBarTargetPosition;
+        TopBar.anchoredPosition = topBarTargetPosition;
+        BottomBar.anchoredPosition = bottomBarTargetPosition;
     }
 
     private IEnumerator RemoveBars()
     {
         float elapsedTime = 0f;
 
-        Vector3 topBarTargetPosition = topBarStartPosition + new Vector3(0, -BarPositionMovement, 0);
-        Vector3 bottomBarTargetPosition = bottomBarStartPosition + new Vector3(0, BarPositionMovement, 0);
+        Vector2 topBarCurrentPosition = TopBar.anchoredPosition;
+        Vector2 bottomBarCurrentPosition = BottomBar.anchoredPosition;
 
-        while (elapsedTime < BarMovementTime )
+        while (elapsedTime < BarMovementTime)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / BarMovementTime;
 
-            TopBar.transform.position = Vector3.Lerp(topBarTargetPosition, topBarStartPosition, t);
-            BottomBar.transform.position = Vector3.Lerp(bottomBarTargetPosition, bottomBarStartPosition, t);
+            TopBar.anchoredPosition = Vector2.Lerp(topBarCurrentPosition, topBarStartPosition, t);
+            BottomBar.anchoredPosition = Vector2.Lerp(bottomBarCurrentPosition, bottomBarStartPosition, t);
 
             yield return new WaitForEndOfFrame();
         }
 
         // Ensure the bars return to their start positions
-        TopBar.transform.position = topBarStartPosition;
-        BottomBar.transform.position = bottomBarStartPosition;
-        TopBar.SetActive(false);
-        BottomBar.SetActive(false);
+        TopBar.anchoredPosition = topBarStartPosition;
+        BottomBar.anchoredPosition = bottomBarStartPosition;
+        TopBar.gameObject.SetActive(false);
+        BottomBar.gameObject.SetActive(false);
     }
-
 }
