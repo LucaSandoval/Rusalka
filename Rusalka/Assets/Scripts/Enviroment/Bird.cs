@@ -16,7 +16,7 @@ public class Bird : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 newPosition = transform.position + Vector3.right * movingSpeed;
+        Vector3 newPosition = transform.position + transform.right * movingSpeed;
         transform.position = newPosition;
 
 
