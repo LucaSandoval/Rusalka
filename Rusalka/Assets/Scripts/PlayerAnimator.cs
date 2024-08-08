@@ -9,8 +9,8 @@ public class PlayerAnimator : MonoBehaviour
     [Header("General")]
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer headSprite;
+    [SerializeField] private SpriteRenderer bodySprite;
     private PlayerController playerController;
-    //[SerializeField] private SpriteRenderer sprite;
     
     [Header("Swimming")]
     [SerializeField] private float turningSpeed = 250.0f;
@@ -93,10 +93,12 @@ public class PlayerAnimator : MonoBehaviour
         if (playerController.Facing().x == 1)
         {
             headSprite.flipX = false;
+            bodySprite.flipX = false;
         }
         else if (playerController.Facing().x == -1)
         {
             headSprite.flipX = true;
+            bodySprite.flipX = true;
         }
     }
 }

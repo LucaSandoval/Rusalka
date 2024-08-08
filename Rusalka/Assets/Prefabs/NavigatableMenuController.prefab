@@ -331,12 +331,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: SFX Volume
-  polish: "Efekty D\u017Awi\u0119kowe"
-  german: "SFX-Lautst\xE4rke"
-  turkish: Ses Efektleri
-  spanish: Efectos de sonido
-  ukrainian: "\u0417\u0432\u0443\u043A\u043E\u0432\u0456 \u0435\u0444\u0435\u043A\u0442\u0438"
+  english: sfx volume
+  polish: "efekty d\u017Awi\u0119kowe"
+  german: "sfx-lautst\xE4rke"
+  turkish: ses efektleri
+  spanish: sonido
+  ukrainian: "\u0437\u0432\u0443\u043A\u043E\u0432\u0456 \u0435\u0444\u0435\u043A\u0442\u0438"
 --- !u!114 &5229716468054822468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,7 +960,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2260290179774419890
 CanvasRenderer:
@@ -1205,7 +1205,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7858950183065966204
 CanvasRenderer:
@@ -1775,12 +1775,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Start
-  polish: Rozpocznij
-  german: Starten
-  turkish: "Ba\u015Flamak"
-  spanish: Empezar
-  ukrainian: "\u041F\u043E\u0447\u0430\u0442\u0438"
+  english: start
+  polish: rozpocznij
+  german: starten
+  turkish: "ba\u015Flamak"
+  spanish: empezar
+  ukrainian: "\u043F\u043E\u0447\u0430\u0442\u0438"
 --- !u!1 &3386903960880024610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,12 +1885,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Settings
-  polish: Ustawienia
-  german: Einstellungen
-  turkish: "Ayarlar\u0131"
-  spanish: "Configuraci\xF3n"
-  ukrainian: "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0438"
+  english: settings
+  polish: ustawienia
+  german: einstellungen
+  turkish: "ayarlar\u0131"
+  spanish: "configuraci\xF3n"
+  ukrainian: "\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0438"
 --- !u!1 &3425846079499396242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,12 +2070,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Language
-  polish: "J\u0119zyk"
-  german: Sprache
-  turkish: Dil
-  spanish: Idioma
-  ukrainian: "\u041C\u043E\u0432\u0430"
+  english: language
+  polish: "j\u0119zyk"
+  german: sprache
+  turkish: dil
+  spanish: idioma
+  ukrainian: "m\u043E\u0432\u0430"
 --- !u!1 &3570888991168396765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,12 +2431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Master Volume
-  polish: "Og\xF3lna G\u0142o\u015Bno\u015B\u0107"
-  german: "Master-Lautst\xE4rke"
-  turkish: Ana ses
-  spanish: Volumen maestro
-  ukrainian: "\u041C\u0430\u0439\u0441\u0442\u0435\u0440-\u043E\u0431'\u0454\u043C"
+  english: master volume
+  polish: "og\xF3lna g\u0142o\u015Bno\u015B\u0107"
+  german: "master-lautst\xE4rke"
+  turkish: ana ses
+  spanish: volumen maestro
+  ukrainian: "\u043C\u0430\u0439\u0441\u0442\u0435\u0440-\u043E\u0431'\u0454\u043C"
 --- !u!114 &9089587415201816059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2621,7 +2621,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1522700709899090451
 CanvasRenderer:
@@ -2826,12 +2826,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Music Volume
-  polish: "G\u0142o\u015Bno\u015B\u0107 Muzyki"
-  german: "Musik-Lautst\xE4rke"
-  turkish: "M\xFCzik"
-  spanish: "M\xFAsica"
-  ukrainian: "\u0413\u0443\u0447\u043D\u0456\u0441\u0442\u044C \u043C\u0443\u0437\u0438\u043A\u0438"
+  english: music volume
+  polish: "g\u0142o\u015Bno\u015B\u0107 muzyki"
+  german: "musik-lautst\xE4rke"
+  turkish: "m\xFCzik"
+  spanish: "m\xFAsica"
+  ukrainian: "\u0433\u0443\u0447\u043D\u0456\u0441\u0442\u044C \u043C\u0443\u0437\u0438\u043A\u0438"
 --- !u!114 &7758680012735572382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3306,11 +3306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Back
-  polish: Wstecz
-  german: "Zur\xFCckkehren"
-  turkish: Geri
-  spanish: Volver
+  english: back
+  polish: wstecz
+  german: "zur\xFCckkehren"
+  turkish: geri
+  spanish: volver
   ukrainian: "\u0441\u043F\u0438\u043D\u0430"
 --- !u!1 &6006677779272856429
 GameObject:
@@ -3491,12 +3491,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Controls
-  polish: Sterowanie
-  german: Steuerung
-  turkish: "Talimat -lar\u0131"
-  spanish: Mandos
-  ukrainian: "\u0406\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0456\u0457"
+  english: controls
+  polish: sterowanie
+  german: steuerung
+  turkish: "talimat -lar\u0131"
+  spanish: mandos
+  ukrainian: "\u0456\u043D\u0441\u0442\u0440\u0443\u043A\u0446\u0456\u0457"
 --- !u!1 &6282921064544290307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4251,12 +4251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Exit
-  polish: "Wyjd\u017A"
-  german: Ausschalten
-  turkish: "\xC7\u0131k\u0131\u015F"
-  spanish: Salida
-  ukrainian: "\u0412\u0438\u0439\u0442\u0438"
+  english: exit
+  polish: "wyjd\u017A"
+  german: ausschalten
+  turkish: "\xE7\u0131k\u0131\u015F"
+  spanish: salida
+  ukrainian: "\u0432\u0438\u0439\u0442\u0438"
 --- !u!1 &7943774176453748217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,12 +4436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf797e8c2694e4a925e7e9540f2855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Back
-  polish: "Wr\xF3\u0107"
-  german: "Zur\xFCckkehren"
-  turkish: 
-  spanish: Back (Spanish)
-  ukrainian: 
+  english: back
+  polish: wstecz
+  german: "zur\xFCckkehren"
+  turkish: geri
+  spanish: volver
+  ukrainian: "\u0441\u043F\u0438\u043D\u0430"
 --- !u!1 &8504471729384327486
 GameObject:
   m_ObjectHideFlags: 0
