@@ -12,8 +12,8 @@ public class ProximityText : MonoBehaviour
 
     private bool playerInRange;
 
-    [SerializeField] private string textForKeyboard;
-    [SerializeField] private string textForGamepad;
+    [SerializeField] private string[] textForKeyboard;
+    [SerializeField] private string[] textForGamepad;
     [SerializeField] private InputDetection inputDetection;
 
     private void Awake()
@@ -38,7 +38,7 @@ public class ProximityText : MonoBehaviour
             }
         }
         text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-        text.text = inputDetection.IsUsingKeyboard() ? textForKeyboard : textForGamepad;
+        text.text = inputDetection.IsUsingKeyboard() ? textForKeyboard[(int)GlobalSettings.GlobalLanguage] : textForGamepad[(int)GlobalSettings.GlobalLanguage];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
