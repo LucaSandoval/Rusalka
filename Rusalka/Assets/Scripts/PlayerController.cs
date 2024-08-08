@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private bool canMove;
     private bool canFloat;
     private bool OnSlope;
+    private Vector2 normal;
 
     public delegate void PlayerJumpEvent();
     public event PlayerJumpEvent OnPlayerJumped;
@@ -119,6 +120,7 @@ public class PlayerController : MonoBehaviour
             HitOnSlope = slopeDownAngle > 0.1f;
             HitAnything = slopeDownAngle <= MaxClimbableSlopeAngle;
         }
+        normal = slopeNormalPerp;
         return new Tuple<Tuple<bool, bool>, Vector2>(new Tuple<bool, bool>(HitAnything, HitOnSlope), slopeNormalPerp);
     }
 
@@ -519,5 +521,9 @@ public class PlayerController : MonoBehaviour
     public bool GetInGrapple()
     {
         return inGrapple;
+    }
+
+    public Vector2 getSlopeNormal() {
+        return normal;
     }
 }

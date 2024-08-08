@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3777017101546334020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29704, y: -0.14012527, z: 3.6038277}
+  m_LocalPosition: {x: 0.040795017, y: -0.054403562, z: 3.6038277}
   m_LocalScale: {x: 1.7000003, y: 1.7000003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4629200583031766203}
+  - component: {fileID: 3365090617300975138}
   m_Layer: 0
   m_Name: Whole Sprite
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 6501928059388338512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22172646, y: 0.19242454, z: -3.6038277}
+  m_LocalPosition: {x: 0.023, y: 0.142, z: -3.6038277}
   m_LocalScale: {x: 0.58823526, y: 0.58823526, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -117,6 +118,19 @@ Transform:
   - {fileID: 9057727678274938577}
   m_Father: {fileID: 1445631466359803780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3365090617300975138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501928059388338512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997554977fc365842a287726fc2353ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1816440805684750038}
 --- !u!1 &7932275418067551188
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 7932275418067551188}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29635334, y: -0.14012527, z: 3.6038277}
+  m_LocalPosition: {x: 0.041481666, y: -0.054403562, z: 3.6038277}
   m_LocalScale: {x: 1.7000003, y: 1.7000003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +183,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4f46d0a7d444d64bbf55b007369e7ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
