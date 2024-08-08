@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ProximityText : MonoBehaviour
 {
@@ -38,7 +39,8 @@ public class ProximityText : MonoBehaviour
             }
         }
         text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-        text.text = inputDetection.IsUsingKeyboard() ? textForKeyboard[(int)GlobalSettings.GlobalLanguage] : textForGamepad[(int)GlobalSettings.GlobalLanguage];
+        if(textForGamepad.Length > 0 && textForKeyboard.Length > 0) 
+            text.text = inputDetection.IsUsingKeyboard() ? textForKeyboard[(int)GlobalSettings.GlobalLanguage] : textForGamepad[(int)GlobalSettings.GlobalLanguage];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
