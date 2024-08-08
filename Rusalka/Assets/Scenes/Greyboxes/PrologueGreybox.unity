@@ -1873,7 +1873,7 @@ MonoBehaviour:
   teleportPoint: {fileID: 0}
   LoadDuringFade: 0
   PlayFadeIn: 1
-  FadeIntoSceneDarknessDuration: 3
+  FadeIntoSceneDarknessDuration: 0.5
 --- !u!61 &808272704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4405,14 +4405,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 267209068}
     - target: {fileID: 9088042512338489516, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+      propertyPath: TopBar
+      value: 
+      objectReference: {fileID: 7009708546585716876}
+    - target: {fileID: 9088042512338489516, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+      propertyPath: BottomBar
+      value: 
+      objectReference: {fileID: 7009708546585716875}
+    - target: {fileID: 9088042512338489516, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
       propertyPath: BarPositionMovement
       value: 47.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088042512338489516, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+      propertyPath: BarPositionMovementPercentage
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+--- !u!224 &7009708546585716875 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5802585155054776047, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+  m_PrefabInstance: {fileID: 7009708546585716874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7009708546585716876 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3258383302946975650, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+  m_PrefabInstance: {fileID: 7009708546585716874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
