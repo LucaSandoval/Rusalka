@@ -43,7 +43,7 @@ public class PauseMenuButton : NavigatableMenuButton
                 break;
             case "MainMenu":
                 PauseController.Instance.SetGamePause(!PauseController.Instance.IsGamePaused());
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("PrologueGreybox");
                 break;
         }
     }
