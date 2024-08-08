@@ -18,7 +18,7 @@ public class Interactible : MonoBehaviour
     public GameObject privacyCurtain;
 
     // UI prompt
-    public GameObject interactionPrompt;
+    //public GameObject interactionPrompt;
     public Transform teleportPoint;
     private GameObject player;
     public bool LoadDuringFade;
@@ -51,10 +51,10 @@ public class Interactible : MonoBehaviour
         {
             isPlayerInRange = true;
             player = other.gameObject;
-            if (interactionPrompt != null)
-            {
-                interactionPrompt.SetActive(true);
-            }
+            //if (interactionPrompt != null)
+            //{
+            //    interactionPrompt.SetActive(true);
+            //}
         }
         if (privacyCurtain != null) privacyCurtain.SetActive(true);
     }
@@ -65,10 +65,10 @@ public class Interactible : MonoBehaviour
         {
             isPlayerInRange = false;
             player = null;
-            if (interactionPrompt != null)
-            {
-                interactionPrompt.SetActive(false);
-            }
+            //if (interactionPrompt != null)
+            //{
+            //    interactionPrompt.SetActive(false);
+            //}
         }
     }
 
