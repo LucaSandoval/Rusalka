@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class BrokenBridge : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class BrokenBridge : MonoBehaviour
     //[SerializeField] private Transform parentTransform;
 
     [SerializeField] private GameObject[] stones;
+    [SerializeField] private ParticleSystem dust;
+    [SerializeField] private PlayableDirector director;
+
 
     private IBridgeCallable[] interactables;
     
@@ -39,7 +43,9 @@ public class BrokenBridge : MonoBehaviour
                     interactable?.FireBreak();
                 }
                 CameraOperator.Instance.removeCameraZone(GetComponent<CameraZone>());
-                Destroy(parent);
+                director.Play();
+                dust.Stop();
+                Destroy(this);
             }
         }
     }
@@ -49,6 +55,7 @@ public class BrokenBridge : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isActivated = true;
+            dust.Play();
         }
     }
 
@@ -57,6 +64,7 @@ public class BrokenBridge : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isActivated = false;
+            dust.Stop();
             speedWatch = 0.0f;
         }
     }
