@@ -355,6 +355,10 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
+        if (!canMove)
+        {
+            velocity = Vector2.zero;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
