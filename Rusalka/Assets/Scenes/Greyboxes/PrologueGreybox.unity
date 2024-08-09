@@ -1764,6 +1764,62 @@ PrefabInstance:
       propertyPath: textForKeyboard
       value: '[Space]'
       objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[0]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[1]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[2]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[3]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[4]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[5]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[0]
+      value: '[space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[1]
+      value: '[spacja]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[2]
+      value: '[leertaste]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[3]
+      value: "[bo\u015Fluk tu\u015Fu]"
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[4]
+      value: '[barra espaciadora]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[5]
+      value: "[\u043F\u0440\u043E\u0431\u0456\u043B]"
+      objectReference: {fileID: 0}
     - target: {fileID: 4640145049519514701, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3131,6 +3187,62 @@ PrefabInstance:
     - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
       propertyPath: textForKeyboard
       value: '[Space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[0]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[1]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[2]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[3]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[4]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForGamepad.Array.data[5]
+      value: '[a]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[0]
+      value: '[space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[1]
+      value: '[spacja]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[2]
+      value: '[leertaste]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[3]
+      value: "[bo\u015Fluk tu\u015Fu]"
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[4]
+      value: '[barra espaciadora]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 600140621255703164, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
+      propertyPath: textForKeyboard.Array.data[5]
+      value: "[\u043F\u0440\u043E\u0431\u0456\u043B]"
       objectReference: {fileID: 0}
     - target: {fileID: 4640145049519514701, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
       propertyPath: m_Materials.Array.data[0]
