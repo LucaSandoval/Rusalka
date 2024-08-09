@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a2f3d566b46f64095a28dcf012cccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 3
+  priority: 4
   changeCameraBoundaries: 0
   minXBoundary: 0
   maxXBoundary: 0
@@ -2337,7 +2337,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -121.817604, y: -282.9474}
+  m_Offset: {x: -121.817604, y: -300.4297}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2348,7 +2348,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 123.74223, y: 119.50757}
+  m_Size: {x: 123.74223, y: 154.47223}
   m_EdgeRadius: 0
 --- !u!1001 &47453388
 PrefabInstance:
@@ -2547,8 +2547,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 19.9644, y: -6.49475, z: 0}
-    m_Extent: {x: 7.4925, y: 5.3124504, z: 0}
+    m_Center: {x: 19.9677, y: -6.49435, z: 0}
+    m_Extent: {x: 7.4932, y: 5.31865, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3772,6 +3772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &85873815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13429,6 +13430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.5
+  PlayerDependent: 0
 --- !u!212 &207421285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13861,6 +13863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &209571012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15462,6 +15465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &260090239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16419,6 +16423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &277454801
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17575,6 +17580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &294925251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21010,6 +21016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.4
+  PlayerDependent: 0
 --- !u!212 &347528834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21335,6 +21342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &353746315
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30364,8 +30372,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 7.9057, y: -2.7157502, z: 0}
-    m_Extent: {x: 10.5513, y: 5.47685, z: 0}
+    m_Center: {x: 7.9054, y: -2.7079997, z: 0}
+    m_Extent: {x: 10.5615, y: 5.4757, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -30694,6 +30702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &458597026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32074,8 +32083,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 4.29805, y: -0.76045, z: 0}
-    m_Extent: {x: 6.57965, y: 4.22055, z: 0}
+    m_Center: {x: 4.3019, y: -0.75205004, z: 0}
+    m_Extent: {x: 6.5748005, y: 4.2252502, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -32269,8 +32278,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 22.008, y: 0.6885, z: 0}
-    m_Extent: {x: 3.5166998, y: 1.7593, z: 0}
+    m_Center: {x: 22.0148, y: 0.68905, z: 0}
+    m_Extent: {x: 3.5056, y: 1.76495, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -32835,8 +32844,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 19.698, y: -2.6577501, z: 0}
-    m_Extent: {x: 21.3915, y: 18.423851, z: 0}
+    m_Center: {x: 19.7063, y: -2.66285, z: 0}
+    m_Extent: {x: 21.3902, y: 18.41595, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -33544,6 +33553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.2
+  PlayerDependent: 0
 --- !u!212 &526447175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34855,6 +34865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &590212124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35324,6 +35335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &599410479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37091,6 +37103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &644066170
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37502,6 +37515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.1
+  PlayerDependent: 0
 --- !u!212 &652270675
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37718,6 +37732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.4
+  PlayerDependent: 0
 --- !u!212 &656100194
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40047,6 +40062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &726424256
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40685,6 +40701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &736185629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40896,8 +40913,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 21.3448, y: -1.9527001, z: 0}
-    m_Extent: {x: 26.0311, y: 5.7999, z: 0}
+    m_Center: {x: 21.3387, y: -1.9534, z: 0}
+    m_Extent: {x: 26.021301, y: 5.8127, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -40958,6 +40975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.4
+  PlayerDependent: 0
 --- !u!212 &740708257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42045,6 +42063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.2
+  PlayerDependent: 0
 --- !u!212 &766693099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43490,8 +43509,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 21.8824, y: -0.09590006, z: 0}
-    m_Extent: {x: 5.4277, y: 4.8778, z: 0}
+    m_Center: {x: 21.8828, y: -0.09594989, z: 0}
+    m_Extent: {x: 5.4277, y: 4.8622503, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -46090,6 +46109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.3
+  PlayerDependent: 0
 --- !u!212 &873382046
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47063,6 +47083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &894454942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47691,6 +47712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.3
+  PlayerDependent: 0
 --- !u!212 &906500162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48060,8 +48082,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 18.826601, y: -4.40285, z: 0}
-    m_Extent: {x: 7.5903, y: 9.32735, z: 0}
+    m_Center: {x: 18.8291, y: -4.4059496, z: 0}
+    m_Extent: {x: 7.5895996, y: 9.32345, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -51825,6 +51847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &1007864524
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -52214,8 +52237,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 18.8448, y: -3.5160494, z: 0}
-    m_Extent: {x: 7.6271005, y: 12.62515, z: 0}
+    m_Center: {x: 18.83465, y: -3.5119004, z: 0}
+    m_Extent: {x: 7.6277504, y: 12.610901, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -54305,6 +54328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &1092976374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55736,6 +55760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &1104390338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55985,8 +56010,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 18.291, y: -2.6862001, z: 0}
-    m_Extent: {x: 15.1936, y: 5.0755, z: 0}
+    m_Center: {x: 18.2976, y: -2.6869, z: 0}
+    m_Extent: {x: 15.1991005, y: 5.0669003, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -57069,6 +57094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.09
+  PlayerDependent: 0
 --- !u!212 &1140731568
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57462,6 +57488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &1151829599
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57644,6 +57671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.3
+  PlayerDependent: 0
 --- !u!212 &1156484909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57762,8 +57790,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 19.1432, y: -6.70435, z: 0}
-    m_Extent: {x: 7.5732, y: 6.9097505, z: 0}
+    m_Center: {x: 19.1417, y: -6.7042503, z: 0}
+    m_Extent: {x: 7.5715, y: 6.89355, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -59179,6 +59207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.1
+  PlayerDependent: 0
 --- !u!212 &1191089110
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66229,6 +66258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.1
+  PlayerDependent: 0
 --- !u!212 &1347427099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66347,8 +66377,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 42.1725, y: -11.25765, z: 0}
-    m_Extent: {x: 7.633301, y: 5.81435, z: 0}
+    m_Center: {x: 42.173203, y: -11.25365, z: 0}
+    m_Extent: {x: 7.6392994, y: 5.82195, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -69209,7 +69239,7 @@ MonoBehaviour:
   changeCameraMode: 0
   mode: 0
   changeCameraSize: 1
-  Size: 45
+  Size: 36
   changeCameraTarget: 1
   camTarget: 1
   dynamicTarget: {fileID: 0}
@@ -69319,6 +69349,7 @@ Transform:
   - {fileID: 1629503174}
   - {fileID: 115066421}
   - {fileID: 169656114}
+  - {fileID: 1853805831}
   - {fileID: 46038156}
   - {fileID: 1531403504}
   m_Father: {fileID: 0}
@@ -70106,6 +70137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &1436343881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70976,6 +71008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &1465294646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71340,6 +71373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.1
+  PlayerDependent: 0
 --- !u!212 &1474550873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74866,6 +74900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.5
+  PlayerDependent: 0
 --- !u!212 &1563341754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76504,8 +76539,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 22.233, y: 0.41305, z: 0}
-    m_Extent: {x: 3.5256996, y: 2.16195, z: 0}
+    m_Center: {x: 22.2274, y: 0.41744995, z: 0}
+    m_Extent: {x: 3.5240002, y: 2.15535, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -77886,6 +77921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &1649992013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79464,6 +79500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.07
+  PlayerDependent: 0
 --- !u!212 &1685780455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79666,8 +79703,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 26.16145, y: -3.4259, z: 0}
-    m_Extent: {x: 23.884449, y: 7.303, z: 0}
+    m_Center: {x: 26.16475, y: -3.43345, z: 0}
+    m_Extent: {x: 23.87365, y: 7.3060503, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -84177,8 +84214,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 4.29395, y: -0.7543, z: 0}
-    m_Extent: {x: 6.5787497, y: 4.2263, z: 0}
+    m_Center: {x: 4.30475, y: -0.75540006, z: 0}
+    m_Extent: {x: 6.5809503, y: 4.2327, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -84389,6 +84426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &1815295570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85392,8 +85430,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 18.8284, y: -4.3973, z: 0}
-    m_Extent: {x: 7.5811, y: 9.3163, z: 0}
+    m_Center: {x: 18.8309, y: -4.3968, z: 0}
+    m_Extent: {x: 7.5751, y: 9.3196, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -85408,6 +85446,126 @@ MonoBehaviour:
   - {x: 23.244736, y: -10.553193, z: 0}
   - {x: 22.615082, y: 1.6387177, z: 0}
   - {x: 14.41507, y: 1.7461338, z: 0}
+--- !u!1 &1853805830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853805831}
+  - component: {fileID: 1853805833}
+  - component: {fileID: 1853805832}
+  m_Layer: 0
+  m_Name: BetweenWater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853805831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853805830}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0, z: -0.8044407, w: 0.594033}
+  m_LocalPosition: {x: 111.2, y: -245.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1422316736}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -107.113}
+--- !u!114 &1853805832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853805830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a2f3d566b46f64095a28dcf012cccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 4
+  changeCameraBoundaries: 0
+  minXBoundary: 0
+  maxXBoundary: 0
+  minYBoundary: 0
+  maxYBoundary: 0
+  changeCameraMode: 0
+  mode: 0
+  changeCameraSize: 1
+  Size: 7
+  changeCameraTarget: 1
+  camTarget: 0
+  dynamicTarget: {fileID: 1833303122}
+  staticPoint: {x: 365, y: -11, z: 0}
+  changeCameraOffset: 0
+  xAxisOffset: 0
+  yAxisOffset: 0
+  enableCameraShake: 0
+  xAxisShake: 0
+  yAxisShake: 0
+  xShakeStrength: 0
+  yShakeStrength: 0
+  lockXAxis: 0
+  lockYAxis: 0
+  changeCameraSpeed: 0
+  changeZoomSpeed: 1
+  camSpeed: 0
+  zoomSpeed: 5
+  Temporary: 0
+  howManyTimes: 1
+--- !u!61 &1853805833
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853805830}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -144.34004, y: -446.79642}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 40.970795, y: 168.91132}
+  m_EdgeRadius: 0
 --- !u!1 &1854293693
 GameObject:
   m_ObjectHideFlags: 0
@@ -91646,6 +91804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &1991045332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92018,6 +92177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &1999344915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92210,6 +92370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &2001387594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93910,8 +94071,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 24.365952, y: 2.36865, z: 0}
-    m_Extent: {x: 17.59375, y: 7.90925, z: 0}
+    m_Center: {x: 24.372149, y: 2.3544998, z: 0}
+    m_Extent: {x: 17.58935, y: 7.9136, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -94312,6 +94473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.5
+  PlayerDependent: 0
 --- !u!212 &2056699176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94410,6 +94572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0
+  PlayerDependent: 0
 --- !u!212 &2056941020
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96786,8 +96949,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 22.565401, y: -6.7859, z: 0}
-    m_Extent: {x: 27.2478, y: 10.458, z: 0}
+    m_Center: {x: 22.55795, y: -6.7945504, z: 0}
+    m_Extent: {x: 27.252449, y: 10.458151, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -97453,6 +97616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
+  PlayerDependent: 0
 --- !u!212 &2146572278
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97551,6 +97715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.2
+  PlayerDependent: 0
 --- !u!212 &2146990872
 SpriteRenderer:
   m_ObjectHideFlags: 0
