@@ -9,7 +9,7 @@ public class CreditsScroll : MonoBehaviour
     private bool CanScroll;
     private float scrollSpeed;
 
-    private const float scrollSpeedMin = 120f;
+    private const float scrollSpeedMin = 57.5f;
     private const float scrollSpeedMax = 850f;
 
     public string creditsSong;

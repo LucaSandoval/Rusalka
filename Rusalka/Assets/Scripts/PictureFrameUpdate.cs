@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PictureFrameUpdate : MonoBehaviour
 {
     [SerializeField] private Sprite[] PictureStates;
-    private SpriteRenderer spRenderer;
+    private Image image;
     // Start is called before the first frame update
     void Start()
     {
-        spRenderer = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -17,7 +18,7 @@ public class PictureFrameUpdate : MonoBehaviour
     {
         NumPictures tem = NumPictures.Instance;
         if (tem != null && tem.getPieceCount() <= PictureStates.Length) {
-            spRenderer.sprite = PictureStates[tem.getPieceCount()];
+            image.sprite = PictureStates[tem.getPieceCount()];
         }
     }
 }
