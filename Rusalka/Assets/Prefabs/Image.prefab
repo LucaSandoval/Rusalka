@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24f71610f67c0574eaf03a7c809c8ffd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9adfd9bccb69bc04a9e180c9ce1769f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,8 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PictureStates:
-  - {fileID: 21300000, guid: 24f71610f67c0574eaf03a7c809c8ffd, type: 3}
-  - {fileID: 21300000, guid: 878efe49e147b1b44b4eb00cbe576a5a, type: 3}
-  - {fileID: 21300000, guid: 5abe71e9209fad14b8aebe5ae06e10c8, type: 3}
-  - {fileID: 21300000, guid: 8f2274d22637d974bbffe03cd8d7ee75, type: 3}
-  - {fileID: 21300000, guid: 91ccdbd0f232d97418b5d62801f7594c, type: 3}
+  - {fileID: 21300000, guid: 9adfd9bccb69bc04a9e180c9ce1769f6, type: 3}
+  - {fileID: 21300000, guid: 9b6b1cc0b0588494b880c3588fe25c86, type: 3}
+  - {fileID: 21300000, guid: df51905cfee2d404c93eb317141c6d74, type: 3}
+  - {fileID: 21300000, guid: bba7069ea5dee3d42acbd5ac3d99b6f0, type: 3}
+  - {fileID: 21300000, guid: d2e285459c82f4e419e52a5e2ee5349e, type: 3}
+  - {fileID: 21300000, guid: 490083ac36299794c8c798aec6af120b, type: 3}
