@@ -10,7 +10,7 @@ public class TeleportNewScene : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("Epilogue Part 2");
         }
     }
 }
