@@ -7044,7 +7044,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1668077191
-  m_SortingLayer: 7
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3137394051db18549956e4ea1e4a6657, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18864,15 +18864,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 670325545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be83013cd73d054da36d030e66883a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 17b60570b7163aa4289d3c646d7b05dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: 
-  polish: 
-  german: 
-  turkish: 
-  spanish: 
-  ukrainian: 
+  textForKeyboard:
+  - 'wasd / arrow kes: swim'
+  - "wasd / strza\u0142ki : p\u0142y\u0144"
+  - 'wasd / pfeiltasten : schwimmen'
+  - "wasd / ok tu\u015Flar\u0131 : y\xFCzmek"
+  - "wasd / teclas de direcci\xF3n : nadar"
+  - "\u0448\u0430\u0441\u0434 / \u0441\u0442\u0440\u0456\u043B\u043A\u0438 : \u043F\u043B\u0430\u0432\u0430\u0442\u0438"
+  textForGamepad:
+  - 'left joystick : swim'
+  - "lewy joystick : p\u0142y\u0144"
+  - 'linker joystick : schwimmen'
+  - "sol joystick : y\xFCzmek"
+  - 'joystick izquierdo : nadar'
+  - "\u043B\u0456\u0432\u0438\u0439 \u0434\u0436\u043E\u0439\u0441\u0442\u0438\u043A
+    : \u043F\u043B\u0430\u0432\u0430\u0442\u0438"
+  inputDetection: {fileID: 0}
+  disappearOnExit: 1
 --- !u!1 &679441752
 GameObject:
   m_ObjectHideFlags: 0
@@ -36384,7 +36395,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -98438231
-  m_SortingLayer: 4
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44713,7 +44724,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1342235271
-  m_SortingLayer: 2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 94fae8d0b1273364d975f8843b2dedf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44874,7 +44885,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -98438231
-  m_SortingLayer: 4
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -62653,7 +62664,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -98438231
-  m_SortingLayer: 4
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
