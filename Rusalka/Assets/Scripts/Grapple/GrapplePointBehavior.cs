@@ -14,7 +14,7 @@ public class GrapplePointBehavior : MonoBehaviour
     private LineRenderer lineRenderer;
     private int Segments = 36;
     public bool renderRadius;
-    [SerializeField] private GameObject reticle;
+    
 
     [Tooltip("Speed the player will fly to the grapple point with")]
     public float GrappleEnterSpeed = 25f;
@@ -72,7 +72,7 @@ public class GrapplePointBehavior : MonoBehaviour
     {
         if (interactible)
         {
-            reticle.SetActive(false);
+            
             interactible = false;
             StartCoroutine(ReenableInteractibility(duration));
         }
@@ -105,13 +105,7 @@ public class GrapplePointBehavior : MonoBehaviour
         }
     }
 
-    /*
-     * Toggles reticle on grapple point 
-     */
-    public void ToggleReticle(bool toggle)
-    {
-        reticle.SetActive(toggle);
-    }
+   
 
     /*
      * Sets animation state for grapple
