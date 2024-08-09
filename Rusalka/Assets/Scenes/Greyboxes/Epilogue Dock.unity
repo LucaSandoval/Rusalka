@@ -1933,6 +1933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 744353650}
   - component: {fileID: 744353649}
+  - component: {fileID: 744353651}
   m_Layer: 0
   m_Name: Husband
   m_TagString: Untagged
@@ -1981,15 +1982,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 02f79d46f8210bd4b9e99641b556972f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.799013, y: 4.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &744353650
@@ -2000,13 +2001,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744353648}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.155838, y: 34.173416, z: 1.7105969}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -76.02, y: 27.71, z: 1.7105969}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!95 &744353651
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744353648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &747065381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3209,7 +3231,9 @@ PlayableDirector:
   - key: {fileID: -1176031021656849646, guid: 6ad8120113cb7c84eb645735623d50ab, type: 2}
     value: {fileID: 1133280918}
   - key: {fileID: 4124598352252216961, guid: 6ad8120113cb7c84eb645735623d50ab, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 744353651}
+  - key: {fileID: -804195368629640417, guid: 6ad8120113cb7c84eb645735623d50ab, type: 2}
+    value: {fileID: 744353651}
   m_ExposedReferences:
     m_References:
     - edab298e0e2c78f4495bd68a45231f28: {fileID: 0}
