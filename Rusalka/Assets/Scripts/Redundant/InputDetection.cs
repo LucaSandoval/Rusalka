@@ -14,8 +14,12 @@ public class InputDetection : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) || 
             Input.GetKeyDown(KeyCode.D) ||
+            Input.GetKeyDown(KeyCode.W) ||
+            Input.GetKeyDown(KeyCode.S) ||
             Input.GetKeyDown(KeyCode.RightArrow) ||
             Input.GetKeyDown(KeyCode.LeftArrow) ||
+            Input.GetKeyDown(KeyCode.UpArrow) ||
+            Input.GetKeyDown(KeyCode.DownArrow) ||
             Input.GetKeyDown(KeyCode.Space) ||
             Input.GetKeyDown(KeyCode.Z)||
             Input.GetKeyDown(KeyCode.KeypadEnter)||
