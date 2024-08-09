@@ -16,6 +16,7 @@ public class ProximityText : MonoBehaviour
     [SerializeField] private string[] textForKeyboard;
     [SerializeField] private string[] textForGamepad;
     [SerializeField] private InputDetection inputDetection;
+    [SerializeField] private bool disappearOnExit = true;
 
     private void Awake()
     {
@@ -53,7 +54,7 @@ public class ProximityText : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && disappearOnExit)
         {
             playerInRange = false;
         }
