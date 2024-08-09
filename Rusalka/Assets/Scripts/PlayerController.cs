@@ -444,6 +444,12 @@ public class PlayerController : MonoBehaviour
         return Vector2.right * facing;
     }
 
+    // Right is 1, Left is -1
+    public void setFacing(int facing)
+    {
+        this.facing = Math.Sign(facing);
+    }
+
     // Returns true when grounded
     public bool IsGrounded() {
         return grounded;
