@@ -24,6 +24,7 @@ public class Interactible : MonoBehaviour
     public bool LoadDuringFade;
     public bool PlayFadeIn;
     public float FadeIntoSceneDarknessDuration;
+    public int SceneToLoad;
     private void Start()
     {
         inInteraction = false;
@@ -101,7 +102,8 @@ public class Interactible : MonoBehaviour
 
     private IEnumerator FadeInFromBlackCouroutine()
     {
-        fadeImage.color = Color.black;
+        Color color = fadeImage.color;
+        fadeImage.color = new Color(color.r, color.g, color.b, 1);
         yield return new WaitForSeconds(FadeIntoSceneDarknessDuration);
         yield return StartCoroutine(Fade(1, 0));
         PlayFadeIn = false;
@@ -112,7 +114,7 @@ public class Interactible : MonoBehaviour
         player.transform.position = teleportPoint.position;
         if (privacyCurtain != null) privacyCurtain.SetActive(false);
         yield return new WaitForSeconds(fadeDuration);
-        if (LoadDuringFade) SceneManager.LoadScene(1);
+        if (LoadDuringFade) SceneManager.LoadScene(SceneToLoad);
         playerController.enabled = true;
         yield return StartCoroutine(Fade(1, 0));
         
