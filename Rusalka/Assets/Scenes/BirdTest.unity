@@ -665,63 +665,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201bebc9b88153d4d88abd04b7f63e6a, type: 3}
---- !u!1001 &4463955255877459346
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -39.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 18.483164
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0013245275
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.0013245275
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071056
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071056
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 89.787
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1216251625864760619, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282595278339844433, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
-      propertyPath: m_Name
-      value: Bridge Dust Particles
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 833ffced2c5e0c44381f36c7e1e63841, type: 3}
 --- !u!1001 &4499017723830628907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -903,11 +846,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4087936296861340911, guid: f58cc6d431b3f254f893a12ed3106ef4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -83.712364
+      value: -83.76
       objectReference: {fileID: 0}
     - target: {fileID: 4087936296861340911, guid: f58cc6d431b3f254f893a12ed3106ef4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.0784445
+      value: -9.91
       objectReference: {fileID: 0}
     - target: {fileID: 4087936296861340911, guid: f58cc6d431b3f254f893a12ed3106ef4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1544,5 +1487,4 @@ SceneRoots:
   - {fileID: 6352882315412431918}
   - {fileID: 7777411069715484546}
   - {fileID: 1066385300932933579}
-  - {fileID: 4463955255877459346}
   - {fileID: 5606808226813739701}
