@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class ProximityText : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class ProximityText : MonoBehaviour
 
     private bool playerInRange;
 
-    [SerializeField] private string textForKeyboard;
-    [SerializeField] private string textForGamepad;
+    [SerializeField] private string[] textForKeyboard;
+    [SerializeField] private string[] textForGamepad;
     [SerializeField] private InputDetection inputDetection;
+    [SerializeField] private bool disappearOnExit = true;
 
     private void Awake()
     {
@@ -38,7 +40,8 @@ public class ProximityText : MonoBehaviour
             }
         }
         text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
-        text.text = inputDetection.IsUsingKeyboard() ? textForKeyboard : textForGamepad;
+        if(textForGamepad.Length > 0 && textForKeyboard.Length > 0) 
+            text.text = inputDetection.IsUsingKeyboard() ? textForKeyboard[(int)GlobalSettings.GlobalLanguage] : textForGamepad[(int)GlobalSettings.GlobalLanguage];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,7 +54,7 @@ public class ProximityText : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && disappearOnExit)
         {
             playerInRange = false;
         }

@@ -69,10 +69,6 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -4475502739540913541}
-    second:
-    - {fileID: -6837560508289515759}
-    - {fileID: 7135310698294155972}
   - first: {fileID: 2600337032984934066}
     second:
     - {fileID: -608748890953633156}
@@ -81,8 +77,12 @@ AnimatorStateMachine:
     second:
     - {fileID: -2565282059271276143}
     - {fileID: -8957330433036534152}
+  - first: {fileID: -4475502739540913541}
+    second:
+    - {fileID: -6837560508289515759}
+    - {fileID: 7135310698294155972}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 290, y: 170, z: 0}
+  m_AnyStatePosition: {x: 230, y: 170, z: 0}
   m_EntryPosition: {x: -260, y: 110, z: 0}
   m_ExitPosition: {x: 870, y: 10, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -839,7 +839,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: run
+  m_Name: Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
