@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Credits
   m_EditorClassIdentifier: 
   SoundName: Credits
-  Clip: {fileID: 8300000, guid: 424b8b96c47378f46abeacb25d172461, type: 3}
+  Clip: {fileID: 8300000, guid: 3e4173633a1ba1e4ea24e2e5bfda0867, type: 3}
   BaseVolume: 0.15
   BasePitch: 1
   ShouldLoop: 0

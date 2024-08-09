@@ -7052,7 +7052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkipIndicator: {fileID: 302825094}
-  creditsSong: Lvl2MusicWhiteVoid
+  creditsSong: Credits
 --- !u!1 &1855837068
 GameObject:
   m_ObjectHideFlags: 0

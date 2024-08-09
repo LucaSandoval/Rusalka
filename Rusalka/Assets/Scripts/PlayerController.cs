@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
             {
                 float currGrav = DownGravityForce;
                 // Setting the float
-                if (Input.GetButtonDown("Jump") && canMove && canFloat && currCoyoteTime <= 0)
+                if ((Input.GetButtonDown("Jump") || (Input.GetButton("Jump") && velocity.y <= 0 && !isFloat)) && canMove && canFloat && currCoyoteTime <= 0)
                 {
                     if (velocity.y <= 0)
                     {
