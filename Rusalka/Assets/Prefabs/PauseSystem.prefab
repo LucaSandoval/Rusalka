@@ -1014,10 +1014,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be83013cd73d054da36d030e66883a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: Pause
-  polish: Pauza
-  german: Pause
-  turkish: uraklat
+  english: pause
+  polish: pauza
+  german: pause
+  turkish: duraklat
   spanish: pausa
   ukrainian: "\u043F\u0430\u0443\u0437\u0430"
 --- !u!1 &1377267738845606464
