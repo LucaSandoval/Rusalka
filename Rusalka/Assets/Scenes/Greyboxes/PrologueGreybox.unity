@@ -778,6 +778,7 @@ MonoBehaviour:
   LoadDuringFade: 0
   PlayFadeIn: 0
   FadeIntoSceneDarknessDuration: 0
+  SceneToLoad: 0
 --- !u!61 &191290269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6939,6 +6940,7 @@ MonoBehaviour:
   LoadDuringFade: 0
   PlayFadeIn: 1
   FadeIntoSceneDarknessDuration: 0.5
+  SceneToLoad: 0
 --- !u!61 &808272704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8642,6 +8644,7 @@ MonoBehaviour:
   LoadDuringFade: 1
   PlayFadeIn: 0
   FadeIntoSceneDarknessDuration: 2
+  SceneToLoad: 1
 --- !u!61 &1554681281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9556,6 +9559,7 @@ MonoBehaviour:
   LoadDuringFade: 0
   PlayFadeIn: 0
   FadeIntoSceneDarknessDuration: 0
+  SceneToLoad: 0
 --- !u!61 &1941036121
 BoxCollider2D:
   m_ObjectHideFlags: 0
