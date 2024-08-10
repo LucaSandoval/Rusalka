@@ -90,15 +90,5 @@ public class PlayerAnimator : MonoBehaviour
     private void HandleDirection()
     {
         anim.SetFloat("Speed", playerController.GetMovementSpeed());
-        if (playerController.Facing().x == 1)
-        {
-            headSprite.flipX = false;
-            bodySprite.flipX = false;
-        }
-        else if (playerController.Facing().x == -1)
-        {
-            headSprite.flipX = true;
-            bodySprite.flipX = true;
-        }
     }
 }

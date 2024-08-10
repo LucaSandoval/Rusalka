@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 velocity; // the current x and y velocity of the player
     private Rigidbody2D rb; // the player's rigidbody
     private Collider2D collide; //the player's collider
-    private SpriteRenderer spr; // the player's sprite
+    [SerializeField] private SpriteRenderer sprHead; // the player's head sprite
+    [SerializeField] private SpriteRenderer sprBody; // the player's body sprite
     private PlayerFootstepController footstepController;
     private bool inGrapple; // Is the player currently in the Grapple
     private bool inWater; // Whether or not the player is currently in the water
@@ -65,7 +66,6 @@ public class PlayerController : MonoBehaviour
         velocity = new Vector2(0, 0);
         grounded = false;
         collide = GetComponent<Collider2D>();
-        spr = GetComponent<SpriteRenderer>();
         footstepController = GetComponent<PlayerFootstepController>();
         facing = 1;
         inGrapple = false;
@@ -319,11 +319,13 @@ public class PlayerController : MonoBehaviour
             facing = (int)Mathf.Sign(velocity.x);
             if (facing == 1)
             {
-                spr.flipX = false;
+                sprHead.flipX = false;
+                sprBody.flipX = false;
             }
             else if (facing == -1)
             {
-                spr.flipX = true;
+                sprHead.flipX = true;
+                sprBody.flipX = true;
             }
         }
 

@@ -364,6 +364,8 @@ MonoBehaviour:
   SwimDecceleration: 20
   NoFriction: {fileID: 6200000, guid: a5c01df84c857d04a95abe884e82d5c1, type: 2}
   HighFriction: {fileID: 6200000, guid: 83293cb21d463624c9784dc3050bcf8d, type: 2}
+  sprHead: {fileID: 1859223574116916595}
+  sprBody: {fileID: 8517572031042941863}
 --- !u!114 &9199526853031486953
 MonoBehaviour:
   m_ObjectHideFlags: 0
