@@ -124,6 +124,19 @@ public class PlayerController : MonoBehaviour
         return new Tuple<Tuple<bool, bool>, Vector2>(new Tuple<bool, bool>(HitAnything, HitOnSlope), slopeNormalPerp);
     }
 
+    private float GetClampedAxisInput(string axisName)
+    {
+        float raw = Input.GetAxisRaw(axisName);
+        if (raw < 0)
+        {
+            raw = -1f;
+        } else if (raw > 0)
+        {
+            raw = 1f;
+        }
+        return raw;
+    }
+
     private void DoMovement()
     {
         // BASIC MOVEMENT! (ground and air)
@@ -168,17 +181,17 @@ public class PlayerController : MonoBehaviour
 
                 if (OnSlope)
                 {
-                    velocity.x = -slopeNormalPerp.x * MovementSpeed * Input.GetAxisRaw("Horizontal");
-                    velocity.y = -slopeNormalPerp.y * MovementSpeed * Input.GetAxisRaw("Horizontal");
+                    velocity.x = -slopeNormalPerp.x * MovementSpeed * GetClampedAxisInput("Horizontal");
+                    velocity.y = -slopeNormalPerp.y * MovementSpeed * GetClampedAxisInput("Horizontal");
                 }
                 else
                 {
-                    velocity.x = Input.GetAxisRaw("Horizontal") * MovementSpeed;
+                    velocity.x = GetClampedAxisInput("Horizontal") * MovementSpeed;
                 }
             }
             else
             {
-                if (Input.GetAxisRaw("Horizontal") * velocity.x < 0 && canMove)
+                if (GetClampedAxisInput("Horizontal") * velocity.x < 0 && canMove)
                 {
                     velocity.x -= Time.deltaTime * AirResistance * Mathf.Sign(velocity.x);
                 }
