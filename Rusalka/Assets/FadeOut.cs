@@ -26,6 +26,20 @@ public class FadeOut : MonoBehaviour
         }
     }
 
+    public void ForceFadeThenDisable()
+    {
+        StartCoroutine(FadeOutThenDisableCoroutine());
+    }
+
+    IEnumerator FadeOutThenDisableCoroutine()
+    {
+        // Wait for the FadeOutCoroutine to finish
+        yield return StartCoroutine(FadeOutCoroutine());
+
+        // Disable the game object after the fade out
+        objectToFade.SetActive(false);
+    }
+
     IEnumerator FadeOutCoroutine()
     {
         float startAlpha = originalColor.a;
