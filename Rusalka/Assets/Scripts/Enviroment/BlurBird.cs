@@ -37,8 +37,8 @@ public class BlurBird : MonoBehaviour
 
     private void OnExit()
     {
-        //sprite.enabled = false;
+        sprite.enabled = false;
         enabled = false;
-        Destroy(gameObject);
+        Destroy(this);
     }
 }
