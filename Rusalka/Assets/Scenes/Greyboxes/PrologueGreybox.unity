@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3301887, g: 0.06697223, b: 0.06697223, a: 0}
+  m_Color: {r: 0.1509434, g: 0.013527942, b: 0.013527942, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9298,8 +9298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSound: BedSit
   fadeImage: {fileID: 482630443}
-  fadeDuration: 1
-  fadeSpeed: 2.25
+  fadeDuration: 3
+  fadeSpeed: 1
   privacyCurtain: {fileID: 1417062315}
   teleportPoint: {fileID: 1941036119}
   LoadDuringFade: 1
@@ -9349,7 +9349,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1}
+  m_Size: {x: 1.32, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1562958418
 GameObject:
@@ -9774,7 +9774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8644340061825853984, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
       propertyPath: m_Radius
-      value: 0.47
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 8644340061825853984, guid: 9ea09915f7fea4d4ba614df577ae4044, type: 3}
       propertyPath: m_Offset.x
