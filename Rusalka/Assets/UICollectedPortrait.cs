@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class UICollectedPortrait : MonoBehaviour
 {
-    public Image portaitImage;
-    public Image bgImage;
+    public Image[] portaitImages;
 
     private bool fadingIn;
     private float fadeInTimer;
@@ -57,7 +56,15 @@ public class UICollectedPortrait : MonoBehaviour
 
     private void SetPortraitOpacity()
     {
-        portaitImage.color = new Color(portaitImage.color.r, portaitImage.color.g, portaitImage.color.b, alpha);
-        bgImage.color = new Color(bgImage.color.r, bgImage.color.g, bgImage.color.b, Mathf.Clamp(alpha, 0, 0.38f));
+        for(int i = 0; i <= 4; i++)
+        {
+            if (NumPictures.Instance != null)
+            {
+                Color img_color = (NumPictures.Instance.getPieceCount() > i) ? Color.white : Color.black;
+                float max_op = (NumPictures.Instance.getPieceCount() > i) ? 1 : 0.5f;
+
+                portaitImages[i].color = new Color(img_color.r, img_color.g, img_color.b, Mathf.Clamp(alpha, 0, max_op));
+            }
+        }        
     }
 }
