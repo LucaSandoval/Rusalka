@@ -78,5 +78,9 @@ public class PauseController : Singleton<PauseController>
             default: 
                 break;
         }
+        foreach (var button in NavigatableMenuController.Instance.GetActiveButtons())
+        {
+            button.InstantDeselect();
+        }
     }
 }
