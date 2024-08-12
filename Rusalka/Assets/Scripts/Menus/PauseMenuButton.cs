@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class PauseMenuButton : NavigatableMenuButton
     private Slider slider;
     private const float inputDelayMaxTime = 0.15f;
     private float inputDelayTimer;
+    [SerializeField] private float selectTime = 0.15f;
+    [SerializeField] private TextMeshProUGUI tmp;
     public void Start()
     {
         slider = GetComponentInChildren<Slider>();
@@ -50,18 +53,22 @@ public class PauseMenuButton : NavigatableMenuButton
 
     public override void Deselect()
     {
-        bgImage.CrossFadeColor(Color.white, 0f, false, true);
+        bgImage.CrossFadeAlpha(1f, selectTime, false);
         isSelected = false;
+        tmp.color = Color.black;
     }
 
     public override void Select()
     {
-        bgImage.CrossFadeColor(new Color(0.878f, 0.624f, 0.525f), 0.2f, false, true);
+        bgImage.CrossFadeAlpha(0f, selectTime, false);
         isSelected = true;
+        tmp.color = Color.white;
     }
     public override void InstantDeselect()
     {
-        ;
+        bgImage.CrossFadeAlpha(1f, 0f, false);
+        isSelected = false;
+        tmp.color = Color.black;
     }
 
     // Delays the player input. 
