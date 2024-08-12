@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Greyboxes/FullGreybox.unity
     guid: 243dac8dc8513d246a209ac30a800360
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Greyboxes/Epilogue Part 1.unity
     guid: fbbab6e0683892f4fbb27266d0d8abb7
   - enabled: 1
