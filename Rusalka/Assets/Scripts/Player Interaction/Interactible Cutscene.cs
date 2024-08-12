@@ -2,8 +2,149 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InteractibleCutscene : MonoBehaviour
 {
-    
+    public string interactSound;
+    private bool isPlayerInRange = false;
+    public Image fadeImage;
+    public float fadeDuration;
+    public float fadeSpeed;
+    public static bool inInteraction = false;
+    private PlayerController playerController;
+    private Collider2D col;
+    // Gameobject if you want to cover something up
+    public GameObject privacyCurtain;
+
+    // UI prompt
+    //public GameObject interactionPrompt;
+    public Transform teleportPoint;
+    private GameObject player;
+    public bool LoadDuringFade;
+    public bool PlayFadeIn;
+    public float FadeIntoSceneDarknessDuration;
+    public int SceneToLoad;
+    private void Start()
+    {
+        inInteraction = false;
+        player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        col = playerController.GetComponent<Collider2D>();
+        if (PlayFadeIn)
+        {
+            FadeIntoScene();
+        }
+    }
+    void Update()
+    {
+
+        if (isPlayerInRange && !inInteraction && Input.GetButtonDown("Submit"))
+        {
+            Interact();
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+            player = other.gameObject;
+        }
+        if (privacyCurtain != null) privacyCurtain.SetActive(true);
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            player = null;
+        }
+    }
+
+    /*
+     * Start coroutine and make next point non-interactible while in couroutine
+     */
+    void Interact()
+    {
+        playerController.enabled = false;
+        FadeToBlackAndBack();
+        inInteraction = true;
+        SoundController.Instance?.PlaySound(interactSound);
+    }
+
+    /*
+     * Fades screen to black, then back to normal and teleports player while blacked out
+     */
+    public void FadeToBlackAndBack()
+    {
+        StartCoroutine(FadeToBlackAndBackCouroutine());
+
+        StartCoroutine(RefreshCollider());
+
+    }
+
+    private void FadeIntoScene()
+    {
+        StartCoroutine(FadeInFromBlackCouroutine());
+    }
+
+    private IEnumerator FadeInFromBlackCouroutine()
+    {
+        Color color = fadeImage.color;
+        fadeImage.color = new Color(color.r, color.g, color.b, 1);
+        yield return new WaitForSeconds(FadeIntoSceneDarknessDuration);
+        yield return StartCoroutine(Fade(1, 0));
+        PlayFadeIn = false;
+    }
+    private IEnumerator FadeToBlackAndBackCouroutine()
+    {
+        yield return StartCoroutine(Fade(0, 1));
+        player.transform.position = teleportPoint.position;
+        if (privacyCurtain != null) privacyCurtain.SetActive(false);
+        yield return new WaitForSeconds(fadeDuration);
+        if (LoadDuringFade) SceneManager.LoadScene(SceneToLoad);
+        playerController.enabled = true;
+        yield return StartCoroutine(Fade(1, 0));
+
+        inInteraction = false;
+
+    }
+
+    /*
+     * Fades UI texture from specidied alpha values
+     */
+    private IEnumerator Fade(float startAlpha, float endAlpha)
+    {
+        float elapsedTime = 0f;
+        Color color = fadeImage.color;
+
+        while (elapsedTime < fadeSpeed)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeSpeed);
+            fadeImage.color = new Color(color.r, color.g, color.b, alpha);
+            yield return null;
+        }
+        fadeImage.color = new Color(color.r, color.g, color.b, endAlpha);
+    }
+
+    /*
+     * Refreshes the players collider to account for new camera zone
+     */
+    private IEnumerator RefreshCollider()
+    {
+        yield return new WaitForSeconds(fadeDuration + fadeSpeed);
+        // Disable the collider
+        col.enabled = false;
+
+        // Wait for a frame to ensure the physics system updates
+        yield return null;
+
+        // Re-enable the collider
+        col.enabled = true;
+    }
 }
