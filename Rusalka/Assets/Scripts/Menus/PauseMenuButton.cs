@@ -59,6 +59,10 @@ public class PauseMenuButton : NavigatableMenuButton
         bgImage.CrossFadeColor(new Color(0.878f, 0.624f, 0.525f), 0.2f, false, true);
         isSelected = true;
     }
+    public override void InstantDeselect()
+    {
+        ;
+    }
 
     // Delays the player input. 
     private void DelayInput()

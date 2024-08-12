@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Playables;
@@ -12,12 +13,14 @@ using UnityEngine.UI;
 /// </summary>
 public class MainMenuButton : NavigatableMenuButton
 {
-    public Image bgImage;
+    public Image ftImage;
     private bool isSelected;
     private Slider slider;
     private const float inputDelayMaxTime = 0.15f;
     private float inputDelayTimer;
+    [SerializeField] private float selectTime = 0.15f;
     [SerializeField] private PlayableDirector cutscene;
+    [SerializeField] private TextMeshProUGUI tmp;
 
     public void Start()
     {
@@ -70,14 +73,22 @@ public class MainMenuButton : NavigatableMenuButton
 
     public override void Deselect()
     {
-        bgImage.CrossFadeColor(Color.white, 0f, false, true);
+        ftImage.CrossFadeAlpha(1f, selectTime, false);
         isSelected = false;
+        tmp.color = Color.black;
+    }
+    public override void InstantDeselect()
+    {
+        ftImage.CrossFadeAlpha(1f, 0f, false);
+        isSelected = false;
+        tmp.color = Color.black;
     }
 
     public override void Select()
     {
-        bgImage.CrossFadeColor(new Color(0.878f, 0.624f, 0.525f), 0.2f, false, true);
+        ftImage.CrossFadeAlpha(0f, selectTime, false);
         isSelected = true;
+        tmp.color = Color.white;
     }
     // Delays the player input. 
     private void DelayInput()
@@ -120,6 +131,6 @@ public class MainMenuButton : NavigatableMenuButton
     private IEnumerator DisablePlayerMovement()
     {
         yield return new WaitForSeconds(.2f);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
     }
 }

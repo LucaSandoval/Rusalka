@@ -19,4 +19,8 @@ public abstract class NavigatableMenuButton : MonoBehaviour
     /// Defines what happens when this button is chosen or 'pressed.'
     /// </summary>
     public abstract void Choose();
+    /// <summary>
+    /// Defines what happens when this button deselected due to changing the submenu.
+    /// </summary>
+    public abstract void InstantDeselect();
 }

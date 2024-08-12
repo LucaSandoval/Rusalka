@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 /// <summary>
 /// Class that controls main menu behavior.
@@ -53,6 +54,10 @@ public class MainMenuController : MonoBehaviour
                 soundButtons.SetActive(false);
                 controls.SetActive(false);
                 break;
+        }
+        foreach (var button in NavigatableMenuController.Instance.GetActiveButtons())
+        {
+            button.InstantDeselect();
         }
     }
     /*public Submenu GetCurrentMenu()
