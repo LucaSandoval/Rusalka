@@ -2804,7 +2804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_text
-      value: Co-Art Direction, 2D Art
+      value: Art Direction, 2D Art
       objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
