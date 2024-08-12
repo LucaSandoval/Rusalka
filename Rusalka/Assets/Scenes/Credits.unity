@@ -6068,7 +6068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_text
-      value: Level / System Design, Programming
+      value: Level / Systems Design, Gameplay Animation
       objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
@@ -7926,7 +7926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8655211975618915234, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_text
-      value: Programming, System Design, Sound
+      value: Programming, Systems Design, Sound
       objectReference: {fileID: 0}
     - target: {fileID: 9051037004993678463, guid: c045750038679d643b22d28d5f2829d9, type: 3}
       propertyPath: m_Name
