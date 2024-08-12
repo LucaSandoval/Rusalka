@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea580b2c2f033b6458dffcf10278633e
+guid: cad46d48cc52a2a438cca21067462800
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,22 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hatch front_0
+      name: stalagmites etc_0
       rect:
         serializedVersion: 2
-        x: 607
-        y: 38
-        width: 1720
-        height: 891
+        x: 315
+        y: 1975
+        width: 975
+        height: 1191
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95224e5cee73cfd46b0dc8ad47981dd6
-      internalID: -1447604495
+      spriteID: 7dc8eee05f42d9a4db89abed88be286a
+      internalID: 2117190775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stalagmites etc_1
+      rect:
+        serializedVersion: 2
+        x: 3820
+        y: 1881
+        width: 1049
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b02a1523b467e41b2408e07e6b4fb3
+      internalID: 1048496243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stalagmites etc_2
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 55
+        width: 891
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39eca1940223e504c87af8a516613053
+      internalID: 705614682
       vertices: []
       indices: 
       edges: []
@@ -141,7 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hatch front_0: -1447604495
+      stalagmites etc_0: 2117190775
+      stalagmites etc_1: 1048496243
+      stalagmites etc_2: 705614682
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
