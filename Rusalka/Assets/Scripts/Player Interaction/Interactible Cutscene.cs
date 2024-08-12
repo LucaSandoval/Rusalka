@@ -132,7 +132,7 @@ public class InteractibleCutscene : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration);
         if (LoadDuringFade) SceneManager.LoadScene(SceneToLoad);
         playerController.enabled = true;
-        yield return StartCoroutine(Fade(1, 0));
+        //yield return StartCoroutine(Fade(1, 0));
 
         inInteraction = false;
 
