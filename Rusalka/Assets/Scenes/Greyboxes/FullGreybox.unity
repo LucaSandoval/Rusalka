@@ -7493,7 +7493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45574152}
   m_Layer: 0
-  m_Name: Camerzones
+  m_Name: LevelOneCameraZones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
