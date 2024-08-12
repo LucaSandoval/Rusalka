@@ -467,6 +467,8 @@ public class PlayerController : MonoBehaviour
     public void setFacing(int facing)
     {
         this.facing = Math.Sign(facing);
+        sprBody.flipX = facing == -1;
+        sprHead.flipX = facing == -1;
     }
 
     // Returns true when grounded
