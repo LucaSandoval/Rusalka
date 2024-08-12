@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -25,6 +26,7 @@ public class InteractibleCutscene : MonoBehaviour
     public bool PlayFadeIn;
     public float FadeIntoSceneDarknessDuration;
     public int SceneToLoad;
+    public PlayableDirector cutscene;
     private void Start()
     {
         inInteraction = false;
@@ -71,9 +73,10 @@ public class InteractibleCutscene : MonoBehaviour
     void Interact()
     {
         playerController.enabled = false;
-        FadeToBlackAndBack();
+        //FadeToBlackAndBack();
         inInteraction = true;
-        SoundController.Instance?.PlaySound(interactSound);
+        //SoundController.Instance?.PlaySound(interactSound);
+        cutscene.Play();
     }
 
     /*
