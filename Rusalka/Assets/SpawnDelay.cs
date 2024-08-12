@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SpawnDelay : MonoBehaviour
 {
+    private SpriteRenderer Sprite;
+    public float delay;
+
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(ShowAndHide(7.0f));
-        SpriteRenderer spriteRender = GetComponent<SpriteRenderer>();
+        StartCoroutine(ShowAndHide(delay));
+        Sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -17,5 +20,11 @@ public class SpawnDelay : MonoBehaviour
         
     }
 
-  
+    IEnumerator ShowAndHide(float delay)
+    {
+        Sprite.enabled = true;
+        yield return new WaitForSeconds(delay);
+        
+    }
+
 }
