@@ -424,6 +424,8 @@ MonoBehaviour:
   stones: []
   dust: {fileID: 6065589106317071231}
   director: {fileID: 1361671350004854317}
+  zone: {fileID: 0}
+  sfx: BridgeFall
 --- !u!1001 &5021598679484264703
 PrefabInstance:
   m_ObjectHideFlags: 0
