@@ -27,6 +27,7 @@ public class InteractibleCutscene : MonoBehaviour
     public float FadeIntoSceneDarknessDuration;
     public int SceneToLoad;
     public PlayableDirector cutscene;
+    public Color DeathColor;
     private void Start()
     {
         inInteraction = false;
@@ -75,7 +76,7 @@ public class InteractibleCutscene : MonoBehaviour
         playerController.enabled = false;
         //FadeToBlackAndBack();
         inInteraction = true;
-        //SoundController.Instance?.PlaySound(interactSound);
+        SoundController.Instance?.PlaySound(interactSound);
         cutscene.Play();
     }
 
@@ -88,6 +89,26 @@ public class InteractibleCutscene : MonoBehaviour
 
         StartCoroutine(RefreshCollider());
 
+    }
+
+    public void FadeToOtherColor()
+    {
+        StartCoroutine(FadeToOtherColorCoroutine());
+    }
+
+    private IEnumerator FadeToOtherColorCoroutine()
+    {
+        float elapsedTime = 0f;
+        Color color = fadeImage.color;
+
+        while (elapsedTime < fadeSpeed)
+        {
+            elapsedTime += Time.deltaTime;
+            Color newColor = Color.Lerp(color, DeathColor, elapsedTime / fadeSpeed);
+            fadeImage.color = newColor;
+            yield return null;
+        }
+        fadeImage.color = DeathColor;
     }
 
     private void FadeIntoScene()
