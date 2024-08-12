@@ -29,7 +29,10 @@ public class NavigatableMenuController : Singleton<NavigatableMenuController>
         selectionId = 0;
         SelectCurrentButton();
     }
-
+    public List<NavigatableMenuButton> GetActiveButtons()
+    {
+        return activeButtons;
+    }
     /// <summary>
     /// Clears the currently navigating buttons.
     /// </summary>

@@ -13,7 +13,7 @@ public class BrokenBridge : MonoBehaviour
     [SerializeField] private GameObject[] stones;
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private PlayableDirector director;
-
+    [SerializeField] private CameraZone zone;
 
     private IBridgeCallable[] interactables;
     
@@ -42,7 +42,8 @@ public class BrokenBridge : MonoBehaviour
                 {
                     interactable?.FireBreak();
                 }
-                CameraOperator.Instance.removeCameraZone(GetComponent<CameraZone>());
+                CameraOperator.Instance.removeCameraZone(zone);
+                Destroy(zone);
                 director.Play();
                 dust.Stop();
                 Destroy(this);
