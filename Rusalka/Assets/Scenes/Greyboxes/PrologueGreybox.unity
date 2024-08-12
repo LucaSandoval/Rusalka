@@ -9662,7 +9662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSound: BedSit
   fadeImage: {fileID: 993770864}
-  fadeDuration: 13
+  fadeDuration: 10
   fadeSpeed: 3
   privacyCurtain: {fileID: 0}
   teleportPoint: {fileID: 1554681279}
