@@ -5333,7 +5333,7 @@ MonoBehaviour:
   interactSound: DoorOpen
   fadeImage: {fileID: 1220910148}
   fadeDuration: 7
-  fadeSpeed: 0.2
+  fadeSpeed: 2
   privacyCurtain: {fileID: 0}
   teleportPoint: {fileID: 1352467554}
   LoadDuringFade: 1
