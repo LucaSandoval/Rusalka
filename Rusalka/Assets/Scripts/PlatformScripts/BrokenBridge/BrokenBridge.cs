@@ -14,6 +14,7 @@ public class BrokenBridge : MonoBehaviour
     [SerializeField] private ParticleSystem dust;
     [SerializeField] private PlayableDirector director;
     [SerializeField] private CameraZone zone;
+    [SerializeField] private String sfx;
 
     private IBridgeCallable[] interactables;
     
@@ -46,6 +47,7 @@ public class BrokenBridge : MonoBehaviour
                 Destroy(zone);
                 director.Play();
                 dust.Stop();
+                SoundController.Instance.PlaySound(sfx);
                 Destroy(this);
             }
         }

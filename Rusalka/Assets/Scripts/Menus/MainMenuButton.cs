@@ -131,6 +131,6 @@ public class MainMenuButton : NavigatableMenuButton
     private IEnumerator DisablePlayerMovement()
     {
         yield return new WaitForSeconds(.2f);
-        //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().enabled = false;
     }
 }
