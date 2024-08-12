@@ -564,7 +564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &193377099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,6 +1385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 3951423738304545074, guid: a4e898f558886e141808f9be7aada504, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6203295626382703113, guid: a4e898f558886e141808f9be7aada504, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1706,6 +1710,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5562912553309882602, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
   m_PrefabInstance: {fileID: 41447158}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &824253301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9088042512338489516, guid: 9dfd2a233e83cab46a8557601718b25b, type: 3}
+  m_PrefabInstance: {fileID: 41447158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9d98d77ef114445b6d4891f5c0d80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &984836323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2360,6 +2375,7 @@ GameObject:
   - component: {fileID: 1294707138}
   - component: {fileID: 1294707139}
   - component: {fileID: 1294707140}
+  - component: {fileID: 1294707141}
   m_Layer: 0
   m_Name: PORTRAIT1
   m_TagString: Untagged
@@ -2455,6 +2471,75 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1294707141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294707137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 356ca0baddf050945a0919495f73f646, type: 2}
+    - {fileID: 11400000, guid: f036b61dd68dbaa4982687eed359c993, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 824253301}
+          m_TargetAssemblyTypeName: BlackBarBehavior, Assembly-CSharp
+          m_MethodName: EnableBars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2112202063}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: SetCanMove
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 824253301}
+          m_TargetAssemblyTypeName: BlackBarBehavior, Assembly-CSharp
+          m_MethodName: DisableBars
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 543641039}
+          m_TargetAssemblyTypeName: Interactible, Assembly-CSharp
+          m_MethodName: FadeToBlackAndBack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1353748999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,6 +3502,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1363666230}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112202063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1816440805684750038, guid: b0c184ccf01686540aa0fffeebb0d458, type: 3}
+  m_PrefabInstance: {fileID: 720084912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63cabdb067c29504c9fe790c8f474c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
