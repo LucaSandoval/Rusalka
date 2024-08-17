@@ -364,6 +364,8 @@ MonoBehaviour:
   SwimDecceleration: 20
   NoFriction: {fileID: 6200000, guid: a5c01df84c857d04a95abe884e82d5c1, type: 2}
   HighFriction: {fileID: 6200000, guid: 83293cb21d463624c9784dc3050bcf8d, type: 2}
+  WaterSplashEffect: {fileID: 3213379826367224053, guid: 0d02e7ac572db824f9aedd8dcdaf0a17, type: 3}
+  WaterSplashEffectCeiling: {fileID: 5180997514098678140, guid: 4372f8a96ecd7604fab52119bff45876, type: 3}
   sprHead: {fileID: 1859223574116916595}
   sprBody: {fileID: 8517572031042941863}
 --- !u!114 &9199526853031486953

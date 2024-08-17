@@ -185,9 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b60570b7163aa4289d3c646d7b05dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textForKeyboard: Keyboard
-  textForGamepad: Gamepad
+  textForKeyboard: []
+  textForGamepad: []
   inputDetection: {fileID: 0}
+  disappearOnExit: 1
 --- !u!58 &8644340061825853984
 CircleCollider2D:
   m_ObjectHideFlags: 0

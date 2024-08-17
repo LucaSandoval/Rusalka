@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     public PhysicsMaterial2D NoFriction;
     public PhysicsMaterial2D HighFriction;
 
+    [Header("Effects")]
+    public GameObject WaterSplashEffect;
+    public GameObject WaterSplashEffectCeiling;
+
     private int facing; // the direction the player is facing
     private bool grounded; // whether or not the player is standing on the ground
     private float currCoyoteTime; // the amount of inair time in seconds the player has left while they can still jump
@@ -418,6 +422,7 @@ public class PlayerController : MonoBehaviour
                 currSwimSpeed.y = -JumpForce;
                 velocity = currSwimSpeed;
                 SoundController.Instance?.PlaySoundRandomPitch("DiveInWater", 0.05f);
+                SpawnWaterSplashEffect();
             }
         }
 
@@ -431,6 +436,7 @@ public class PlayerController : MonoBehaviour
                 currSwimSpeed.y = JumpForce;
                 velocity = currSwimSpeed;
                 SoundController.Instance?.PlaySoundRandomPitch("DiveInWater", 0.05f);
+                SpawnWCeilingaterSplashEffect();
             }
         }
     }
@@ -448,12 +454,32 @@ public class PlayerController : MonoBehaviour
 
             SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
             inWater = false;
+            SpawnWaterSplashEffect();
         }
 
         if (collision.tag == "Water Ceiling")
         {
             SoundController.Instance?.PlaySoundRandomPitch("SurfaceFromWater", 0.05f);
             inWater = false;
+            SpawnWCeilingaterSplashEffect();
+        }
+    }
+
+    private void SpawnWaterSplashEffect()
+    {
+        if (WaterSplashEffect != null)
+        {
+            GameObject newEffect = Instantiate(WaterSplashEffect);
+            newEffect.transform.position = transform.position - new Vector3(0, collide.bounds.extents.y, 0);
+        }
+    }
+
+    private void SpawnWCeilingaterSplashEffect()
+    {
+        if (WaterSplashEffect != null)
+        {
+            GameObject newEffect = Instantiate(WaterSplashEffectCeiling);
+            newEffect.transform.position = transform.position + new Vector3(0, collide.bounds.extents.y, 0);
         }
     }
 
