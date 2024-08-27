@@ -17,5 +17,5 @@ public class Sound : ScriptableObject
 
     public bool ShouldLoop; // Should this sound loop itself? 
 
-    public AudioMixerGroup AudioMixerGroup;
+    public bool isSoundEffect;
 }

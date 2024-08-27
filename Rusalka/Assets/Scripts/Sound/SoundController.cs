@@ -26,6 +26,9 @@ public class SoundController : Singleton<SoundController>
     // Parent object for one shot type sounds in the editor. Automatically generated in Awake. 
     private GameObject oneShotParent;
 
+    private float MusicVolume;
+    private float SFXVolume;
+
     protected override void Awake()
     {
         base.Awake();
@@ -71,7 +74,7 @@ public class SoundController : Singleton<SoundController>
         NewSource.volume = s.BaseVolume;
         NewSource.pitch = s.BasePitch;
         NewSource.loop = s.ShouldLoop;
-        NewSource.outputAudioMixerGroup = s.AudioMixerGroup;
+        NewSource.volume = getVolume(s.isSoundEffect);
 
         SoundLookup.Add(s.SoundName, new Tuple<Sound, AudioSource>(s, NewSource));
         return true;
@@ -95,6 +98,7 @@ public class SoundController : Singleton<SoundController>
     {
         for (int i = 0; i < loopingSounds.Count; i++)
         {
+            GetSourceByName(loopingSounds[i]).volume = GetSoundByName(loopingSounds[i]).BaseVolume * getVolume(GetSoundByName(loopingSounds[i]).isSoundEffect);
             for (int x = 0; x < soundsToFade.Count; x++)
             {
                 if (loopingSounds[i] == soundsToFade[x])
@@ -105,7 +109,7 @@ public class SoundController : Singleton<SoundController>
                         //IN
 
                         //If there is a looping sound that gets a fade request, decrease its volume by the rate
-                        float baseVolume = GetSoundByName(loopingSounds[i]).BaseVolume;
+                        float baseVolume = GetSoundByName(loopingSounds[i]).BaseVolume * getVolume(GetSoundByName(loopingSounds[i]).isSoundEffect);
                         GetSourceByName(loopingSounds[i]).volume += baseVolume * Time.deltaTime * soundFadeRate[x];
                         //If this makes it silent, pause the sound.
                         if (GetSourceByName(loopingSounds[i]).volume >= GetSoundBaseVolume(loopingSounds[i]))
@@ -160,7 +164,7 @@ public class SoundController : Singleton<SoundController>
             Source.Play();
             Source.pitch = SoundObject.BasePitch + UnityEngine.Random.Range(-pitchVariance, pitchVariance);
 
-            Source.volume = SoundObject.BaseVolume;
+            Source.volume = SoundObject.BaseVolume * getVolume(SoundObject.isSoundEffect);
 
             if (SoundObject.ShouldLoop)
             {
@@ -181,7 +185,7 @@ public class SoundController : Singleton<SoundController>
     {
         if (CanPlaySound(soundName))
         {
-            PlaySoundOneShotRandomPitch(soundName, pitchVariance, GetSoundBaseVolume(soundName));
+            PlaySoundOneShotRandomPitch(soundName, pitchVariance, GetSoundBaseVolume(soundName) * getVolume(GetSoundByName(soundName).isSoundEffect));
         }
     }
 
@@ -197,7 +201,7 @@ public class SoundController : Singleton<SoundController>
             GameObject newOneShot = new GameObject();
             newOneShot.transform.SetParent(oneShotParent.transform);
             AudioSource source = newOneShot.AddComponent<AudioSource>();
-            source.outputAudioMixerGroup = SoundObject.AudioMixerGroup;
+            source.volume = SoundObject.BaseVolume * getVolume(SoundObject.isSoundEffect);
             source.clip = SoundObject.Clip;
             source.volume = basevolume;
             source.pitch = SoundObject.BasePitch + UnityEngine.Random.Range(-pitchVariance, pitchVariance);
@@ -232,7 +236,7 @@ public class SoundController : Singleton<SoundController>
             Source.Stop();
             Source.Play();
             Source.pitch = SoundObject.BasePitch;
-            Source.volume = SoundObject.BaseVolume;
+            Source.volume = SoundObject.BaseVolume * getVolume(SoundObject.isSoundEffect);
             if (SoundObject.ShouldLoop)
             {
                 if (!loopingSounds.Contains(soundName))
@@ -367,5 +371,9 @@ public class SoundController : Singleton<SoundController>
     public bool IsSoundPlaying(string soundName)
     {
         return loopingSounds.Contains(soundName);
+    }
+
+    private float getVolume(bool isSoundEffect) {
+        return (isSoundEffect ? GlobalSettings.Instance.getSFXVolume() : GlobalSettings.Instance.getMusicVolume()) * GlobalSettings.Instance.getMasterVolume();
     }
 }
