@@ -651,6 +651,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6215181580872884633, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
+      propertyPath: enKeyboard.Array.data[4]
+      value: M
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215181580872884633, guid: 82b3812bf16d49c408d870fbaada647d, type: 3}
       propertyPath: tuKeyboard.Array.data[1]
       value: "Bo\u015Fluk tu\u015Fu"
       objectReference: {fileID: 0}

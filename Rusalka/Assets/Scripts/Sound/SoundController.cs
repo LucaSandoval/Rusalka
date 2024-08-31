@@ -124,7 +124,7 @@ public class SoundController : Singleton<SoundController>
                         //OUT
 
                         //If there is a looping sound that gets a fade request, decrease its volume by the rate
-                        float baseVolume = GetSoundByName(loopingSounds[i]).BaseVolume;
+                        float baseVolume = GetSoundByName(loopingSounds[i]).BaseVolume * getVolume(GetSoundByName(loopingSounds[i]).isSoundEffect);
                         GetSourceByName(loopingSounds[i]).volume -= baseVolume * Time.deltaTime * soundFadeRate[x];
                         //If this makes it silent, pause the sound.
                         if (GetSourceByName(loopingSounds[i]).volume <= 0)
